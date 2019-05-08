@@ -379,15 +379,27 @@ int MissionMumbleTimer[32];
 int MissionPacketTimer[32]; 
 int sdljoystickaxes [maxjoysticks];
 
-//
-int resolution [5] [4] =
+// NOTE: DO NOT USE IN PRODUCTION, this should be dynamicly generated
+// only ones matching display should ever be used
+// Note: Xres, Yres, BPP (why?), fullscreen (why?)
+// also, original table for CRTs, should now pull info from SDL display info.
+
+#define NUM_SCREEN_RES 13
+int resolution [NUM_SCREEN_RES] [4] =
     {
-    
         {  640,   480,  32,  0 },
         {  800,   600,  32,  0 },
+        {  1024,  600,  32,  0 },
         {  1024,  768,  32,  0 },
+        {  1280,  800,  32,  0 },
         {  1280, 1024,  32,  0 },
+        {  1440,  900,  32,  0 },
+        {  1680, 1050,  32,  0 },
         {  1920, 1080,  32,  0 },
+        {  1920, 1200,  32,  0 },
+        {  2048, 1280,  32,  0 },
+        {  2560, 1600,  32,  0 },
+        {  2880, 1800,  32,  0 },
     };
 
 // global Floating-point variables:
@@ -669,6 +681,13 @@ Flash *flash1;
 Font *font1;
 Font *font2;
 
+// NOTE: SDL2 window handles, GL contexts, and screen bounds
+// TODO: convert these to dynamic display objects
+#define MAXDISPLAYS 3
+SDL_GLContext glcontext[MAXDISPLAYS];
+SDL_Window *win[MAXDISPLAYS];
+SDL_Rect bounds[MAXDISPLAYS];
+
 // global GL pointer variables:
 GL *gl;
 
@@ -850,22 +869,28 @@ void VocalizeBlueHqStatus();
 void VocalizeRedHqStatus();
 void ZeroSpeedCorrection();
 
+/****************************************************************************
+	LOCAL FUNCTIONS
+****************************************************************************/
 static void LacJoystickHatFunc(int);
+int game_levelInit (void);
+void MouseMission (int button, int state, int x, int y);
+void MouseQuit (int button, int state, int x, int y);
+void checkargs (int argc, char **argv);
+void config_test (int argc, char **argv);
+void createMenu (void);
+int setScreen (int w, int h, int b, int f);
+void LacFirstInit (void);
+void LacReshapeFunc (int width, int height);
+void playRandomMusic (void);
+void sdlMainLoop (void);
 
 /****************************************************************************
   LAC ENTRY POINT
 ****************************************************************************/
 
 int main (int argc, char **argv)
-    {
-    void checkargs (int argc, char **argv);
-    void config_test (int argc, char **argv);
-    void createMenu ();
-    int  setScreen (int w, int h, int b, int f);
-    void LacFirstInit ();
-    void LacReshapeFunc (int width, int height);
-    void playRandomMusic ();
-    void sdlMainLoop ();
+{
 
     char buf [STDSIZE]; // temp buffer
     int i;
@@ -1044,7 +1069,8 @@ int main (int argc, char **argv)
     sprintf (DebugBuf, "%d", joystick_MapScrollSouth); 
     display (DebugBuf, LOG_MOST);  
     pilots = new PilotList (dirs->getSaves ((char *)"pilots")); 
-    display ((char *)"Using SDL and GLUT", LOG_MOST);
+    // display ((char *)"Using SDL and GLUT", LOG_MOST);
+    display ((char *)"Using SDL2 and OpenGL", LOG_MOST);
 
     if (!ConfigInit)
         if (SDL_Init (SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0)
@@ -1054,6 +1080,7 @@ int main (int argc, char **argv)
             exit (EXIT_INIT);
             }
     atexit (SDL_Quit);
+
     if (!ConfigInit)
         {
         if (!setScreen (width, height, bpp, fullscreen))
@@ -1067,7 +1094,10 @@ int main (int argc, char **argv)
                 }
             }
         }
-    SDL_WM_SetCaption ("LINUX Air Combat", "Linux Air Combat"); 
+
+// TODO: use SDL2
+//    SDL_WM_SetCaption ("LINUX Air Combat", "Linux Air Combat"); 
+
     display ((char *)"Creating sound system", LOG_MOST);
     sound = new SoundSystem (); 
     sound->volumesound = volumesound;
@@ -1090,7 +1120,8 @@ int main (int argc, char **argv)
             SDL_JoystickEventState (SDL_ENABLE);
             sdljoystick [i] = SDL_JoystickOpen (i);
             sdljoystickaxes [i] = SDL_JoystickNumAxes (sdljoystick [i]);
-            sprintf (buf, "Joystick \"%s\" detected as joystick %d", SDL_JoystickName (i), i);
+// TODO: use SDL2
+//	    sprintf (buf, "Joystick \"%s\" detected as joystick %d", SDL_JoystickName (i), i);
             display (buf, LOG_MOST);
             sprintf (buf, "Axis count = %d", sdljoystickaxes[i]);
             display (buf, LOG_MOST);
@@ -1111,17 +1142,20 @@ int main (int argc, char **argv)
         
         controls = CONTROLS_MOUSE;
         }
-    SDL_EnableUNICODE (1);
-    SDL_EnableKeyRepeat (SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
+
+// TODO: not in SDL2
+//    SDL_EnableUNICODE (1);
+//    SDL_EnableKeyRepeat (SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
+
     createMenu ();
     display ((char *)"Entering SDL main loop (GLUT emulation)", LOG_MOST);
     
     sdlMainLoop (); 
     return 0; 
-    } 
+} 
 
-void adjustBrightness ()
-    {
+void adjustBrightness (void)
+{
     
     if (brightness < 0)
         {
@@ -1153,7 +1187,7 @@ void adjustBrightness ()
         glEnd ();
         glDisable (GL_BLEND);
         }
-    } 
+} 
 
 void callbackAntialiasing (Component *comp, int key)
     {
@@ -2062,26 +2096,27 @@ void callbackQuitNow (Component *comp, int key)
     } 
 
 void callbackResolution (Component *comp, int key)
-    {
+{
     display ((char*)"Function entry: callbackResolution()", LOG_MOST);
-    const int numres = 5;
-    int resx [numres] = { 640, 800, 1024, 1280, 1920 };
-    int resy [numres] = { 480, 600, 800, 1024, 1080 };
+// NOTE: now tied this to resolution array
+// Also, non-fullscreen window resolutions don't need to be subset of display resolutions
+// could be resizeable if code handles it properly
+
     int found = 0;
     char buf [256];
 
     if (key == MOUSE_BUTTON_LEFT)
         {
-        for (int i = 0; i < numres; i ++)
-            if (wantwidth == resx [i])
+        for (int i = 0; i < NUM_SCREEN_RES; i++)
+            if (wantwidth == resolution[i][0])
                 {
                 found = i + 1;
                 }
         }
     else
         {
-        for (int i = 0; i < numres; i ++)
-            if (wantwidth == resx [i])
+        for (int i = 0; i < NUM_SCREEN_RES; i++)
+            if (wantwidth == resolution[i][0])
                 {
                 found = i - 1;
                 }
@@ -2089,18 +2124,18 @@ void callbackResolution (Component *comp, int key)
 
     if (found < 0)
         {
-        found = numres - 1;
+        found = NUM_SCREEN_RES - 1;
         }
-    else if (found >= numres)
+    else if (found >= NUM_SCREEN_RES)
         {
         found = 0;
         }
 
-    wantwidth = resx [found];
-    wantheight = resy [found];
+    wantwidth = resolution[found][0]; //  resx [found];
+    wantheight = resolution[found][1]; // resy [found];
     sprintf (buf, "%d*%d", wantwidth, wantheight);
     ((Label *) optmenu [0]->components [16])->setText (buf);
-    } 
+} 
 
 void callbackReturn (Component *comp, int key)
     {
@@ -2182,12 +2217,11 @@ void callbackSwitchMainMenu (Component *comp, int key)
 void callbackSwitchStartMission (Component *comp, int key)
     {
     display ((char*)"Function entry: callbackSwitchStartMission()", LOG_MOST);
-    int game_levelInit ();
     void pleaseWait ();
     void switch_game ();
     void switch_menu ();
     pleaseWait ();
-    if (!game_levelInit ())
+    if (!game_levelInit())
         {
         switch_menu ();
         return;
@@ -2637,7 +2671,6 @@ CModel *getModel (int id)
 // test screen settings automatically
 void config_test (int argc, char **argv)
     {
-    int setScreen (int w, int h, int b, int f);
     display ((char *)"No configuration file found. Testing...", LOG_MOST);
     int bppi [4];
     char buf [STDSIZE];
@@ -2650,8 +2683,8 @@ void config_test (int argc, char **argv)
     ConfigInit = true;
     int valids = -1; // valid screen mode? (-1 = no mode)
     int n = 0;
-   
-    while (n < 5)
+  
+    while (n < NUM_SCREEN_RES)
         {
         if (setScreen (resolution [n] [0], resolution [n] [1], resolution [n] [2], resolution [n] [3]))
             {
@@ -7722,7 +7755,7 @@ void event_targetNext ()
        int MissionAircraft;
        for (MissionAircraft = 0; MissionAircraft < maxfighter; MissionAircraft++)
           { 
-          if ((ThreeDObjects[MissionAircraft] == fplayer->target))
+          if (ThreeDObjects[MissionAircraft] == fplayer->target)
              { 
              switch (MissionAircraft %2)
                 {
@@ -7862,7 +7895,7 @@ void event_targetPrevious ()
           }
        for (MissionAircraft = 0; MissionAircraft < maxfighter; MissionAircraft++)
           { 
-          if ((ThreeDObjects[MissionAircraft] == fplayer->target))
+          if (ThreeDObjects[MissionAircraft] == fplayer->target)
              { 
              switch (MissionAircraft %2)
                 {
@@ -8494,7 +8527,7 @@ void game_mousemotion (int x, int y)
     sdldisplay = true;
     } 
 
-int game_levelInit ()
+int game_levelInit (void)
     {
     void setLightSource (int gamma);
     int i;
@@ -8868,10 +8901,12 @@ void game_quit ()
     }
 
 void game_view ()
-    {
-    frame ();
-    SDL_GL_SwapBuffers ();
-    } 
+{
+	frame();
+//	SDL_GL_SwapBuffers ();
+	SDL_GL_SwapWindow(win[0]);
+
+} 
 
 int getJoystickAxisIndex (int n)
     {
@@ -10552,10 +10587,23 @@ static void LacJoystickHatFunc (int hat)
 
 static void LacKeyboardFunc (unsigned char uckey, int x, int y)
     {
-    void MouseMission (int button, int state, int x, int y);
-    void MouseQuit (int button, int state, int x, int y);
-    
     int key = (int) uckey;
+
+    sprintf (DebugBuf, "LacKeyboardFunc key= %d", key);
+    display (DebugBuf, LOG_MOST);
+
+// Note: Folded in from LacSpecial, no, causes problems
+#ifdef NOTDEF
+    if (game == GAME_PLAY || game == GAME_PAUSE)
+        {
+        KeyGame (key + 256, x, y);
+        }
+    else if (game == GAME_MENU)
+        {
+        allmenus.eventSpecial (key);
+        }
+#endif /* NOTDEF */
+    
     if (key >= 'a' && key <= 'z')
         {
         key = toupper (key);
@@ -10646,10 +10694,16 @@ static void LacKeyboardFuncUp (unsigned char key, int x, int y)
     {
     sprintf (DebugBuf, "LacKeyboardFuncUp key= %d", key);
     display (DebugBuf, LOG_MOST);
+
+// Note: this causes problems, not doing it.
+#ifdef NOTDEF
     if (game == GAME_PLAY || game == GAME_PAUSE)
         {
-        KeyupGame ((int) key, x, y);
+        KeyupGame ((int) key + 256, x, y);
         }
+#endif /* NOTDEF */
+
+
     if (key == 32)
        {
        SpaceBarPressed = true;
@@ -10670,6 +10724,14 @@ static void LacKeyboardFuncUp (unsigned char key, int x, int y)
        EnterPressed = false;
        display ((char*)"Setting EnterPressed false.", LOG_MOST);
        }
+
+// Note: why wasn't this called here before? 
+    if (key >= 'a' && key <= 'z')
+        {
+        key = toupper (key);
+        }
+    KeyupGame ((int) key, x, y);
+
     } 
 
 static void LacMouseFunc (int button, int state, int x, int y)
@@ -10814,6 +10876,8 @@ void LacReshapeFunc (int width, int height)
         }
     } 
 
+// Note: these no longer used, remove once everything's working
+#ifdef NOTDEF
 static void LacSpecialFunc (int key, int x, int y)
     {
     if (game == GAME_PLAY || game == GAME_PAUSE)
@@ -10833,6 +10897,8 @@ static void LacSpecialFuncUp (int key, int x, int y)
         KeyupGame (key + 256, x, y);
         }
     } 
+
+#endif /* NOTDEF */
 
 static void LacTimerFunc (int value)
     {
@@ -12551,7 +12617,7 @@ void ReshapeStats ()
 
 void sdlMainLoop ()
     {
-    int sym = 0;
+    // int sym = 0;
     SDL_Event event;
     display ((char*)"Function Entry: sdlMainLoop()", LOG_MOST);
     while (true)
@@ -12591,6 +12657,8 @@ void sdlMainLoop ()
                     }
                 case SDL_KEYDOWN:
                     {
+//  Note: there is no more unicode in SDL2, use one KeyboardFunc
+#ifdef NOTDEF
                     if (!event.key.keysym.unicode)
                         {
                         LacSpecialFunc (event.key.keysym.sym, 0, 0);
@@ -12599,10 +12667,14 @@ void sdlMainLoop ()
                         {
                         LacKeyboardFunc (event.key.keysym.sym, 0, 0);
                         }
+#endif /* NOTDEF */
+                    LacKeyboardFunc(event.key.keysym.sym, 0, 0);
+
                     break;
                     }
                 case SDL_KEYUP:
                     {
+#ifdef NOTDEF
                     sym = event.key.keysym.sym;
                     if (sym == 8 || sym == 9 || sym == 13 || (sym >= 32 && sym <= 'y'))
                         {
@@ -12612,6 +12684,8 @@ void sdlMainLoop ()
                         {
                         LacSpecialFuncUp (event.key.keysym.sym, 0, 0);
                         }
+#endif /* NOTDEF */
+                    LacKeyboardFuncUp (event.key.keysym.sym, 0, 0);
                     break;
                     }
                 case SDL_JOYAXISMOTION:
@@ -12661,7 +12735,9 @@ void sdlMainLoop ()
                     LacJoystickHatFunc (event.jhat.value + event.jhat.which * 1000);
                     break;
                     }
-                case SDL_ACTIVEEVENT:
+// TODO: does this cover all events now?
+//                case SDL_ACTIVEEVENT:
+                case SDL_WINDOWEVENT:
                     {
                     sdlreshape = true;
                     sdldisplay = true;
@@ -12827,13 +12903,20 @@ int setScreen (int w, int h, int b, int f)
     {
     
     Uint32 video_flags;
+
+    int numdisplays, nummodes;
+    SDL_DisplayMode mode;
+
     if (f)
         {
-        video_flags = SDL_OPENGL | SDL_FULLSCREEN;
+// TODO: clean up around here
+//        video_flags = SDL_OPENGL | SDL_FULLSCREEN;
+        video_flags = SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN;
         }
     else
         {
-        video_flags = SDL_OPENGL;
+//        video_flags = SDL_OPENGL;
+        video_flags = SDL_WINDOW_OPENGL;
         }
     int rgb_size [3];
     switch (b)
@@ -12860,6 +12943,35 @@ int setScreen (int w, int h, int b, int f)
     SDL_GL_SetAttribute (SDL_GL_BLUE_SIZE, rgb_size [2]);
     SDL_GL_SetAttribute (SDL_GL_DEPTH_SIZE, 16);
     SDL_GL_SetAttribute (SDL_GL_DOUBLEBUFFER, 1);
+
+//TODO: SDL2 window and gl contexts
+
+	numdisplays = SDL_GetNumVideoDisplays();
+        printf("\n%d displays.\n", numdisplays);
+        for (int i = 0; i < numdisplays; ++i) {
+                SDL_GetDisplayBounds(i, &bounds[i]);
+                printf("Display %d: %s = %dx%d at %d,%d\n", i, SDL_GetDisplayName(i),
+			bounds[i].w, bounds[i].h, bounds[i].x, bounds[i].y);
+
+                printf("\nEnumerating modes for display %d\n", i);
+                nummodes = SDL_GetNumDisplayModes(i);
+                for (int j = 0; j < nummodes; ++j) {
+                        SDL_GetDisplayMode(i, j, &mode);
+                        printf("Display %d:  Mode %d:  %dx%d %dHz %d bpp\n", i, j, mode.w, mode
+.h, mode.refresh_rate, SDL_BITSPERPIXEL(mode.format));
+                }
+                printf("  %d modes.\n", nummodes);
+        }
+
+	// win[0] = SDL_CreateWindow("LAC", bounds[0].x, bounds[0].y, bounds[0].w, bounds[0].h, video_flags);
+
+	win[0] = SDL_CreateWindow("LAC", 0, 0, w, h, video_flags);
+	glcontext[0] = SDL_GL_CreateContext(win[0]);
+	SDL_GL_MakeCurrent(win[0], glcontext[0]);
+	SDL_GL_SetSwapInterval(1);
+
+
+#ifdef NOTDEF
     if (SDL_SetVideoMode (w, h, b, video_flags) == NULL)
         {
         if ((b = SDL_VideoModeOK (w, h, b, video_flags)) != 0)
@@ -12881,17 +12993,21 @@ int setScreen (int w, int h, int b, int f)
                 }
             }
         }
+#endif /* NOTDEF */
+
+    fprintf(stderr, "Note: setScreen Video %d %d %d\n", w, h, b);
+
     glViewport (0, 0, (GLint) w, (GLint) h);
     
     width = w;
     height = h;
-    bpp = b;
+    bpp = b; // Note: this is from input, not actual mode.
     fullscreen = f;
     wantwidth = w; 
     wantheight = h;
     wantfullscreen = f;
     return 1;
-    } 
+    }
 
 void switch_credits ()
     {
@@ -12975,7 +13091,10 @@ void switch_game ()
     sprintf (SystemMessageBuffer2, " "); 
     sprintf (SystemMessageBufferA, " "); 
     NewSystemMessageNeedsScrolling = true;
-    SDL_WM_GrabInput (SDL_GRAB_ON);
+
+//    SDL_WM_GrabInput (SDL_GRAB_ON);
+    SDL_SetRelativeMouseMode(SDL_TRUE);
+
     } 
 
 void switch_menu ()
@@ -13014,7 +13133,9 @@ void switch_menu ()
         {
         mainbutton [6]->setVisible (false);
         }
-    SDL_WM_GrabInput (SDL_GRAB_OFF);
+
+//    SDL_WM_GrabInput (SDL_GRAB_OFF);
+    SDL_SetRelativeMouseMode(SDL_FALSE);	
     } 
 
 void switch_mission (int missionid)

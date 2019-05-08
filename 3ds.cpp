@@ -429,16 +429,18 @@ bool CLoad3DS::Import3DS (CModel *model, char *filename)
     return true;
     }
 
+#define BUFSIZE 256
+
 void CLoad3DS::LoadTextures (CModel *model)
     {
     int i, i2;
-    char str [256];
+    char str [BUFSIZE];
 
     for (i = 0; i < model->numObjects; i ++)
         {
         if (model->object [i]->hasTexture)
             {
-            strncpy (str, dirs->getTextures (model->object [i]->material->filename), sizeof(dirs->getTextures (model->object [i]->material->filename)));
+            strncpy (str, dirs->getTextures (model->object [i]->material->filename), BUFSIZE - 1);
             for (i2 = (int) strlen (str) - 1; i2 >= 0; i2 --)
                 {
                 if (i2 > 2 && str [i2] == '.')

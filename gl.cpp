@@ -30,6 +30,8 @@
 #include <math.h>
 #include "gl.h"
 
+extern SDL_Window *win[];
+
 /****************************************************************************
 OpenGL
 ****************************************************************************/
@@ -60,9 +62,10 @@ void GL::clearScreen ()
     }
 
 void GL::drawScreen ()
-    {
-    glutSwapBuffers ();
-    }
+{
+//	glutSwapBuffers ();
+	SDL_GL_SwapWindow(win[0]);	
+}
 
 void GL::rotate (int x, int y, int z)
     {
@@ -164,6 +167,7 @@ CTexture *GL::genTextureTGA (char *fname, int quality, int alphatype, int mipmap
         }
     else
         {
+	fprintf(stderr, "Note: genTextureTGA texnum = %d\n", texnum);
         gluBuild2DMipmaps (GL_TEXTURE_2D, 4, tex [texnum]->width, tex [texnum]->height, GL_RGBA, GL_UNSIGNED_BYTE, tex [texnum]->data);
         }
     return tex [texnum];

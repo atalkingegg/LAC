@@ -28,10 +28,12 @@
 #undef USE_GLUT
 #define HAVE_SDL_MIXER
 
-#include <GL/glut.h>
-#include "SDL/SDL.h"
-#include "SDL/SDL_thread.h"
-#include "SDL/SDL_mixer.h"
+// #include <GL/glut.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
+#include <SDL2/SDL_thread.h>
+#include <SDL2/SDL_mixer.h>
+#include <GL/glu.h>
 
 #define MUMBLEROOTCHANNEL 0
 #define MUMBLECURRENTMISSIONCHANNEL 1

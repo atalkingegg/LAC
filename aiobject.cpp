@@ -5978,7 +5978,7 @@ void DynamicObj::crashGround (Uint32 dt)
                         }
                      if ((fabs(fplayer->theta)) > 10.0 && (fplayer->realspeed > 0.03 && !LandedAtSafeSpeed))
                         { 
-                        Durability =- 15;
+                        Durability -= 15;
                         fplayer->theta = 0;
                         sound->setVolume (SOUND_BELLYSCRAPE00, 90);
                         sound->play (SOUND_BELLYSCRAPE00, false);
