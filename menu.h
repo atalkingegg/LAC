@@ -26,7 +26,7 @@
 #ifndef IS_MENU_H
 #define IS_MENU_H
 
-#include "model.h" // ok
+// #include "model.h" // ok
 
 extern int menu_id;
 

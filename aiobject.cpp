@@ -23,13 +23,35 @@
 
 /* This file includes all AI objects instancing models. */
 
-#include "aiobject.h"
-#include "glland.h"
-#include "land.h"
-#include "main.h"
-#include "mathtab.h"
-#include "mission.h"
-#include "NetworkApi.h"
+//##################################################################################################
+// Headers needed by aiobject.cpp
+//##################################################################################################
+
+#include <math.h> /* cos */
+#include "common.h" /* Uint32 */
+#include <stdio.h> /* FILE */
+#include "mathtab.h" /* MAXSMOKEELEM */
+#include "vertexarray.h" /* VertexArray */
+#include "model.h" /* CColor, depends on mathtab.h and vertexarray.h */
+#include "object.h" /* CSpaceObj, depends on model.h */
+#include "effects.h" /* CSmoke, depends on object.h */
+#include "aiobject.h" /* AIObj, depends on object.h, effects.h, and mission.h */
+#include "mission.h" /* MISSION_HEADTOHEAD00, depends on aiobject.h */
+#include "3ds.h" /* CLoad3DS */
+#include "pilots.h" /* PilotList */
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h> /* SDL_AudioSpec */
+#include "audio.h" /* SoundSystem, depends on SDL_mixer */
+#include "main.h" /* ThreeDObjects *** global variable, depends on 3ds.h, pilots.h, audio.h */
+#include "NetworkApi.h" /* LacUdpApiPacket */
+
+//#include "aiobject.h"
+//#include "glland.h"
+//#include "land.h"
+//#include "main.h"
+//#include "mathtab.h"
+//#include "mission.h"
+//#include "NetworkApi.h"
 
 extern bool ClearSpeedHistoryArrayFlag;
 extern bool GearUpDamageAlreadyInflicted;

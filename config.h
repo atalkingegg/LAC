@@ -46,7 +46,8 @@
 #define HAVE_SDL_MIXER
 
 /* Define to 1 if you have the <stdint.h> header file. */
-#define HAVE_STDINT_H 1
+// #define HAVE_STDINT_H 1
+// Not used
 
 /* Define to 1 if you have the <strings.h> header file. */
 #define HAVE_STRINGS_H 1

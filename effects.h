@@ -26,9 +26,9 @@
 #ifndef IS_EFFECTS_H
 #define IS_EFFECTS_H
 
-#include "model.h" // ok
-#include "object.h" // ok
-#include "mathtab.h" // ok
+// #include "model.h" // ok
+// #include "object.h" // ok
+// #include "mathtab.h" // ok
 
 extern CTexture *texsmoke, *texsmoke2, *texsmoke3;
 
@@ -95,7 +95,7 @@ class CBlackSmoke : public CSpaceObj
   virtual ~CBlackSmoke () {}
   void setBlackSmoke (float x, float y, float z, float myphi, float maxzoom, int len);
   void move (Uint32 dt);
-  virtual void drawGL (CVector3 *z1, CVector3 *z2, CVector3 *tl, float alpha2, float lum2, bool drawlight2, bool istextured2);
+  virtual void drawGL_CBS (CVector3 *z1, CVector3 *z2, CVector3 *tl, float alpha2, float lum2, bool drawlight2, bool istextured2);
 };
 
 // Stars at night
@@ -163,7 +163,7 @@ class HighClouds : public CSpaceObj
   virtual ~HighClouds ();
   void init (int theta);
   void setTexture (CTexture *texture);
-  void drawGL (CVector3 *tl, CVector3 *textl);
+  void drawGL_HC (CVector3 *tl, CVector3 *textl);
 };
 
 #endif

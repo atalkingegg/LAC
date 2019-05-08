@@ -24,16 +24,24 @@
 #ifndef IS_COMMON_H
 #define IS_COMMON_H
 
-#include "config.h" // defines HAVE_SDL, HAVE_SDL_MIXER
-#undef USE_GLUT
-#define HAVE_SDL_MIXER
+// #include "config.h" // defines HAVE_SDL, HAVE_SDL_MIXER
+// #undef USE_GLUT
+// #define HAVE_SDL_MIXER
 
 // #include <GL/glut.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_opengl.h>
-#include <SDL2/SDL_thread.h>
-#include <SDL2/SDL_mixer.h>
-#include <GL/glu.h>
+// #include <SDL2/SDL.h>
+// #include <SDL2/SDL_opengl.h>
+// #include <SDL2/SDL_thread.h>
+// #include <SDL2/SDL_mixer.h>
+// #include <GL/glu.h>
+
+#undef Uint32
+#undef Uint16
+#undef NULL
+#include <stdint.h>
+typedef uint32_t Uint32;
+typedef uint16_t Uint16;
+#define NULL nullptr
 
 #define MUMBLEROOTCHANNEL 0
 #define MUMBLECURRENTMISSIONCHANNEL 1

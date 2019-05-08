@@ -21,18 +21,55 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#include "cockpit.h"
-#include "common.h"
-#include "conf.h"
-#include "dirs.h"
-#include "gl.h"
-#include "glland.h"
-#include "land.h"
-#include "main.h"
-#include "mathtab.h"
-#include "menu.h"
-#include "mission.h"
-#include "NetworkApi.h"
+//##################################################################################################
+// Headers needed by main.cpp
+//##################################################################################################
+
+#include <stdio.h> /* fprintf, FILE */
+#include <SDL2/SDL.h> /* SDL_Window */
+#include <SDL2/SDL_opengl.h> /* GLint */
+#include <SDL2/SDL_mixer.h> /* Mix_Chunk */
+#include <GL/glu.h> /* gluProject */
+
+#include "common.h" /* pulls in stdint.h, defines Uint32 needed everywhere */
+#include "mathtab.h" /* MAXSMOKEELEM */
+#include "vertexarray.h" /* VertexArray */
+#include "model.h" /* CColor, depends on mathtab.h and vertexarray.h */
+#include "object.h" /* CSpaceObj, depends on model.h */
+#include "effects.h" /* CSmoke, depends on object.h */
+#include "aiobject.h" /* Fighter_P38L, depends on effects.h */
+#include "menu.h" /* Button */
+#include "3ds.h" /* CLoad3DS */
+#include "cockpit.h" /* Cockpit */
+#include "dirs.h" /* Dirs */
+#include "gl.h" /* Gl */
+#include "land.h" /* MAXX */
+#include "glland.h" /* GLLandscape, depends on land.h */
+#include "mission.h" /* Mission */
+#include "pilots.h" /* PilotList */
+#include "audio.h" /* SoundSystem */
+#include "NetworkApi.h" /* Admin013Packet */
+#include "conf.h" /* load_config */
+
+//##################################################################################################
+// Functions in main.cpp used only in main.cpp
+//##################################################################################################
+
+//##################################################################################################
+
+// Original header section 
+//#include "cockpit.h"
+//#include "common.h"
+//#include "conf.h"
+//#include "dirs.h"
+//#include "gl.h"
+//#include "glland.h"
+//#include "land.h"
+//#include "main.h"
+//#include "mathtab.h"
+//#include "menu.h"
+//#include "mission.h"
+//#include "NetworkApi.h"
 
 //
 // This simulator uses a lot of global variables.
@@ -5829,7 +5866,7 @@ void DisplayGame ()
         
         float ch2 = -370 - fplayer->tl->y / 10.0; 
         CVector3 tlsphere2 (0, ch2, 0);
-        highclouds->drawGL (&tlsphere2, fplayer->tl);
+        highclouds->drawGL_HC(&tlsphere2, fplayer->tl);
         glDisable (GL_FOG);
         }
     // draw sun or moon (or earth)

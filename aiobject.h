@@ -26,9 +26,9 @@
 #ifndef IS_AIOBJECT_H
 #define IS_AIOBJECT_H
 
-#include "common.h" // ok
-#include "model.h" // ok
-#include "effects.h" // ok
+// #include "common.h" // ok
+// #include "model.h" // ok
+// #include "effects.h" // ok
 
 // id values of objects
 // non-AI air objects
@@ -319,7 +319,7 @@ class AIObj : public DynamicObj
   int ttf; // time to fire missile, targeting mechanism
   CSmoke *smoke; // bright smoke behind the object (fighter&missiles)
   Uint32 timer;
-  int statLethality; // Lethality of offensive weapons
+  float statLethality; // Lethality of offensive weapons
   int DefensiveLethality; 
   bool dualshot; // one or two cannons?
   int manoeverstate; // changes to realistic manoevers.

@@ -26,8 +26,8 @@
 #ifndef IS_GL_H
 #define IS_GL_H
 
-#include "common.h" // ok
-#include "model.h" // ok
+// #include "common.h" // ok
+// #include "model.h" // ok
 
 class GL
 {

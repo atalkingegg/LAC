@@ -2821,7 +2821,7 @@ void MissionHeadToHead00::start ()
                         fplayer->manoeverability +
                         fplayer->maxDurability +
                         fplayer->maxgamma +
-                        (float)fplayer->statLethality +
+                        fplayer->statLethality +
                         fplayer->StaticDrag +
                         fplayer->SpeedBrakePower +
                         fplayer->MaxFullPowerAltRatio +
@@ -3495,7 +3495,7 @@ void MissionNetworkBattle01::start ()
                    fplayer->manoeverability +
                    fplayer->maxDurability +
                    fplayer->maxgamma +
-                   (float)fplayer->statLethality +
+                   fplayer->statLethality +
                    fplayer->StaticDrag +
                    fplayer->SpeedBrakePower +
                    fplayer->MaxFullPowerAltRatio +
@@ -4349,7 +4349,7 @@ void MissionNetworkBattle02::start ()
                    fplayer->manoeverability +
                    fplayer->maxDurability +
                    fplayer->maxgamma +
-                   (float)fplayer->statLethality +
+                   fplayer->statLethality +
                    fplayer->StaticDrag +
                    fplayer->SpeedBrakePower +
                    fplayer->MaxFullPowerAltRatio +
@@ -5154,7 +5154,7 @@ void MissionNetworkBattle03::start ()
                    fplayer->manoeverability +
                    fplayer->maxDurability +
                    fplayer->maxgamma +
-                   (float)fplayer->statLethality +
+                   fplayer->statLethality +
                    fplayer->StaticDrag +
                    fplayer->SpeedBrakePower +
                    fplayer->MaxFullPowerAltRatio +

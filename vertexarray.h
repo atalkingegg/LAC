@@ -26,7 +26,7 @@
 #ifndef IS_VERTEXARRAY_H
 #define IS_VERTEXARRAY_H
 
-#include "common.h" // ok
+// #include "common.h" // ok
 
 #define VERTEXARRAY_V3N3C4T2 1
 #define VERTEXARRAY_V3C4T2 2

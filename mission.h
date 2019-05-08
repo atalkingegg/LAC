@@ -26,8 +26,8 @@
 #ifndef IS_MISSION_H
 #define IS_MISSION_H
 
-#include "model.h" // ok
-#include "aiobject.h" // ok
+// #include "model.h" // ok
+// #include "aiobject.h" // ok
 
 #define MISSION_DEMO 0
 #define MISSION_TUTORIAL 8

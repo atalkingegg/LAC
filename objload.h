@@ -28,7 +28,7 @@
 
 #define int32 int
 
-#include "model.h" // ok
+// #include "model.h" // ok
 
 class CFile
 {

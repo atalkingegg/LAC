@@ -404,7 +404,7 @@ else
 //
 // StallEffects()
 //
-void StallEffects()
+void StallEffects(void)
 {
 if (fplayer->InertiallyDampenedPlayerSpeed  < (fplayer->StallSpeed - (float)(fplayer->FlapsLevel/80.0)))
    { 

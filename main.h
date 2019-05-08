@@ -26,18 +26,41 @@
 #ifndef IS_MAIN_H
 #define IS_MAIN_H
 
-#include <math.h>
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
-#include "aiobject.h"
-#include "model.h"
-#include "3ds.h"
-#include "effects.h"
-#include "audio.h"
-#include "pilots.h"
+//##################################################################################################
+// Headers needed only by main.h
+//##################################################################################################
+#include "land.h" /* Landscape */
+#include "glland.h" /* l, depends on land.h */
 
-extern char *getKeyString (int key, char *str); // get name of a keyboard's key (ENTER, SPACE)
+
+// These are moved to where needed in *.cpp
+// #include <math.h>
+// #include <stdio.h>
+// #include <string.h>
+// #include <time.h>
+// #include "aiobject.h"
+// #include "model.h"
+// #include "3ds.h"
+// #include "effects.h"
+// #include "audio.h"
+// #include "pilots.h"
+
+//##################################################################################################
+// Functions in main.cpp used outside of main.cpp
+//##################################################################################################
+extern CModel *getModel (int id); // own export: main.h may be included in the cpp files
+// used in aiobject.cpp 
+
+//##################################################################################################
+// Functions elsewhere to be moved elsewhere
+//##################################################################################################
+// extern char *getKeyString (int key, char *str); // get name of a keyboard's key (ENTER, SPACE)
+
+//##################################################################################################
+// Variables in main.cpp needed elsewhere
+//##################################################################################################
+extern GLLandscape *l; /* used in main.cpp, mission.cpp, glland.cpp, and aiobject.cpp */
+
 
 extern AIObj *ThreeDObjects [maxfighter];
 extern AIObj *fplayer; // the active human player
@@ -45,7 +68,6 @@ extern AIObj *missile [maxmissile];
 extern CBlackSmoke *blacksmoke [maxblacksmoke];
 extern CExplosion *explosion [maxexplosion];
 extern CLoad3DS g_Load3ds;
-extern CModel *getModel (int id); // own export: main.h may be included in the cpp files
 extern CModel model_Airfield00;
 extern CModel model_chaff1;
 extern CModel model_cannon1;
@@ -100,5 +122,4 @@ extern SoundSystem *sound;
 extern Space *space; // the scene (everything) without the landscape
 extern Star *star [maxstar]; // the stars at night
 
-#endif
-
+#endif /* IS_MAIN_H */

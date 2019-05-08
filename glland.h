@@ -26,12 +26,12 @@
 #ifndef IS_GLLAND_H
 #define IS_GLLAND_H
 
-#include <string.h>
+// #include <string.h>
 
-#include "model.h" // ok
-#include "aiobject.h" // ok
-#include "effects.h" // ok
-#include "land.h" // ok
+// #include "model.h" // ok
+// #include "aiobject.h" // ok
+// #include "effects.h" // ok
+// #include "land.h" // ok
 
 #define PARTS 36 // maximum LOD parts
 
@@ -168,6 +168,7 @@ class GLLandscape : public Landscape
   GLLandscape (Space *space2, int type, int *heightmask);
 };
 
-extern GLLandscape *l;
+// Moved to main.h as this is created in main.cpp
+// extern GLLandscape *l;
 
 #endif

@@ -1,0 +1,30 @@
+######
+Phase 1.1, main.cpp and aiobject.cpp compiling 100% clean, target build broken until phase complete.
+	headers from headers, main.cpp and aiobject warnings clean
+	drawGL named locally, if missing, check header for extended name
+######
+
+Where is global struct "l" ???
+	l->getExactHeight(x, y);
+	used in main.cpp, mission.cpp, glland.cpp, and aiobject.cpp
+
+	GLLandscape::getExactHeight
+
+	extern GLLandscape *l;
+	in glland.h, should be in main.h
+
+	global pointer l in main.cpp, line 738
+		GLLandscape *l = NULL;
+
+	not sure yet when/where object created
+	moved variable deceleration to main.h
+
+######
+
+	promoting statLethality to float, fixing many "literal-conversion" warnings, fits assignments now.
+	in class AIObj in aiobject.h
+	int -> float
+
+######
+
+Phase 1.2. mission.cpp, conf.cpp, glland.cpp, audio.cpp, ...

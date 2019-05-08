@@ -26,7 +26,7 @@
 #ifndef IS_3DS_H
 #define IS_3DS_H
 
-#include "model.h" // ok
+// #include "model.h" // ok
 
 const int debug3ds = 0; // set to 1 to get all Chunk IDs to stdout
 
