@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Linux Air Combat
+GenericName=Linux Air Combat
+Type=Application
+Exec=./lac
+Icon=/home/lac/LAC/bin/lac.png
+Category=Internet;

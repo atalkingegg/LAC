@@ -1,0 +1,284 @@
+# depslib dependency file v1.0
+1556313953 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/3ds.cpp
+	<ctype.h>
+	<math.h>
+	<stdio.h>
+	<string.h>
+	"3ds.h"
+	"common.h"
+	"dirs.h"
+	"gl.h"
+	"mathtab.h"
+
+1556314874 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/3ds.h
+	"model.h"
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/model.h
+	"common.h"
+	"vertexarray.h"
+
+1556386469 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/common.h
+	"config.h"
+	<GL/glut.h>
+	"SDL/SDL.h"
+	"SDL/SDL_thread.h"
+	"SDL/SDL_mixer.h"
+
+1556314875 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/config.h
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/vertexarray.h
+	"common.h"
+
+1556314875 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/dirs.h
+
+1556314875 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/gl.h
+	"common.h"
+	"model.h"
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/mathtab.h
+
+1556366006 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/aiobject.cpp
+	"aiobject.h"
+	"glland.h"
+	"land.h"
+	"main.h"
+	"mathtab.h"
+	"mission.h"
+	"NetworkApi.h"
+
+1556314874 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/aiobject.h
+	"common.h"
+	"model.h"
+	"effects.h"
+
+1556314875 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/effects.h
+	"model.h"
+	"object.h"
+	"mathtab.h"
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/object.h
+	"model.h"
+
+1556314876 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/glland.h
+	<string.h>
+	"model.h"
+	"aiobject.h"
+	"effects.h"
+	"land.h"
+
+1556314876 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/land.h
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/main.h
+	<math.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	"aiobject.h"
+	"model.h"
+	"3ds.h"
+	"effects.h"
+	"audio.h"
+	"pilots.h"
+
+1556314875 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/audio.h
+	"common.h"
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/pilots.h
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/mission.h
+	"model.h"
+	"aiobject.h"
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/NetworkApi.h
+	"main.h"
+	"glland.h"
+	<ctype.h>
+
+1556314875 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/audio.cpp
+	"audio.h"
+	"dirs.h"
+
+1556314875 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/cockpit.cpp
+	<stdio.h>
+	"cockpit.h"
+	"gl.h"
+	"glland.h"
+	"main.h"
+	"mathtab.h"
+	"mission.h"
+	"pilots.h"
+
+1556314875 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/cockpit.h
+	"common.h"
+	"model.h"
+
+1556314875 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/common.cpp
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"common.h"
+	"dirs.h"
+
+1556388676 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/conf.cpp
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"aiobject.h"
+	"conf.h"
+	"common.h"
+	"dirs.h"
+
+1556314875 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/conf.h
+
+1556314875 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/dirs.cpp
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/types.h>
+	<sys/stat.h>
+	"dirs.h"
+	"common.h"
+
+1556313958 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/effects.cpp
+	<math.h>
+	"effects.h"
+	"glland.h"
+	"gl.h"
+	"common.h"
+
+1556313958 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/fileloader.cpp
+	<stdio.h>
+	<string.h>
+	"fileloader.h"
+
+1556314875 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/fileloader.h
+
+1556313958 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/FlightModel.cpp
+	<ctype.h>
+	<unistd.h>
+	"cockpit.h"
+	"common.h"
+	"conf.h"
+	"dirs.h"
+	"gl.h"
+	"glland.h"
+	"land.h"
+	"main.h"
+	"mathtab.h"
+	"menu.h"
+	"mission.h"
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/menu.h
+	"model.h"
+
+1556314875 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/gl.cpp
+	<stdio.h>
+	<string.h>
+	<math.h>
+	"gl.h"
+
+1556388817 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/glland.cpp
+	"glland.h"
+	"main.h"
+	"mathtab.h"
+	"gl.h"
+	"common.h"
+
+1556389116 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/land.cpp
+	<stdio.h>
+	<math.h>
+	<string.h>
+	"common.h"
+	"land.h"
+	"mathtab.h"
+
+1556314876 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/loader_tga.cpp
+	<stdio.h>
+	<string.h>
+	<sys/stat.h>
+	"loader_tga.h"
+	"common.h"
+
+1556314876 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/loader_tga.h
+
+1556389631 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/main.cpp
+	"cockpit.h"
+	"common.h"
+	"conf.h"
+	"dirs.h"
+	"gl.h"
+	"glland.h"
+	"land.h"
+	"main.h"
+	"mathtab.h"
+	"menu.h"
+	"mission.h"
+	"NetworkApi.h"
+
+1556314885 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/mathtab.cpp
+	<math.h>
+	"mathtab.h"
+	"common.h"
+
+1556313960 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/menu.cpp
+	"menu.h"
+	"main.h"
+
+1556313960 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/model.cpp
+	<stdio.h>
+	<string.h>
+	<math.h>
+	"model.h"
+	"gl.h"
+	"mathtab.h"
+	"loader_tga.h"
+
+1556387530 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/NetworkApi.cpp
+	"common.h"
+	"glland.h"
+	"NetworkApi.h"
+	"mission.h"
+	<stdio.h>
+	<errno.h>
+	<string.h>
+	<signal.h>
+	<unistd.h>
+	<netinet/in.h>
+	<netdb.h>
+	<arpa/inet.h>
+	<sys/socket.h>
+
+1556314885 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/object.cpp
+	"object.h"
+	"gl.h"
+
+1556314885 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/objload.cpp
+	<stdio.h>
+	<math.h>
+	"objload.h"
+
+1556314885 /home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/objload.h
+	"model.h"
+
+1556314885 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/pilots.cpp
+	<stdio.h>
+	<string.h>
+	"dirs.h"
+	"pilots.h"
+	"mission.h"
+
+1556314885 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/vertexarray.cpp
+	"vertexarray.h"
+
+1556390229 source:/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac07p64/mission.cpp
+	<stdio.h>
+	<string.h>
+	"aiobject.h"
+	"common.h"
+	"conf.h"
+	"glland.h"
+	"mission.h"
+	"main.h"
+	"mathtab.h"
+	"NetworkApi.h"
+

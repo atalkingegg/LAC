@@ -1,0 +1,519 @@
+AlittleLonger.wav
+AmmunitionDepotHasBeenDamaged.wav
+AssistanceRequested.wav
+Attack.wav
+AttentionAllPilots.wav
+BlueTeam.wav
+But.wav
+CombatAirPatrolNeeded.wav
+Damage.wav
+DefensiveGunsAreDamaged.wav
+FighterCover.wav
+FuelDepotHasBeenDamaged.wav
+Has.wav
+Heavy.wav
+Help.wav
+HoldOut.wav
+HqAirfield.wav
+Immediately.wav
+IsUnder.wav
+ManyOfOurBestAircraftHaveBeenDamagedOnTheGround.wav
+MuchLonger.wav
+NowHearThis.wav
+Only.wav
+OrdnanceDepotHasBeenDamaged.wav
+PleaseHelpUs.wav
+RadarIsDestroyed.wav
+RadarIsRepaired.wav
+RangeIsReduced.wav
+RedTeam.wav
+RepairsCannotProceed.wav
+Strong.wav
+Suffered.wav
+Sustained.wav
+ThisIs.wav
+Tower.wav
+Urgently.wav
+WeAreBeingWipedOut.wav
+WeCannot.wav
+WeCan.wav
+WeNeed.wav
+XMorseComma00.wav
+XMorsePeriod00.wav
+XMorseQuestion00.wav
+XMorseSlash00.wav
+
+
+
+  WaveFile *AlittleLonger;
+  WaveFile *AmmunitionDepotHasBeenDamaged;
+  WaveFile *AssistanceRequested;
+  WaveFile *Attack;
+  WaveFile *AttentionAllPilots;
+  WaveFile *BlueTeam;
+  WaveFile *But;
+  WaveFile *CombatAirPatrolNeeded;
+  WaveFile *Damage;
+  WaveFile *DefensiveGunsAreDamaged;
+  WaveFile *FighterCover;
+  WaveFile *FuelDepotHasBeenDamaged;
+  WaveFile *Has;
+  WaveFile *Heavy;
+  WaveFile *Help;
+  WaveFile *HoldOut;
+  WaveFile *HqAirfield;
+  WaveFile *Immediately;
+  WaveFile *IsUnder;
+  WaveFile *ManyOfOurBestAircraftHaveBeenDamagedOnTheGround;
+  WaveFile *MuchLonger;
+  WaveFile *NowHearThis;
+  WaveFile *Only;
+  WaveFile *OrdnanceDepotHasBeenDamaged;
+  WaveFile *PleaseHelpUs;
+  WaveFile *RadarIsDestroyed;
+  WaveFile *RadarIsRepaired;
+  WaveFile *RangeIsReduced;
+  WaveFile *RedTeam;
+  WaveFile *RepairsCannotProceed;
+  WaveFile *Strong;
+  WaveFile *Suffered;
+  WaveFile *Sustained;
+  WaveFile *ThisIs;
+  WaveFile *Tower;
+  WaveFile *Urgently;
+  WaveFile *WeAreBeingWipedOut;
+  WaveFile *WeCannot;
+  WaveFile *WeCan;
+  WaveFile *WeNeed;
+
+  
+  
+  
+  
+  
+  
+     AlittleLonger = new WaveFile (dirs->getSounds ("AlittleLonger.wav"));
+     AlittleLonger->setVolume (127);
+     AmmunitionDepotHasBeenDamaged = new WaveFile (dirs->getSounds ("AmmunitionDepotHasBeenDamaged.wav"));
+     AmmunitionDepotHasBeenDamaged->setVolume (127);
+     AssistanceRequested = new WaveFile (dirs->getSounds ("AssistanceRequested.wav"));
+     AssistanceRequested->setVolume (127);
+     Attack = new WaveFile (dirs->getSounds ("Attack.wav"));
+     Attack->setVolume (127);
+     AttentionAllPilots = new WaveFile (dirs->getSounds ("AttentionAllPilots.wav"));
+     AttentionAllPilots->setVolume (127);
+     BlueTeam = new WaveFile (dirs->getSounds ("BlueTeam.wav"));
+     BlueTeam->setVolume (127);
+     But = new WaveFile (dirs->getSounds ("But.wav"));
+     But->setVolume (127);
+     CombatAirPatrolNeeded = new WaveFile (dirs->getSounds ("CombatAirPatrolNeeded.wav"));
+     CombatAirPatrolNeeded->setVolume (127);
+     Damage = new WaveFile (dirs->getSounds ("Damage.wav"));
+     Damage->setVolume (127);
+     DefensiveGunsAreDamaged = new WaveFile (dirs->getSounds ("DefensiveGunsAreDamaged.wav"));
+     DefensiveGunsAreDamaged->setVolume (127);
+     FighterCover = new WaveFile (dirs->getSounds ("FighterCover.wav"));
+     FighterCover->setVolume (127);
+     FuelDepotHasBeenDamaged = new WaveFile (dirs->getSounds ("FuelDepotHasBeenDamaged.wav"));
+     FuelDepotHasBeenDamaged->setVolume (127);
+     Has = new WaveFile (dirs->getSounds ("Has.wav"));
+     Has->setVolume (127);
+     Heavy = new WaveFile (dirs->getSounds ("Heavy.wav"));
+     Heavy->setVolume (127);
+     Help = new WaveFile (dirs->getSounds ("Help.wav"));
+     Help->setVolume (127);
+     HoldOut = new WaveFile (dirs->getSounds ("HoldOut.wav"));
+     HoldOut->setVolume (127);
+     HqAirfield = new WaveFile (dirs->getSounds ("HqAirfield.wav"));
+     HqAirfield->setVolume (127);
+     Immediately = new WaveFile (dirs->getSounds ("Immediately.wav"));
+     Immediately->setVolume (127);
+     IsUnder = new WaveFile (dirs->getSounds ("IsUnder.wav"));
+     IsUnder->setVolume (127);
+     ManyOfOurBestAircraftHaveBeenDamagedOnTheGround = new WaveFile (dirs->getSounds ("ManyOfOurBestAircraftHaveBeenDamagedOnTheGround.wav"));
+     ManyOfOurBestAircraftHaveBeenDamagedOnTheGround->setVolume (127);
+     MuchLonger = new WaveFile (dirs->getSounds ("MuchLonger.wav"));
+     MuchLonger->setVolume (127);
+     NowHearThis = new WaveFile (dirs->getSounds ("NowHearThis.wav"));
+     NowHearThis->setVolume (127);
+     Only = new WaveFile (dirs->getSounds ("Only.wav"));
+     Only->setVolume (127);
+     OrdnanceDepotHasBeenDamaged = new WaveFile (dirs->getSounds ("OrdnanceDepotHasBeenDamaged.wav"));
+     OrdnanceDepotHasBeenDamaged->setVolume (127);
+     PleaseHelpUs = new WaveFile (dirs->getSounds ("PleaseHelpUs.wav"));
+     PleaseHelpUs->setVolume (127);
+     RadarIsDestroyed = new WaveFile (dirs->getSounds ("RadarIsDestroyed.wav"));
+     RadarIsDestroyed->setVolume (127);
+     RadarIsRepaired = new WaveFile (dirs->getSounds ("RadarIsRepaired.wav"));
+     RadarIsRepaired->setVolume (127);
+     RangeIsReduced = new WaveFile (dirs->getSounds ("RangeIsReduced.wav"));
+     RangeIsReduced->setVolume (127);
+     RedTeam = new WaveFile (dirs->getSounds ("RedTeam.wav"));
+     RedTeam->setVolume (127);
+     RepairsCannotProceed = new WaveFile (dirs->getSounds ("RepairsCannotProceed.wav"));
+     RepairsCannotProceed->setVolume (127);
+     Strong = new WaveFile (dirs->getSounds ("Strong.wav"));
+     Strong->setVolume (127);
+     Suffered = new WaveFile (dirs->getSounds ("Suffered.wav"));
+     Suffered->setVolume (127);
+     Sustained = new WaveFile (dirs->getSounds ("Sustained.wav"));
+     Sustained->setVolume (127);
+     ThisIs = new WaveFile (dirs->getSounds ("ThisIs.wav"));
+     ThisIs->setVolume (127);
+     Tower = new WaveFile (dirs->getSounds ("Tower.wav"));
+     Tower->setVolume (127);
+     Urgently = new WaveFile (dirs->getSounds ("Urgently.wav"));
+     Urgently->setVolume (127);
+     WeAreBeingWipedOut = new WaveFile (dirs->getSounds ("WeAreBeingWipedOut.wav"));
+     WeAreBeingWipedOut->setVolume (127);
+     WeCannot = new WaveFile (dirs->getSounds ("WeCannot.wav"));
+     WeCannot->setVolume (127);
+     WeCan = new WaveFile (dirs->getSounds ("WeCan.wav"));
+     WeCan->setVolume (127);
+     XMorseComma00 = new WaveFile (dirs->getSounds ("XMorseComma00.wav"));
+     XMorseComma00->setVolume (127);
+     XMorsePeriod00 = new WaveFile (dirs->getSounds ("XMorsePeriod00.wav"));
+     XMorsePeriod00->setVolume (127);
+     XMorseQuestion00 = new WaveFile (dirs->getSounds ("XMorseQuestion00.wav"));
+     XMorseQuestion00->setVolume (127);
+     XMorseSlash00 = new WaveFile (dirs->getSounds ("XMorseSlash00.wav"));
+     XMorseSlash00->setVolume (127);
+  
+  
+  
+      delete MorseZ00;
+      
+      
+AlittleLonger
+AmmunitionDepotHasBeenDamaged
+AssistanceRequested
+Attack
+AttentionAllPilots
+BlueTeam
+But
+CombatAirPatrolNeeded
+Damage
+DefensiveGunsAreDamaged
+FighterCover
+FuelDepotHasBeenDamaged
+Has
+Heavy
+Help
+HoldOut
+HqAirfield
+Immediately
+IsUnder
+ManyOfOurBestAircraftHaveBeenDamagedOnTheGround
+MuchLonger
+NowHearThis
+Only
+OrdnanceDepotHasBeenDamaged
+PleaseHelpUs
+RadarIsDestroyed
+RadarIsRepaired
+RangeIsReduced
+RedTeam
+RepairsCannotProceed
+Strong
+Suffered
+Sustained
+ThisIs
+Tower
+Urgently
+WeAreBeingWipedOut
+WeCannot
+WeCan
+WeNeed
+XMorseComma00
+XMorsePeriod00
+XMorseQuestion00
+XMorseSlash00
+      
+      
+      
+      
+      
+      delete AlittleLonger;
+      delete AmmunitionDepotHasBeenDamaged;
+      delete AssistanceRequested;
+      delete Attack;
+      delete AttentionAllPilots;
+      delete BlueTeam;
+      delete But;
+      delete CombatAirPatrolNeeded;
+      delete Damage;
+      delete DefensiveGunsAreDamaged;
+      delete FighterCover;
+      delete FuelDepotHasBeenDamaged;
+      delete Has;
+      delete Heavy;
+      delete Help;
+      delete HoldOut;
+      delete HqAirfield;
+      delete Immediately;
+      delete IsUnder;
+      delete ManyOfOurBestAircraftHaveBeenDamagedOnTheGround;
+      delete MuchLonger;
+      delete NowHearThis;
+      delete Only;
+      delete OrdnanceDepotHasBeenDamaged;
+      delete PleaseHelpUs;
+      delete RadarIsDestroyed;
+      delete RadarIsRepaired;
+      delete RangeIsReduced;
+      delete RedTeam;
+      delete RepairsCannotProceed;
+      delete Strong;
+      delete Suffered;
+      delete Sustained;
+      delete ThisIs;
+      delete Tower;
+      delete Urgently;
+      delete WeAreBeingWipedOut;
+      delete WeCannot;
+      delete WeCan;
+      delete WeNeed;
+      delete XMorseComma00;
+      delete XMorsePeriod00;
+      delete XMorseQuestion00;
+      delete XMorseSlash00;
+      
+
+      
+#define SOUND_XALITTLELONGER 119
+#define SOUND_XAMMUNITIONDEPOTHASBEENDAMAGED 120
+#define SOUND_XASSISTANCEREQUESTED 121
+#define SOUND_XATTACK 122
+#define SOUND_XATTENTIONALLPILOTS 123
+#define SOUND_XBLUETEAM 124
+#define SOUND_XBUT 125
+#define SOUND_XCOMBATAIRPATROLNEEDED 126
+#define SOUND_XDAMAGE 127
+#define SOUND_XDEFENSIVEGUNSAREDAMAGED 128
+#define SOUND_XFIGHTERCOVER 129
+#define SOUND_XFUELDEPOTHASBEENDAMAGED 130
+#define SOUND_XHAS 131
+#define SOUND_XHEAVY 132
+#define SOUND_XHELP 133
+#define SOUND_XHOLDOUT 134
+#define SOUND_XHQAIRFIELD 135
+#define SOUND_XIMMEDIATELY 136
+#define SOUND_XISAT 137
+#define SOUND_XISUNDER 138
+#define SOUND_XMANYOFOURBESTAIRCRAFTHAVEBEENDAMAGEDONTHEGROUND 139
+#define SOUND_XMORSECOMMA00 140
+#define SOUND_XMORSEPERIOD00 141
+#define SOUND_XMORSEQUESTION00 142
+#define SOUND_XMORSESLASH00 143
+#define SOUND_XMUCHLONGER 144
+#define SOUND_XNOWHEARTHIS 145
+#define SOUND_XONLY 146
+#define SOUND_XORDNANCEDEPOTHASBEENDAMAGED 147
+#define SOUND_XPLEASEHELPUS 148
+#define SOUND_XRADARISDESTROYED 149
+#define SOUND_XRADARISREPAIRED 150
+#define SOUND_XRANGEISREDUCED 151
+#define SOUND_XREDTEAM 152
+#define SOUND_XREPAIRSCANNOTPROCEED 153
+#define SOUND_XSTRONG 154
+#define SOUND_XSUFFERED 155
+#define SOUND_XSUSTAINED 156
+#define SOUND_XTHISIS 157
+#define SOUND_XTOWER 158
+#define SOUND_XURGENTLY 159
+#define SOUND_XWEAREBEINGWIPEDOUT 160
+#define SOUND_XWECAN 161
+#define SOUND_XWECANNOT 162
+#define SOUND_XWENEED 163
+
+
+
+SOUND_XALITTLELONGER
+SOUND_XAMMUNITIONDEPOTHASBEENDAMAGED
+SOUND_XASSISTANCEREQUESTED
+SOUND_XATTACK
+SOUND_XATTENTIONALLPILOTS
+SOUND_XBLUETEAM
+SOUND_XBUT
+SOUND_XCOMBATAIRPATROLNEEDED
+SOUND_XDAMAGE
+SOUND_XDEFENSIVEGUNSAREDAMAGED
+SOUND_XFIGHTERCOVER
+SOUND_XFUELDEPOTHASBEENDAMAGED
+SOUND_XHAS
+SOUND_XHEAVY
+SOUND_XHELP
+SOUND_XHOLDOUT
+SOUND_XHQAIRFIELD
+SOUND_XIMMEDIATELY
+SOUND_XISAT
+SOUND_XISUNDER
+SOUND_XMANYOFOURBESTAIRCRAFTHAVEBEENDAMAGEDONTHEGROUND
+SOUND_XMORSECOMMA00
+SOUND_XMORSEPERIOD00
+SOUND_XMORSEQUESTION00
+SOUND_XMORSESLASH00
+SOUND_XMUCHLONGER
+SOUND_XNOWHEARTHIS
+SOUND_XONLY
+SOUND_XORDNANCEDEPOTHASBEENDAMAGED
+SOUND_XPLEASEHELPUS
+SOUND_XRADARISDESTROYED
+SOUND_XRADARISREPAIRED
+SOUND_XRANGEISREDUCED
+SOUND_XREDTEAM
+SOUND_XREPAIRSCANNOTPROCEED
+SOUND_XSTRONG
+SOUND_XSUFFERED
+SOUND_XSUSTAINED
+SOUND_XTHISIS
+SOUND_XTOWER
+SOUND_XURGENTLY
+SOUND_XWEAREBEINGWIPEDOUT
+SOUND_XWECAN
+SOUND_XWECANNOT
+SOUND_XWENEED
+
+
+
+        case SOUND_XALITTLELONGER:
+            AlittleLonger->play (7, loop);
+            break;
+        case SOUND_XAMMUNITIONDEPOTHASBEENDAMAGED:
+            AmmunitionDepotHasBeenDamaged->play (7, loop);
+            break;
+        case SOUND_XASSISTANCEREQUESTED:
+            AssistanceRequested->play (7, loop);
+            break;
+        case SOUND_XATTACK:
+            Attack->play (7, loop);
+            break;
+        case SOUND_XATTENTIONALLPILOTS:
+            AttentionAllPilots->play (7, loop);
+            break;
+        case SOUND_XBLUETEAM:
+            BlueTeam->play (7, loop);
+            break;
+        case SOUND_XBUT:
+            But->play (7, loop);
+            break;
+        case SOUND_XCOMBATAIRPATROLNEEDED:
+            CombatAirPatrolNeeded->play (7, loop);
+            break;
+        case SOUND_XDAMAGE:
+            Damage->play (7, loop);
+            break;
+        case SOUND_XDEFENSIVEGUNSAREDAMAGED:
+            DefensiveGunsAreDamaged->play (7, loop);
+            break;
+        case SOUND_XFIGHTERCOVER:
+            FighterCover->play (7, loop);
+            break;
+        case SOUND_XFUELDEPOTHASBEENDAMAGED:
+            FuelDepotHasBeenDamaged->play (7, loop);
+            break;
+        case SOUND_XHAS:
+            Has->play (7, loop);
+            break;
+        case SOUND_XHEAVY:
+            Heavy->play (7, loop);
+            break;
+        case SOUND_XHELP:
+            Help->play (7, loop);
+            break;
+        case SOUND_XHOLDOUT:
+            HoldOut->play (7, loop);
+            break;
+        case SOUND_XHQAIRFIELD:
+            HqAirfield->play (7, loop);
+            break;
+        case SOUND_XIMMEDIATELY:
+            Immediately->play (7, loop);
+            break;
+        case SOUND_XISUNDER:
+            IsUnder->play (7, loop);
+            break;
+        case SOUND_XMANYOFOURBESTAIRCRAFTHAVEBEENDAMAGEDONTHEGROUND:
+            ManyOfOurBestAircraftHaveBeenDamagedOnTheGround->play (7, loop);
+            break;
+        case SOUND_XMORSECOMMA00:
+            XMorseComma00->play (7, loop);
+            break;
+        case SOUND_XMORSEPERIOD00:
+            XMorsePeriod00->play (7, loop);
+            break;
+        case SOUND_XMORSEQUESTION00:
+            XMorseQuestion00->play (7, loop);
+            break;
+        case SOUND_XMORSESLASH00:
+            XMorseSlash00->play (7, loop);
+            break;
+        case SOUND_XMUCHLONGER:
+            MuchLonger->play (7, loop);
+            break;
+        case SOUND_XNOWHEARTHIS:
+            NowHearThis->play (7, loop);
+            break;
+        case SOUND_XONLY:
+            Only->play (7, loop);
+            break;
+        case SOUND_XORDNANCEDEPOTHASBEENDAMAGED:
+            OrdnanceDepotHasBeenDamaged->play (7, loop);
+            break;
+        case SOUND_XPLEASEHELPUS:
+            PleaseHelpUs->play (7, loop);
+            break;
+        case SOUND_XRADARISDESTROYED:
+            RadarIsDestroyed->play (7, loop);
+            break;
+        case SOUND_XRADARISREPAIRED:
+            RadarIsRepaired->play (7, loop);
+            break;
+        case SOUND_XRANGEISREDUCED:
+            RangeIsReduced->play (7, loop);
+            break;
+        case SOUND_XREDTEAM:
+            RedTeam->play (7, loop);
+            break;
+        case SOUND_XREPAIRSCANNOTPROCEED:
+            RepairsCannotProceed->play (7, loop);
+            break;
+        case SOUND_XSTRONG:
+            Strong->play (7, loop);
+            break;
+        case SOUND_XSUFFERED:
+            Suffered->play (7, loop);
+            break;
+        case SOUND_XSUSTAINED:
+            Sustained->play (7, loop);
+            break;
+        case SOUND_XTHISIS:
+            ThisIs->play (7, loop);
+            break;
+        case SOUND_XTOWER:
+            Tower->play (7, loop);
+            break;
+        case SOUND_XURGENTLY:
+            Urgently->play (7, loop);
+            break;
+        case SOUND_XWEAREBEINGWIPEDOUT:
+            WeAreBeingWipedOut->play (7, loop);
+            break;
+        case SOUND_XWECAN:
+            WeCan->play (7, loop);
+            break;
+        case SOUND_XWECANNOT:
+            WeCannot->play (7, loop);
+            break;
+        case SOUND_XWENEED:
+            WeNeed->play (7, loop);
+            break;
+
+
+
+        case SOUND_MORSEZ00:
+            ->play (7, loop);
+            break;
+
+            
+            

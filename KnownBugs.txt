@@ -1,0 +1,21 @@
+Known Bugs still present in Version Lac07p18:
+
+"Default Aircraft Selection MenuRendering Bug": When selecting a new default aircraft from the main menu, none of the aircraft are visually rendered if any mission has ever been commenced. (After flying a mission and returning to the main menu's default aircraft selection menu, aircraft can still be selected, and the text describing their attributes is still appropriately displayed, but the visual appearance of the various aircraft can no longer be seen.) This bug has been present for a long time and we have not yet found its cause. The only known workaround is to exit and re-start the sim, whereupon all of the aircraft are appropriately rendered within the main menu's default aircraft selection logic as one would expect.
+
+
+
+
+"Ocean Textures Startup Bug": Sometimes ocean textures are rendered with a bizarre pattern of speckled rectangles instead of proper ocean colors and textures. This is infrequent, and it never develops during a mission; when it is present, it is immediately visible upon mission startup (generally after switching between desert and island terrain missions). Re-starting the sim always fixes it.
+
+
+
+
+"Destruction of last Selected Target Bug:" In the training missions, upon selection of the last target, the mission ends ubruptly with a segmentation fault.
+
+
+
+
+"Admin012OutPacket.UdpObjCommunityHandle Overflow Bug": It is possible for the user to configure an excessively long "CommunityHandle" which would in turn cause a buffer overflow in OutPackets of type Admin012.
+
+
+

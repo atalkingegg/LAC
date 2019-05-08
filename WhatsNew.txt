@@ -1,0 +1,748 @@
+Changes in the late April 2019 version (Lac07p64) include:
+
+No functional changes. This version remains operationally compatible with all versions since 7.56. Source code cleanup has eliminated more than 1,000 compiler warnings. Now, when Codeblocks is used to rebuild all 80,000 lines of source code, only 19 compiler warnings are detected, and all of them are now individually documented in the source code and all are known to be harmless. As a result of this cleanup, the code is now more robust and more tolerant of configuration errors. Some of the compiler warnings that have been eliminated could possibly have have caused occasional segmentation faults had they not been fixed.
+
+
+
+
+
+Changes in the mid April 2019 version (Lac07p61) include:
+
+No functional changes. Cosmetic source code cleanup and bug fixes. Several compiler warning messages have been eliminated due to cleaner source code. Three very obscure conditions that had caused rare segmentation faults were fixed. Fixed a bug that had sometimes displayed a tiny white dot in the center of the screen when looking straight up. This version remains operationally compatible with version 7.56.
+
+
+
+
+
+Changes in the early Apr2019 version (Lac07p59) include:
+
+Updated the tutorial prompting text in the LacConfig.txt file. This version remains operationally compatible with version 7.56. Cleaned up some details in the source code that had caused the compiler to issue warnings about four functions that did not always return an expected status value parameter. (Updated compilers, used in a few LINUX distributions, were generating code that resulted in segmentation faults until these warnings were fixed.)
+
+
+
+
+
+Changes from the late Mar2019 version (Lac07p56) include:
+
+Manoeverablity of all aircraft have been adjusted for greater accuracy.
+
+Bots have been made a little smarter, so that they don't crash into the ground as frequently.
+
+The LAC Server interface has been made more sophisticated.
+
+Two bugs that were causing severe network jitter under certain conditions within MissionNetworkBattle02 were fixed.
+
+A bug that was causing excessive network jitter immediately after any aircraft was destroyed in any of the multiplayer missions has been fixed.
+
+
+Some excessively "noisy" run-time diagnostic messages have been eliminated.
+
+
+
+
+
+
+
+Major new features of the Mar2019 version (Lac07p50) include:
+
+All of the aircraft have been able to manoever too well, especially at high speed. Accordingly,  the "maneoverability" attribures of all aircraft have been adjusted and as a result, all of the flight models are a little more realistic now.
+
+The visual appearance of the Bell P39 fighter aircraft has been significantly improved, thanks to the work of Blake Williams.
+
+Morse Code sound effects have been improved.
+
+Rocket aiming has been made easier because rockets now launch and fly straighter.
+
+The Norden Bomb sight has been stabilized and recalibrated for better accuracy, and the instructional prompts that it displays have been enhanced with additional details.
+
+Aircraft and rocket crash sound effects have been improved.
+
+Aircraft lethality has been adjusted for greater accuracy compared with the best available records.
+
+Sun glare and sunblindness effects have been improved.
+
+Some bugs were fixed in the logic that accumulates rocket damage against battleships.
+
+Visible surface textures have been improved for the Me110, Dornier, the airfield tower building, and the bunker buildings.
+
+Several serious bugs in MissionNetworkBattle02 (the desert terrain mission) have been fixed. It no longer suffers frequent segmentation faults at startup, and the terrain features are identically synchronized for all players. The terrain also benefits from improved appearance, with dramatic new cliffs and canyons. Bombs and rockets no longer cause multiple explosion sounds when they descend below the altitude of airstrips.
+
+RADAR has been made more realistic: Aircraft flying at extremely low altitudes are no longer detected by RADAR and are immune from airfield-based anti-aircraft fire. This has significantly improved MissionNetworkBattle02 because its desert terrain now features numerous canyons into which players can descend below RADAR detection level.
+
+Experimentation has demonstrated that game play benefits from battleships that are easier to destroy than traditional, heavy battleships like "Bismarck" or "Yamato" or "Iowa". Accordingly, I have decided to refer to LAC's "Battleship" as a "Pocket Battleship" (similar to Germany's "Deutschland", "Admiral Scheer", and her infamous "Admiral Graf Spee"), which implies a large, lightweight ship built for speed but armed with heavy cannons larger than the 8-inch guns generally used by naval cruisers. The "maxDurability" of LAC's battleship is now set at "120,000", which allows its destruction when hit by about 3 bombs and about 8 rockets. A B25 can even sink it with just its heavy, devastating guns and cannon (but that requires a lot of passes and is VERY dangerous unless the anti-aircraft guns of the adjacent airfield have been neutralized).
+
+The Morse Code radio has been improved so that the unshifted "\" key is interpreted as the "?" key, since Morse code makes no provision for the modern "shift" function of keyboards. Accordingly, whenever the operator wants to send a question mark on the Morse code radio, the "\" key can be used, and the resulting transmission, vocalization, and display operations handle it as a question mark, avoiding any requirement for "shifting" the keyboard.
+
+The four required "*.LAC" configuration/log files have been moved into the user's hidden ~home/.LAC folder alongside LAC's other configuration and log files.
+
+Installation has been improved, and LAC is more forgiving of installation errors now. LAC now automatically regenerates any of the following seven configuration files in the user's hidden ~home/.LAC folder if they are missing:
+
+   1 of 7: LacConfig.txt
+   2 of 7: LacControls.txt
+   3 of 7: LogFile.txt
+   4 of 7: DefaultHeightMap.LAC 
+   5 of 7: GunCamHistory.LAC 
+   6 of 7: LastTerrain.LAC 
+   7 of 7: OnlineScoreLog.LAC 
+
+
+
+
+
+Major new features of the Feb2019 version (Lac07p28) include:
+
+LAC's Network Protocol version has been increased from "8" to "9". This requires updating by all players. Any attempt to use an older version while any other player is using a newer version will result in numerous "beeps", run-time diagnostic reports, and descriptive log entries in the ~/.lac/logfile.txt file as incompatible packets are detected.
+
+It is now possible to "squelch" any user that tries to jam the Morse Code radio channel. This is done by pressing "BACKSPACE" while the keyboard is in the Morse Radio mode, which activates a "squelch" upon the player that has most recently been transmitting. Once a player has been squelched, none of his Morse Radio transmissions will be seen until the mission is restarted. (Pressing "BACKSPACE" again will clear all active squelches.)
+
+The visual appearance of the following aircraft has been greatly improved (thanks to the work of Blake Williams):
+
+   1 of 3: Me109F (German Fighter)
+   2 of 3: Me109G (German Fighter)
+   3 of 3: Mosquito (British Bomber)
+   
+"Weight of Fire" logic has been improved to better represent differences between aircraft armaments.   
+
+Several long-standing (but minor) bugs have been fixed.
+
+The Makefile has been improved. Now it produces a highly speed-optimized version of LAC like the one that has long been produced by Codeblocks. It also copies the executable result into the ~/bin/Release subfolder according to the same pattern that has long been established. As a result of this improved makefile, developers that don't want to use Codeblocks can now more easily and more automatically use familiar, linux compilation tools according to long-established norms, and the result will be fully compatible with our "install.sh" installation utility.
+
+The well-established, standard linux command that invokes the new Makefile with all of this is simply:
+
+make
+
+Running "make" as configured herein results in cluttering up LAC's main source code folder with a bunch of .o files and an extra copy of lac. All of this can be cleaned up with the following, standard command:
+
+make clean
+
+All of these "make" procedures will be familiar to experienced linux developers but otherwise remains fully compatible with all of our longstanding tools, documentation, and production practices.
+
+
+
+
+
+
+Major new features of the Jan2019 version (Lac7p09) include:
+
+Each of the two HQ airfields in MissionNetworkBattle01 and in MissionNetworkBattle03 are now strengthened by a battleship moored just offshore, at right angles to the runway, adjacent the RADAR tower. Victory requires destruction of the battleship in addition to destruction of the airfield facilities. Once the battleship is destroyed, it cannot be refloated or repaired, and airfield anti-aircraft facilities are correspondingly weakened for the remainder of the battle. This enriches the player experience because strike missions are now far more likely to include attacks at right angles to the runway in order to destroy these ships (favoring dive bombers and other strike aircraft that are more accurate at delivery of their ordnance), and it is correspondingly more complex and more time-consuming to achieve victory.
+
+Also in those two missions, the bunker building on the hilltop adjacent the HQ runways is now of tactical importance. When it is damaged, the associated HQ airfield suffers some damage too, and IFF ("Identify Friend or Foe") services are temporarily disrupted.
+
+Dive Bombers with dive brakes have had their flight models tuned up for greater accuracy. Dive bombing is now a lot more accurate and more fun.
+
+Air Raid sirens now shut off after all hostile aircraft leave the area, even if the airfield is still damaged.
+
+The penalty for lugging heavy ordnance has been made more realistic. (Prior versions enforced no penalty for hauling more than 16 heavy weapons. Now that modest penalty is enforced for every heavy weapon that is lugged, and jettisoning any such weapon results in a slight improvement in sustainable climb angle, etc.) As a result, heavy bombers that sustain damage will more frequently and more realistically find it necessary and worthwhile to jettison some of their bombs in order to maintain flight.
+
+.3ds rendering code has been optimized for efficiency and as a result, frame rate is increased for even smoother flight.
+
+
+
+
+
+
+Major new features of the Dec2018 version (Lac06p94) include:
+
+In recent, prior versions, many of the aircraft have been able to climb far too rapidly. This has been fixed. I rescaled and recalibrated the logic that calculates altitude. This forced recalibration of all of the flight models, and as a result of these changes, most aircraft are a little more maneoverable, and all aircraft now enjoy much greater freedom to climb at steeper and more realistic angles. "Zoom" climbs now last longer and complete in a more satisfactory manner. It's notably easier for beginners to get the "feel" of flight when climbing. The recalibration of all of the flight models isn't yet quite as good as I would like, but most of them are correct so far as historic records are available, and all are in the right ballpark. 
+
+"Bots" are a lot smarter. In prior versions, bots had spent a lot of their time rolled on their sides, struggling to fly more-or-less in a straight line, and consequently looked silly during most of their flight time. This has been fixed. Now the bots fly complex, energetic. elaborate defensive manoevers, making them ideal for target practice. They still aren't very agressive, so it is extremely rare for a bot to shoot at the player, but it is great fun to chase them and shoot them down. This exercise can now appropriately prepare beginners for the online, multiplayer environment (where competition, created by other online players, is smart and fierce). As a consequence of these new, smarter bots, the three online, server-based, multiplayer missions are now more robust and better behaved, even if no other online players are present, than the old set of "offline" missions. Within those three missions, the transition from flying alone, versus the bots, to flying with or against one or more other online players, is now seemless as soon as any other online player shows up.
+
+I fixed a bug that had previously allowed players to recieve full ground services (refuel, rearm, and repair) from hostile ground forces. Now any attempt to receive those services from personnel at hostile airfields results in confiscation of almost all of the player's fuel and ammo.
+
+I enhanced the "Startup00.wav" sound-effect file with much greater dynamic range. Now, when the three P38s fly close past the player's eyes, it sounds even more dramatic and exciting.
+
+I further enhanced the signon animation with a brighter, better scenery banner and with new logic that causes the VERSIONSTRING and the name of the primary software author ("ROBERT BOSEN") to fall to the ground, after the three P38s whiz by, in a more dramatic fashion.
+
+I modified all of the target selection logic so that it is no longer dependent upon RADAR. Accordingly, it is now possible to use the familiar "TargetNext" and "TargetPrevious" functions to cycle through all aircraft and airfield facilities, regardless of RADAR range, or whether the RADAR has been switched off, or even if RADAR is destroyed. When combined with LAC's long-present target vocalization logic, these changes make it far more practical and fun to pursue a mission when airfield damage prevents RADAR use. In those situations, the player can hear vocalizations, similar to WW2-style radio dialogs, revealing the general direction (in "clock-face" notation) and altitude of the selected target. Furthermore, the distance to online targets can also be estimated by paying attention to the Network Router panel. As a result, LAC's online missions now better emulate WW2-style encounters when RADAR is switched off or destroyed.
+
+I recalibrated the Norden bombsight for more accurate prediction of bomb impact points.
+
+Airfield defenses have been strengthened to give them a better chance of surviving sustained onslaughts from strategic bombers.
+
+The audio messages from Forward Observers have been made more reliable.
+
+Bombers taking off from the most remote airfields are now spawned in the air, with full fuel, full ordnance loadouts, and from an altitude of 9,400 feet. If the player selects a B29 heavy bomber, the "most remote" airfield is 35 kilometers farther removed from the HQ airfields.
+
+Aircraft that land on runways can now come to a complete stop instead of "creeping" slowly forward all the time.
+
+
+
+
+
+
+Major new features of the Nov2018 version (Lac06p72) include:
+
+A "Makefile" is now included in the distribution so that people who do not wish to use "Codeblocks" can now compile LAC with the usual, customary, classic, command-line "make" command.
+
+Source code has been cosmetically cleaned up even more.
+
+Various minor bugs have been fixed. 
+
+Airfield terrains were improved to remove small water textures from runway corners.
+
+Better reliability: The rare cases when prior versions would crash with "segmentation" faults are now even more infrequent.
+
+The initial sign-on animation is now much more exciting, and includes much better sound effects.
+
+Some of the audio banter messages have been shortened and sped up a bit, and the logic that activates those messages has been optimized to minimize interference among them. Now it is much easier to get the full report from forward observers about enemy airfield status in the online, multiplayer missions.
+
+LAC's demands for RAM memory are diminished by about 20%. As a result, the rare cases when prior versions would fail to load proper ocean textures are now even more infrequent.
+
+The following six aircraft are now updated with far prettier .3ds models:
+
+   1 of 6: F4u Corsair. The standard version is a little nicer looking now. Furthermore, the "Optional3dModels" folder includes two even more beautiful versions for those with beefier graphics hardware.
+   
+   2 of 6: F4F Wildcat. The standard version is a lot prettier now.
+   
+   3 of 6: F6F Hellcat. The standard version is a lot prettier now.
+
+   4 of 6: Me163 "Komet". The standard version is a lot prettier now.
+   
+   5 of 6: Dewoitine 520. The standard version is a lot prettier now.
+   
+   6 of 6: Macci C.202.  The standard version is a lot prettier now.
+   
+Additional, less prominant improvements have been made to the following aircraft: Dornier17, FW190, Heinkel HE111, Junkers JU88, Messerschmidt ME110, Aichi D3A, Nakajima KI84, and Douglas Dauntless. 
+
+The instructive text accompanying the three "Tutorial" missions has been improved for better consistency with the World War II historic period comprising LAC's primary focus.
+
+The four old offline practice missions (which all had various annoying bugs in them) have been eliminated, but all of their tactical features have now been incorporated into the three main, stable, online, multiplayer missions. As a result, if a user enters one of those online missions when nobody else is flying, he has allies and opposition from locally generated bots like those that were available in the old off-line training missions. Because these online, multiplayer missions are all far more feature-rich and more stable, the overall experience is vastly improved even when nobody else is flying. (As soon as anybody else joins a mission in progress, the bots revert to their older, "dumber" behavior in order to encourage sentient, human-to-human interaction.)
+
+I strengthened and adjusted the power of dive brakes on all of the aircraft that had them, making dive bombing a much more satisfying and effective tactic.
+
+I recalibrated the Norden Bombsight. The best impact point prediction is now effective when bombing from between 6,000 and 15,000 feet at 290 MPH, but it is reasonably accurate from a wide spectrum of altitudes when speed is in the ballpark of 290 MPH. However, as speed diminishes below 260 MPH, the CCIP pipper tends to underestimate the impact distance (so bombs fly farther than predicted).  Conversely, as speed increases beyond 320 MPH, the CCIP pipper tends to overestimate the impact distance (so bombs don't fly as far as predicted).
+
+I increased the durability of all aircraft, and especially of the B17, B24, and B29 (heavy American bombers). I also increased the lethality of the Me163 "komet" rocket plane. As a result, fighter-vs-bomber combat benefits from a better and more realistic tactical balance, and all individual air-to-air combat incidents tend to last a lot longer.
+
+I increased airfield defenses. Now airfield gunners can hit enemy aircraft as high as 15,000 feet above them.
+
+I recalibrated the altitude indicator in MissionNetworkBattle02 so that none of the terrain features are now below sea level.
+
+The Morse code radios have been made more reliable and are able to sustain more rapid typing rates.
+
+
+
+
+
+   
+Major new features of the Oct2018 version (Lac06p50) include:
+
+Fixed a bug that was causing bombs to explode several times each.
+
+Enhanced the appearance of black smoke associated with various types of explosions. (Note that this is only visible if the "special video effects" option is activated.)
+
+Improved all of the flight models in steep dives: Now steep dives are more exciting because the ground seems to "rush up" toward the player much faster. This makes the consequences and risks of steep dives more realistic.
+
+Fixed a bug that was preventing rockets from displaying smoke trails in the online, multiplayer missions.
+
+Improved the intelligence of "bots" in all of the offline missions, and in online missions when only one player has been active. Although bots are still not very smart, they are not quite as stupid as before and it is more fun to shoot them down.
+
+The "hit bubbles" associated with all aircraft were adjusted so that big, fat bombers are now a lot easier to hit with machine guns, while smaller aircraft are proportionately more difficult to hit.
+
+Network "jitter" has been further diminished.
+
+I created a new sound effect that plays five sequential beeps, used to warn the player whenever any opposing player fires rockets or missiles in his vicinity. Those beeps are very loud if the missiles or rockets are close by, but they are proportionately softer at greater launch distances.
+
+I created another new sound effect that plays some sad "mood music" for members that are flying any of the online, multiplayer missions when their team loses the battle. (At the same time, members that are flying for the winning team hear the same, exciting musical fanfare that both teams had been hearing in prior versions.)
+
+The menus can now be navigated with keyboard keys in addition to the mouse. This will be of great benefit to users whose LINUX PCs are equipped with ATi "Radeon" display adapters, because LAC has heretofore not handled mouse motion well within its menus on modern PCs equipped with Radeon hardware. (The keyboard keys that navigate the menus are the same keyboard keys that control view direction during flight. After using those keys to designate a menu button, the <ENTER> or <SPACE> keys will activate the corresponding function.)
+
+The visual appearance of the German Me163 "Komet" rocket plane has been greatly improved.
+
+Text messages from the LAC Server can now be displayed when directed to Realm, Mission, Team, and/or PlayerId.
+
+The startup "splash" artwork has been enhanced with an animated image of a Lockheed P38 "Lightning" fighter aircraft flying out of the display screen toward the viewer. Also, the previous sign-on "splash" image is now a lot prettier, has the proper aspect ratio, and features an F4u Corsair and an F6F Hellcat flying in loose formation over an airfield.
+
+Fixed several bugs that were interfering with sound effects when online missions end due to the destruction of one of the HQ airfields.
+
+
+
+
+Major new features of the Sep2018 version (Lac06p36) include:
+
+Improved external views: Prior versions were only displaying the forward 75% of the player's aircraft when flying in the "External" or "Chase" view". With this version, the virtual camera is moved farther behind the player's aircraft so that the entire plane is now visible and looks much better.
+
+Improved graphical scaling: Prior versions were displaying all aircraft with the same visual size, so that small fighter aircraft looked just as big as heavy bombers when flying near one another in formation. Now all aircraft are scaled according to their historic size.
+
+Improved visibility when landed or parked on airstrips: Prior versions did not display aircraft that were on the ground. With this version, aircraft that are taxiing or stopped on runways are now visible. This improves realism and exposes players to a much more realistic risk of being "vulched".
+
+The F6F "Hellcat" graphical model has been significantly improved, thanks to Blake Williams (Thans Blake!).
+
+
+
+
+
+Major new features of the late Aug2018 version (Lac06p30) include:
+
+Enhanced Victory/Loss reporting: The "OnlineScoreLog.LAC" text file now records the player's air-to-air defeats in addition to the victory reports from prior versions. Now the OnlineScoreLog.LAC file provides a comprehensive history of both, and reports are now expanded to include the "CommunityHandles" of victors and victims.
+
+Improved Morse Code Radio panel on the cockpit: The Morse code radio panel now looks a lot better on the cockpit, with a more interesting shape, improved color contrast, and larger text that is a lot easier to read.
+
+
+
+Major new features of the early Aug2018 version (Lac06p29) include:
+
+Bug Fix: I fixed a bug in version Lac06p28 that was causing two of the three online, multiplayer missions to crash about 30 seconds after they were started. The affected missions were "MissionNetworkBattle01" and "MissionNetworkBattle02". Now all three of those "MissionNetworkBattleXX" missions are well-behaved again.
+
+CommunityHandles: Users that enter a name for themselves in the "CommunityHandle" field of their LacConfig.txt file now benefit from LAC's automated transmission of those names among other players participating in the same Realm and Mission. (It's best if you choose a name that's likely to be unique throughout the emerging LAC community, and if it is the same as your Mumble username.) In flight, when using the "SelectNextTarget" and "SelectPreviousTarget" functions (activated with "N" and "P", respectively unless you've customized your keyboard), the CommunityHandle of each selected target is displayed on your cockpit panel. (This isn't instantaneous; After joining a new mission, it may take as long as 60 seconds for all of the CommuninityHandles to propogate among players via the network.)
+
+Improved high-speed flight models: Extensive testing of prior versions has revealed a general tendency for aircraft to turn too well when flying at extremely high speeds. This version improves that error. High speed maneuoverability is still better than it should be for many aircraft, but all aircraft now perform more realistically in this regard. Further fine-tuning may be necessary, but in the future those changes will be smaller and ought to characterized as "tweaking".
+
+Improved defensive airfield guns: Prior versions enforced an altitude limit of about 4500 feet on airfield guns, so opposing bombers were able to fly safely at unrealistically low altitudes when attacking a hostile airfield. With this version, that limit has been raised to 10,000 feet, resulting in much more realistic airfield defense versus bomber missions. (Of course, once airfields are damaged, the effectiveness of their defensive guns is diminished proportionately, so it can still be safe to approach a hostile airfield at low altitudes, but only after it has been significantly damaged.)
+
+Missile Warnings: In all three of the main online, multiplayer missions, whenever any player fires a missile or rocket, all other players within the same mission are alerted with a radio message so that they can take evasive action if necessary.
+
+
+
+
+
+Major new features of the July 2018 version (Lac06p19) include:
+
+This version creates a new log file named "OnlineScoreLog.LAC", which makes a permanent record of all of the player's victories. This will eventually enable users to "claim" victories that will be published by the LAC Server on a public web site.
+
+This is the first version to use the "CommunityHandle" field of the user's "LacConfig.txt" configuration file. Users can now choose a unique, 20-character "handle", by which they will be known within the emerging LAC community. That name is included in each entry within the new "OnlineScoreLog.LAC" file in order to attribute the player's victories to the chosen handle.
+
+This version is better behaved after the user shoots down an online opponent in any of the three online, multiplayer missions. Instead of spawning a new, replacement "bot" aircraft immediately (and sometimes, confusingly, in the very same location), this version waits a few seconds.
+
+
+
+
+
+Major new features of the late June 2018 version (Lac06p15) include:
+
+This version is better behaved as new players join an online mission that already has several active players: If the player's desired "MyNetworkId" value is already in use by some other player, this version tries to find a new value, but it preserves the same Team affiliation (Blue or Red). The overall result is smoother, quicker, less confusing for other players, and helps develop a better sense of teamwork. If no new value from the player's previously configured team is available, the sim terminates with some informative messages advising the player to try selecting a different mission or to edit the LacConfig.txt file to change the value of "MyNetworkId" to reverse team membership.
+
+
+
+
+
+
+Major new features of the 13Jun2018 version (Lac06p14) include:
+
+Numerous small bugs were fixed in logic affecting the Me163 "Komet" rocket plane. In particular, when landing that plane on a damaged airfield, the throttle settings became corrupted, and the service crew failed to repair any damage it had sustained. Now the throttle problem has been fixed, and repairs are made as for other planes, so long as the airfield itself is sufficiently intact. I also diminished the ability of airfield-based defensive gunners to hit and damage enemy aircraft that are flying faster than about 430 MPH. This will especially benefit players flying the Me163.
+
+Improvements in Server-based missions will also be apparent to new players: the damage that players inflict upon enemy airfields, and enemy aircraft, as well as any repairs that they cultivate on their own airfields, are all much better preserved between flight sessions, and even effect subsequent Server missions as one might expect.
+
+
+
+
+
+Major new features of the 02Jun2018 version (Lac06p12) include:
+
+Improved "glide" performance: When aircraft run out of fuel, they glide a lot better now (still not great, but not nearly so terribly as before). 
+
+Improved HQ airflield explosion sound effects: In prior versions, when HQ aircraft suffered damage from bombs or rockets that were not dropped by the player, appropriate damage was inflicted but no explosion sounds were heard. I fixed that. Now explosions are heard regardless of the source of the weapons in use.
+
+A new log file, named "GunCamHistory.LAC": That file makes a text record describing every GunCamera segment session that the player ever requests from the server. The details within that record can help users request a specific GunCamera segment from the server.
+
+
+
+
+
+Major new features of the 01June 2018 version (Lac06p10) include:
+
+More balanced game play: With additional online player activity we have learned that airfields were too easy to destroy and strategic bombers were too difficult to shoot down. Accordingly, we have tripled the durability of HQ airfields, and we have cut the durability of strategic bombers in half. 
+
+If a player's HQ airfield is so heavily damaged that it can no longer offer full-service re-arming, re-fueling, and repairing of aircraft that land there, the player now has the option to fly to one of the other friendly (or neutral) airfields, where those full re-arm, re-fuel, and repair services can still be obtained.
+
+Server Missions: Gun Camera recordings are now captured by the LAC Server, and can be replayed, as "Server Missions". A small library of these missions have already been recorded, and the server frequently replays them to make online play more interesting. If you record a guncamera segment and want to see it replayed by the server as a Server Mission in which you and/or friends can fly, please contact us by email at: bbosen@AskMisterWizard.com. Include these facts about the guncamera segment that you recorded:
+
+Realm
+MissionId
+Start Date
+Start Time (GMT)
+Approximate duration
+
+(Those details will allow us to locate the correct guncamera segment among the Server's records).
+
+We will respond by email and then we will work out a schedule for replaying it in a Realm of your choosing.
+
+Alternatively, if you want us to replay any particular type of our existing "Server Missions" for your enjoyment (either flying solo or with friends), just send us an email describing the kind of mission you'd like the Server to activate and when you want it playing. We'll set it up to run continuously for the designated time period in one of our 32 available Realms.
+
+As a general rule, our existing little library of Server Missions consists of heavy bomber strikes. We have missions with one, two, or three heavy bombers flying in formation. These Server Mission aircraft generally fly for the RedTeam and target BlueTeam HQ facilities. If there is only one Server Mission aircraft, it generally flys as player "9". If there are two Server Mission aircraft, they generally fly as players "9" and "7". Three-player Server Missions generally automate players "9", "7", and "5". If you fly among any of these missions, you can try to defend the BlueTeam HQ, or you can assist the automated RedTeam aircraft.
+
+Persistent Server Missions: We have begun leaving a new GunCamera player utility running constantly on the network, accessing Realm0's Mission3, and it preserves the status of airfield damage between sessions, even if there are no Sentient players. Accordingly, people participating in that environment can damage an enemy airfield, or accelerate repairs to their own damaged airfields, and then leave the mission (whether voluntarily or when they get shot down). Upon their return to that mission, they will see the results of their prior work, perhaps as modified by other Sentient players since their departure. This adds a welcome, new, "long-term strategic" flavor to these mission environments.
+
+
+
+
+Major new features of the late-April 2018 version (Lac06p03) include:
+
+Strategic warning messages and RADAR symbology. Experience has shown that airfield defenders need rapid notice whenever the opposition launches a strike using heavy bombers, which are capable of destroying an airfield if they arrive undamaged and with a full load of bombs. Accordingly, this version enhances RADAR displays with a large, diamond-shaped icon representing heavy bombers flown by sentient network peer players. However, it takes awhile for the RADAR to confirm that it is tracking a heavy bomber flown by a sentient player, and during the time period while it is making that determination, it periodically displays brief messages on the SystemMessage panel indicating the likely presence of a heavy bomber. Those periodic messages are accompanied by an acoustic beep. As a result of these changes, attentive players receive acoustic, textual, and RADAR icon indications of heavy bombers as they join and participate in the mission. With those indications, attentive players have time to mount an intercept mission in defense of their airfields.
+
+
+
+
+Major new features of the mid-April 2018 version (Lac05p97) include:
+
+Improvements in the Morse Code Radio. Now players hear actual Morse Code as characters are transmitted or received.
+
+An eery, dramatic, new "Air Raid Siren" sound effect is started whenever either of the HQ airfields suffers new damage. The sound continues until the damage is repaired, or until the player flies so far away from the damaged airfield as to pose no threat or to have no effect on repair crews. The sound is very loud when landed on the airfield or when flying very close to the tower, but it quickly fades away with distance.
+
+
+
+
+Major new features of the early Apr2018 version (Lac05p91) include:
+
+Bug fixes: Prior versions suffered a segmentation fault if the operator ever attempted to select a RADAR target in any of the three online, multiplayer missions if his RADAR was off. Also, when RADAR was destroyed, even though the main RADAR display was blank, it was still possible to select RADAR targets and learn their altitudes. Also, when a destroyed RADAR was repaired, it would be destroyed again, automatically, within 2 or 3 seconds. All of those bugs have been fixed.
+
+RADAR destruction and repair cycle has been made more interesting: Now, at the beginning of any of the online, multiplayer missions, RADAR uses the large, rotating, reflector antenna with a range approaching 500 kilometers. If the RADAR is ever destroyed, all RADAR functionality ceases until ground crews can carry out repairs. However, those repairs are insufficient to mount the large, rotating, reflector antenna. Instead, a much smaller antenna is used, and maximum RADAR range is just 50 miles (instead of 500). The cycle of RADAR destruction and repair can continue indefinitely, but repairs are never able to restore RADAR range beyond 50 miles.
+
+Terrains have been beautified a bit more by eliminating the "trenches" that had been prominent near airfields in prior versions. As a result, many of the landscape and oceanscape areas look more natural (especially near the airfields).
+
+A new "Morse Code Radio" communication facility is now available. The keyboard's primary alphanumeric and basic punctuation keys are toggled into and out of this new "Morse Code Radio" mode by pressing the "Caps Lock" key. When the Morse Code Radio mode is active in any of the online, multiplayer missions, alphanumeric keys are encoded into Morse code and transmitted across the network to all players participating in the same mission and realm. As they are sent and received, those characters are displayed on the cockpit panel, just beneath the "Mumble Panel", in a small, single-line, text instrument, scrolling horizontally across its surface as necessary to make room for newer characters so that the pilot can always see the most recent 20 letters, numbers, or punctuation keys that have been sent. A single-character indicator above that instrument displays the Network ID of the most recent sender, and the color of that single-character is either red or blue, matching the "RedTeam" or "BlueTeam" affiliation of the sender. This "Morse Code Radio" works even for players that do not install the usual "Mumble" VOIP application for interplayer communication. However, the Morse Code sounds are not (yet) realistic, and the Morse Code Radio is far more primitive than Mumble's voice communication: Morse messages are transmitted quite slowly, one character at a time, and their reliability diminishes with distance. At short range, characters are delivered with nearly 100% reliability. However, as inter-player distance increases, character transmission is less reliable. At a distance of 20 kilometers, about 90% of the characters are delivered correctly. At a distance of 50 kilometers, only about 80% of the characters get through. At a distance of 100 kilometers, only about 40% of the characters get through. Users are highly encouraged to download and install "Mumble" and to use it to arrange missions and to communicate within missions. The Morse Code Radio is a poor substitute for Mumble's voice communication!
+
+
+
+
+
+Major new features of the Mar2018 version (Lac05p76) include:
+
+Improved HQ airfield appearance. Now the RADAR antenna is animated, spinning around and around like a proper late-war Radar reflector array. It can be damaged and destroyed independently of the HQ airfields. When the RADAR reflector antenna is destroyed, it stops rotating, falls to the ground, and disappears, leaving only the supporting tower structure visible. All RADAR-related functionality immediately ceases for the affected Team so that they cannot see or select RADAR blips or change RADAR range. With time, surviving airfield maintenance personnel can make sufficient repairs to restore general RADAR functionality, but those repairs are emergeny contrivances that never work as well as the original, and the spinning RADAR reflector is never visible again. The repaired RADAR functionality can be damaged, destroyed, and repaired over and over again as the battle progresses, until one side or the other completely destroys an airfield, achieving victory and ending the mission as in prior versions.
+
+
+
+
+
+Major new features of the late Feb 2018 version (Lac05p67) include:
+
+Better aircraft and airfield graphics: A new subfolder,named "Optional3dModels", contains more detailed .3ds models for some of the aircraft, and for the HQ airfields. Use of these files is optional. When none of these files are used, the visual appearance of the aircraft and arfields is optimized for maximum frame-rate, which will work best on older, or lower-powered LINUX desktop PCs, and which will always result in the smoothest graphics. On the other hand, users with sufficiently modern and/or sufficiently powerful Linux desktop PC hardware can replace any of the files in the old ~/models subfolder with the corresponding files from this new "Optional3dModels" subfolder, and the corresponding aircraft or airfield will thereafter look a lot better.
+
+Source code has been cleaned up a little bit more. For example, Ieliminated every reference to the unused "<stdlib.h>" header file. I also made the code more robust so that it is no longer possible to use misconfigured text fields within the LacConfig.txt or LacControls.txt files to cause "buffer overflow" errors. This was done by modernizing all of the relevant instances of "strcpy()" and "strcat()" within all of the code files, replacing them with "strncpy()" and "strncat()" as appropriate.
+
+I fixed a small visual anomaly that was causing a tiny "shimmering" effect along coastlines when flying certain aircraft. This has made visual effects even smoother when flying those aircraft.
+
+Two obscure name references were changed from "AIR COMBAT FOR LINUX" to "LINUX AIR COMBAT".
+
+I eliminated the redundant menu option that was allowing players to try to change their aircraft immediately before launching each mission. (The preferred way to do this is to use the prominent "DEFAULT AIRCRAFT" menu logic that is displayed at top of the list of missions.)
+
+
+
+
+
+Major new features of the early Feb2018 version (Lac05.63) include:
+
+The sim has been expanded to support 54 different types of aircraft. The "DEFAULT AIRCRAFT" menu has now been re-titled "SELECT YOUR AIRCRAFT", and the available aircraft are now presented in alphabetical order by country, manufacturer, and model name/number. Grouped by country, the 54 aircraft break down as follows:
+
+France:     1 (fighter)
+Germany:    9 (5 fighters and 4 bombers)
+Italy:      2 (2 fighters)
+Japan:      9 (6 fighters and 3 bombers)
+UK:         7 (2 bombers and 5 fighters)
+USA:       19 (11 fighters and 8 bombers)
+USSR:       6 (1 bomber and 5 fighters)
+Imaginary:  1 (jet fighter)
+
+Among the more interesting of the new aircraft we have the Messerscmidt ME163 "Comet" rocket-powered short-range interceptor, the De Haviland "Mosquito" bomber, and a variety of naval dive bombers. As it did in actual practice, the ME163 suffers from a cumbersome, time-consuming fuel loading process, which (when combined with its short, 7-minute fuel supply) helps to balance it out among the other choices.
+
+Aircraft are further subdivided into "Early WW2", "Late WW2", and "Post WW2" categories.
+
+The "SELECT YOUR AIRCRAFT" menu logic has been made a lot more interesting because it now displays additional information about each aircraft, including its primary historic role.
+
+Strategic combat has been enhanced. By damaging the enemy's HQ airfield below 50% effectiveness, players can now deny their opponents access to operable "Late WW2" aircraft. Although those aircraft remain available, they now take off with just 20% fuel, 20% ammo, and 20% ordnance load. Early-war aircraft are unaffected by this penalty.
+
+The self-defending guns with which bombers and some heavy fighters are equipped now more accurately reflect the lethality and geometry of the guns actually used by the respective aircraft. Accordingly, it is now far more dangerous to attack a heavily defended bomber (like the B17) than one with just one small-calibre tail gun like the Aichi D3A.
+
+Flight model parameters of all aircraft have been tuned up a bit, especially with regard to the presence or absence of dive brakes.
+
+The visual appearance of most of the aircraft have been further improved.
+
+The visual appearance of the HQ airfields has been improved. The two "parked" aircraft have been replaced with a prettier version that renders a little faster for better overall frame-rate.
+
+Various minor bug fixes.
+
+
+
+
+
+
+Major new features of the Jan2018 version (Lac05.50) include:
+
+The "BETA TEST" notification has been eliminated. This is the first official "Production" version.
+
+The cockpit "SPEED" indicator is now much more stable in flight, and much more accurate while taxiing on the ground.
+
+Five new aircraft have been added, taking the total to 33 aircraft. The new ones are:
+
+   1 of 5: The USSR Yak1
+   2 of 5: The UK "Lancaster" heavy bomber
+   3 of 5: The UK "Mosquito" fast bomber
+   4 of 5: The UK "Typhoon" fighter-bomber
+   4 of 5: The Italian "Macci C.202 Folgore" fighter
+
+(The flight model parameters of those new aircraft are not yet tuned up as accurately as the other aircraft, but they are reasonable, and will get more accurate as we gain experience.)   
+
+All of the previous flight models are significantly improved as a result of re-written inertia code and new code that handles "non-level" flight. Among the resulting improvements: It is no longer possible to roll an airplane and fly "sideways" without losing altitude appropriately.
+
+Seventeen additional, "generic" aircraft are available for test flight. All of them fly exactly like a Lockheed P38, but the visual appearance of each can be easily adjusted with "Blender" or replaced with a custom .3ds model of the player's choosing. This is intended as the basis for player-created aircraft to be given full support and accurate flight models in future versions.
+
+The visual appearance of most of the aircraft have been significantly improved. (In prior releases, several of the aircraft suffered from very primitive, silly visual appearance. All of those are now improved enough to look reasonably good. However, player participation in improving these .3ds models is still requested. I'm not very good with "Blender". If you are good with "Blender", your help would be greatly appreciated as you make these aircraft look better and better.)
+
+The drag effects of flap and landing gear deployment are now much more accurate.
+
+Heavy aircraft now accelerate and decelerate more slowly and more accurately.
+
+Descriptive text in the aircraft selection menus is now more accurate and includes many additional details, making it a lot more interesting to select an aircraft that's appropriate to the chosen mission and tactical situation.
+
+Armament loadouts of all of the aircraft have been adjusted for improved historic accuracy and better mission play.
+
+Fixed a bug that had been labeling some mission Player IDs with the wrong team color on cockpit instrument panels.
+
+Improved the automatic negotiation of "MyNetworkId" to minimize conflicts and to make it easier to enter an online mission without network ID conflicts.
+
+I fixed a bug in all four of the online, multiplayer network missions that was preventing vocalization of the player's "MyNetworkId" number for players 7, 8, 9, or 10.
+
+I removed all visual and vocal references to our old LAC Server and our old Mumble Server (both of which had been hosted at BoseNet.no-ip.biz). Now all of those references advertise our free production LAC server at "LacServer2.LinuxAirCombat.com" and our free production Mumble server at "LinuxAirCombat.com".
+
+I enhanced the Mumble Panel's user interface whenever the user is holding down one of the "Push To Talk" keys so that associated cockpit labels consistently advertise one of the following four transmission states:
+
+   1 of 4: "NARROWCASTING" (When transmitting on a single channel not precisely matching the player's current mission and team). This label is always displayed with white text.
+   
+   2 of 4: "TEAMCASTING" (When transmitting to members of just one team of a network mission.) If the transmitting player is tuned to his own RedTeam mission channel, this label is displayed with red text. If the transmitting player is tuned to his own BlueTeam mission channel, this label is displayed with blue text. Otherwise, when the player is tuned to some other team or mission, grey text is used.
+   
+   4 of 4: "MISSIONCASTING" (When transmitting to everybody listening on both the "RedTeam" and the "BlueTeam" subchannels of an online mission). If the transmission is directed at the player's current mission, then this label is displayed in purple text (representing the combination of red and blue). Otherwise, if the transmission is directed at some other mission, then this label is displayed in grey text.
+   
+   4 of 4: "REALMCASTING" (When transmitting to everybody participating in every mission of the current Realm, regardless of their team affiliation). This label is always displayed with white text.
+
+A new shell script, named "lac", has been added into the distribution, and the installation script has been enhanced to store that new "lac" script in the user's home directory. This new script starts Linux Air Combat, compensating for differing LAC version names. Accordingly, after a standard installation of Linux Air Combat, the user can start the sim by typing "./lac" into a command console, following long-standing LINUX and Unix conventions.
+
+The acoustic volume of "beeps" associated with RADAR sweeps has been adjusted because some of them were painfully loud in prior versions.
+
+In all three of the online, multiplayer missions, any player that uses the standardized "hot keys" to tune his or her Mumble Radio to their appropriate mission and team channel is now rewarded with automated, acoustic radio messages announcing the damage/repair state of the enemy HQ airfield, as if a "forward observer" carrying a handheld radio were within eyesight of the action. This technique has proven successful in motivating proper and optimal use of "Mumble" for mission and interplayer communication, making every online, multiplayer mission a richer community experience.
+
+Cockpit RADAR performance is diminished or stopped whenever the player's airfield becomes heavily damaged. RADAR performance is restored as soon as the corresponding airfield damage is repaired. Airfield repairs are accelerated when a friendly aircraft is overhead, offering protection to ground-based repair crews. On the other hand, airfield repairs are stopped when nearby enemy aircraft dominate the local airspace.
+
+After landing an aircraft on a friendly airfield, re-arming, and re-fueling is now much smoother, quicker, and easier.
+
+
+
+
+Major new features of the Nov2017 version include:
+
+Added three new aircraft, taking the total to 28 aircraft. The new ones are:
+
+   1 of 3: The Russian Lavochkin La5
+   2 of 3: The Russian Lavochkin La7
+   3 of 3: The Russian Ilyushin IL2 "Sturmovik"
+   
+Improved structure of the comments within the LacConfig.txt file for better clarity.
+
+Improved visual effects associated with explosion of bullets, cannon shells, and rockets.
+
+Tweaked the "shaking" effect that is seen when flying aircraft take damage.
+
+Added another building near HQ airflields in two of the three of the online, multiplayer missions (those using the island terrain). It is on a hilltop and it can be strafed to destruction. Its destruction does not contribute to the strategic goals of the mission, but its position has been optimized to show off the new explosions associated with bullets, cannon fire, and rockets. It's a lot of fun to destroy these buildings!
+
+I increased the destructive firepower of WW2-era rockets. Now five rockets inflict approximately the same destruction as a single 500-pound bomb.
+
+I fixed a minor bug in the "Mumble Panel" that was not fully recognizing return to the "Root" Mumble channel after spending some time in the RedTeam or BlueTeam subchannel of the appropriate mission.
+
+I improved the pilot's ability to judge optimum sustained climb angle. Now, when the pilot attempts to climb more steeply than his aircraft's engine can sustain, the center cross that is projected on his windscreen switches to a dimmer setting. Accordingly, so long as that center cross is at the brighter setting, the pilot knows that his engines can sustain the current climb rate without losing speed. (Previously those brightness settings were reversed. The new arrangement is more intuitive.)
+
+I enhanced the cockpit's "TARGET ID=" prompts to display either "28 (BLUE HQ)" or "29 (RED HQ)" whenever any participant of an online, multiplayer mission targets object 28 (the BlueTeam HQ) or object 29 (the RedTeam HQ), respectively. This will help new players to better understand and manage the strategic goals of these three missions.
+
+I also found and fixed a series of bugs in MissionNetworkBattle01 and in MissionNetworkBattle02 that were causing run-time diagnostic messages to log some of their bomb loading activities as if the active mission were MissionNetworkBattle03.
+
+The long list of aircraft from which the player can choose his "DEFAULT AIRCRAFT" for flight in all missions has been reorganized. Now the list groups aircraft alphabetically by country, manufacturer, and model name. When this better organization is combined with the additional new information presented in those menus, it is now much easier and more fun to explore the available aircraft.
+
+I fixed a bug that could result in a program crash and "segmentation error" if the operator ever tried to select a hidden, inactive menu button that had been lurking in the main menu of prior versions.
+
+
+
+
+Major new features of the Sep2017 version include:
+
+   I used Blender to adjust the visual appearance of the Yak9 to better resemble the general shape of the historic aircraft. I also found better data on the Yak9T's flight performance and tweaked the flight model's engine power and maxgamma accordingly. It now flies much faster and climbs much better than before, and flight at medium and low altitudes is now fairly close to that represented by the best available historic data. Now it is NOT WEP-capable.
+
+   I Increased the number of supported aircraft from 20 to 25 with the following five new additions:
+   
+      1 of 5: USA's B25 "Mitchell" medium bomber.
+      2 of 5: USA's B26 "Marauder" medium bomber
+      3 of 5: Japan's G4m "Betty" medium bomber.
+      4 of 5: US Navy's F4F "Wildcat" fighter.
+      5 of 5: USA's P39 "Airacobra" fighter.
+      
+   Bomber autogunnery logic is now more intelligent. Opposing players will need to approach bombers from tactically advantageous angles and/or they will need to "jink" to avoid the dangerous firepower with which bombers now defend themselves. Trying to attack a bomber with a simple tail chase is now a very risky proposition.
+      
+   I tuned up the lethality and durability of bombers and airfields for better balance when airfields are attacked and for when bombers are defending themselves.
+   
+   I made all of the aircraft engines a little tougher in the face of damage from gun hits. Engines can now absorb more bullet hits before they begin to fail.
+   
+   Airfield and bomber autogunners now target all enemy aircraft within gunnery range instead of just targetting the nearest enemy aircraft. As a result, teams of allied aircraft attacking an enemy bomber or airfield now share gunnery risk appropriately, and they benefit from dividing the opposing firepower. For example, if an attacker has a nearby ally, both will suffer only half of the damage that would be likely if either was attacking alone, etc.
+   
+   I improved the logic associated with landing the player's aircraft so that it is no longer possible to land upside-down or sideways without sustaining extensive damage.
+   
+   I fixed a bug in the joystick's "hat switch" logic that was triggered by changes in 64-bit joystick drivers (versus the old 32-bit joystick drivers). Now joystick "hat switch" mapping works correctly in both 32 and 64-bit Linux installations.
+   
+   I fixed longstanding bugs in the logic of the "SETUP OPTIONS"->"GAME" menu so that it is now impossible to use those menus to misconfigure the values for "DIFFICULTY" and "PRECISION", which are now permanently hard-coded for "REALISTIC" and "SIMULATOR", respectively.
+   
+   I fixed a longstanding bug that was ignoring important differences in the firepower of the guns in various aircraft. Now, the guns of some aircraft are far more fearsome than other aircraft.
+   
+   I added an explosion sound effect to accompany the impact of bombs and rockets when they hit airfield facilities. The acoustic volume of these explosions is proportional to their distance from the player.
+   
+   I added new logic to the Norden Bombsight so that Bombsight icons are supressed unless bombs are available and unless the displayed tactical map is zoomed and centered appropriately. If bombs are available but the tactical map is not properly zoomed and centered, helpful prompts are displayed to inform the player of the need to zoom it all the way out and to center it in order to activate the bombsight.
+   
+   I added more new logic to the Norden Bombsight for players whose machines are not powerful enough to set "fog distance" to the longest possible range without losing frame rate. Experience has shown that fog distance must sometimes be set all the way out (to 200) in order to see the ground from bombing altitudes. Accordingly, this new logic sets fog distance all the way out to 200 temporarily, while using the bomb sight, and then resets it to the player's configured "fog distance" value two seconds after the view exits from map mode. Sometimes this logic does not work properly: If you cannot see the ground while using the bomb sight, try pressing <ESC> twice to toggle out to the menus and then back into the mission. After that you should be able to see the ground from bombsight mode.
+   
+   I also found and fixed some bugs that had been preventing the immediate propogation of airfield damage from rockets and bombs (that bug had been hard to notice, because the periodic "static" updates of that same information, which occur every 14 seconds, had obscured the situation because the missing information was eventually propogated by those "static" updates. Now, however, airfield damage from rockets and bombs is immediately propagated across the network to all participating players within the same realm and mission.
+   
+   I fixed a bug in almost all of the missions that was needlessly resetting camera mode to "0" every time a bot was respawned. This has long been a minor irritation, responsible for changing camera mode to "forward" at inconvenient intervals when it ought to have remained looking at map mode or looking to the left, right, rear, down, up, etc. Now the view system seems to be completely immune to this long-suffered, irritating flaw.
+   
+   I improved the ending conditions for MissionNetworkBattle01, MissionNetworkBattle02, and MissionNetworkBattle03. Now, when either HQ airfield is destroyed, all participants hear dramatic music and a voice declaring victory for the appropriate team (Red or Blue), followed by a "countdown" message warning that the mission will end in 15 seconds. Every player then hears a count going down, second by second, until it gets to zero, whereupon all mission aircraft simultaneously explode.
+   
+   I improved logging of tactical events so that players wishing to research battle details during the prior mission can consult the "~/.LAC/logfile.txt" file to learn exactly how much damage was inflicted by or upon them at every moment throughout the entire mission, along with the source of the damage and an explanation of the contributing circumstances. (Note that this level of detail may be diminished in the future as this software stabilizes).
+   
+
+
+Major new features of the Aug2017 version include:
+
+   The strategic airfield combat features of MissionNetworkBattle01 have now been incorporated into MissionNetworkBattle02 and MissionNetworkBattle03. MissionNetworkBattle02 is identical to MissionNetworkBattle01 except for the terrain, which is changed from South Pacific to Desert. MissionNetworkBattle03 is now identical to MissionNetworkBattle01 except that in MissionNetworkBattle03, players start with a fully fueled aircraft, whereas players in MissionNetworkBattle01 are forced to land for fuel almost immediately.
+
+   The Mumble panel colors have been enhanced for better color coordination: Blue Team channels and activities are consistently displayed with blue text, Red Team channels and activities are consistently displayed with red text, and properly configured broadcast activities (targeting both Red and Blue teams simultaneously) are consistently displayed with purple text. Activities on channels other than those intended for the current mission are consistently displayed with grey text. 
+
+   WW2-style unguided rockets are now available, and they are especially useful in the three online, multiplayer missions.
+
+   WW2-style iron bombs are now available, and they are especially useful in the three online, multiplayer missions.
+
+   Rudder trim has controls have been made 8x more powerful. This is especially helpful for people that try to fly without a joystick (using only mouse and keyboard), since their only access to rudder controls is to map rudder trim controls to handy keyboard buttons.
+
+   I fixed a bug that was preventing people trying to fly without a joystick from diminishing their throttles all the way to zero when on the ground. 
+
+
+Major new features of the July2017 version include:
+
+    Defaults configured to access our new servers at LinuxAirCombat.combat
+    Fixed bugs in MissionNetworkBattle02 and MissionNetworkBattle03 that were preventing the last 3 of the 10 participating aircraft from accepting any damage.
+    Landings are a little more difficult and more realistic.
+    Takeoffs are now much easier and more realistic.
+    Redundant System Messages have been reduced or eliminated in network missions.
+
+Major new features of the June2017 version include:
+
+    Numerous little bug fixes and cosmetic improvements.
+
+    Bots now fly a lot smarter (but they are still very timid in combat and they crash into the ground a lot).
+
+    About 150 unimportant debug messages have been eliminated. This has increased performance slightly.
+
+    A pernicious old memory segmentation error bug has been found and fixed.
+
+    The "JetBait" mission has been eliminated (in the future I plan to replace it with a training mission to help new pilots learn how to land and take off).
+
+    Runways have been lengthened and widened so that fighters can now taxi in a circle to turn all the way around if they find themselves at the wrong end of the runway prior to takeoff. This has helped to make takeoffs a lot easier. (But takeoffs are still quite difficult. The main difficulty is that the elevators respond very, Very, VERY slowly until airspeed builds up above about 60 MPH, so if the elevators have drifted out of position while taxiing or while stopped on the runway, they will almost certainly cause unwanted downward thrust or unwanted upward thrust as speed builds prior to taking off, and this often inflicts destructive damage. Accordingly, after landing, pay constant attention to your elevators and do NOT let them drift away from their natural center-point position. Otherwise, your attempts to take off will be frustrating!)
+
+    "MissionNetworkBattle01" has now been expanded to ten players and enhanced with strategic objectives. That mission assigns defensive ground guns at a main HQ airfield for the Blue Team, and also at a main HQ airfield for the Red Team. The new ground guns are fairly intelligent, firing at hostile aircraft within range and inflicting appropriate damage according to their state of maintenance, target distance, and general hit probabilities. Hit probabilities diminish if the targetted aircraft is performing a violent maneouver. The objective of the mission is to destroy the opposing airfield while protecting your own. Network status updates are constantly exchanged between all networked players so that airfield damage inflicted by any player is quickly propogated to all players. Damaged airfields are constantly repaired by ground crews if they are left unharassed by hostile fire. Upon entry into the mission, players choose from among three possible airfields for each of the two teams, but their aircraft is almost out of fuel so they are forced to land almost immediately, whereupon their aircraft is re-fueled. Landing at any airfield also results in repair of any aircraft damage and re-supply of 1000 rounds of ammunition. The result is a very rich, dynamic, and demanding online mission with complex interaction between teams and players, cultivating development of effective interplayer strategies. A typical MissionNetworkBattle01 session with 4 or 6 players lasts about 15 minutes.
+
+    The menu system has been enhanced to allow selection from among as many as three runways for missions supporting that option.
+
+    Bomber aircraft now get defensive autogunners capable of damaging or destroying hostile fighters within gunnery range.
+
+    (Note that hostile bullets in flight are NEVER visible).
+
+
+Major features of the Feb2017 version include:
+
+    New network "smoothing" code significantly decreases network jitter. Network transmission timers can now be set to higher intervals without serious performance degredation. Now, when transmitting packets only every 400 milliseconds, percieved "smoothness" is better than the January 2017 version at 100 milliseconds. Maneouvers performed by remote, network-connected aircraft are now displayed much more clearly, more smoothly, and more immediately. The default value for "NetworkTransmitTimerInterval" has been increased from 100ms to 200ms.
+
+    The value of "MyNetworkId" is now configured dynamically when network missions are entered. There is no longer any need to statically configure this value in advance. If a mission is full, an appropriate SystemStatus declares "THIS MISSION IS FULL. TRY ANOTHER" within about 60 seconds.
+
+    Flight models are significantly improved. They still need more work, and although climb speeds and dive speeds still accelerate too quickly, they are much closer now. Performance at extremely high speeds is greatly improved so that the onset of "control heaviness" and/or "compressibility" is much smoother and less shocking. Compressibility effects now model roll rate degredation too.
+
+    Added the Russian Yak 9 fighter.
+
+    Added the Japanese N1K1 (Nakajima George) fighter.
+
+    Added a new "Mumble Panel" to the cockpit in network missions, immediately below the "Mission Router Panel", significantly improving voice comms and essentially perfecting our Mumble integration. It constantly displays the name of any standard Mumble channel that is selected with any of the standard Mumble Hot Keys. It also dynamically displays "TRANSMITTING" or "RECEIVING" as appropriate to Mumble voice traffic. 
+
+    Improved Mumble event notifications so that whenever a network-connected mission peer uses one of the standard Mumble channel-changing shortcut keys to switch to any of the standard Mumble channels on our Mumble server, all other mission peers flying within reasonable radio range are alerted of the channel change. When used with our standard keyboard macros and with our free Mumble server, our Mumble integration is now so good that there is little need for Mumble's standard "pop-ups" or the "Mumble Overlay". We have the best voice comms and the best Mumble integration in the industry.
+
+    Cleaned up keyboard mapping logic associated with the "arrow" keys so that they can now be mapped arbitrarily to any appropriate flight or view function by editing the "LacControls.txt" file.
+
+    Map mode is enhanced so that "North" is always up, and map scrolling and zooming keys can now be mapped to arbitrary keyboard keys.
+
+    Sound files in ".wav" format have been compressed for smaller distribution packages and faster downloading.
+
+    Acoustic volume of sound effects, background music, radio banter, and training narration files have been balanced optimally.
+
+    The "SystemStatus" message area of the cockpit has been expanded from a single line to three scrolling lines so that the pilots have more time to read messages during online missions.
+
+    Deleted the "WEP" indicator from the cockpit instrument panel, since the cockpit's "Thrust bar" communicates the same information graphically.
+
+    Cockpit target identification has been made more consistent with the team affiliation logic described in our January 2017 release, so that targets are now labeled with strings like "RED-1" or "BLUE-2", etc.
+
+
+
+
+Major features of the January 2017 version include:
+
+    Persistent missions that you can join in process at your pleasure, on your schedule.
+    Team affiliations within the multiplayer, online missions. All three of the online missions now divide players into "Blue" and "Red" team affiliations.
+
+    RADAR now displays Blue team members with blue icons, and Red team members are displayed with red icons.
+
+    Increased RADAR range. Although RADAR's accuracy and timeliness diminish as range increases, it is now highly effective out to 100 miles, and even tracks the general location of targets as far as 400 miles away.
+
+    Improved cockpit user interface for better support of online, multiplayer missions.
+    Prominent cockpit messages announce arrival of new mission players (and departures too, a few seconds after they stop sending telemetry packets).
+
+    Innovative new cockpit "Mission Router Panel" features blinking LEDs that act like your home router to reveal telemetry and communication packets from other network players. A glance at the router panel can tell you how many other players are participating in the current online mission, their numeric IDs, and a general indication of their proximity and resultant telemetry vigor.
+
+    Audio prompts call out numeric identity and team affiliation of selected RADAR targets within about 50 miles.
+
+    World-class Voice communications. We now offer a free server for the the well-known, free, open-source "Mumble" voice application. Our Mumble server is optimized to support a future LAC community, with channels for all of LAC's missions and teams. This server is now available at LinuxAirCombat.com, and each of its channels displays a prominent link to online help associated with related details of LAC through our website.
+    
+    World-class Mumble integration. LAC and Mumble work hand-in-hand. Ten of LAC's keyboard "hot keys" switch your Mumble voice comms channel instantly among missions and teams, and cockpit messages immediately announce the resulting channel name. Mumble pop-ups inform all players whenever anybody enters or leaves their current Mumble channel. Two more keyboard "hot keys" can be dedicated to "Channel Push-To-Talk" and "MultiChannel Push-To-Talk" functions. When any network player presses either of those "Talk" keys, the cockpit comms panels of all mission participants announce the identity of the transmitting player, and his network comms packets light up corresponding LEDs on the new Mission Router panel.
+
+    Mission communication heirarchy. Each mission has a "Main Channel", a "BlueTeam" sub-channel, and a "Red-Team" sub-channel. Voice comms within sub-channels is always private, but speech on the "Main Cannel" can be heard by both teams. Jumping back and forth between your team sub-channel and the main mission channel is instantaneously triggered by single hot-keys, and your cockpit display immediately confirms your channel settings.
+
+    Mumble usernames can be coordinated with LAC usernames for consistent display on LAC's cockpit panel and in Mumble's "Popups".
+
+    Mumble's well-known, optional "Overlay" is fully compatible with LAC, so you can see the names of all channel users even when they are not transmitting.
+    
+    Expanded standard keyboard layout is now conveniently arranged to add sixteen new, comms-related hot-keys in addition to the 44 flight-related hot keys that have long been offered.
+
+Major improvements in the December 2016 release were:
+
+    More Aircraft. We now support P38, P40, P47, P51,  F6F, F4U, B17, Spitfire, Hurricane, A6M, Ki-43, Fiat G-55, Me109, JU87, FW190, a whimsical jet fighter, and Polykarpov I-16.
+
+    Bigger Network Missions: As many as 10 alpha testers have simultaneously flown on our beta test server. Three different types of network missions.
+
+    New Desert Terrain in addition to the prior Island and Mountain terrains.
+
+    New "High Definition" aircraft image models. New A6M "Zero", Fiat G-55, and JU87 "Stuka" take visual detail to a new level. (Work In Process. Special thanks to Stefano Peris.)
+
+    Airstrips, landings, and takeoffs are now possible in all terrains and in all missions.
+
+    "Talking Cockpit" can verbalize information about the selected target so you can hear it ("Target two is at five O'clock, angel's twelve").
+
+    LAC Network Manager application makes it easy to query the status of the server for "What missions are active and how many people are playing" information.
+
+Major improvements in the October 2016 release were:
+
+    Improved hardware compatibility
+
+    Improved program stability and cleaner source code
+
+    Improved use of "Mouse" flight controls for players without a joystick
+
+    Improved sound effects
+
+    Improved flight models
+
+    Prettier cockpit graphics with fewer "jaggies".
+
+    Performance is more uniform across the spectrum of fast vs. slow. vs. medium-power CPUs.
+
+Major improvements from Spring 2016 were:
+
+    Multiplayer mission supporting six players (beta test).
+
+    Improved compatibility with NAT routers.
+
+    Fixed bugs in the interpretation of IP addresses. (The few IP address ranges that failed are now working.)
+
+    Improved network diagnostics.
+
+    Improved network architecture. In addition to the original "Peer to Peer" mode, we've added "Client/Server" mode in support of multiplayer missions.
+
+    Improved User Interface during network missions to aid in identification of participating players.

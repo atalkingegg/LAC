@@ -1,0 +1,4 @@
+mumble &
+cd /usr/local/bin/LAC/LacSim/bin
+./LacSim
+

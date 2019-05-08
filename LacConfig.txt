@@ -1,0 +1,418 @@
+# This is the configuration file for LINUX AIR COMBAT.
+
+
+# This file should be named LacConfig.txt and it should be stored
+# in a hidden folder named .LAC beneath your home folder.
+
+# For example, if your LINUX username is fred and your home
+# folder is at /home/fred, then this file should be found at:
+
+# /home/fred/.LAC/LacConfig.txt
+
+# This file contains two different kinds of text. Firstly, notice
+# that many lines (like this one) commence with a pound sign. Any
+# line that commences with a pound sign is ignored by LINUX AIR COMBAT.
+# All lines of that type are known as Comment Lines.
+
+# Comment lines are displayed for your convenience in understanding the
+# purpose of the OTHER lines, which do NOT commence with a pound sign.
+
+# Secondly, other lines all contain configuration details such as the name
+# of a configurable item, followed on the same line or on the next line
+# with an associated number or text value (usually separated by an = sign)
+# that LINUX AIR COMBAT needs to know about in order to function well on
+# your computer, using your display and your controls, in your network.
+
+# All lines of that type are known as Configuration Lines.
+
+# First we will specify the resolution of the LAC display window in two
+# Configuration Lines below. The first of these two lines will specify the
+# width of LAC's display in pixels. The second of these two lines will specify
+# the height of LAC's display in pixels. If you have already tried running
+# LINUX AIR COMBAT at least once, then it has already tried to fill in those
+# lines for you with its best guess, but you can use any simple text editor
+# to change the values, and sometimes you can make things look a lot better
+# by specifying values that exactly match the maximum display resolution of
+# your own display harware, because sometimes the automated guessing isn't
+# perfect, especially if you have a high resolution display. Here are some
+# very popular video monitor width x height values for fullscreen mode:
+#  640x480, 800x600, 1024x768, 1152x864, 1280x768, 1280x960, 1280x1024, 1920x1080
+
+# Accordingly, just below this block of Comment Lines you will find two
+# lines that DON'T commence with pound signs, and that you can use to configure
+# LINUX AIR COMBAT for optimal use of your display. For example, if you have a
+# modern, powerful, gaming-class computer with a High Definition display
+# and native resolution that's 1920 pixels wide and 1080 pixels high, then
+# LINUX AIR COMBAT will look its very best if those lines look like this,
+# (without the # sign):
+# width = 1920
+# height = 1080
+
+ width = 640
+ height = 480
+
+# Now we specify color depth, designated bpp or bits per pixel. Possible values
+# are 8, 16, 24, or 32. If you are unsure, choose 32:
+
+ bpp = 32
+
+# LINUX AIR COMBAT can run in full-screen mode or in a rectangular window that won't
+# completely fill your display. Many people prefer full-screen mode, but sometimes
+# this may be incompatible with other work you need to do or it may not perform
+# well on your hardware. Furthermore, if you are using the recommended MUMBLE voice
+# communication system to speak with other LAC players, you will find some advantages
+# to configuring a display window that is slightly smaller than full-screen. You can
+# configure LINUX AIR COMBAT for full-screen mode by setting the following value to
+# 1. If you set it to 0 you will get a window sized as specified by the width and
+# height configuration from above, which (in that case) should always be less than
+# your full-screen resolution. Configure either 0 or 1 here:
+
+ fullscreen = 0
+
+# LINUX AIR COMBAT can be configured to run at any of 6 different levels of video
+# detail, ranging from 0 for the simplest graphics up to 5 for the most complex.
+# A modern, powerful gaming computer with hardware-accelerated graphics may
+# be able to deliver smooth performance at level 5, but an older, less powerful one
+# might best be configured for Level 0 in order to achieve smooth, stable flight.
+# Furthermore, we have found that 32-bit LINUX systems tend to need less RAM and to
+# provide more stable graphics libraries than 64-bit LINUX systems at this time.
+# Accordingly, when using higher levels of visual detail on a 64-bit LINUX system,
+# you may see odd visual anomalies (especially on systems with little RAM) that
+# do not trouble users of 32-bit LINUX systems. If this happens to you, consider
+# setting the following value at a low level (0, 1, or 2) so your system will begin
+# each session without those display anomalies. We have found that (on most 64-bit
+# systems) once a mission has started in this way, the graphic detail can then be
+# increased (using the in-game setup menus while in the missions) without triggering
+# these anomalies.
+
+# Choose a number between 0 and 5:
+
+ quality = 0
+
+# The next five Configuration Lines can help you further optimize the visual quality
+# of LINUX AIR COMBAT on your hardware. Experimenting with these may be worthwhile:
+
+# Fog distance miles (lower values may help slower computers perform better): 20 to 200 (default=130)
+ view = 130
+# Dithering: 0=off, 1=on (may help make displayed graphics look better)
+ dithering = 0
+# Antialiasing: 0=off, 1=on (may help displayed text look better)
+ antialiasing = 0
+# Special effects: 0=off, 1=on (may help water surfaces, reflections, etc. look better,
+# and may help avoid visual anomalies in 64-bit LINUX systems.)
+ specialeffects = 0
+# Dynamic lighting: 0=off, 1=on (may help explosions look better)
+ dynamiclighting = 0
+
+# Adjust the next two Configuration Lines according to your preference for the volume level of sound effects
+# and music/narration within missions. (100 = full volume, 0 = silent.)
+
+ sound = 100
+ music = 60
+
+# If you have a joystick, you will want to use it as your primary control when flying aircraft within
+# LINUX AIR COMBAT. To do that, you will enter 2 on the next Configuration Line. However, if you
+# don't have a joystick you can try using a mouse pointer instead, by entering 1 below:
+
+ controls = 2
+
+# Difficulty level: 2 = REALISTIC. No other levels are now supported.
+
+ difficulty = 2
+
+# Brightness: -50..50 per cent (default=0)
+
+ brightness = 0
+
+# Simulator Precision: 1 = SIMULATOR. No other levels are now supported.
+
+ physics = 1
+
+# If you are going to use LINUX AIR COMBAT on a network, you must configure the IP address
+# of a Linux Air Combat Server or of one other computer also using LINUX AIR COMBAT. To do
+# this using a numeric IP address like 192.168.1.2, you must enter four numbers into the
+# next four Configuration Lines. For Example, if you want your computer to connect with
+# another that is using IP address 192.168.1.2, you would enter 192 on the first of the
+# next four lines, after ServerIpByte1of4 =.  Then you would enter 168 on the second of 
+# those lines, 1 on the third line, and 2 at the end of the fourth line, after it says
+# ServerIpByte4of4.
+
+ ServerIpByte1of4 = 192
+ ServerIpByte2of4 = 168
+ ServerIpByte3of4 = 1
+ ServerIpByte4of4 = 2
+
+# As an alternative to entering a numeric IP address above, you might be able to use a
+# DNS name instead. To do that, use the next 3 Configuration Lines to specify the
+# remote network peer DNS Address, expressed as three separate words. For example,
+# If you know that your peer has configured his computer behind a NAT Router and
+# has set up port forwarding and dynamic DNS according to industry norms and if his
+# DNS address is bigshot33.my-ip.biz then you would enter bigshot33 in the first
+# Configuration Line below, you would enter my-ip in the second line below, and you
+# enter biz in the third line below. If your network peer does not use DNS then you
+# should enter void in all three lines below.
+
+# First of 3 sections of network peer DNS name (defaults to our server at LacServer2) :
+ RemoteDnsIpAddressHost
+lacserver2
+# Second of 3 sections of network peer DNS name (defaults to our server at LinuxAirCombat) :
+ RemoteDnsIpAddressSecondLevelDomain
+linuxaircombat
+# Third of 3 sections of network peer DNS name (defaults to our server at com) :
+ RemoteDnsIpAddressTopLevelDomain
+com
+
+# If you are going to use LINUX AIR COMBAT on a network, you must also configure it for
+# an available UDP Port (both for sending to a corresponding UDP port on the addressed
+# remote peer computer and for listening for incoming UDP messages on your own computer).
+# As a general rule, you can just leave this at the default value of 51100 in both of
+# the following Configuration Lines:
+
+ PeerInPortNumber = 51100
+ MyInPortNumber = 51100
+
+# The following field is used to assert your preferred, default identity in Multiplayer
+# missions. Within each mission, every player must have a unique number. LAC will try to
+# use the number you specify here, but if somebody else is already using that number in a
+# network mission, LAC will choose a different number for you, so the number you choose
+# doesn't matter very much unless you arrange private missions with closed membership.
+# Generally, we recommend starting with this value at 0 and letting LAC choose a new
+# value for you, renegotiating among other players when necessary. Note that today's
+# missions all demand a value between 1 and 10. Odd numbers put you on the RED team.
+# Even numbers put you on the BLUE team.
+
+ MyNetworkId = 0
+
+# All network players wishing to see one another within any online mission are now
+# required to configure the same NetworkPassword in the Configuration Line below.
+# If all other network configuration details are properly set up but you cannot see
+# your network opponent or opponents, you might want to review this setting to confirm
+# that it matches precisely for all players:
+
+ NetworkPassword
+password
+
+# Network transmit timer interval in milliseconds (between 100 and 500).
+# Adjust this as necessary for the smoothest flight on your network. If all computers
+# are on the same high-speed LAN then values of 100 to 200 work well.  Across the
+# worldwide Internet, values between 200 and 500 may be better. All players who
+# wish to interact with one another within the same Realm and mission should use
+# identical values for NetworkTransmitTimerInterval. The default value is 200.
+
+ NetworkTransmitTimerInterval = 200
+
+# NetworkMode. On a network, LAC can operate in either of two distinct modes.
+# The simplest of these is PeerToPeer mode. In PeerToPeer mode, pairs of
+# players connect with one another directly, with no need for a network server.
+# PeerToPeer mode is limited to two-player missions.
+# 
+# The other mode is known as ClientServer mode. In ClientServer mode, all players
+# must connect with a remote LAC Server, and several players can participate in
+# any multiplayer mission. The number of players in each mission is limited only
+# by the design of the mission itself and the quality of the network connections
+# in use.
+# 
+# Set NetworkMode as follows:
+# 
+# For PeerToPeer mode, set NetworkMode to 0.
+# For ClientServer mode, set NetworkMode to 1. This is the default.
+
+ NetworkMode = 1
+
+# 
+# Realm. As Linux Air Combat becomes more popular, users within the community will
+# be able to divide into different Realms. In the future, this will help LAC
+# servers to manage network traffic by ensuring that players participating in a
+# different Realm won't be clogging your Internet connection with their packets.
+# For now, everybody should just leave Realm set to 0 so we can all interact with
+# each other.
+# 
+
+ Realm = 0
+
+# CommunityHandle. This is your online name among the LAC community. When other
+# online players use their RADAR target select commands to keep track of you,
+# they will see the name you issue to yourself here. Choose a name that will
+# represent you. It will also help you claim your guncamera film files from
+# the LAC Server. It's best if the first 8 characters of this name match your
+# Mumble Username, since the LAC community will use both. You can enter up to 15
+# characters, but only the first 8 characters are ever seen by others. Use the
+# remaining characters to ensure that the entire name is unique just to you. Also,
+# you can use the reverse apostrophe character to fill any of those 15 characters
+# but it will be displayed as a blank space when other LAC players see it. So a
+# good, 15-character CommunityHandle for a person named Thomas, born in the USA in
+# 1972 might be: THOMAS``1972USA
+
+ CommunityHandle
+000000000000000
+
+
+# DefaultAircraft. All missions will place the player in this aircraft by default.
+# Choose your preferred aircraft by entering the three-digit number from the
+# following list.
+# 
+# Acceptable values at this time are:
+# 
+# Whimsical      jet   Hawk:            201
+# Fiat           G55   Centauro:        202
+# Messerschmidt  ME109 Bf109            203
+# Curtis         P40   Warhawk          204
+# Hawker               Hurricane        205
+# Nakajima       KI43  Oscar            206
+# Supermarine:         Spitfire         207
+# Polykarpov     I-16  Horsefly:        208
+# Junkers        JU87  Stuka:           209
+# Mitsubishi     A6M2   Zero:           210
+# Chance Vought  F4U   Corsair:         211
+# Grumman        F6F   Hellcat:         212
+# Lockheed       P38   Lightning:       213
+# Republic       P47   Thunderbolt:     214
+# North American P51   Mustang:         215
+# Boeing         B17   Flying Fortress: 216
+# Focke-Wulf     FW190 Butcherbird:     217
+# Yakolev              YAK9:            218
+# Nakajima       N1K1  Shiden:          219
+# Consolidated   B24   Liberator:       220
+# Bell           P39   Airacobra:       221
+# Mitsubishi     G4M   Betty:           222
+# North American B25   Mitchell:        223
+# Martin         B26   Marauder:        224
+# Grumman        F4F   Wildcat:         225
+# Lavochkin      LA5   Fantail:         226
+# Lavochkin      LA7   Fin:             227
+# Ilyushin       IL2   Sturmovik:       228
+# Machi          C.202 Folgore:         229
+# Avro                 Lancaster:       230
+# De Haviland    DH.98 MosquitoB:       231
+# Hawker               Typhoon:         232
+# Yakovlev             Yak1:            233
+# Boeing         B29   Superfortress:   234
+# Dewoitine            D.320:           235
+# Curtiss        SB2C  Helldiver:       236
+# Grumman        TBF   Avenger:         237
+# Messerschmidt  ME163 Komet:           238
+# Hawker               Tempest:         239
+# Aichi          D3A   Val:             240
+# Nakajima       B5N   Kate:            241
+# Douglas        SBD5  Dauntless:       242
+# Messerschmidt  ME110 Zerstorer:       243
+# Dornier        DO17:                  244
+# Heinkel        HE111:                 245
+# Junkers        JU88:                  246
+# Nakajima       KI84  Hayate:          247
+# Kawasaki       KI61  Hien:            248
+# Generic        Fighter Generic01:     249
+# Mitsubishi     A6M5  Zero:            250
+# Supermarine    MK5   Spitfire:        251
+# North American P51B  Mustang:         252
+# Republic       P47B  Thunderbolt:     253
+# Messerschmidt  ME109F:                254
+# Lockheed       P38F  Lightning:       255
+
+ DefaultAircraft = 213
+
+
+# The following 16 items define text labels to be displayed on your cockpit console
+# when you press any of the 16 keyboard keys defined in your LacControls.txt file
+# named key_CommsMacro01 through key_CommsMacro16. By default, their values are set up
+# to integrate the recommended, free, open-source VOIP application named Mumble into
+# LAC. Each of these is an upper-case text label that is associated with a keyboard
+# key, and which is displayed on your cockpit when you press the corresponding key.
+# Think of these labels as little reminders to tell you exactly what you intend for
+# some external, co-resident program (not LAC) to accomplish whenever you use the
+# corresponding keyboard key. You can edit the corresponding entries in your
+# LacControls.txt file and create a corresponding set of Mumble shortcuts so that when
+# your Mumble application is connected with our Mumble server at LacServer2.LinuxAirCombat.com, it
+# will instantly perform the communication function described in each of the following
+# 16 phrases. That way, whenever you use those keys with Mumble, LAC can confirm what
+# Mumble will do by displaying the corresponding phrase on your cockpit panel. (Until
+# you install and configure Mumble as described, it will be cumbersome to communicate with
+# other LAC users and these 16 items will be of no use to you.)
+# Because of the way LAC uses these text labels to predict the way your copy of Mumble
+# will respond when you press the corresponding keyboard keys, you probably don't want
+# to change any of these items. If you leave them alone, LAC knows that (at least in
+# the future) you intend to use them with our Mumble server for easy voice comms, and
+# LAC enables some extra cockpit display functions in that case. If you change any of
+# these labels, LAC will skip some of that extra functionality, but you could use the
+# corresponding key with some other external program like TeamSpeak, Ventrillo, etc.
+# with diminished cockpit integration.
+#
+# When editing these 16 items, avoid whitespace and avoid punctuation. Separate distinct
+# words with dashes.
+# 
+ CommsMacro01
+CHANNEL-M1-ALL
+ CommsMacro02
+CHANNEL-M1-BLUE
+ CommsMacro03
+CHANNEL-M1-RED
+ CommsMacro04
+CHANNEL-M2-ALL
+ CommsMacro05
+CHANNEL-M2-BLUE
+ CommsMacro06
+CHANNEL-M2-RED
+ CommsMacro07
+CHANNEL-M3-ALL
+ CommsMacro08
+CHANNEL-M3-BLUE
+ CommsMacro09
+CHANNEL-M3-RED
+ CommsMacro10
+CHANNEL-ROOT
+ CommsMacro11
+PTT-NARROWCASTING
+ CommsMacro12
+PTT-BROADCASTING
+ CommsMacro13
+RADIO-VOLUME-INCREASED-5-PERCENT
+ CommsMacro14
+RADIO-VOLUME-DECREASED-5-PERCENT
+ CommsMacro15
+RADIO-MIC-TOGGLED
+ CommsMacro16
+RADIO-SOUND-TOGGLED
+# 
+# The following 10 items can record and manage the visible CommunityHandle strings most
+# recently used by online players. LAC automatically manages these items, so you won't
+# ever need to edit them:
+#
+# Each of these 10 items must consist of a single, upper-case word, with no more than
+# 8 characters.
+#
+ PlayerIdString01
+LINCOLN
+#
+ PlayerIdString02
+
+#
+ PlayerIdString03
+
+#
+ PlayerIdString04
+
+#
+ PlayerIdString05
+REPLAY05
+#
+ PlayerIdString06
+
+#
+ PlayerIdString07
+REPLAY07
+#
+ PlayerIdString08
+
+#
+ PlayerIdString09
+REPLAY09
+#
+ PlayerIdString10
+
+#
+# This file will self-generate if it is missing, and it is meant to give sensible  
+# startup settings.
+# 
+# To get back to default settings, just delete this file.
+# 
+# Online help is available at AskMisterWizard.com

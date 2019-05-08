@@ -1,0 +1,201 @@
+# This is the Controls Setup file for LINUX AIR COMBAT.
+
+
+# This file should be named LacControls.txt and it should be stored
+# in a hidden folder named .LAC beneath your home folder.
+
+# For example, if your LINUX username is fred and your home
+# folder is at /home/fred, then this file should be found at:
+
+# /home/fred/.LAC/LacControls.txt
+
+# This file contains two different kinds of text. Firstly, notice
+# that many lines (like this one) commence with a pound sign. Any
+# line that commences with a pound sign is ignored by LINUX AIR COMBAT.
+# All lines of that type are known as Comment Lines.
+
+# Comment lines are displayed for your convenience in understanding the
+# purpose of the OTHER lines, which do NOT commence with a pound sign.
+
+# Secondly, other lines all contain information defining the behavior
+# of your computer's input devices (such as your joystick, keyboard, and mouse)
+# when controlling the available functions within LINUX AIR COMBAT.
+
+# By editing this file, you can assign any keyboard key or any joystick
+# button to any of 44 different digital flight functions. You can also
+# assign any joystick axis to function as your aircraft's elevator, rudder,
+# aileron, or throttle control. You can also assign three aircraft functions
+# to handy buttons on your computer's mouse pointer, and you can influence
+# the simulator's sensitivity to mouse movement when you use your mouse to
+# control your aircraft instead of a joystick.
+
+# Accordingly, this file is divided into three sections: one for
+# keyboard mapping, one for mouse mapping, and one for joystick
+# mapping.
+
+# Notice that all of the configuration lines begin with a
+# description of a computer or aircraft control, followed by
+# an = sign and then a number. When you use your favorite,
+# simple text editor to change those numbers, you can change 
+# the effect of the corresponding control.
+
+# In the beginning, you will need help in order to know the 
+# appropriate values for numbers in this situation.
+
+# This is best done by running LINUX AIR COMBAT in a small
+# window, launched from a bash console, so that you can see 
+# accompanying debug information. In that situation, every
+# time you press a keyboard key or joystick button, the 
+# associated numeric value is immediately displayed in a
+# debug message that you will see among other messages 
+# scrolling within your display according to long-established
+# traditions. (Learn how to run LAC in a small window by
+# consulting the LacConfig.txt file.)
+
+
+# ---------------------------------------------------------------------
+# Keyboard section
+# ---------------------------------------------------------------------
+
+# Use ASCII-Code values for alphabetic keyboard keys. Examples:
+#  8=BACKSPACE, 13=ENTER, 32=SPACE, 65=A...90=Z (NOT case sensitive)
+ key_PRIMARY = 32
+ key_SECONDARY = 563
+ key_DROPFLARE = 45
+ key_DROPCHAFF = 61
+ key_WEAPONSELECT = 12
+ key_TARGETNEXT = 78
+ key_TARGETPREVIOUS = 80
+ key_TARGETVOCALIZE = 86
+ key_ZoomFovIn = 536
+ key_ZoomFovOut = 537
+ key_ToggleViewIntExt = 88
+ key_FlapsUp = 85
+ key_FlapsDn = 68
+ key_WepAfterburner = 87
+ key_SpeedBrake = 66
+ key_Undercarriage = 71
+ key_TrimRudderLeft = 544
+ key_TrimRudderRight = 545
+ key_TrimElevatorUp = 546
+ key_TrimElevatorDn = 205
+ key_LookBK = 2
+ key_LookDN = 11
+ key_LookFD = 8
+ key_LookLT = 4
+ key_LookRT = 6
+ key_LookUP = 5
+ key_RadarZoomIn = 534
+ key_RadarZoomOut = 535
+ key_RadarOnOff = 82
+ key_HudOnOff = 72
+ key_IffOnOff = 73
+ key_HudLadderBarsOnOff = 76
+ key_MapViewOnOff = 77
+ key_MapZoomIn = 533
+ key_MapZoomOut = 127
+ key_MapScrollEast = 531
+ key_MapScrollWest = 532
+ key_MapScrollNorth = 530
+ key_MapScrollSouth = 529
+ key_MumblePtt = 538
+ key_MumbleWhisper = 539
+ key_CommsMacro01 = 49
+ key_CommsMacro02 = 50
+ key_CommsMacro03 = 51
+ key_CommsMacro04 = 52
+ key_CommsMacro05 = 53
+ key_CommsMacro06 = 54
+ key_CommsMacro07 = 55
+ key_CommsMacro08 = 56
+ key_CommsMacro09 = 57
+ key_CommsMacro10 = 48
+ key_CommsMacro11 = 538
+ key_CommsMacro12 = 539
+ key_CommsMacro13 = 540
+ key_CommsMacro14 = 541
+ key_CommsMacro15 = 542
+ key_CommsMacro16 = 543
+ key_GunCameraToggle = 67
+
+
+# ---------------------------------------------------------------------
+# Mouse section
+# ---------------------------------------------------------------------
+
+# Sensitivity: 70...200%, 70%=full screen area, 200%=max sensitivity
+ mouse_sensitivity = 100
+# Reverse y-axis: 0 (no) or 1 (yes)
+ mouse_reverse = 0
+# Relative coordinates: 0 (no) or 1 (yes)
+ mouse_relative = 0
+# Auto rudder on x-axis, dead area for rolls: 0...100
+ mouse_autorudder = 30
+
+# Buttons: 1=Left, 2=Middle, 3=Right
+ mouse_firecannon = 1
+ mouse_firemissile = 3
+ mouse_selectmissile = 2
+
+# ---------------------------------------------------------------------
+# Joystick section
+# ---------------------------------------------------------------------
+
+# The number of axes, buttons, and the coolie hat depends on your joystick!
+# Numbers start with A=first joystick, B=second joystick...J=10th joystick
+# followed by a number to identify axes, buttons, and coolie hat
+
+# Axis: 0...MAX-1 (maybe 0=aileron 1=elevator 3=throttle 2=rudder)
+
+# Buttons: 0...MAX-1, Coolie: 100=Right, 101=Up, 102=Left, 103=Down
+ joystick_aileron = A0
+ joystick_elevator = A1
+ joystick_throttle = A3
+ joystick_rudder = A2
+ joystick_view_x = A4
+ joystick_view_y = A5
+ joystick_FIREPRIMARY = A0
+ joystick_FIRESECONDARY = A1
+ joystick_DROPFLARE = A13
+ joystick_DROPCHAFF = A14
+ joystick_WEAPONSELECT = A10
+ joystick_ZoomFOVin = A100
+ joystick_ZoomFOVout = A102
+ joystick_TargetNext = A103
+ joystick_TargetPrev = A101
+ joystick_ToggleExtIntView = A8
+ joystick_FlapsUP = A2
+ joystick_FlapsDN = A3
+ joystick_WEPorAfterburner = A5
+ joystick_SpeedBrake = A7
+ joystick_Undercarriage = A12
+ joystick_TrimRudderLeft = A33
+ joystick_TrimRudderRight = A33
+ joystick_TrimElevatorUp = A33
+ joystick_TrimElevatorDn = A33
+ joystick_LookBK = A15
+ joystick_LookDN = A16
+ joystick_LookFD = A17
+ joystick_LookLT = A18
+ joystick_LookRT = A19
+ joystick_LookUP = A20
+ joystick_RadarZoomIn = A21
+ joystick_RadarZoomOut = A22
+ joystick_RadarOnOff = A23
+ joystick_HudOnOff = A24
+ joystick_IffOnOff = A25
+ joystick_HudLadderBarsOnOff = A26
+ joystick_MapViewOnOff = A27
+ joystick_MapZoomIn = A28
+ joystick_MapZoomOut = A29
+ joystick_MapScrollEast = A30
+ joystick_MapScrollWest = A31
+ joystick_MapScrollNorth = A32
+ joystick_MapScrollSouth = A33
+ joystick_TargetVocalize = A10
+
+# This file is meant to give sensible custom interface settings
+
+# To get back to default settings, just delete this file!
+
+# Online help is available at AskMisterWizard.com/FlightSimMovies/LAC

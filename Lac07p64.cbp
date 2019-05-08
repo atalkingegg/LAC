@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Lac07p64" />
+		<Option execution_dir="/home/bbosen/Development/Source/c++/FlightSims/LAC/Lac04p40/bin/" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Lac07p64" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Lac07p64" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-fexpensive-optimizations" />
+			<Add option="-O3" />
+			<Add option="-Wall" />
+			<Add option="`sdl-config --cflags`" />
+		</Compiler>
+		<Linker>
+			<Add option="-s" />
+			<Add option="`sdl-config --libs`" />
+			<Add library="GL" />
+			<Add library="GLU" />
+			<Add library="glut" />
+			<Add library="SDL" />
+			<Add library="SDLmain" />
+			<Add library="SDL_mixer" />
+		</Linker>
+		<Unit filename="3ds.cpp" />
+		<Unit filename="3ds.h" />
+		<Unit filename="FlightModel.cpp" />
+		<Unit filename="NetworkApi.cpp" />
+		<Unit filename="NetworkApi.h" />
+		<Unit filename="aiobject.cpp" />
+		<Unit filename="aiobject.h" />
+		<Unit filename="audio.cpp" />
+		<Unit filename="audio.h" />
+		<Unit filename="cb.bmp" />
+		<Unit filename="cockpit.cpp" />
+		<Unit filename="cockpit.h" />
+		<Unit filename="common.cpp" />
+		<Unit filename="common.h" />
+		<Unit filename="conf.cpp" />
+		<Unit filename="conf.h" />
+		<Unit filename="config.h" />
+		<Unit filename="dirs.cpp" />
+		<Unit filename="dirs.h" />
+		<Unit filename="effects.cpp" />
+		<Unit filename="effects.h" />
+		<Unit filename="fileloader.cpp" />
+		<Unit filename="fileloader.h" />
+		<Unit filename="gl.cpp" />
+		<Unit filename="gl.h" />
+		<Unit filename="glland.cpp" />
+		<Unit filename="glland.h" />
+		<Unit filename="land.cpp" />
+		<Unit filename="land.h" />
+		<Unit filename="loader_tga.cpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Unit filename="mathtab.cpp" />
+		<Unit filename="mathtab.h" />
+		<Unit filename="menu.cpp" />
+		<Unit filename="menu.h" />
+		<Unit filename="mission.cpp" />
+		<Unit filename="mission.h" />
+		<Unit filename="model.cpp" />
+		<Unit filename="model.h" />
+		<Unit filename="object.cpp" />
+		<Unit filename="object.h" />
+		<Unit filename="objload.cpp" />
+		<Unit filename="objload.h" />
+		<Unit filename="pilots.cpp" />
+		<Unit filename="pilots.h" />
+		<Unit filename="vertexarray.cpp" />
+		<Unit filename="vertexarray.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
