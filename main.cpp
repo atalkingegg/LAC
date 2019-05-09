@@ -30,6 +30,7 @@
 #include <SDL2/SDL_opengl.h> /* GLint */
 #include <SDL2/SDL_mixer.h> /* Mix_Chunk */
 #include <GL/glu.h> /* gluProject */
+#include <time.h> /* time */
 
 #include "common.h" /* pulls in stdint.h, defines Uint32 needed everywhere */
 #include "mathtab.h" /* MAXSMOKEELEM */
