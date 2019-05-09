@@ -1,7 +1,48 @@
+################################################################################
+
 # LAC - Linux Air Combat - The Lac on Mac project
 A multiplayer WW2 air combat flight simulator
 This is a project to port from SDL1/Glut to a more modern SDL2, get this working
 on MacOS, and generally add to the stability and awesomness of this fun game.
+
+################################################################################
+
+What you will need
+* a Linux or Mac system
+* g++ (GNU C++ compiler on Linux) or llvm-g++ (XCode command line tools on Mac)
+* git ("sudo apt install git" on Linux, I recomend MacPort's "port" on Mac )
+* SDL2 and SDL2_mixer dev libraries
+Download the Lac source, this will create a LAC directory with all the files.
+About 60 Megabytes with all the media files.
+"git clone https://github.com/atalkingegg/LAC.git"
+
+################################################################################
+
+How to build
+
+"cd LAC"
+"make"
+
+If you get any errors or warnings, please send them to me in an email.
+"atalkingegg@yahoo.com"
+
+################################################################################
+
+How to run.
+"cd bin/Release"
+"Lacp07p64"
+
+The first time through, it creates a ${HOME}/.LAC directory with some startup
+configuration files.
+
+"Lacp07p64"
+and hopefully you're quickly flying around, and shooting down your friends..
+ 
+################################################################################
+
+Build testing on Linux found some addional compile time issues, fixing those now in progress.
+2019-05-09
+
 ################################################################################
 
 The first part of Phase 2 is done, code compiles 100% cleanly on Mac, will test
