@@ -4,6 +4,12 @@ This is a project to port from SDL1/Glut to a more modern SDL2, get this working
 on MacOS, and generally add to the stability and awesomness of this fun game.
 ################################################################################
 
+The first part of Phase 2 is done, code compiles 100% cleanly on Mac, will test
+on Linux, then start clearing out all extern decelerations in .cpp files (should
+be 100% in header files). 2019-05-09.
+
+################################################################################
+
 Phase 1, now done. 2019-05-08, onto code cleanup.
 
 ################################################################################
