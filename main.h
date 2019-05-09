@@ -29,8 +29,8 @@
 //##################################################################################################
 // Headers needed only by main.h
 //##################################################################################################
-#include "land.h" /* Landscape */
-#include "glland.h" /* l, depends on land.h */
+#include "glland.h" /* GLLandscape *l */
+#include "3ds.h" /* CLoad3DS g_Load3ds */
 
 
 // These are moved to where needed in *.cpp

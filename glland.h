@@ -26,12 +26,16 @@
 #ifndef IS_GLLAND_H
 #define IS_GLLAND_H
 
-// #include <string.h>
+//##################################################################################################
+// Headers needed only by glland.h
+//##################################################################################################
+#include "effects.h" /* CExplosion */
+#include "land.h" /* MAXX */
+#include "object.h" /* Space */
+#include "aiobject.h" /* DynamicObj */
 
+// #include <string.h>
 // #include "model.h" // ok
-// #include "aiobject.h" // ok
-// #include "effects.h" // ok
-// #include "land.h" // ok
 
 #define PARTS 36 // maximum LOD parts
 

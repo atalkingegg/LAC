@@ -21,17 +21,37 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#include <stdio.h>
-#include <string.h>
+//##################################################################################################
+// Headers needed by main.cpp
+//##################################################################################################
+#include <stdio.h> /* sprintf */
+#include <SDL2/SDL.h> /* SDL_Window */
+#include <SDL2/SDL_mixer.h> /* Mix_Chunk */
 
-#include "aiobject.h"
-#include "common.h"
-#include "conf.h"
-#include "glland.h"
-#include "mission.h"
-#include "main.h"
-#include "mathtab.h"
-#include "NetworkApi.h"
+#include "common.h" /* pulls in stdint.h, defines Uint32 needed everywhere */
+#include "mathtab.h" /* MAXSMOKEELEM */
+#include "vertexarray.h" /* VertexArray */
+#include "model.h" /* CColor, depends on mathtab.h and vertexarray.h */
+#include "object.h" /* CSpaceObj, depends on model.h */
+#include "NetworkApi.h" /* LacUdpApiPacket */
+#include "pilots.h" /* PilotList */
+#include "audio.h" /* SoundSystem, depends on SDL_mixer.h */
+#include "main.h" /* ThreeDObjects, depends on pilots.h, audio.h  */
+#include "conf.h" /* mouse_reverse */
+#include "mission.h" /* self stuff */
+
+//##################################################################################################
+
+//#include <stdio.h>
+//#include <string.h>
+//#include "aiobject.h"
+//#include "common.h"
+//#include "conf.h"
+//#include "glland.h"
+//#include "mission.h"
+//#include "main.h"
+//#include "mathtab.h"
+//#include "NetworkApi.h"
 
 extern bool AirfieldRepairRateNormalForBlueTeam;
 extern bool AirfieldRepairRateNormalForRedTeam;
@@ -2060,7 +2080,7 @@ void MissionTutorial1::start ()
         }
     l = new GLLandscape (space, LANDSCAPE_ALPINE_SEA, NULL);
     SeaLevel = -13.0; 
-    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29.2, 5); 
+    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29, 5); 
     l->flatten (AirfieldXMin+46, AirfieldYMin+5, 7, 6); 
     playerInit ();
     fplayer->tl->x = 220;
@@ -2734,7 +2754,7 @@ void MissionHeadToHead00::start ()
     l = new GLLandscape (space, LANDSCAPE_ALPINE_SEA, NULL);
     SeaLevel = -12.915000; 
     
-    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29.2, 5); 
+    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29, 5); 
     l->flatten (AirfieldXMin+46, AirfieldYMin+5, 7, 6); 
     playerInit ();
     PlayerAircraftType = fplayer->id;
@@ -3169,7 +3189,7 @@ void MissionFreeFlightWW2::start ()
         }
     l = new GLLandscape (space, LANDSCAPE_ALPINE_SEA, NULL);
     SeaLevel = -12.915; 
-    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29.2, 5); 
+    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29, 5); 
     l->flatten (AirfieldXMin+46, AirfieldYMin+5, 7, 6); 
     playerInit ();
     fplayer->tl->x = 0;
@@ -3312,7 +3332,7 @@ void MissionNetworkBattle01::start ()
     l = new GLLandscape (space, LANDSCAPE_ALPINE_SEA, NULL);
     SeaLevel = -12.915; 
     
-    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29.2, 5); 
+    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29, 5); 
     l->flatten (AirfieldXMin+46, AirfieldYMin+5, 7, 6); 
     
     int n = 23; 
@@ -4208,7 +4228,7 @@ void MissionNetworkBattle02::start ()
     l = new GLLandscape (space, LANDSCAPE_DESERT, NULL);
     SeaLevel = 50.0; 
     
-    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29.2, 5); 
+    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29, 5); 
     l->flatten (AirfieldXMin+46, AirfieldYMin+5, 7, 6); 
     
     int n = 25; 
@@ -4971,7 +4991,7 @@ void MissionNetworkBattle03::start ()
     l = new GLLandscape (space, LANDSCAPE_ALPINE_SEA, NULL);
     SeaLevel = -12.915; 
     
-    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29.2, 5); 
+    l->flatten (AirfieldXMin+28.0, AirfieldYMin+4, 29, 5); 
     l->flatten (AirfieldXMin+46, AirfieldYMin+5, 7, 6); 
     
     int n = 23; 

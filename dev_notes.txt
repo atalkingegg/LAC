@@ -27,4 +27,9 @@ Where is global struct "l" ???
 
 ######
 
-Phase 1.2. mission.cpp, conf.cpp, glland.cpp, audio.cpp, ...
+Phase 1.2. mission.cpp
+	more header nonsense, pushing dependencies into headers
+	another literal-conversion with flatten, used in mission.cpp, from land.cpp
+	flatten uses all ints, float 29.2 set in mission for each call. changing to 29.
+
+	mission.cpp now 100% clean

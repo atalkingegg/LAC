@@ -1,5 +1,5 @@
 
-all: main.o aiobject.o
+all: main.o aiobject.o mission.o
 
 TARGET := Lac07p64
 
