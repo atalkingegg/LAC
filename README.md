@@ -12,6 +12,7 @@ What you will need
 * g++ (GNU C++ compiler on Linux) or llvm-g++ (XCode command line tools on Mac)
 * git ("sudo apt install git" on Linux, I recomend MacPort's "port" on Mac )
 * SDL2 and SDL2_mixer dev libraries
+
 Download the Lac source, this will create a LAC directory with all the files.
 About 60 Megabytes with all the media files.
 "git clone https://github.com/atalkingegg/LAC.git"
@@ -35,8 +36,7 @@ How to run.
 The first time through, it creates a ${HOME}/.LAC directory with some startup
 configuration files.
 
-"Lacp07p64"
-and hopefully you're quickly flying around, and shooting down your friends..
+RUN "Lacp07p64" again and hopefully you're quickly flying around, and shooting down your friends.
  
 ################################################################################
 
