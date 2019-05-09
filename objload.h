@@ -26,9 +26,11 @@
 #ifndef IS_OBJLOAD_H
 #define IS_OBJLOAD_H
 
-#define int32 int
-
-// #include "model.h" // ok
+//##################################################################################################
+// Headers needed only by objload.h
+//##################################################################################################
+#include "common.h" /* int32 */
+#include "model.h" /* CLoadOBJ */
 
 class CFile
 {

@@ -44,11 +44,14 @@
 *
 */
 
-#ifndef IS_OBJLOAD_H
+//##################################################################################################
+// Headers needed only by objload.cpp
+//##################################################################################################
 
 #include <stdio.h>
 #include <math.h>
 #include "objload.h"
+#include "model.h"
 
 CFile::CFile (char *filename)
     {
@@ -404,4 +407,3 @@ bool CLoadOBJ::ImportOBJ (CModel *model, char *filename)
     Normalize (model);
     return true;
     }
-#endif

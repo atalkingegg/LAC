@@ -20,11 +20,15 @@
     USA
 */
 
-#include "common.h"
+//##################################################################################################
+// Headers needed only by NetworkApi.cpp
+//##################################################################################################
+
+#include "common.h" /* Uint16 */
+#include "main.h" /* sound */
 #include "glland.h"
 #include "NetworkApi.h"
 #include "mission.h"
-
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>

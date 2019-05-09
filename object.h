@@ -26,7 +26,10 @@
 #ifndef IS_OBJECT_H
 #define IS_OBJECT_H
 
-// #include "model.h" // ok
+//##################################################################################################
+// Headers needed only by object.h
+//##################################################################################################
+#include "model.h" /* CVector3 */
 
 // CSpaceObj represents an abstract object (like a cannon shot or a complete fighter)
 class CSpaceObj

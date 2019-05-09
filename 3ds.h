@@ -26,7 +26,11 @@
 #ifndef IS_3DS_H
 #define IS_3DS_H
 
-// #include "model.h" // ok
+//##################################################################################################
+// Headers needed only by 3ds.h
+//##################################################################################################
+#include "common.h" /* Uint32 */
+#include "model.h" /* CModel */
 
 const int debug3ds = 0; // set to 1 to get all Chunk IDs to stdout
 
@@ -132,7 +136,7 @@ class CLoad3DS
   void LoadTextures (CModel *model);
   void Normalize (CModel *model);
   void CleanUp ();
-  FILE *filepointer;
+  // FILE *filepointer;
   Chunk *currentChunk;
   Chunk *tempChunk;
 };

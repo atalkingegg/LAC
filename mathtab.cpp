@@ -23,11 +23,14 @@
 
 /* This file includes a collection of functions and precalculated tables. */
 
-#ifndef IS_MATHTAB_H
+//##################################################################################################
+// Headers needed only by main.h
+//##################################################################################################
 
-#include <math.h>
-#include "mathtab.h"
-#include "common.h"
+#include "mathtab.h" /* MAXSMOKEELEM */
+#include <math.h> /* sqrt */
+#include <stdlib.h> /* rand */
+// #include "common.h"
 
 int randptr = 0;
 
@@ -125,4 +128,3 @@ int myrandom (int n, int x, int y)
         }
     return ret;
     }
-#endif

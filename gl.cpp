@@ -23,14 +23,22 @@
 
 /* This file includes a collection of GL features. */
 
-#ifndef IS_GL_H
+//##################################################################################################
+// Headers needed only by gl.cpp
+//##################################################################################################
 
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include "gl.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
+#include <GL/glu.h> /* gluBuild2DMipmaps */
+#include "main.h" /* win */
+#include "gl.h" /* GL */
 
-extern SDL_Window *win[];
+//#include <stdio.h>
+//#include <string.h>
+//#include <math.h>
+
+// now from main.h
+// extern SDL_Window *win[];
 
 /****************************************************************************
 OpenGL
@@ -333,5 +341,3 @@ bool GL::isSphereInFrustum( float x, float y, float z, float radius )
             }
     return true;
     }
-#endif
-

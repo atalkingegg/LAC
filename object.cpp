@@ -23,10 +23,14 @@
 
 /* This file includes simple objects that create models. */
 
-#ifndef IS_OBJECT_H
+//##################################################################################################
+// Headers needed only by object.cpp
+//##################################################################################################
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
 
-#include "object.h"
-#include "gl.h"
+#include "object.h" /* CSpaceObj */
+#include "gl.h" /* gl */
 
 CSpaceObj::CSpaceObj ()
     {
@@ -338,5 +342,3 @@ void Space::drawGL ()
             }
         }
     } 
-
-#endif

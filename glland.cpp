@@ -23,13 +23,18 @@
 
 /* This file includes a random landscape generator. */
 
-#ifndef IS_GLLAND_H
 
+//##################################################################################################
+// Headers needed only by glland.cpp
+//##################################################################################################
+#include <stdio.h> /* FILE */
+#include "mathtab.h" /* MAXSMOKEELEM */
 #include "glland.h"
-#include "main.h"
-#include "mathtab.h"
-#include "gl.h"
-#include "common.h"
+#include <math.h> /* sqrt */
+#include <string.h> /* memset */
+#include "main.h" /* fplayer */
+#include "gl.h" /* gl */
+//#include "common.h"
 
 FILE *TerrainFile;
 
@@ -3500,4 +3505,3 @@ GLLandscape::GLLandscape (Space *space2, int type, int *heightmask)
       }
    display ((char *)"GLLandscape::GLLandscape() Wrote new version of LastTerrain.LAC", LOG_MOST);
     } 
-#endif

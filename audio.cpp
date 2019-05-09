@@ -23,8 +23,12 @@
 
 /* This file includes all SDL and SDL_mixer audio processing: sound and music */
 
-#include "audio.h"
-#include "dirs.h"
+//##################################################################################################
+// Headers needed only by audio.cpp
+//##################################################################################################
+#include "common.h" /* LOG_MOST */
+#include "audio.h" /* Wavefile */
+#include "dirs.h" /* dirs */
 
 extern char DebugBuf[];
 

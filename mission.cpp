@@ -22,7 +22,7 @@
 */
 
 //##################################################################################################
-// Headers needed by main.cpp
+// Headers needed by mission.cpp
 //##################################################################################################
 #include <stdio.h> /* sprintf */
 #include <SDL2/SDL.h> /* SDL_Window */
@@ -39,20 +39,11 @@
 #include "main.h" /* ThreeDObjects, depends on pilots.h, audio.h  */
 #include "conf.h" /* mouse_reverse */
 #include "mission.h" /* self stuff */
-
 //##################################################################################################
 
-//#include <stdio.h>
-//#include <string.h>
-//#include "aiobject.h"
-//#include "common.h"
-//#include "conf.h"
-//#include "glland.h"
-//#include "mission.h"
-//#include "main.h"
-//#include "mathtab.h"
-//#include "NetworkApi.h"
 
+//##################################################################################################
+/*  NOTE: EVERY BIT OF THIS SHOULD ALL BE IN HEADERS ELSEWHERE  */
 extern bool AirfieldRepairRateNormalForBlueTeam;
 extern bool AirfieldRepairRateNormalForRedTeam;
 extern bool AirfieldRepairsAcceleratedForBlueTeam;
@@ -210,7 +201,9 @@ void ProcessUdpObjFlightDetails();
 void LoadVariablesFromNetworkApiPacket(int);
 void RearmRefuelRepair();
 
-void ArmPlayerAtRequestedField()
+//##################################################################################################
+
+void ArmPlayerAtRequestedField(void)
 {
 display ((char *)"Function Entry: ArmPlayerAtRequestedField()", LOG_MOST);
 sprintf (DebugBuf, "ArmPlayerAtRequestedField() AirfieldRequested = %d\n", AirfieldRequested);
@@ -5982,4 +5975,3 @@ else
         }
      }
 }
-

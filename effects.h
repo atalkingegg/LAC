@@ -26,9 +26,13 @@
 #ifndef IS_EFFECTS_H
 #define IS_EFFECTS_H
 
+//##################################################################################################
+// Headers needed only by effects.h
+//##################################################################################################
+#include "object.h" /* CSpaceObj */
+#include "mathtab.h" /* MAXSMOKEELEM */
+
 // #include "model.h" // ok
-// #include "object.h" // ok
-// #include "mathtab.h" // ok
 
 extern CTexture *texsmoke, *texsmoke2, *texsmoke3;
 

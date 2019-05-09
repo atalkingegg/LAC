@@ -24,15 +24,20 @@
 /* This file includes the memory representation of any 3D model.
    For a detailed description of the data structure look at model.h */
 
-#ifndef IS_MODEL_H
+//##################################################################################################
+// Headers needed only by model.cpp
+//##################################################################################################
+#include "model.h" /* CColor */
+#include <string.h> /* memset */
+#include "loader_tga.h" /* tga_load */
+#include <math.h> /* sqrt */
+#include <stdlib.h> /* exit */
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>  /* GL_LINES */
+#include "gl.h" /* gl, depends on SDL_opengl.h */
 
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include "model.h"
-#include "gl.h"
-#include "mathtab.h"
-#include "loader_tga.h"
+//#include <stdio.h>
+//#include "mathtab.h"
 
 extern bool MissionActive;
 
@@ -1878,5 +1883,3 @@ void CSpherePart::setSouthPoleColor (CColor *c, float w)
 void CSpherePart::setPoleColor (int phi, int theta, CColor *c, float w)
     {
     }
-#endif
-

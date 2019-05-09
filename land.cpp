@@ -23,28 +23,36 @@
 
 /* This file includes a random landscape generator. */
 
-#ifndef IS_LAND_H
+//##################################################################################################
+// Headers needed only by land.cpp
+//##################################################################################################
 
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include "common.h"
-#include "land.h"
-#include "mathtab.h"
+#include <SDL2/SDL.h> /* SDL_Window */
+#include <SDL2/SDL_mixer.h>
+#include <stdio.h> /* FILE */
+#include "common.h" /* LOG_MOST */
+#include "mathtab.h" /* extremerandom */
+#include "land.h" /* Landscape */
+#include <string.h> /* memcpy */
+#include "pilots.h" /* PilotList */
+#include "audio.h" /* SoundSystem, depends on SDL_mixer.h */
+#include "main.h" /* FileSystemDefaultHeightMapFilePath, depends on SDL.h, pilots.h, audio.h */
+
+// #include <math.h>
 
 /****************************************************************************
 * Global Variables
 *
 ****************************************************************************/
-extern char DebugBuf[];
-extern char  FileSystemDefaultHeightMapFilePath [];
+// extern char DebugBuf[];
+// extern char  FileSystemDefaultHeightMapFilePath [];
 
-extern int AirfieldXMin;
-extern int AirfieldXMax;
-extern int AirfieldYMin;
-extern int AirfieldYMax;
+// extern int AirfieldXMin;
+// extern int AirfieldXMax;
+// extern int AirfieldYMin;
+// extern int AirfieldYMax;
 
-extern float SeaLevel;
+// extern float SeaLevel;
 
 FILE *ActiveTerrainFile;
 
@@ -1884,5 +1892,3 @@ Landscape::Landscape ()
 Landscape::~Landscape ()
     {
     }
-
-#endif

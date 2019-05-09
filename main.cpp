@@ -42,12 +42,12 @@
 #include "3ds.h" /* CLoad3DS */
 #include "cockpit.h" /* Cockpit */
 #include "dirs.h" /* Dirs */
-#include "gl.h" /* Gl */
+#include "gl.h" /* gl, depends on SDL_opengl.h */
 #include "land.h" /* MAXX */
 #include "glland.h" /* GLLandscape, depends on land.h */
 #include "mission.h" /* Mission */
 #include "pilots.h" /* PilotList */
-#include "audio.h" /* SoundSystem */
+#include "audio.h" /* SoundSystem, depends on SDL_mixer.h */
 #include "NetworkApi.h" /* Admin013Packet */
 #include "conf.h" /* load_config */
 

@@ -46,16 +46,19 @@
 *
 */
 
-#include <ctype.h>
-#include <math.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "3ds.h"
-#include "common.h"
-#include "dirs.h"
-#include "gl.h"
-#include "mathtab.h"
+//##################################################################################################
+// Headers needed only by 3ds.cpp
+//##################################################################################################
+#include <stdio.h> /* FILE */
+#include "3ds.h" /* BinaryFile */
+#include <stdlib.h> /* exit */
+#include <string.h> /* memset */
+#include "mathtab.h" /* PI */
+#include <math.h> /* sin */
+#include "dirs.h" /* dirs */
+#include "gl.h" /* gl */
+// #include <ctype.h>
+// #include "common.h"
 
 extern char DebugBuf[100];
 
@@ -775,7 +778,7 @@ void CLoad3DS::ReadUVCoordinates (CObject *object, Chunk *previousChunk)
         {
         object->vertex [i].tex.take (&p [i]);
         }
-    delete p;
+    delete[] p;
     }
 
 void CLoad3DS::ReadUVRotation (CMaterial *material, Chunk *previousChunk)
@@ -835,7 +838,7 @@ void CLoad3DS::ReadVertices (CObject *object, Chunk *previousChunk)
         object->vertex [i].vector.y = object->vertex [i].vector.z;
         object->vertex [i].vector.z = -fTempY;
         }
-    delete p;
+    delete[] p;
     }
 
 void CLoad3DS::ReadVOffset (CMaterial *material, Chunk *previousChunk)

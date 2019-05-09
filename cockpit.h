@@ -25,9 +25,11 @@
 
 #ifndef IS_COCKPIT_H
 #define IS_COCKPIT_H
-
-// #include "common.h" // ok
-// #include "model.h" // ok
+//##################################################################################################
+// Headers needed only by cockpit.h
+//##################################################################################################
+#include "common.h" /* Uint32 */
+#include "model.h" /* CColor */
 
 class Cockpit
 {

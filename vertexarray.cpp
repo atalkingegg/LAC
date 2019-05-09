@@ -23,9 +23,15 @@
 
 /* This file includes a vertex array to emulate OpenGL calls. */
 
-#ifndef IS_VERTEXARRAY_H
 
-#include "vertexarray.h"
+//##################################################################################################
+// Headers needed only by vertex.cpp
+//##################################################################################################
+#include "common.h" /* NULL */
+#include "vertexarray.h" /* VertexArray */
+#include <stdlib.h> /* free */
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h> /* GL_VERTEX_ARRAY */
 
 VertexArray::VertexArray ()
     {
@@ -231,5 +237,3 @@ void VertexArray::glEnd ()
     glTexCoordPointer (2, GL_FLOAT, sizeof (float) * stride, &data [10]);
     glDrawArrays (type, 0, n);
     }
-#endif
-

@@ -26,8 +26,11 @@
 #ifndef IS_MODEL_H
 #define IS_MODEL_H
 
-// #include "common.h" // ok
-// #include "vertexarray.h" // ok
+//##################################################################################################
+// Headers needed only by model.h
+//##################################################################################################
+#include "common.h" /* Uint16 */
+#include "vertexarray.h" /* VertexArray */
 
 extern double pitab; // pi=atan(1)
 extern float sintab [360], costab [360]; // table for sine, cosine functions (obsolete, use COS(), SIN() instead)

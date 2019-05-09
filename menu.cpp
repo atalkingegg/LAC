@@ -23,12 +23,14 @@
 
 /* This file includes a very general GUI. */
 
-extern char DebugBuf[100];
-
-#ifndef IS_MENU_H
-
+//##################################################################################################
+// Headers needed only by menu.cpp
+//##################################################################################################
 #include "menu.h"
 #include "main.h"
+#include <GL/glu.h> /* GLuint */
+
+// extern char DebugBuf[100];
 
 int menu_id = 0;
 int menu_z = -2;
@@ -893,4 +895,3 @@ void EditField::eventKey (unsigned char key)
         text [ptr] = 0;
         }
     }
-#endif

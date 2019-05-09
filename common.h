@@ -23,6 +23,10 @@
 
 #ifndef IS_COMMON_H
 #define IS_COMMON_H
+//##################################################################################################
+// Headers needed only by common.h
+//##################################################################################################
+#include <SDL2/SDL.h> /* SDL_BUTTON_LEFT */
 
 // #include "config.h" // defines HAVE_SDL, HAVE_SDL_MIXER
 // #undef USE_GLUT
@@ -35,10 +39,12 @@
 // #include <SDL2/SDL_mixer.h>
 // #include <GL/glu.h>
 
+#undef int32
 #undef Uint32
 #undef Uint16
 #undef NULL
 #include <stdint.h>
+typedef int32_t int32;
 typedef uint32_t Uint32;
 typedef uint16_t Uint16;
 #define NULL nullptr

@@ -29,8 +29,11 @@
 //##################################################################################################
 // Headers needed only by main.h
 //##################################################################################################
+#include <SDL2/SDL.h> /* SDL_Window win[] */
 #include "glland.h" /* GLLandscape *l */
 #include "3ds.h" /* CLoad3DS g_Load3ds */
+#include "pilots.h" /* PilotList *pilots */
+#include "audio.h" /* SoundSystem *sound */
 
 
 // These are moved to where needed in *.cpp
@@ -51,6 +54,11 @@
 extern CModel *getModel (int id); // own export: main.h may be included in the cpp files
 // used in aiobject.cpp 
 
+extern SDL_Window *win[];
+ // used in gl.cpp
+
+
+
 //##################################################################################################
 // Functions elsewhere to be moved elsewhere
 //##################################################################################################
@@ -60,7 +68,22 @@ extern CModel *getModel (int id); // own export: main.h may be included in the c
 // Variables in main.cpp needed elsewhere
 //##################################################################################################
 extern GLLandscape *l; /* used in main.cpp, mission.cpp, glland.cpp, and aiobject.cpp */
-
+extern char FileSystemDefaultHeightMapFilePath [512]; /* land.cpp, conf.cpp */
+extern int AirfieldXMin; /* land.cpp and mission.cpp, not used in main.cpp */
+extern char DebugBuf[]; /* used almost everywhere */
+extern unsigned char AirfieldRequested; /* mission.cpp */
+extern bool AutoPilotActive; /* mission.cpp */
+extern int TrimElevatorSetting; /* mission.cpp */
+extern float AutoPilotAltitude; /* mission.cpp */
+extern int TrimRudderSetting; /* mission.cpp */
+extern float CalculatedDamageDueToCurrentRisk; /* mission.cpp */
+extern unsigned char AirfieldChosenForLanding; /* mission.cpp */
+extern float SeaLevel; /* lots of places */
+extern unsigned char NetworkApiVersion; /* mission.cpp */
+extern int AirfieldXMax; /* mission.cpp */
+extern int AirfieldYMax; /* mission.cpp */
+extern int AirfieldXMin; /* mission.cpp */
+extern int AirfieldYMin; /* mission.cpp */
 
 extern AIObj *ThreeDObjects [maxfighter];
 extern AIObj *fplayer; // the active human player

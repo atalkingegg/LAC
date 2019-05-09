@@ -23,13 +23,18 @@
 
 /* This file includes global definitions. */
 
-#ifndef IS_COMMON_H
+//##################################################################################################
+// Headers needed only by common.cpp
+//##################################################################################################
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include "common.h"
-#include "dirs.h"
+#include <SDL2/SDL.h> /* KEY_F1 */
+
+#include <stdio.h> /* FILE */
+#include "common.h" /* LOG_NONE */
+#include <string.h> /* strlen */
+#include <stdlib.h> /* exit */
+#include "dirs.h" /* dirs */
+//#include <ctype.h>
 
 extern char DebugBuf[100];
 
@@ -353,5 +358,3 @@ void joystick2string (int button, char *buf)
         sprintf (buf, "%c HAT%d", joystick, b - 100);
         }
     }
-
-#endif

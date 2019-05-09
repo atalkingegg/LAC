@@ -351,7 +351,7 @@ void CBlackSmoke::move (Uint32 dt)
         }
     }
 
-void CBlackSmoke::drawGL (CVector3 *z1, CVector3 *z2, CVector3 *tl, float alpha2, float lum2, bool drawlight2, bool istextured2)
+void CBlackSmoke::drawGL_CBS (CVector3 *z1, CVector3 *z2, CVector3 *tl, float alpha2, float lum2, bool drawlight2, bool istextured2)
     {
     if (ttl <= 0 || !specialeffects)
         {
@@ -898,7 +898,7 @@ void HighClouds::setTexture (CTexture *texture)
     sphere->object [0]->material->texture = texture;
     }
 
-void HighClouds::drawGL (CVector3 *tl, CVector3 *textl)
+void HighClouds::drawGL_HC (CVector3 *tl, CVector3 *textl)
     {
     int j;
     CObject *cm = o->object [0];

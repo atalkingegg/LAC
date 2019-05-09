@@ -23,16 +23,19 @@
 
 /* This file contains all configuration parsing code. */
 
-#ifndef IS_CONF_H
+//##################################################################################################
+// Headers needed only by conf.cpp
+//##################################################################################################
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
+#include "common.h" /* MOUSE_BUTTON_LEFT */
+#include "conf.h" /* ConfigFile */
+#include "main.h" /* FileSystemDefaultHeightMapFilePath */
+#include "dirs.h" /* dirs */
 
-#include "aiobject.h"
-#include "conf.h"
-#include "common.h"
-#include "dirs.h"
+//#include <stdio.h>
+//#include <string.h>
+//#include <ctype.h>
+//#include "aiobject.h"
 
 // Global Variables:
 
@@ -223,7 +226,7 @@ extern char CommsMacro15String2[64];
 extern char CommsMacro16String1[64];
 extern char CommsMacro16String2[64];
 extern char DebugBuf[100];
-extern char FileSystemDefaultHeightMapFilePath [];
+//extern char FileSystemDefaultHeightMapFilePath [];
 extern char NetworkPassword [32]; 
 extern char RemoteDnsIpAddress[];
 extern char RemoteDnsIpAddressHost[32];
@@ -439,17 +442,13 @@ char *ConfigFile::getString (char *dest, char *str)
     } 
 
 int ConfigFile::getValue (char *str)
-    {
-    char res [256];
-    getString (res, str);
+{
+	char res [256];
 
-    if (res == NULL)
-        {
-        return -1;
-        }
-
-    return atoi (res);
-    } 
+	if (getString(res, str) == NULL)
+		return -1;
+	return atoi (res);
+} 
 
 int ConfigFile::openOutput (char *fname)
     {
@@ -2767,5 +2766,3 @@ int load_configInterface ()
         StringPointer++;
         }
     }
-
-#endif

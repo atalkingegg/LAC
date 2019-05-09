@@ -26,8 +26,11 @@
 #ifndef IS_MISSION_H
 #define IS_MISSION_H
 
-// #include "model.h" // ok
-// #include "aiobject.h" // ok
+//##################################################################################################
+// Headers needed only by mission.h
+//##################################################################################################
+#include "model.h" /* CColor */
+#include "aiobject.h" /* AIObj */
 
 #define MISSION_DEMO 0
 #define MISSION_TUTORIAL 8
