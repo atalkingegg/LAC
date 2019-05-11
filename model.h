@@ -32,8 +32,7 @@
 #include "common.h" /* Uint16 */
 #include "vertexarray.h" /* VertexArray */
 
-extern double pitab; // pi=atan(1)
-extern float sintab [360], costab [360]; // table for sine, cosine functions (obsolete, use COS(), SIN() instead)
+// extern float sintab [360], costab [360]; // table for sine, cosine functions (obsolete, use COS(), SIN() instead)
 
 /* Currently models are normalized to the (-1,-1,-1)-(1,1,1) cube and static!
    The model represents the "class" description of a static model's geometry and colors.

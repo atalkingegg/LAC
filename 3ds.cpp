@@ -53,8 +53,8 @@
 #include "3ds.h" /* BinaryFile */
 #include <stdlib.h> /* exit */
 #include <string.h> /* memset */
-#include "mathtab.h" /* PI */
-#include <math.h> /* sin */
+// #include "mathtab.h" /* PI */
+#include <math.h> /* sin, M_PI */
 #include "dirs.h" /* dirs */
 #include "gl.h" /* gl */
 // #include <ctype.h>

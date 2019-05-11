@@ -27,6 +27,7 @@
 // Headers needed only by common.h
 //##################################################################################################
 #include <SDL2/SDL.h> /* SDL_BUTTON_LEFT */
+#include <math.h> /* M_PI */
 
 // #include "config.h" // defines HAVE_SDL, HAVE_SDL_MIXER
 // #undef USE_GLUT
@@ -162,8 +163,8 @@ const int timestep = 34; // (higher values mean slower gameplay)
 #define PilotPositionFactor 1.0F
 
 // exact sine, cosine functions
-#define SIN(x) sin(x*PI/180.0)
-#define COS(x) cos(x*PI/180.0)
+#define SIN(x) sin(x * M_PI / 180.0)
+#define COS(x) cos(x * M_PI / 180.0)
 
 // define common GLUT/SDL keys
 

@@ -27,7 +27,7 @@
 #define IS_MATHTAB_H
 
 extern float sine[], cosi[]; // sine and cosine tables (only use for approximations)
-extern float PI;
+// extern float PI;  // Use M_PI from math.h
 
 extern void mathtab_init (); // calculate tables
 extern int myrandom (int n); // random integer number [0;n-1]

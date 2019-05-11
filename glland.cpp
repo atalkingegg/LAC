@@ -174,7 +174,7 @@ void GLLandscape::precalculate ()
     
     // This is just an approximation presuming the sun is a vertical line
     float m1 = mzoom / hh;
-    float ih = tan ((sungamma + 5) * PI / 180) / m1; // 0 degree vertical sun radius
+    float ih = tan ((sungamma + 5) * M_PI / 180) / m1; // 0 degree vertical sun radius
     for (x = 0; x <= MAXX; x ++)
         {
         float rayheight = hw [x] [MAXX];
@@ -191,7 +191,7 @@ void GLLandscape::precalculate ()
             }
         }
     // precalculate water light, always the same angle
-    int nlwater = 1200 - (int) (1000.0 * 2.0 * fabs ((90.0 - sungamma) * PI / 180.0) / PI);
+    int nlwater = 1200 - (int) (1000.0 * 2.0 * fabs ((90.0 - sungamma) * M_PI / 180.0) / M_PI);
     // precalculate a height average
     int midheight = (highestpoint + lowestpoint) / 2;
     // set minimum ambient light
@@ -248,7 +248,7 @@ void GLLandscape::precalculate ()
             float gamma = (float) acos (normx * lv [0] + normy * lv [1] + normz * lv [2]); // angle
             if (!isWater (f [x] [z]))
                 {
-                nl [x] [z] = 1200 - (int) (900.0 * 2.0 * fabs (gamma) / PI); // calculate light
+                nl [x] [z] = 1200 - (int) (900.0 * 2.0 * fabs (gamma) / M_PI); // calculate light
 
                 if (type == LAND_CANYON)   // in canyons more ambient light in higher regions
                     {
@@ -1538,15 +1538,15 @@ void GLLandscape::drawWaterTexturedQuad (int xs, int ys)
             float dz1 = fabs ((float) camx - xs);
             float dz2 = fabs ((float) camx - xs - step);
             float dy = fabs (camy - (h1*zoomz - zoomz2) * ZOOM);
-            float dtheta1 = fabs (atan (dy / dz1) * 180.0 / PI - 90);
-            float dtheta2 = fabs (atan (dy / dz2) * 180.0 / PI - 90);
+            float dtheta1 = fabs (atan (dy / dz1) * 180.0 / M_PI - 90);
+            float dtheta2 = fabs (atan (dy / dz2) * 180.0 / M_PI - 90);
             dtheta1 /= 4;
             dtheta2 /= 4;
             float divdy = 1.0F / dy * 200;
             float dx1 = ((float) -camz + ys);
             float dx2 = ((float) -camz + ys + step);
-            float dgamma1 = fabs (atan (dy / dx1) * 180.0 / PI - sungamma);
-            float dgamma2 = fabs (atan (dy / dx2) * 180.0 / PI - sungamma);
+            float dgamma1 = fabs (atan (dy / dx1) * 180.0 / M_PI - sungamma);
+            float dgamma2 = fabs (atan (dy / dx2) * 180.0 / M_PI - sungamma);
             dgamma1 /= 4;
             dgamma2 /= 4;
             float sc = 1.0;

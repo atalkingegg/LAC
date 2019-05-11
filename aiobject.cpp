@@ -265,7 +265,7 @@ void AIObj::aiAction (Uint32 dt, AIObj **f, AIObj **m, DynamicObj **c, DynamicOb
         if (haveMissile () && target != NULL)
             { 
             
-            float dgamma = atan ((target->tl->y - tl->y) / disttarget) * 180 / PI - (gamma - 180);
+            float dgamma = atan ((target->tl->y - tl->y) / disttarget) * 180 / M_PI - (gamma - 180);
             float dphi = getAngle (target);
 
             if ((missiletype == BOMB01 - MISSILE1) || (missiletype == MISSILE_DF1 - MISSILE1))
@@ -638,7 +638,7 @@ void AIObj::aiAction (Uint32 dt, AIObj **f, AIObj **m, DynamicObj **c, DynamicOb
 
             if (disttarget <= -0.00001 || disttarget >= 0.00001)   // no division by zero
                 {
-                dgamma = atan ((target->tl->y - tl->y) / disttarget) * 180 / PI - (gamma - 180);
+                dgamma = atan ((target->tl->y - tl->y) / disttarget) * 180 / M_PI - (gamma - 180);
                 }
             recgamma = gamma + dgamma; // get recommended elevation to target
             }
@@ -867,7 +867,7 @@ void AIObj::aiAction (Uint32 dt, AIObj **f, AIObj **m, DynamicObj **c, DynamicOb
         dz2 = 0.0001;
         }
     // get heading to target
-    a = atan (dx2 / dz2) * 180 / PI;
+    a = atan (dx2 / dz2) * 180 / M_PI;
     if (dz2 > 0)
         {
         if (dx2 > 0)
@@ -1216,7 +1216,7 @@ void AIObj::aiAction (Uint32 dt, AIObj **f, AIObj **m, DynamicObj **c, DynamicOb
                             {
                             dz2 = 0.0001;
                             }
-                        a = (atan (dx2 / dz2) * 180 / PI);
+                        a = (atan (dx2 / dz2) * 180 / M_PI);
                         if (dz2 > 0)
                             {
                             if (dx2 > 0)
@@ -1453,7 +1453,7 @@ void AIObj::fireCannon (DynamicObj *MachineGunBullet, float phi)
                 }
             else
                 {
-                MachineGunBullet->gamma = 180.0 + atan ((target->tl->y - tl->y) / distance (target)) * 180.0 / pitab;
+                MachineGunBullet->gamma = 180.0 + atan ((target->tl->y - tl->y) / distance (target)) * 180.0 / M_PI;
                 }
             }
         }
@@ -6205,7 +6205,7 @@ int DynamicObj::getAngle (DynamicObj *o)
         {
         dz2 = 0.0001;
         }
-    a = (int) (atan (dx2 / dz2) * 180 / PI);
+    a = (int) (atan (dx2 / dz2) * 180 / M_PI);
     if (dz2 > 0)
         {
         if (dx2 > 0)
@@ -6234,7 +6234,7 @@ int DynamicObj::getAngle (DynamicObj *o)
 int DynamicObj::getAngleH (DynamicObj *o)
     {
     float disttarget = distance (o);
-    return (int) (atan ((o->tl->y - tl->y) / disttarget) * 180 / PI - (gamma - 180));
+    return (int) (atan ((o->tl->y - tl->y) / disttarget) * 180 / M_PI - (gamma - 180));
     }
 
 void DynamicObj::move (Uint32 dt)
@@ -6611,7 +6611,7 @@ void DynamicObj::move (Uint32 dt)
             {
             gamma2 = atan (dy / dx);
             }
-        gamma = 180.0 + 180.0 / PI * gamma2;
+        gamma = 180.0 + 180.0 / M_PI * gamma2;
         tl->y = newy;
         }
         // set angles to correctly display the object

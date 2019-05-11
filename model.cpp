@@ -30,7 +30,7 @@
 #include "model.h" /* CColor */
 #include <string.h> /* memset */
 #include "loader_tga.h" /* tga_load */
-#include <math.h> /* sqrt */
+#include <math.h> /* sqrt, M_PI */
 #include <stdlib.h> /* exit */
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>  /* GL_LINES */
@@ -41,7 +41,6 @@
 
 extern bool MissionActive;
 
-double pitab;
 float sintab [360], costab [360];
 
 CColor::CColor ()
@@ -410,12 +409,11 @@ CRotation::CRotation ()
     {
     a = b = c = 0;
     calcRotation ();
-    pitab = 4 * atan (1);
 
     for (int i = 0; i < 360; i ++)
         {
-        sintab [i] = sin (pitab / 180 * i);
-        costab [i] = cos (pitab / 180 * i);
+        sintab [i] = sin (M_PI / 180 * i);
+        costab [i] = cos (M_PI / 180 * i);
         }
     }
 
