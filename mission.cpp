@@ -62,7 +62,6 @@ extern bool RadarReflectorBlueHasBeenDestroyedAtLeastOnce;
 extern bool RadarReflectorRedHasBeenDestroyedAtLeastOnce;
 extern bool WindNoiseOn;
 
-extern char DebugBuf[];
 extern char MissionEntryLatch[];
 extern char SystemMessageBufferA[];
 

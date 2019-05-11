@@ -26,6 +26,14 @@
 #ifndef IS_CONF_H
 #define IS_CONF_H
 
+// used in menu.cpp and main.cpp
+extern unsigned int key_LookBK;
+extern unsigned int key_LookDN;
+extern unsigned int key_LookFD;
+extern unsigned int key_LookLT;
+extern unsigned int key_LookRT;
+extern unsigned int key_LookUP;
+
 // interface definitions
 extern unsigned int key_firecannon, key_firemissile, key_dropchaff, key_dropflare;
 extern unsigned int key_selectmissile, key_thrustup, key_thrustdown;
