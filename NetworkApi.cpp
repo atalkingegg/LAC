@@ -944,7 +944,14 @@ else
       Admin012OutPacket.UdpObjRealm = Realm;
       Admin012OutPacket.UdpObjCurrentMissionNumber = CurrentMissionNumber;
       sprintf (Admin012OutPacket.UdpObjLacVersion, VERSIONSTRING);
-      
+
+	// This replaces the NOTDEF block below, and will never copy more than 16 characters.
+	// Also, any handle less than 16 chars will be completed with 0's
+	// Need to test network behavior, then clean this out
+
+        strncpy(Admin012OutPacket.UdpObjCommunityHandle, CommunityHandle, 16);
+     
+#ifdef NOTDEF  
       sprintf (DebugBuf, "%s", CommunityHandle);
       if (strlen(DebugBuf) < 16)
          { 
@@ -955,6 +962,8 @@ else
          { 
          sprintf (Admin012OutPacket.UdpObjCommunityHandle, "NAMETOOLONG");
          }
+#endif /* NOTDEF */
+
       SendAdmin012Packet();
       
       GetNetworkApiPacket();
