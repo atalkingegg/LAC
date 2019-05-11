@@ -84,6 +84,7 @@ extern int AirfieldXMax; /* mission.cpp */
 extern int AirfieldYMax; /* mission.cpp */
 extern int AirfieldXMin; /* mission.cpp */
 extern int AirfieldYMin; /* mission.cpp */
+extern bool MissionActive; /* model.cpp */
 
 extern AIObj *ThreeDObjects [maxfighter];
 extern AIObj *fplayer; // the active human player

@@ -35,11 +35,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>  /* GL_LINES */
 #include "gl.h" /* gl, depends on SDL_opengl.h */
-
-//#include <stdio.h>
-//#include "mathtab.h"
-
-extern bool MissionActive;
+#include "main.h" /* MissionActive */
 
 float sintab [360], costab [360];
 
