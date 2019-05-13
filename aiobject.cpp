@@ -30,6 +30,8 @@
 #include <math.h> /* cos */
 #include "common.h" /* Uint32 */
 #include <stdio.h> /* FILE */
+#include <assert.h> /* assert */
+
 #include "mathtab.h" /* MAXSMOKEELEM */
 #include "vertexarray.h" /* VertexArray */
 #include "model.h" /* CColor, depends on mathtab.h and vertexarray.h */
@@ -5332,6 +5334,11 @@ void DynamicObj::checkDurability ()
     if (Durability <= 0)
         {
         Durability = 0;
+
+	// CRITICAL TODO: fix crash here
+	assert(fplayer != nullptr);
+	assert(fplayer->target != nullptr);
+
         while (!fplayer->target->active)
            {
            display ((char*)"DynamicObj::checkDurability() an inactive, selected target has been destroyed.", LOG_MOST);

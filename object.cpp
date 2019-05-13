@@ -28,6 +28,7 @@
 //##################################################################################################
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
+#include <assert.h> /* assert */
 
 #include "object.h" /* CSpaceObj */
 #include "gl.h" /* gl */
@@ -167,6 +168,8 @@ void CSpaceObj::drawGL (CVector3 *z1, CVector3 *z2, CVector3 *tl, float alpha2, 
             glDisable (GL_LIGHTING);
             if (istextured2)
                 {
+// CRITICAL TODO: fix crash here when draw2 called on null object
+		assert(o != nullptr);
                 o->draw2 (tl, this->tl, this->rot, this->zoom, explode);
                 }
             else
