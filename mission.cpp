@@ -1970,7 +1970,11 @@ void Mission::playerInit ()
     {
     int i;
     fplayer = ThreeDObjects [0];
+
     fplayer->target = NULL;
+    sprintf (DebugBuf, "WARNING: at Mission::playerInit:1974 fplayer->target is now NULL");
+    display (DebugBuf, LOG_MOST);
+
     fplayer->newinit (selfighter [wantfighter], 1, 0);
     fplayer->ai = false;
     for (i = 0; i < missiletypes; i ++)
@@ -3494,10 +3498,16 @@ void MissionNetworkBattle01::start ()
     if (MyNetworkId%2)
        { 
        fplayer->target = ThreeDObjects[28]; 
+        sprintf(DebugBuf, "WARNING: at MissionNetworkBattle01:start:3500 fplayer->target is now %p",
+		(void*) &ThreeDObjects[28]);
+        display(DebugBuf, LOG_MOST);
        }
     else
        { 
        fplayer->target = ThreeDObjects[29]; 
+        sprintf(DebugBuf, "WARNING: at MissionNetworkBattle01:start:3507 fplayer->target is now %p",
+		(void*) &ThreeDObjects[29]);
+        display(DebugBuf, LOG_MOST);
        }
     // Ensure aircraft is ready for combat
     ThrustReadiness = (
@@ -4348,10 +4358,16 @@ void MissionNetworkBattle02::start ()
     if (MyNetworkId%2)
        { 
        fplayer->target = ThreeDObjects[28]; 
+        sprintf(DebugBuf, "WARNING: at MissionNetworkBattle02:start:4360 fplayer->target is now %p",
+		(void*) &ThreeDObjects[28]);
+        display(DebugBuf, LOG_MOST);
        }
     else
        { 
        fplayer->target = ThreeDObjects[29]; 
+        sprintf(DebugBuf, "WARNING: at MissionNetworkBattle02:start:4367 fplayer->target is now %p",
+		(void*) &ThreeDObjects[29]);
+        display(DebugBuf, LOG_MOST);
        }
     // Ensure aircraft is ready for combat
     ThrustReadiness = (
@@ -5153,10 +5169,16 @@ void MissionNetworkBattle03::start ()
     if (MyNetworkId%2)
        { 
        fplayer->target = ThreeDObjects[28]; 
+        sprintf(DebugBuf, "WARNING: at MissionNetworkBattle03:start:5995 fplayer->target is now %p",
+		(void*) &ThreeDObjects[28]);
+        display(DebugBuf, LOG_MOST);
        }
     else
        { 
        fplayer->target = ThreeDObjects[29]; 
+        sprintf(DebugBuf, "WARNING: at MissionNetworkBattle03:start:5998 fplayer->target is now %p",
+		(void*) &ThreeDObjects[29]);
+        display(DebugBuf, LOG_MOST);
        }
     // Ensure aircraft is ready for combat
     ThrustReadiness = (

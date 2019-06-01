@@ -30,6 +30,8 @@
 #include <SDL2/SDL_opengl.h>
 #include <assert.h> /* assert */
 
+#include "main.h" /* DebugBuf */
+
 #include "object.h" /* CSpaceObj */
 #include "gl.h" /* gl */
 
@@ -128,6 +130,15 @@ void CSpaceObj::drawGL (CVector3 *z1, CVector3 *z2, CVector3 *tl, float alpha2, 
     
     int i;
     CVector3 tl1;
+
+// TODO: fix this elsewhere, should never happen!
+    if (o == nullptr)
+    {
+      sprintf (DebugBuf, "CRITICAL ERROR: Called CSpaceOBJ::drawGL when o is NULL");
+      display (DebugBuf, LOG_ERROR);
+      return;
+    }
+
     tl1.x = tl->x + this->tl->x;
     tl1.y = tl->y + this->tl->y;
     tl1.z = tl->z + this->tl->z;
@@ -168,8 +179,8 @@ void CSpaceObj::drawGL (CVector3 *z1, CVector3 *z2, CVector3 *tl, float alpha2, 
             glDisable (GL_LIGHTING);
             if (istextured2)
                 {
-// CRITICAL TODO: fix crash here when draw2 called on null object
-		assert(o != nullptr);
+// CRITICAL TODO: fix crash here when draw2 called on null object, now caught above
+		// assert(o != nullptr);
                 o->draw2 (tl, this->tl, this->rot, this->zoom, explode);
                 }
             else
@@ -185,7 +196,7 @@ void CSpaceObj::drawGL (CVector3 *z1, CVector3 *z2, CVector3 *tl, float alpha2, 
                 }
             }
         }
-    } 
+    }
 
 Space::Space ()
     {

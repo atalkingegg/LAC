@@ -7550,6 +7550,9 @@ void event_RadarOnOff ()
         sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         fplayer->target = ThreeDObjects[0];
+        sprintf(DebugBuf, "WARNING: at main:event_RadarOnOff:7552 fplayer->target is now %p",
+		(void*) &ThreeDObjects[0]);
+        display(DebugBuf, LOG_MOST);
         }
     } 
 

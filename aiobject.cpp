@@ -5330,19 +5330,30 @@ void DynamicObj::activate ()
 
 // check the objects Durability value for damage. Explode/sink if necessary
 void DynamicObj::checkDurability ()
-    {
+{
+        if (fplayer->target == nullptr)
+        {
+             sprintf (DebugBuf, "CRITICAL ERROR: Called DynamicObj::checkDurability when fplayer->target is NULL");
+             display (DebugBuf, LOG_ERROR);
+             return;
+        }
+
+
     if (Durability <= 0)
         {
         Durability = 0;
 
-	// CRITICAL TODO: fix crash here
-	assert(fplayer != nullptr);
-	assert(fplayer->target != nullptr);
+	// CRITICAL TODO: fix crash here,
+	// assert(fplayer != nullptr);
+	// Seems to be mostly this one.
+	// assert(fplayer->target != nullptr);
 
         while (!fplayer->target->active)
            {
            display ((char*)"DynamicObj::checkDurability() an inactive, selected target has been destroyed.", LOG_MOST);
            fplayer->target = ThreeDObjects[0];
+           sprintf(DebugBuf, "WARNING: at aiobject.cpp:DynamicObj:checkDurability:5354 fplayer->target is now %p",
+		(void*) &ThreeDObjects[0]);
            fplayer->targetNext ((AIObj **) ThreeDObjects);
            }
         if (explode <= 0)
@@ -5500,7 +5511,7 @@ void DynamicObj::checkDurability ()
                 sink = 1;
                 }
         }
-    } 
+} 
 
 // check whether the object is exploding or sinking and deactivate if necessary
 void DynamicObj::checkExplosion (Uint32 dt) 
