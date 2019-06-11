@@ -13470,6 +13470,16 @@ void TargetVocalizeProcess1 ()
       State2Vocalized = false;
       State1Vocalized = false;
       }
+
+// critical warning section 
+   else if (fplayer->target == nullptr)
+   {
+             sprintf (DebugBuf, "CRITICAL ERROR: Called TargetVocalizeProcess1()in main.cpp when fplayer->target is NULL");
+             display (DebugBuf, LOG_ERROR);
+             return;
+   }
+// end critical warning section 
+
    else if (TargetVocalize1State == 7  && !State7Vocalized)
       { 
       if ((fplayer->target->tl->y / 25.0) < 1.4)

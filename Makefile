@@ -15,6 +15,7 @@ endif
 ifeq ($(UNAME), Darwin)
 	CXX       := /usr/bin/llvm-g++ -fno-color-diagnostics
 	CXXFLAGS  := -std=c++17 -m64 -Wall -g -I/opt/local/include -I/opt/X11/include
+#	CXXFLAGS  := -std=c++17 -m64 -Wall -Ofast -I/opt/local/include -I/opt/X11/include
 	SYS_FLAGS := -framework Cocoa -framework OpenGL -L/opt/local/lib -L/opt/X11/lib
 	SDL2FLAGS := -lSDL2 -lSDL2main -lSDL2_mixer -lGLU
 endif
