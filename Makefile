@@ -8,7 +8,8 @@ UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
 	CXX        := /usr/bin/g++ -fdiagnostics-color=never
-	CXXFLAGS   := -m64 -Wall -g -I/usr/include
+#	CXXFLAGS   := -m64 -Wall -g -I/usr/include
+	CXXFLAGS   := -m64 -Wall -O3 -I/usr/include
 	SDL2FLAGS  := -lSDL2_mixer -lSDL2 -lGL -lGLU
 endif
 
