@@ -60,10 +60,10 @@
 # Use ASCII-Code values for alphabetic keyboard keys. Examples:
 #  8=BACKSPACE, 13=ENTER, 32=SPACE, 65=A...90=Z (NOT case sensitive)
  key_PRIMARY = 32
- key_SECONDARY = 563
+ key_SECONDARY = 8
  key_DROPFLARE = 45
  key_DROPCHAFF = 61
- key_WEAPONSELECT = 12
+ key_WEAPONSELECT = 85
  key_TARGETNEXT = 78
  key_TARGETPREVIOUS = 80
  key_TARGETVOCALIZE = 86
@@ -72,19 +72,19 @@
  key_ToggleViewIntExt = 88
  key_FlapsUp = 85
  key_FlapsDn = 68
- key_WepAfterburner = 87
+ key_WepAfterburner = 80
  key_SpeedBrake = 66
  key_Undercarriage = 71
  key_TrimRudderLeft = 544
  key_TrimRudderRight = 545
  key_TrimElevatorUp = 546
  key_TrimElevatorDn = 205
- key_LookBK = 2
- key_LookDN = 11
- key_LookFD = 8
- key_LookLT = 4
- key_LookRT = 6
- key_LookUP = 5
+ key_LookBK = 90
+ key_LookDN = 84
+ key_LookFD = 96
+ key_LookLT = 92
+ key_LookRT = 94
+ key_LookUP = 93
  key_RadarZoomIn = 534
  key_RadarZoomOut = 535
  key_RadarOnOff = 82
@@ -126,7 +126,7 @@
 # Sensitivity: 70...200%, 70%=full screen area, 200%=max sensitivity
  mouse_sensitivity = 100
 # Reverse y-axis: 0 (no) or 1 (yes)
- mouse_reverse = 0
+ mouse_reverse = 1
 # Relative coordinates: 0 (no) or 1 (yes)
  mouse_relative = 0
 # Auto rudder on x-axis, dead area for rolls: 0...100
@@ -156,9 +156,9 @@
  joystick_view_y = A5
  joystick_FIREPRIMARY = A0
  joystick_FIRESECONDARY = A1
- joystick_DROPFLARE = A13
- joystick_DROPCHAFF = A14
- joystick_WEAPONSELECT = A10
+ joystick_DROPFLARE = A36
+ joystick_DROPCHAFF = A35
+ joystick_WEAPONSELECT = A34
  joystick_ZoomFOVin = A100
  joystick_ZoomFOVout = A102
  joystick_TargetNext = A103
@@ -198,4 +198,4 @@
 
 # To get back to default settings, just delete this file!
 
-# Online help is available at AskMisterWizard.com/FlightSimMovies/LAC
+# Online help is available at AskMisterWizard.com
