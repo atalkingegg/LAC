@@ -60,11 +60,11 @@
 # Use ASCII-Code values for alphabetic keyboard keys. Examples:
 #  8=BACKSPACE, 13=ENTER, 32=SPACE, 65=A...90=Z (NOT case sensitive)
  key_PRIMARY = 32
- key_SECONDARY = 8
+ key_SECONDARY = 563
  key_DROPFLARE = 45
  key_DROPCHAFF = 61
- key_WEAPONSELECT = 85
- key_TARGETNEXT = 78
+ key_WEAPONSELECT = 12
+ key_TARGETNEXT = 87
  key_TARGETPREVIOUS = 80
  key_TARGETVOCALIZE = 86
  key_ZoomFovIn = 536
@@ -72,7 +72,7 @@
  key_ToggleViewIntExt = 88
  key_FlapsUp = 85
  key_FlapsDn = 68
- key_WepAfterburner = 80
+ key_WepAfterburner = 87
  key_SpeedBrake = 66
  key_Undercarriage = 71
  key_TrimRudderLeft = 544
@@ -85,14 +85,14 @@
  key_LookLT = 92
  key_LookRT = 94
  key_LookUP = 93
- key_RadarZoomIn = 534
- key_RadarZoomOut = 535
+ key_RadarZoomIn = 74
+ key_RadarZoomOut = 77
  key_RadarOnOff = 82
- key_HudOnOff = 72
- key_IffOnOff = 73
+ key_HudOnOff = 81
+ key_IffOnOff = 65
  key_HudLadderBarsOnOff = 76
- key_MapViewOnOff = 77
- key_MapZoomIn = 533
+ key_MapViewOnOff = 70
+ key_MapZoomIn = 73
  key_MapZoomOut = 127
  key_MapScrollEast = 531
  key_MapScrollWest = 532
@@ -112,8 +112,8 @@
  key_CommsMacro10 = 48
  key_CommsMacro11 = 538
  key_CommsMacro12 = 539
- key_CommsMacro13 = 540
- key_CommsMacro14 = 541
+ key_CommsMacro13 = 541
+ key_CommsMacro14 = 540
  key_CommsMacro15 = 542
  key_CommsMacro16 = 543
  key_GunCameraToggle = 67
@@ -126,7 +126,7 @@
 # Sensitivity: 70...200%, 70%=full screen area, 200%=max sensitivity
  mouse_sensitivity = 100
 # Reverse y-axis: 0 (no) or 1 (yes)
- mouse_reverse = 1
+ mouse_reverse = 0
 # Relative coordinates: 0 (no) or 1 (yes)
  mouse_relative = 0
 # Auto rudder on x-axis, dead area for rolls: 0...100
@@ -156,9 +156,9 @@
  joystick_view_y = A5
  joystick_FIREPRIMARY = A0
  joystick_FIRESECONDARY = A1
- joystick_DROPFLARE = A36
- joystick_DROPCHAFF = A35
- joystick_WEAPONSELECT = A34
+ joystick_DROPFLARE = A13
+ joystick_DROPCHAFF = A14
+ joystick_WEAPONSELECT = A10
  joystick_ZoomFOVin = A100
  joystick_ZoomFOVout = A102
  joystick_TargetNext = A103
