@@ -1500,6 +1500,7 @@ void LoadVariablesFromNetworkApiPacket(int timer)
                      IffOnOff = 0;
                      RadarOnOff = 0;
                      }
+                  ThreeDObjects[29]->DamageInNetQueue = 300000; // Compel repetition of mission-ending damage
                   }
                }
             else
@@ -1513,6 +1514,7 @@ void LoadVariablesFromNetworkApiPacket(int timer)
                      IffOnOff = 0;
                      RadarOnOff = 0;
                      }
+                  ThreeDObjects[28]->DamageInNetQueue = 300000; // Compel repetition of mission-ending damage
                   }
                }
             }
