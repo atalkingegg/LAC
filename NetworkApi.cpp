@@ -1249,23 +1249,68 @@ void SendNetworkApiPacket()
       {
       UpdateOnlineScoreLogFileWithVictories();
       }
+
+
+
+
+
+
+
+
+ 
+
+
+
+   //@
+   //@ Now handle and log mission-ending destruction of HQ airfields as a special case.
+   //@
+   //@ Sometimes clients suffer from Internet packet loss and could miss one of these
+   //@ mission-ending packets. We can help mitigate this problem by re-transmitting
+   //@ those packets repeatedly until the mission ends. That's done by re-loading
+   //@ the corresponding "DamageInNetQueue" with a big damage claim, causing the
+   //@ logic back in Mission.cpp's various "...RetrieveFirstDamageDescription()" functions
+   //@ to believe that it's still necessary to transmit the prior, mission-ending
+   //@ damage claim.
+   //@
    if (OutPacket.UdpObjDamageId == 28)
-      { 
+      { //@ Get here if we claim any damage against the BlueTeam HQ Airfield
       if (OutPacket.UdpObjDamageAmount > 0.0)
          {
          sprintf (DebugBuf, "SendNetworkApiPacket(): You damaged the BlueTeam HQ Airfield by %f kilojoules.", OutPacket.UdpObjDamageAmount);
          display (DebugBuf, LOG_MOST);
+         if (OutPacket.UdpObjDamageAmount > 200000)
+            { //@ Get here if we are claiming destruction of BlueTeam HQ
+            ThreeDObjects[28]->DamageInNetQueue = 299000; //@ Force repetition of this damage claim forever.
+            ThreeDObjects[28]->Durability = -10000; //@ Make SURE it's dead....
+            display ((char *)"SendNetworkApiPacket() claiming destruction of BlueTeam HQ.", LOG_MOST);
+            sprintf (SystemMessageBufferA, "BLUETEAM HQ DESTROYED");
+            NewSystemMessageNeedsScrolling = true;
+            }
          }
       }
    if (OutPacket.UdpObjDamageId == 29)
-      { 
+      { //@ Get here if we claim any damage against the RedTeam HQ Airfield
       if (OutPacket.UdpObjDamageAmount > 0.0)
          {
          sprintf (DebugBuf, "SendNetworkApiPacket(): You damaged the RedTeam HQ Airfield by %f kilojoules.", OutPacket.UdpObjDamageAmount);
          display (DebugBuf, LOG_MOST);
+         if (OutPacket.UdpObjDamageAmount > 200000)
+            { //@ Get here if we are claiming destruction of RedTeam HQ
+            ThreeDObjects[29]->DamageInNetQueue = 299000; //@ Force repetition of this damage claim forever.
+            ThreeDObjects[29]->Durability = -10000; //@ Make SURE it's dead....
+            display ((char *)"SendNetworkApiPacket() claiming destruction of RedTeam HQ.", LOG_MOST);
+            sprintf (SystemMessageBufferA, "REDTEAM HQ DESTROYED");
+            NewSystemMessageNeedsScrolling = true;
+            }
          }
       }
-   
+
+
+
+
+
+
+
    if (MumbleChannelMainRequested)
       {  
       OutPacket.UdpObjPlayerNumber += 1*32;   
