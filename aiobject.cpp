@@ -2412,7 +2412,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         HistoricPeriod = 2;
         DefensiveLethality = 0;
         maxthrust = 2.15; 
-        RollRate = 0.64;
+        RollRate = 0.72;
         manoeverability = 0.1267;
         maxDurability = 2400;
         zoom = 0.35;
@@ -2462,7 +2462,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         HistoricPeriod = 1;
         DefensiveLethality = 0;
         maxthrust = 2.08; 
-        RollRate = 0.65;
+        RollRate = 0.71;
         manoeverability = 0.1269;
         maxDurability = 1140;
         zoom = 0.35;
@@ -4611,7 +4611,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         HistoricPeriod = 1;
         DefensiveLethality = 0;
         maxthrust = 2.00;
-        RollRate = 0.64;
+        RollRate = 0.71;
         manoeverability = 0.1296;
         maxDurability = 2400;
         zoom = 0.35;
