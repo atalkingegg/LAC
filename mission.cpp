@@ -122,8 +122,11 @@ extern unsigned int key_WEAPONSELECT;
 extern unsigned int MissedPacketCount;
 extern unsigned int NetworkReceiveTimer;
 extern unsigned int NetworkReceiveTimerInterval;
+extern unsigned int RefuelRearmRepairDurationTimer;
+
 
 extern Uint32 DeltaTime;
+extern Uint32 LandingTimer;
 extern Uint32 Me163LandingTimer;
 extern Uint32 MissionEndingTimer;
 extern Uint32 MissionEndingTimer2;
@@ -177,6 +180,7 @@ extern void event_RadarOnOff();
 extern void event_RadarZoomIn();
 extern void event_RadarZoomOut();
 extern void event_targetNext ();
+extern void event_targetVocalize();
 extern void event_thrustUp ();
 extern void event_ToggleUndercarriage();
 extern void event_TrimElevatorDn();
@@ -188,6 +192,9 @@ extern void LoadVariablesFromNetworkApiPacket();
 extern void SendNetworkApiPacket();
 extern void UpdateOnlineScoreLogFileWithCalculatedRisks();
 extern void UpdateOnlineScoreLogFileWithNewSorties();
+extern void VocalizeBlueHqStatus();
+extern void VocalizeRedHqStatus();
+
 
 bool MissionHeadToHead00RetrieveFirstDamageDescription();
 bool MissionNetworkBattle01RetrieveFirstDamageDescription();
@@ -5818,12 +5825,12 @@ return (false);
 void RearmRefuelRepair()
 {
 if (MyNetworkId % 2)
-   {
+   { //@ Get here if we are on RedTeam
    if (fplayer->tl->x < 0.0)
-      {
+      { //@ Get here when RedTeam player lands on a BlueTeam airfield
       sprintf (SystemMessageBufferA, "THIS IS A HOSTILE AIRFIELD!");
       NewSystemMessageNeedsScrolling = true;
-
+      //@ Penalyze Fuel and ammo levels:
       if (fplayer->FuelLevel > 6)
          {
          fplayer->FuelLevel = 6;
@@ -5836,12 +5843,12 @@ if (MyNetworkId % 2)
       }
    }
 else
-   {
+   { //@ Get here if we are on BlueTeam
    if (fplayer->tl->x > 0.0)
-      {
+      { //@ Get here when BlueTeam player lands on a RedTeam airfield
       sprintf (SystemMessageBufferA, "THIS IS A HOSTILE AIRFIELD!");
       NewSystemMessageNeedsScrolling = true;
-
+      //@ Penalyze Fuel and ammo levels:
       if (fplayer->FuelLevel > 6)
          {
          fplayer->FuelLevel = 6;
@@ -5853,138 +5860,331 @@ else
       return;
       }
    }
-FuelLevelAtLastLanding = fplayer->FuelLevel;
+FuelLevelAtLastLanding = fplayer->FuelLevel; //@ Preserve this fuel as our minimum after refueling.
 if (fplayer->id != FIGHTER_ME163)
-   {
-   fplayer->FuelLevel = 100;
-   fplayer->maxthrust = PlayersOriginalMaxThrust;
-   fplayer->RollRate = PlayersOriginalRollRate;
+   { //@ Get here if player is in a "normal" aircraft and has landed safely. Refuel and Rearm.
+   LandingTimer += DeltaTime;
+   if (fplayer->FuelLevel >= 99)
+      { //@ Get here if our refueling is complete.
+      sprintf (SystemMessageBufferA, "REARMED, REFUELED, REPAIRED.");
+      NewSystemMessageNeedsScrolling = true;
+      fplayer->FuelLevel = 100;
+      }
+   if (LandingTimer > 1000 && fplayer->realspeed < 0.01)
+      { //@ This code block is executed exactly once every second
+      LandingTimer = 0;
+      RefuelRearmRepairDurationTimer ++; //@ Update duration of this refuel in seconds.
+      //@ Gradually repair any damage
+      fplayer->Durability *=1.02;
+      if (fplayer->Durability > fplayer->maxDurability)
+         {
+         fplayer->Durability = fplayer->maxDurability;
+         }
+      if (CurrentMissionNumber == MISSION_NETWORKBATTLE03)
+         { //@ Mission3 is not as realistic. Refuel very quickly.
+         if (fplayer->FuelLevel < 25)
+            {
+            fplayer->FuelLevel += 10;
+            }
+         else if (fplayer->FuelLevel < 50)
+            {
+            fplayer->FuelLevel += 20;
+            }
+         else if (fplayer->FuelLevel < 75)
+            {
+            fplayer->FuelLevel += 30;
+            }
+         else
+            {
+            fplayer->FuelLevel += 40;
+            //@ and repair any old damage too.
+            fplayer->maxthrust = PlayersOriginalMaxThrust;
+            fplayer->RollRate = PlayersOriginalRollRate;
+            }
+         }
+      else
+         { //@ Other missions are more realistic. Refuel at more realistic rate.
+         //@ We will use "RefuelRearmRepairDurationTimer" to sequence several
+         //@ visual and acoustic events to prevent the pilot getting too bored
+         //@ as time ticks away on the runway during refuel operations....
+         if (RefuelRearmRepairDurationTimer == 1)
+           {
+           if (MyNetworkId & 1)
+              { //@ Get here if I'm on Red team
+              VocalizeBlueHqStatus();
+              }
+            else
+              { //@ Get here if I'm on Blue team
+              VocalizeRedHqStatus();
+              }
+           HudLadderBarsOnOff = 0;
+           RadarOnOff = 0;
+           HudOnOff = 0;
+           }
+         if (RefuelRearmRepairDurationTimer == 12)
+           {
+           HudOnOff = 1;
+           }
+         if (RefuelRearmRepairDurationTimer == 20)
+           {
+           HudLadderBarsOnOff = 1;
+           }
+         if (RefuelRearmRepairDurationTimer == 25)
+           {
+           RadarOnOff = 1;
+           }
+         if (RefuelRearmRepairDurationTimer == 9)
+           {
+           event_targetNext();
+           }
+         if (RefuelRearmRepairDurationTimer == 11)
+           {
+           event_targetVocalize();
+           }
+         if (RefuelRearmRepairDurationTimer == 16)
+           {
+           event_targetNext();
+           }
+         if (RefuelRearmRepairDurationTimer == 18)
+           {
+           event_targetVocalize();
+           }
+         if (RefuelRearmRepairDurationTimer == 23)
+           {
+           event_targetNext();
+           }
+         if (RefuelRearmRepairDurationTimer == 25)
+           {
+           event_targetVocalize();
+           }
+         if (RefuelRearmRepairDurationTimer == 30)
+           {
+           event_targetNext();
+           }
+         if (RefuelRearmRepairDurationTimer == 32)
+           {
+           event_targetVocalize();
+           }
+         if (RefuelRearmRepairDurationTimer == 37)
+           {
+           event_targetNext();
+           }
+         if (RefuelRearmRepairDurationTimer == 39)
+           {
+           event_targetVocalize();
+           }
+         if (RefuelRearmRepairDurationTimer == 44)
+           {
+           event_targetNext();
+           }
+         if (RefuelRearmRepairDurationTimer == 46)
+           {
+           event_targetVocalize();
+           }
+         if (RefuelRearmRepairDurationTimer == 51)
+           {
+           event_targetNext();
+           }
+         if (RefuelRearmRepairDurationTimer == 53)
+           {
+           event_targetVocalize();
+           }
+         if (RefuelRearmRepairDurationTimer == 58)
+           {
+           event_targetNext();
+           }
+         if (RefuelRearmRepairDurationTimer == 60)
+           {
+           event_targetVocalize();
+           }
+         if (RefuelRearmRepairDurationTimer == 65)
+           {
+           event_targetNext();
+           }
+         if (RefuelRearmRepairDurationTimer == 67)
+           {
+           event_targetVocalize();
+           }
+         if (RefuelRearmRepairDurationTimer == 72)
+           {
+           event_targetNext();
+           if (MyNetworkId & 1)
+             { //@ Get here if I'm on Red team
+             VocalizeBlueHqStatus();
+             }
+           else
+             { //@ Get here if I'm on Blue team
+             VocalizeRedHqStatus();
+             }
+           }
+         if (fplayer->FuelLevel < 25)
+            { //@ If the player didn't bring home much fuel, make him wait as an incentive to do better next time.
+            fplayer->FuelLevel += 0.5;
+            }
+         else if (fplayer->FuelLevel < 50)
+            { //@ The second quarter of fuel load fills a little faster
+            fplayer->FuelLevel += 2;
+            }
+         else if (fplayer->FuelLevel < 75)
+            { //@ The third quarter of fuel load fills still faster
+            fplayer->FuelLevel += 3;
+            }
+         else
+            { //@ The final quarter of fuel load fills very quickly
+            fplayer->FuelLevel += 4;
+            //@ And the player has now waited long enough to restore any damaged engines and roll rate:
+            fplayer->maxthrust = PlayersOriginalMaxThrust;
+            fplayer->RollRate = PlayersOriginalRollRate;
+            }
+         }
+      } //@ end block that is executed exactly once per second
    lastDurability = PlayersOriginalDurability;
    if (fplayer->ammo < 1600)
-      {
-      fplayer->ammo = 1600;
+      { //@ Get here if the player has landed safely, qualifies for re-fuel, and needs ammo
+      fplayer->ammo = 1600; //@  Quickly replenish with 1000 rounds of ammo
       }
-   fplayer->Durability = fplayer->maxDurability;
    ConfigureOrdnanceForOnlineMissions();
-   sprintf (SystemMessageBufferA, "REARMED, REFUELED, REPAIRED.");
-   NewSystemMessageNeedsScrolling = true;
    }
 else
-   {
+   { //@ Get here if safely landed in an Me163 Rocket plane. Refuel and rearm much more slowly.
    if (Me163LandingTimer >= 100)
       {
       Me163LandingTimer -= DeltaTime;
-      sprintf (SystemMessageBufferA, "CYCLING ME163 REFUEL CREW....");
-      NewSystemMessageNeedsScrolling = true;
+      if (fplayer->FuelLevel != 100)
+         {
+         sprintf (SystemMessageBufferA, "CYCLING ME163 REFUEL CREW....");
+         NewSystemMessageNeedsScrolling = true;
+         }
       }
    if (Me163LandingTimer < 40000)
       {
-      sprintf (SystemMessageBufferA, "MOUNTING TAKEOFF WHEELS....");
-      NewSystemMessageNeedsScrolling = true;
+      if (fplayer->FuelLevel != 100)
+         {
+         sprintf (SystemMessageBufferA, "MOUNTING TAKEOFF WHEELS....");
+         NewSystemMessageNeedsScrolling = true;
+         }
       }
    if (Me163LandingTimer < 20000)
       {
-      sprintf (SystemMessageBufferA, "PUMPING FUEL FROM TRUCK #1....");
-      NewSystemMessageNeedsScrolling = true;
+      if (fplayer->FuelLevel != 100)
+         {
+         sprintf (SystemMessageBufferA, "PUMPING FUEL FROM TRUCK #1....");
+         NewSystemMessageNeedsScrolling = true;
+         }
       }
    if (Me163LandingTimer < 10000)
       {
-      sprintf (SystemMessageBufferA, "PUMPING FUEL FROM TRUCK #2....");
-      NewSystemMessageNeedsScrolling = true;
+      if (fplayer->FuelLevel != 100)
+         {
+         sprintf (SystemMessageBufferA, "PUMPING FUEL FROM TRUCK #2....");
+         NewSystemMessageNeedsScrolling = true;
+         }
       }
    if (Me163LandingTimer < 1100)
-      {
-      sound->setVolume (SOUND_BEEP2, 20);
-      sound->play (SOUND_BEEP2, false);
+      { //@ Get here after Me163 pilots have waited long enough to be chosen for rearm/refuel
+      if (fplayer->FuelLevel != 100)
+         {
+         sound->setVolume (SOUND_BEEP2, 20); //@ and beep softly
+         sound->play (SOUND_BEEP2, false);
+         sprintf (SystemMessageBufferA, "REARMED, REFUELED, REPAIRED");
+         NewSystemMessageNeedsScrolling = true;
+         }
       fplayer->FuelLevel = 100;
       fplayer->maxthrust = PlayersOriginalMaxThrust;
       fplayer->RollRate = PlayersOriginalRollRate;
       lastDurability = PlayersOriginalDurability;
       fplayer->Durability = fplayer->maxDurability;
       fplayer->ammo = 120;
-      Me163LandingTimer = 60000;
-      sprintf (SystemMessageBufferA, "REARMED, REFUELED, REPAIRED");
-      NewSystemMessageNeedsScrolling = true;
-      display (SystemMessageBufferA, LOG_MOST);
+      Me163LandingTimer = 1000;
       }
-   }
-
+   } //@ End special refueling sequence for Me163
+  //@
+  //@ Now degrade fuel, ammo, and ordnance according to any heavy damage
+  //@ sustained by the player's HQ airfield:
+  //@
   if (MyNetworkId%2)
-     {
+     { //@ RedTeam
      if (ThreeDObjects[29]->Durability < ThreeDObjects[29]->maxDurability * 0.4)
-        {
+        { //@ Get here if player's RedTeam HQ is heavily damaged. Diminish fuel/armament for late-war aircraft.
         DetermineCurrentAirfield();
-        if (fplayer->HistoricPeriod > 1 && AirfieldChosenForLanding == 4)
-           {
+        if (fplayer->HistoricPeriod > 1 && AirfieldChosenForLanding == 1)
+           { //@ Get here if the player is flying a late-war or postwar aircraft
            sprintf (SystemMessageBufferA, "LOW AMMO & FUEL FOR LATE-WAR PLANES DUE TO HQ DAMAGE.");
            NewSystemMessageNeedsScrolling = true;
            fplayer->FuelLevel *= 0.2;
-
+           //@ Now, if this degraded fuel level is less than we had when we landed, restore
+           //@ the amount with which we landed:
            if (fplayer->FuelLevel < FuelLevelAtLastLanding)
               {
               fplayer->FuelLevel = FuelLevelAtLastLanding;
               }
            fplayer->ammo /= 5;
-
+           //@
+           //@ Now diminish late-war aircraft bomb and rocket ordnance
+           //@
            int i2;
            for (i2 = 0; i2 < missiletypes; i2 ++)
                {
                if (i2 == 0)
-                  {
+                  { //@ Rack0 = BOMB01
                   fplayer->missiles [i2] /= 3;
                   }
                if (i2 == 5)
-                  {
+                  { //@ Rack5 = DFM Rockets
                   fplayer->missiles [i2] /=3;
                   }
                }
            }
         else
            {
-
+           //@ display ((char *)"Early-war aircraft refuel attempt permitted in spite of HQ damage.", LOG_MOST);
            }
         }
      else
-        {
+        { //@ Get here if player's RedTeam HQ is NOT heavily damaged.
         }
      }
   else
-     {
+     { //@ BlueTeam
      if (ThreeDObjects[28]->Durability < ThreeDObjects[28]->maxDurability * 0.4)
-        {
+        { //@ Get here if player's BlueTeam HQ is heavily damaged. Diminish fuel/armament for late-war aircraft.
         DetermineCurrentAirfield();
         if (fplayer->HistoricPeriod > 1 && AirfieldChosenForLanding == 1)
-           {
+           { //@ Get here if the player is flying a late-war or postwar aircraft
            sprintf (SystemMessageBufferA, "LOW AMMO & FUEL FOR LATE-WAR PLANES DUE TO HQ DAMAGE.");
            NewSystemMessageNeedsScrolling = true;
            fplayer->FuelLevel *= 0.2;
-
+           //@ Now, if this degraded fuel level is less than we had when we landed, restore
+           //@ the amount with which we landed:
            if (fplayer->FuelLevel < FuelLevelAtLastLanding)
               {
               fplayer->FuelLevel = FuelLevelAtLastLanding;
               }
            fplayer->ammo /= 5;
-
+           //@
+           //@ Now diminish late-war aircraft bomb and rocket ordnance
+           //@
            int i2;
            for (i2 = 0; i2 < missiletypes; i2 ++)
                {
                if (i2 == 0)
-                  {
+                  { //@ Rack0 = BOMB01
                   fplayer->missiles [i2] /= 3;
                   }
                if (i2 == 5)
-                  {
+                  { //@ Rack5 = DFM Rockets
                   fplayer->missiles [i2] /=3;
                   }
                }
            }
         else
            {
-
+           //@ display ((char *)"Early-war aircraft refuel attempt permitted in spite of HQ damage.", LOG_MOST);
            }
         }
      else
-        {
+        { //@ Get here if player's BlueTeam HQ is NOT heavily damaged.
         }
      }
 }
+

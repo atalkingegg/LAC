@@ -384,12 +384,15 @@ unsigned int MyInPortNumber = 51100;
 unsigned int NetworkReceiveTimer = 0;  
 unsigned int NetworkReceiveTimerInterval = 100; 
 unsigned int PeerInPortNumber = 51100; 
+unsigned int RefuelRearmRepairDurationTimer = 0;
+
 
 // global Unsigned 16-bit integer variables:
 Uint16 OutGoingPacketSignature;    
 
 // global Unsigned 32-bit integer variables:
 Uint32 DeltaTime;
+Uint32 LandingTimer = 0;
 Uint32 LastTime = 0;
 Uint32 Me163LandingTimer = 60000;           
 Uint32 MissionEndingTimer = 0;              
