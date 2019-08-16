@@ -5423,70 +5423,58 @@ void DynamicObj::checkDurability ()
                       }
                    if (ThreeDObjects[28]->Durability <= 400)
                       { 
-                      ThreeDObjects[24]->Durability = 0; 
-                      if (fplayer->target == ThreeDObjects[28])
-                         { 
-                         fplayer->targetNext ((AIObj **) ThreeDObjects); 
-                         display ((char*)"DynamicObj::checkDurability() advancing target beyond destroyed airfield 28.", LOG_MOST);
-                         }
-                      sound->haltMusic();
-                      display ((char*)"DynamicObj::checkDurability Playing mission-end music...", LOG_MOST);
-                      if (MyNetworkId%2)
-                         { 
-                         sound->setVolume (SOUND_MISSIONENDINGINSTRUMENTAL, 127);
-                         sound->play (SOUND_MISSIONENDINGINSTRUMENTAL, false);
-                         }
-                      else
-                         { 
-                         sound->setVolume (SOUND_DEFEAT00, 127);
-                         sound->play (SOUND_DEFEAT00, false);
-                         }
-                      sound->setVolume (SOUND_REDTEAMHASWONBATTLE, 127);
-                      sound->play (SOUND_REDTEAMHASWONBATTLE, false);
-                      sprintf (SystemMessageBufferA, "THE RED TEAM HAS WON THE BATTLE.");
-                      NewSystemMessageNeedsScrolling = true;
-                      MissionEndingTimer = 13000; 
-                      if (MyNetworkId & 0x01)
-                         { 
-                         }
-                      else
-                         { 
-                         IffOnOff = 0; 
-                         RadarOnOff = 0; 
+                      ThreeDObjects[24]->Durability = 0; //@ Destroy associated RADARReflector too.
+                      if (ThreeDObjects[28]->Durability <= 0)
+                         { //@ Get here when BlueTeam HQ is completely destroyed.
+                         if (fplayer->target == ThreeDObjects[28])
+                            { //@ Get here if we were targeting the airfield about to be destroyed
+                            fplayer->targetNext ((AIObj **) ThreeDObjects); //@ Don't let this continue
+                            display ((char*)"DynamicObj::checkDurability() advancing target beyond destroyed airfield 28.", LOG_MOST);
+                            }
+                         sound->haltMusic();
+                         display ((char*)"DynamicObj::checkDurability Playing mission-end music...", LOG_MOST);
+                         if (MyNetworkId%2)
+                            { //@ Get here if player is on RedTeam and won the battle
+                            sound->setVolume (SOUND_MISSIONENDINGINSTRUMENTAL, 127);
+                            sound->play (SOUND_MISSIONENDINGINSTRUMENTAL, false);
+                            }
+                         else
+                            { //@ Get here if player is on BlueTeam and lost the battle
+                            sound->setVolume (SOUND_DEFEAT00, 127);
+                            sound->play (SOUND_DEFEAT00, false);
+                            }
+                         sprintf (SystemMessageBufferA, "THE RED TEAM HAS WON THE BATTLE.");
+                         NewSystemMessageNeedsScrolling = true;
+                         MissionEndingTimer = 13000; //@ Signal end of mission in 13 seconds.
+                         ThreeDObjects[28]->DamageInNetQueue = 300000; // Force other logic to propogate destruct message to all players
                          }
                       }
                    else if (ThreeDObjects[29]->Durability <= 400)
                       { 
-                      ThreeDObjects[25]->Durability = 0; 
-                      if (fplayer->target == ThreeDObjects[29])
-                         { 
-                         fplayer->targetNext ((AIObj **) ThreeDObjects); 
-                         display ((char*)"DynamicObj::checkDurability() advancing target beyond destroyed airfield 29.", LOG_MOST);
-                         }
-                      sound->haltMusic();
-                      display ((char*)"DynamicObj::checkDurability Playing mission-ending music...", LOG_MOST);
-                      if (!MyNetworkId%2)
-                         { 
-                         sound->setVolume (SOUND_DEFEAT00, 127);
-                         sound->play (SOUND_DEFEAT00, false);
-                         }
-                      else
-                         { 
-                         sound->setVolume (SOUND_MISSIONENDINGINSTRUMENTAL, 127);
-                         sound->play (SOUND_MISSIONENDINGINSTRUMENTAL, false);
-                         }
-                      sound->setVolume (SOUND_BLUETEAMHASWONBATTLE, 127);
-                      sound->play (SOUND_BLUETEAMHASWONBATTLE, false);
-                      sprintf (SystemMessageBufferA, "THE BLUE TEAM HAS WON THE BATTLE.");
-                      NewSystemMessageNeedsScrolling = true;
-                      MissionEndingTimer = 6000; 
-                      if (MyNetworkId & 0x01)
-                         { 
-                         IffOnOff = 0; 
-                         RadarOnOff = 0; 
-                         }
-                      else
-                         { 
+                      ThreeDObjects[25]->Durability = 0; //@ Destroy associated RADARReflector too.
+                      if (ThreeDObjects[29]->Durability <= 0)
+                         { //@ Get here when RedTeam HQ is completely destroyed.
+                         if (fplayer->target == ThreeDObjects[29])
+                            { //@ Get here if we were targeting the airfield about to be destroyed
+                            fplayer->targetNext ((AIObj **) ThreeDObjects); //@ Don't let this continue
+                            display ((char*)"DynamicObj::checkDurability() advancing target beyond destroyed airfield 29.", LOG_MOST);
+                            }
+                         sound->haltMusic();
+                         display ((char*)"DynamicObj::checkDurability Playing mission-end music...", LOG_MOST);
+                         if (!MyNetworkId%2)
+                            { //@ Get here if player is on BlueTeam and won the battle
+                            sound->setVolume (SOUND_DEFEAT00, 127);
+                            sound->play (SOUND_DEFEAT00, false);
+                            }
+                         else
+                            { //@ Get here if player is on RedTeam and lost the battle
+                            sound->setVolume (SOUND_MISSIONENDINGINSTRUMENTAL, 127);
+                            sound->play (SOUND_MISSIONENDINGINSTRUMENTAL, false);
+                            }
+                         sprintf (SystemMessageBufferA, "THE BLUE TEAM HAS WON THE BATTLE.");
+                         NewSystemMessageNeedsScrolling = true;
+                         MissionEndingTimer = 13000; //@ Signal end of mission in 13 seconds.
+                         ThreeDObjects[29]->DamageInNetQueue = 300000; // Force other logic to propogate destruct message to all players
                          }
                       }
                    else if (ThreeDObjects[24]->Durability <= 0)

@@ -1,4 +1,4 @@
-TARGET := Lac07p66
+TARGET := Lac07p67
 
 OBJS := 3ds.o aiobject.o audio.o cockpit.o common.o conf.o dirs.o effects.o fileloader.o FlightModel.o gl.o glland.o land.o loader_tga.o main.o mathtab.o menu.o mission.o model.o NetworkApi.o object.o objload.o pilots.o vertexarray.o
 
