@@ -1985,8 +1985,8 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
        {
        o->cubex *= 90.0;
        o->cubey *= 4.0;
-       o->cubez *= 28.0; 
-       maxDurability = 1530000;  
+       o->cubez *= 28.0; //  was 28.0
+       maxDurability = 1530000;  //  Can survive 17 hits by 500 lb bombs.
        Durability = 1530000;
        }
     if (id == CANNON1)
@@ -2002,7 +2002,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
        Durability = 65000;
        o->cubex *= 6.0;
        o->cubey *= 1.0;
-       o->cubez *= 5.0; 
+       o->cubez *= 5.0; //  was 8.0
        }
     if (id == FIGHTER_P38L)
         {
@@ -2011,13 +2011,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.18; 
+        maxthrust = 2.18; //  2.18 yields 363MPH@sealevel
         RollRate = 0.70;
         manoeverability = 0.1685;
         maxDurability = 1020;
         zoom = 0.39;
         maxtheta = 90.0;
-        maxgamma = 21.0; 
+        maxgamma = 21.0; //  P38L: 21.0 yields 4100 FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2033,17 +2033,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.01;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 3.0; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 3.0; //  P38L: 3.0 yields a zoom climb of 3660ft
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -2053,7 +2053,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_P38L
     if (id == FIGHTER_FIATG55)
         {
         o->cubex = zoom * cubefac;
@@ -2061,13 +2061,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.15; 
+        maxthrust = 2.15; //  G55: 2.15 yields 371MPH@sealevel
         RollRate = 0.65;
         manoeverability = 0.1541;
         maxDurability = 840;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 15.5; 
+        maxgamma = 15.5; //  G55: 16 yields 3700FPM. 15 yields 3192FPM.
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2083,17 +2083,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 600;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 2.4; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.4; //  G55: 2.4 yields 3000FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -2103,7 +2103,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_FIATG55
     if (id == FIGHTER_A6M2)
         {
         o->cubex = zoom * cubefac;
@@ -2111,13 +2111,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 1.90; 
+        maxthrust = 1.90; //  1.90 yields 323MPH@sealevel
         RollRate = 0.50;
         manoeverability = 0.1987;
         maxDurability = 420;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 18; 
+        maxgamma = 18; //  18 yields 3200FPS
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2133,7 +2133,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 300;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 110.0; 
+        StaticDrag = 110.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .111;
         FlapsLevelElevatorEffect0=0;
@@ -2142,7 +2142,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect3=2400;
         FlapsLevelElevatorEffect4=2400;
         SpeedBrakePower=1.0;
-        MaxFullPowerAltRatio = 0.51; 
+        MaxFullPowerAltRatio = 0.51; //  0.51 yields 20000FT
         inertia = 1.8;
         deadweight = 0.07;
         CompressibilitySpeed = 0.20; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
@@ -2153,7 +2153,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.09;
         ServiceCeilingAltitude = 1500;
-        } 
+        } //  end FIGHTER_A6M2
     if (id == FIGHTER_KI43)
         {
         o->cubex = zoom * cubefac;
@@ -2161,7 +2161,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 1.90; 
+        maxthrust = 1.90; //  1.90 yields 323MPH@sealevel
         RollRate = 0.50;
         manoeverability = 0.2000;
         maxDurability = 360;
@@ -2183,7 +2183,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 280;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 110.0; 
+        StaticDrag = 110.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .111;
         FlapsLevelElevatorEffect0=0;
@@ -2192,7 +2192,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect3=2400;
         FlapsLevelElevatorEffect4=2400;
         SpeedBrakePower=1.0;
-        MaxFullPowerAltRatio = 0.51; 
+        MaxFullPowerAltRatio = 0.51; //  0.51 yields 20000FT
         inertia = 1.6712;
         deadweight = 0.07;
         CompressibilitySpeed = 0.20; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
@@ -2203,7 +2203,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.09;
         ServiceCeilingAltitude = 1500;
-        } 
+        } //  end FIGHTER_KI43
     if (id == FIGHTER_IL16)
         {
         o->cubex = zoom * cubefac;
@@ -2211,7 +2211,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 1.90; 
+        maxthrust = 1.90; //  1.90 yields 323MPH@sealevel
         RollRate = 0.50;
         manoeverability = 0.2016;
         maxDurability = 600;
@@ -2233,7 +2233,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 300;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 110.0; 
+        StaticDrag = 110.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .111;
         FlapsLevelElevatorEffect0=0;
@@ -2242,7 +2242,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect3=2400;
         FlapsLevelElevatorEffect4=2400;
         SpeedBrakePower=1.0;
-        MaxFullPowerAltRatio = 0.51; 
+        MaxFullPowerAltRatio = 0.51; //  0.51 yields 20000FT
         inertia = 1.3;
         deadweight = 0.07;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
@@ -2253,7 +2253,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.09;
         ServiceCeilingAltitude = 1500;
-        } 
+        } //  end FIGHTER_IL16
     if (id == FIGHTER_F4F)
         {
         o->cubex = zoom * cubefac;
@@ -2261,13 +2261,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 1.8; 
+        maxthrust = 1.8; //  F4F: 1.8 yields 306MPH@sealevel
         RollRate = 0.50;
         manoeverability = 0.1872;
         maxDurability = 960;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 15; 
+        maxgamma = 15; //  F4F: 15 yields 2319FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2283,17 +2283,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 800;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 2.2694; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.2694; //  F4F: 2.2694 yields 1830FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.27; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.27; // Replaces above setting when SpeedBrakes are active.
@@ -2303,7 +2303,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_F4F
     if (id == FIGHTER_F6F)
         {
         o->cubex = zoom * cubefac;
@@ -2311,13 +2311,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.05; 
+        maxthrust = 2.05; //  F6F: 2.05 yields 334MPH@sealevel
         RollRate = 0.50;
         manoeverability = 0.1857;
         maxDurability = 1080;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 22; 
+        maxgamma = 22; //  F6F: 22 yields 3628FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2333,17 +2333,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 800;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 2.5; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.5; //  F6F: 2.3 yields 2200FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.27; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.27; // Replaces above setting when SpeedBrakes are active.
@@ -2353,7 +2353,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_F6F
     if (id == FIGHTER_F4U)
         {
         o->cubex = zoom * cubefac;
@@ -2361,13 +2361,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.21; 
+        maxthrust = 2.21; //  F4U: 2.14 yields 356MPH@sealevel
         RollRate = 0.60;
         manoeverability = 0.1332;
         maxDurability = 1100;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 18.6; 
+        maxgamma = 18.6; //  F4U: 18.6 yields 3822FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2383,9 +2383,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 750;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
@@ -2403,7 +2403,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_F4U
     if (id == FIGHTER_P47D)
         {
         o->cubex = zoom * cubefac;
@@ -2411,13 +2411,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.15; 
+        maxthrust = 2.15; //  P47D: 2.15 yields 357MPH@sealevel
         RollRate = 0.72;
         manoeverability = 0.1267;
         maxDurability = 2400;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 16; 
+        maxgamma = 16; //  P47: 18 yields 3500FPM climb. 17 uields 3362.
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2433,9 +2433,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
@@ -2443,7 +2443,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.685;
-        inertia = 2.7465; 
+        inertia = 2.7465; //  P47D: 2.7465 yields 3150FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.29; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.29; // Replaces above setting when SpeedBrakes are active.
@@ -2453,7 +2453,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_P47D
     if (id == FIGHTER_FW190)
         {
         o->cubex = zoom * cubefac;
@@ -2461,13 +2461,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 2.08; 
+        maxthrust = 2.08; //  FW190: 2.08 yields 355MPH@sealevel
         RollRate = 0.71;
         manoeverability = 0.1269;
         maxDurability = 1140;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 15; 
+        maxgamma = 15; //  FW190: 16 yields 3211FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2483,9 +2483,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 750;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
@@ -2493,7 +2493,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.67;
-        inertia = 2.557; 
+        inertia = 2.557; //  FW190: 2.557 yields 2850FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.29; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.29; // Replaces above setting when SpeedBrakes are active.
@@ -2503,7 +2503,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_FW190
     if (id == FIGHTER_P51D)
         {
         o->cubex = zoom * cubefac;
@@ -2511,13 +2511,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.24; 
+        maxthrust = 2.24; //  P51D: 2.24 yields 374MPH@sealevel
         RollRate = 0.55;
         manoeverability = 0.1440;
         maxDurability = 1020;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 15.5; 
+        maxgamma = 15.5; //  P51D: 15.5 yields 3317FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2533,9 +2533,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 750;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
@@ -2543,7 +2543,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.67;
-        inertia = 2.3; 
+        inertia = 2.3; //  P51D: 2.3 yields 2700FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.31; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.31; // Replaces above setting when SpeedBrakes are active.
@@ -2553,7 +2553,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_P51D
     else if (id == FIGHTER_HAWK)
         {
         o->cubex = zoom * cubefac;
@@ -2561,7 +2561,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 3;
         DefensiveLethality = 0;
-        maxthrust = 3.5; 
+        maxthrust = 3.5; //  2.15 yields 357MPH@sealevel
         RollRate = 0.70;
         manoeverability = 0.1440;
         maxDurability = 1020;
@@ -2583,16 +2583,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.5;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 2.99885;
         deadweight = 0.13;
         CompressibilitySpeed = 0.42; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -2603,7 +2603,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_HAWK
     else if (id == BOMBER_B17)
         {
         o->cubex = zoom * cubefac * 2;
@@ -2611,13 +2611,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 2;
         HistoricPeriod = 1;
         DefensiveLethality = 39;
-        maxthrust = 1.66; 
+        maxthrust = 1.66; //  1.66 yields 256MPH@sealevel
         RollRate = 0.28;
         manoeverability = 0.1125;
         maxDurability = 16800;
         zoom = 1.0;
         maxtheta = 90.0;
-        maxgamma = 20.0; 
+        maxgamma = 20.0; //  B17: 20.0 yields 2287FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2633,7 +2633,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 5000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -2643,7 +2643,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.0;
         MaxFullPowerAltRatio = .69;
-        inertia = 3.242; 
+        inertia = 3.242; //  B17: 3.242 yields 1750FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -2653,7 +2653,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1360;
-        } 
+        } //  end BOMBER_B17
     else if (id == BOMBER_B24)
         {
         o->cubex = zoom * cubefac * 2;
@@ -2661,13 +2661,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 2;
         HistoricPeriod = 2;
         DefensiveLethality = 30;
-        maxthrust = 1.66; 
+        maxthrust = 1.66; //  B24: 1.66 yields 256MPH@sealevel
         RollRate = 0.30;
         manoeverability = 0.1080;
         maxDurability = 15600;
         zoom = 1.0;
         maxtheta = 90.0;
-        maxgamma = 20.0; 
+        maxgamma = 20.0; //  B24: 20.0 yields 2307FPM@sealevel
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2683,7 +2683,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 5000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -2693,7 +2693,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.0;
         MaxFullPowerAltRatio = .69;
-        inertia = 3.242; 
+        inertia = 3.242; //  B24: 3.242 yields 1650FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -2703,7 +2703,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1360;
-        } 
+        } //  end BOMBER_B24
     else if (id == FIGHTER_SPIT9)
         {
         o->cubex = zoom * cubefac;
@@ -2711,13 +2711,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.15; 
+        maxthrust = 2.15; //  SPIT9: 2.15 yields 369MPH@sealevel
         RollRate = 0.58;
         manoeverability = 0.1699;
         maxDurability = 840;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 18; 
+        maxgamma = 18; //  SPIT9: 18 yields 3751FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2733,17 +2733,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 600;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.0;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 2.0; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.0; //  SPIT9: 2.0 yields 2540FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -2753,7 +2753,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  FIGHTER_SPIT9
     else if (id == FIGHTER_ME109G)
         {
         o->cubex = zoom * cubefac;
@@ -2761,13 +2761,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.05; 
+        maxthrust = 2.05; //  ME109G: 2.05 yields 356MPH@sealevel
         RollRate = 0.55;
         manoeverability = 0.1512;
         maxDurability = 780;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 17; 
+        maxgamma = 17; //  ME109G: 17.0 yields 3550FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2783,9 +2783,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 500;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
@@ -2793,7 +2793,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.0;
         MaxFullPowerAltRatio = 0.68;
-        inertia = 1.8; 
+        inertia = 1.8; //  ME109G: 1.8 yields 2020FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -2803,7 +2803,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  FIGHTER_ME109G
     else if (id == FIGHTER_HURRICANE)
         {
         o->cubex = zoom * cubefac;
@@ -2811,7 +2811,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 2.15; 
+        maxthrust = 2.15; //  2.15 yields 357MPH@sealevel
         RollRate = 0.50;
         manoeverability = 0.1863;
         maxDurability = 900;
@@ -2833,16 +2833,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 700;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.0;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 2.3;
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -2853,7 +2853,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  FIGHTER_HURRICANE
     else if (id == FIGHTER_P40)
         {
         o->cubex = zoom * cubefac;
@@ -2861,13 +2861,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 1.80; 
+        maxthrust = 1.80; //  P40: 1.80 yields 308MPH@sealevel
         RollRate = 0.50;
         manoeverability = 0.1449;
         maxDurability = 960;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 14; 
+        maxgamma = 14; //  P40: 14 yields 2100FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2883,17 +2883,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 700;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 2.8; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.8; //  P40: 2.8 yields 2050FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.27; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.27; // Replaces above setting when SpeedBrakes are active.
@@ -2903,7 +2903,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  FIGHTER_P40
     else if (id == FIGHTER_P39)
         {
         o->cubex = zoom * cubefac;
@@ -2911,13 +2911,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 2.05; 
+        maxthrust = 2.05; //  P39: 2.05 yields 354MPH@sealevel
         RollRate = 0.55;
         manoeverability = 0.1418;
         maxDurability = 960;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 18; 
+        maxgamma = 18; //  P39: 18 yields 3466FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2933,17 +2933,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 700;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.48; 
-        inertia = 2.9; 
+        MaxFullPowerAltRatio = 0.48; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.9; //  P39: 2.9 yields 2900FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.27; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.27; // Replaces above setting when SpeedBrakes are active.
@@ -2953,7 +2953,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  FIGHTER_P39
     else if (id == FIGHTER_YAK9)
         {
         o->cubex = zoom * cubefac;
@@ -2961,13 +2961,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.08; 
+        maxthrust = 2.08; //  YAK9: 2.08 yields 363MPH@sealevel
         RollRate = 0.55;
         manoeverability = 0.1282;
         maxDurability = 750;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 15.5; 
+        maxgamma = 15.5; //  YAK9: 15.5 yields 3323FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -2983,17 +2983,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 600;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=1600;
         FlapsLevelElevatorEffect2=3200;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=3200;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.60; 
-        inertia = 2.4; 
+        MaxFullPowerAltRatio = 0.60; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.4; //  YAK9: 2.4 yields 2800FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -3003,7 +3003,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  FIGHTER_YAK9
     else if (id == FIGHTER_N1K1)
         {
         o->cubex = zoom * cubefac;
@@ -3011,13 +3011,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.06; 
+        maxthrust = 2.06; //  N1K1: 2.06 yields 360MPH@sealevel
         RollRate = 0.55;
         manoeverability = 0.1483;
         maxDurability = 900;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 21.7; 
+        maxgamma = 21.7; //  N1K1: 21.5 yields 3900FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3033,17 +3033,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 700;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.0;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 2.0; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.0; //  N1K1: 2.0 yields 2300FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -3053,7 +3053,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  FIGHTER_N1K1
     if (id == BOMBER_JU87)
         {
         o->cubex = zoom * cubefac * 1.2;
@@ -3061,13 +3061,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.2;
         HistoricPeriod = 1;
         DefensiveLethality = 6;
-        maxthrust = 1.5; 
+        maxthrust = 1.7; //  JU87: 1.5 yields 230MPH@sealevel
         RollRate = 0.33;
         manoeverability = 0.1183;
-        maxDurability = 3600;
+        maxDurability = 4000;
         zoom = 0.4;
         maxtheta = 90.0;
-        maxgamma = 16; 
+        maxgamma = 16; //  JU87: 16 yields 1600FPM climb
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3083,7 +3083,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1300;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3093,7 +3093,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=3200;
         SpeedBrakePower=2.70;
         MaxFullPowerAltRatio = 0.48;
-        inertia = 3.8904; 
+        inertia = 3.8904; //  JU87: 3.8904 yields 1250FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -3103,7 +3103,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1026;
-        } 
+        } //  end BOMBER_JU87
     if (id == BOMBER_G5M)
         {
         o->cubex = zoom * cubefac * 1.4;
@@ -3111,7 +3111,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.4;
         HistoricPeriod = 1;
         DefensiveLethality = 10;
-        maxthrust = 1.6; 
+        maxthrust = 1.6; //  1.6 yields 248MPH@sealevel
         RollRate = 0.38;
         manoeverability = 0.1161;
         maxDurability = 2402;
@@ -3133,7 +3133,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 2500;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3143,7 +3143,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=6400;
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.61;
-        inertia = 4.0525; 
+        inertia = 4.0525; //  3.0 yields 2300FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -3153,7 +3153,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1026;
-        } 
+        } //  end BOMBER_G5M
     if (id == BOMBER_B25)
         {
         o->cubex = zoom * cubefac * 1.4;
@@ -3161,13 +3161,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.4;
         HistoricPeriod = 1;
         DefensiveLethality = 12;
-        maxthrust = 1.58; 
+        maxthrust = 1.58; //  B25: 1.58 yields 242MPH@sealevel
         RollRate = 0.33;
         manoeverability = 0.1246;
         maxDurability = 4400;
         zoom = 0.70;
         maxtheta = 90.0;
-        maxgamma = 18; 
+        maxgamma = 18; //  B25: 18 yields 1975FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3183,7 +3183,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 2000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3193,7 +3193,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=6400;
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.61;
-        inertia = 4.0525; 
+        inertia = 4.0525; //  B25: 4.0525 yields 1850FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -3203,7 +3203,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1200;
-        } 
+        } //  end BOMBER_B25
     if (id == BOMBER_B26)
         {
         o->cubex = zoom * cubefac * 1.4;
@@ -3211,7 +3211,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.4;
         HistoricPeriod = 2;
         DefensiveLethality = 12;
-        maxthrust = 1.75; 
+        maxthrust = 1.75; //  B26: 1.75 yields 274MPH@sealevel
         RollRate = 0.35;
         manoeverability = 0.1152;
         maxDurability = 3600;
@@ -3233,7 +3233,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 2000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3243,7 +3243,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=6400;
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.61;
-        inertia = 6.0; 
+        inertia = 6.0; //  B26: 6.0 yields 2550FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -3253,7 +3253,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.14;
         ServiceCeilingAltitude = 1200;
-        } 
+        } //  end BOMBER_B26
     if (id == FIGHTER_LA5)
         {
         o->cubex = zoom * cubefac;
@@ -3285,7 +3285,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         RedoutSensitivity = 40.0F;
         StaticDrag = 104.0;
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
@@ -3303,7 +3303,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_LA5
     if (id == FIGHTER_LA7)
         {
         o->cubex = zoom * cubefac;
@@ -3311,13 +3311,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 2.04; 
+        maxthrust = 2.04; //  LA7: 204 yields 356MPH@sealevel
         RollRate = 0.60;
         manoeverability = 0.1426;
         maxDurability = 1650;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 19.0; 
+        maxgamma = 19.0; //  LA7: 19.0 yields 3143FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3333,9 +3333,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 600;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
@@ -3343,7 +3343,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.60;
-        inertia = 2.00; 
+        inertia = 2.00; //  LA7: 2.00 yields 2250FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.29; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.29; // Replaces above setting when SpeedBrakes are active.
@@ -3352,7 +3352,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         DiveSpeedStructuralLimit = 0.38; // Faster than this will induce severe airframe damage.
         WepCapable = true;
         StallSpeed = 0.11;
-        ServiceCeilingAltitude = 1760;        } 
+        ServiceCeilingAltitude = 1760;        } //  end FIGHTER_LA7
     if (id == FIGHTER_IL2)
         {
         o->cubex = zoom * cubefac * 1.4;
@@ -3360,10 +3360,10 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.4;
         HistoricPeriod = 2;
         DefensiveLethality = 3;
-        maxthrust = 1.35; 
-        RollRate = 0.36;
-        manoeverability = 0.1182;
-        maxDurability = 1800;
+        maxthrust = 1.6; //  was 1.35
+        RollRate = 0.40;
+        manoeverability = 0.125;
+        maxDurability = 7000;
         zoom = 0.35;
         maxtheta = 90.0;
         maxgamma = 16;
@@ -3382,7 +3382,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1300;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3402,7 +3402,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.105;
         ServiceCeilingAltitude = 1280;
-        } 
+        } //  end FIGHTER_IL2
     if (id == FIGHTER_MACCIC202)
         {
         o->cubex = zoom * cubefac;
@@ -3410,13 +3410,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 2.00; 
+        maxthrust = 2.00; //  MACCIC202: 2.15 yields 369MPH@sealevel
         RollRate = 0.55;
         manoeverability = 0.1555;
         maxDurability = 1620;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 20; 
+        maxgamma = 20; //  MACCIC202: 20 yields 3445.
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3432,16 +3432,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 600;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 2.0;
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -3452,7 +3452,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_MACCIC202
     if (id == BOMBER_LANCASTER)
         {
         o->cubex = zoom * cubefac * 1.4;
@@ -3460,7 +3460,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.4;
         HistoricPeriod = 1;
         DefensiveLethality = 7;
-        maxthrust = 1.6; 
+        maxthrust = 1.6; //  1.6 yields 248MPH@sealevel
         RollRate = 0.30;
         manoeverability = 0.0990;
         maxDurability = 12000;
@@ -3482,7 +3482,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 5000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3502,7 +3502,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1200;
-        } 
+        } //  end BOMBER_LANCASTER
     if (id == BOMBER_MOSQUITOB)
         {
         o->cubex = zoom * cubefac;
@@ -3532,16 +3532,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1700;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 3.5662;
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -3552,7 +3552,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end BOMBER_MOSQUITOB
     if (id == FIGHTER_TYPHOON)
         {
         o->cubex = zoom * cubefac;
@@ -3560,7 +3560,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.15; 
+        maxthrust = 2.15; //  2.15 yields 357MPH@sealevel
         RollRate = 0.55;
         manoeverability = 0.1404;
         maxDurability = 1620;
@@ -3582,16 +3582,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 700;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 2.2;
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -3602,7 +3602,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_TYPHOON
     if (id == FIGHTER_YAK1)
         {
         o->cubex = zoom * cubefac;
@@ -3610,13 +3610,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 1.99; 
+        maxthrust = 1.99; // 
         RollRate = 0.55;
         manoeverability = 0.1389;
         maxDurability = 740;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 19.0; 
+        maxgamma = 19.0; //  YAK1: 19.0 yields 3036FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3632,17 +3632,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 600;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=1600;
         FlapsLevelElevatorEffect2=3200;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=3200;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.60; 
-        inertia = 2.1; 
+        MaxFullPowerAltRatio = 0.60; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.1; // 
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -3652,7 +3652,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_YAK1
     if (id == BOMBER_B29)
         {
         o->cubex = zoom * cubefac * 3;
@@ -3660,13 +3660,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 3;
         HistoricPeriod = 2;
         DefensiveLethality = 30;
-        maxthrust = 1.80; 
+        maxthrust = 1.80; //  B29: 1.80 yields 287MPH@sealevel
         RollRate = 0.28;
         manoeverability = 0.0900;
         maxDurability = 17100;
         zoom = 1.25;
         maxtheta = 90.0;
-        maxgamma = 10.0; 
+        maxgamma = 10.0; //  B29: 10.0 yields 1481FPM unloaded
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3682,7 +3682,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 7000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3692,7 +3692,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.0;
         MaxFullPowerAltRatio = .69;
-        inertia = 4.0; 
+        inertia = 4.0; //  B29: 4.0 yields 2400FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -3702,7 +3702,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1400;
-        } 
+        } //  end BOMBER_B29
     if (id == FIGHTER_DW520)
         {
         o->cubex = zoom * cubefac;
@@ -3710,13 +3710,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 1.9; 
+        maxthrust = 1.9; //  DW520: 1.9 yields 315MPH@sealevel
         RollRate = 0.58;
         manoeverability = 0.1584;
         maxDurability = 1380;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 18; 
+        maxgamma = 18; //  DW520: 18 yields 2620FT/Min@sealevel
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3732,17 +3732,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 500;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 2.0; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.0; //  DW520: 2.0 yields 1600FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -3752,7 +3752,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_DW520
     if (id == BOMBER_SB2C)
         {
         o->cubex = zoom * cubefac * 1.2;
@@ -3760,7 +3760,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.2;
         HistoricPeriod = 2;
         DefensiveLethality = 6;
-        maxthrust = 1.5;
+        maxthrust = 1.6;
         RollRate = 0.33;
         manoeverability = 0.1260;
         maxDurability = 5000;
@@ -3782,7 +3782,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1400;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3802,7 +3802,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1026;
-        } 
+        } //  end BOMBER_SB2C
     if (id == BOMBER_TBF)
         {
         o->cubex = zoom * cubefac * 1.2;
@@ -3810,7 +3810,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.2;
         HistoricPeriod = 1;
         DefensiveLethality = 7;
-        maxthrust = 1.5;
+        maxthrust = 1.6;
         RollRate = 0.33;
         manoeverability = 0.1278;
         maxDurability = 6000;
@@ -3832,7 +3832,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1300;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3852,7 +3852,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1026;
-        } 
+        } //  end BOMBER_TBF
     if (id == FIGHTER_ME163)
         {
         o->cubex = zoom * cubefac;
@@ -3860,13 +3860,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 3.4; 
+        maxthrust = 3.4; //  ME163: 3.4 yields 585MPH@sealevel, 640MPH@17000FT (best compromise)
         RollRate = 0.65;
         manoeverability = 0.1620;
-        maxDurability = 1500; 
+        maxDurability = 1500; //  Being a small target helps...
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 55; 
+        maxgamma = 55; //  ME163: 55 yields 12000FPM (best compromise)
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3882,17 +3882,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 400;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 1.00; 
-        inertia = 1.7; 
+        MaxFullPowerAltRatio = 1.00; //  Rockets don't gasp for air at any altitude.
+        inertia = 1.7; //  ME163: 1.7 yields 5700FT zoom.
         deadweight = 0.13;
         CompressibilitySpeed = 0.38; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.40; // Replaces above setting when SpeedBrakes are active.
@@ -3902,7 +3902,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_ME163
     if (id == FIGHTER_TEMPEST)
         {
         o->cubex = zoom * cubefac;
@@ -3910,7 +3910,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.15; 
+        maxthrust = 2.15; //  2.15 yields 357MPH@sealevel
         RollRate = 0.50;
         manoeverability = 0.1397;
         maxDurability = 900;
@@ -3932,16 +3932,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 700;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 2.6;
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -3952,7 +3952,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_TEMPEST
     if (id == FIGHTER_D3A)
         {
         o->cubex = zoom * cubefac * 1.2;
@@ -3960,13 +3960,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.2;
         HistoricPeriod = 1;
         DefensiveLethality = 1;
-        maxthrust = 1.5;  
+        maxthrust = 1.5;  //  D3A: 1.5 yields 249MPH@sealevel
         RollRate = 0.40;
         manoeverability = 0.1181;
-        maxDurability = 1800;
+        maxDurability = 2600;
         zoom = 0.4;
         maxtheta = 90.0;
-        maxgamma = 17.0; 
+        maxgamma = 17.0; //  D3A: 16.0 yields 1625FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -3982,7 +3982,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1300;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -3992,7 +3992,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=3200;
         SpeedBrakePower=1.90;
         MaxFullPowerAltRatio = 0.66;
-        inertia = 3.8904; 
+        inertia = 3.8904; //  D3A: 3.8904 yields 1900FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -4002,7 +4002,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1026;
-        } 
+        } //  end FIGHTER_D3A
     if (id == BOMBER_B5N)
         {
         o->cubex = zoom * cubefac * 1.2;
@@ -4032,7 +4032,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1400;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -4052,7 +4052,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1026;
-        } 
+        } //  end BOMBER_B5N
     if (id == BOMBER_DAUNTLESS)
         {
         o->cubex = zoom * cubefac;
@@ -4060,10 +4060,10 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 6;
-        maxthrust = 1.65;
+        maxthrust = 1.75;
         RollRate = 0.40;
         manoeverability = 0.1382;
-        maxDurability = 2399;
+        maxDurability = 4000;
         zoom = 0.39;
         maxtheta = 90.0;
         maxgamma = 18;
@@ -4082,16 +4082,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower = 2.0;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 2.75;
         deadweight = 0.13;
         CompressibilitySpeed = 0.27; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -4100,9 +4100,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         DiveSpeedLimit1 = 0.29; // Faster than this induces extra turbulence
         DiveSpeedStructuralLimit = 0.40; // Faster than this will induce severe airframe damage.
         WepCapable = false;
-        StallSpeed = 0.11;
+        StallSpeed = 0.10;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end BOMBER_DAUNTLESS
     if (id == FIGHTER_ME110)
         {
         o->cubex = zoom * cubefac;
@@ -4110,13 +4110,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 2;
-        maxthrust = 1.95; 
+        maxthrust = 1.95; //  ME110: 1.95 yields 334MPH@sealevel
         RollRate = 0.47;
         manoeverability = 0.1195;
         maxDurability = 960;
         zoom = 0.39;
         maxtheta = 90.0;
-        maxgamma = 14.0; 
+        maxgamma = 14.0; //  ME110: 14.0 yields 2800FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -4132,17 +4132,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 2.7557; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 2.7557; //  ME110: 2.7557 yields 2400FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -4152,7 +4152,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_ME110
     if (id == BOMBER_DORNIER)
         {
         o->cubex = zoom * cubefac * 1.4;
@@ -4160,13 +4160,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.4;
         HistoricPeriod = 1;
         DefensiveLethality = 6;
-        maxthrust = 1.6; 
+        maxthrust = 1.7; //  Dornier: 1.6 yields 230MPH@sealevel
         RollRate = 0.33;
         manoeverability = 0.1170;
         maxDurability = 3900;
         zoom = 0.70;
         maxtheta = 90.0;
-        maxgamma = 18; 
+        maxgamma = 18; //  Dornier: 18 yields 1829FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -4182,7 +4182,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1600;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -4192,7 +4192,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=6400;
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.61;
-        inertia = 2.9178; 
+        inertia = 2.9178; //  Dornier: 2.9178 yields 1200FT zoom from sealevel
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -4202,7 +4202,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1026;
-        } 
+        } //  end BOMBER_DORNIER
     if (id == BOMBER_HE111)
         {
         o->cubex = zoom * cubefac * 1.4;
@@ -4210,13 +4210,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.4;
         HistoricPeriod = 1;
         DefensiveLethality = 7;
-        maxthrust = 1.6; 
+        maxthrust = 1.6; //  HE111: 1.6 yields 210MPH@sealevel
         RollRate = 0.33;
         manoeverability = 0.1139;
         maxDurability = 4400;
         zoom = 0.75;
         maxtheta = 90.0;
-        maxgamma = 18; 
+        maxgamma = 18; //  HE111: 18 yields 1740FPM climb unloaded
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -4232,7 +4232,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 2000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -4243,7 +4243,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.61;
         inertia = 4.7009;
-        deadweight = 0.13; 
+        deadweight = 0.13; //  HE111: 0.13 yields 1200FT zoom
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
         DiveSpeedLimitThreshold = 0.27; // Faster than begins to regulate overspeed. 0.36 ~= 414 MPH
@@ -4252,7 +4252,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1026;
-        } 
+        } //  end BOMBER_HE111
     if (id == BOMBER_JU88)
         {
         o->cubex = zoom * cubefac * 1.4;
@@ -4260,13 +4260,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac * 1.4;
         HistoricPeriod = 1;
         DefensiveLethality = 6;
-        maxthrust = 1.8; 
+        maxthrust = 1.8; //  JU88: 0.17 yields 218MPH@sealevel
         RollRate = 0.33;
         manoeverability = 0.1224;
         maxDurability = 2500;
         zoom = 0.70;
         maxtheta = 90.0;
-        maxgamma = 18; 
+        maxgamma = 18; //  JU88: 18 yields 2176FPM unloaded
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -4282,7 +4282,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1300;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .133;
         FlapsLevelElevatorEffect0=0;
@@ -4292,7 +4292,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=6400;
         SpeedBrakePower=1.00;
         MaxFullPowerAltRatio = 0.61;
-        inertia = 4.2146; 
+        inertia = 4.2146; //  JU88: 4.2146 yields 1300FT zoom climb.
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.25; // Replaces above setting when SpeedBrakes are active.
@@ -4302,7 +4302,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1026;
-        } 
+        } //  end BOMBER_JU88
     if (id == FIGHTER_KI84)
         {
         o->cubex = zoom * cubefac;
@@ -4310,7 +4310,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.15; 
+        maxthrust = 2.15; //  2.15 yields 357MPH@sealevel
         RollRate = 0.60;
         manoeverability = 0.1656;
         maxDurability = 960;
@@ -4332,16 +4332,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 700;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 2.2;
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -4352,7 +4352,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_KI84
     if (id == FIGHTER_KI61)
         {
         o->cubex = zoom * cubefac;
@@ -4360,7 +4360,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.00; 
+        maxthrust = 2.00; //  2.15 yields 357MPH@sealevel
         RollRate = 0.55;
         manoeverability = 0.1454;
         maxDurability = 960;
@@ -4382,16 +4382,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 800;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 2.3;
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -4402,7 +4402,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_KI61
     if (id == FIGHTER_GENERIC01)
         {
         o->cubex = zoom * cubefac;
@@ -4410,13 +4410,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 2.15; 
-        RollRate = 0.55;
-        manoeverability = 0.1440;
-        maxDurability = 1200;
-        zoom = 0.35;
+        maxthrust = 2.2; //  ME163: 3.4 yields 585MPH@sealevel, 640MPH@17000FT (best compromise)
+        RollRate = 0.65;
+        manoeverability = 0.2;
+        maxDurability = 1000; //  Being a small target helps...
+        zoom = 0.6;
         maxtheta = 90.0;
-        maxgamma = 18;
+        maxgamma = 55; //  ME163: 55 yields 12000FPM (best compromise)
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -4427,32 +4427,32 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         missilerack [3] = 0;
         flares = 0;
         chaffs = 0;
-        statLethality = 4.0;
-        ammo = 2450;
-        impact = 700;
+        statLethality = 26.56;
+        ammo = 120;
+        impact = 400;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
-        SpeedBrakePower=1.2;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 2.4;
+        SpeedBrakePower=1.00;
+        MaxFullPowerAltRatio = 1.00; //  Rockets don't gasp for air at any altitude.
+        inertia = 1.7; //  ME163: 1.7 yields 5700FT zoom.
         deadweight = 0.13;
-        CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
-        CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
-        DiveSpeedLimitThreshold = 0.34; // Faster than begins to regulate overspeed. 0.36 ~= 414 MPH
-        DiveSpeedLimit1 = 0.34; // Faster than this induces extra turbulence
-        DiveSpeedStructuralLimit = 0.42; // Faster than this will induce severe airframe damage.
-        WepCapable = true;
+        CompressibilitySpeed = 0.38; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
+        CompressibilitySpeedWithSpeedBrakes = 0.40; // Replaces above setting when SpeedBrakes are active.
+        DiveSpeedLimitThreshold = 0.45; // Faster than begins to regulate overspeed. 0.36 ~= 414 MPH
+        DiveSpeedLimit1 = 0.41; // Faster than this induces extra turbulence
+        DiveSpeedStructuralLimit = 0.48; // Faster than this will induce severe airframe damage.
+        WepCapable = false;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_GENERIC01
     if (id == FIGHTER_A6M5)
         {
         o->cubex = zoom * cubefac;
@@ -4460,7 +4460,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 2;
         DefensiveLethality = 0;
-        maxthrust = 1.96; 
+        maxthrust = 1.96; //  1.90 yields 323MPH@sealevel
         RollRate = 0.50;
         manoeverability = 0.1944;
         maxDurability = 540;
@@ -4482,7 +4482,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 300;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 110.0; 
+        StaticDrag = 110.0; //  was 100.0
         ClipDistance = 0.03;
         FlapSpeed = .111;
         FlapsLevelElevatorEffect0=0;
@@ -4491,7 +4491,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect3=2400;
         FlapsLevelElevatorEffect4=2400;
         SpeedBrakePower=1.0;
-        MaxFullPowerAltRatio = 0.51; 
+        MaxFullPowerAltRatio = 0.51; //  0.51 yields 20000FT
         inertia = 1.85;
         deadweight = 0.07;
         CompressibilitySpeed = 0.20; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
@@ -4502,7 +4502,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = false;
         StallSpeed = 0.09;
         ServiceCeilingAltitude = 1500;
-        } 
+        } //  end FIGHTER_A6M5
     if (id == FIGHTER_SPIT5)
         {
         o->cubex = zoom * cubefac;
@@ -4510,13 +4510,13 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         o->cubez = zoom * cubefac;
         HistoricPeriod = 1;
         DefensiveLethality = 0;
-        maxthrust = 2.05; 
+        maxthrust = 2.05; //  SPIT5: 2.05 yields 355MPH@sealevel
         RollRate = 0.60;
         manoeverability = 0.1737;
         maxDurability = 750;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 18; 
+        maxgamma = 18; //  SPIT5: 18 yields 3385FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -4532,17 +4532,17 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 600;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
-        inertia = 1.97; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
+        inertia = 1.97; //  SPIT5: 1.97 yields 2230FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -4552,7 +4552,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_SPIT5
     if (id == FIGHTER_P51B)
         {
         o->cubex = zoom * cubefac;
@@ -4582,16 +4582,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 750;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 1.85;
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -4602,7 +4602,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_P51B
     if (id == FIGHTER_P47B)
         {
         o->cubex = zoom * cubefac;
@@ -4632,9 +4632,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 600;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
@@ -4652,7 +4652,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.11;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_P47B
     if (id == FIGHTER_ME109F)
         {
         o->cubex = zoom * cubefac;
@@ -4666,7 +4666,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         maxDurability = 760;
         zoom = 0.35;
         maxtheta = 90.0;
-        maxgamma = 17; 
+        maxgamma = 17; //  ME109G: 17.0 yields 3550FPM
         missilerackn [0] = 0;
         missilerackn [1] = 0;
         missilerackn [2] = 0;
@@ -4682,9 +4682,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 500;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
@@ -4692,7 +4692,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.0;
         MaxFullPowerAltRatio = 0.68;
-        inertia = 1.8; 
+        inertia = 1.8; //  ME109G: 1.8 yields 2020FT zoom
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
         CompressibilitySpeedWithSpeedBrakes = 0.33; // Replaces above setting when SpeedBrakes are active.
@@ -4702,7 +4702,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_ME109F
     if (id == FIGHTER_P38F)
         {
         o->cubex = zoom * cubefac;
@@ -4732,16 +4732,16 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         impact = 1000;
         BlackoutSensitivity = 20.0F;
         RedoutSensitivity = 40.0F;
-        StaticDrag = 104.0; 
+        StaticDrag = 104.0; //  was 100.0
         ClipDistance = 0.03;
-        FlapSpeed = .133; 
+        FlapSpeed = .133; //  .133 = 200 MPH
         FlapsLevelElevatorEffect0=0;
         FlapsLevelElevatorEffect1=800;
         FlapsLevelElevatorEffect2=1600;
         FlapsLevelElevatorEffect3=3200;
         FlapsLevelElevatorEffect4=8000;
         SpeedBrakePower=1.00;
-        MaxFullPowerAltRatio = 0.68; 
+        MaxFullPowerAltRatio = 0.68; //  0.48 yields 15000ft   0.66 yields 21000ft  0.69 yields 25000ft
         inertia = 2.90;
         deadweight = 0.13;
         CompressibilitySpeed = 0.25; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active. Was .29
@@ -4752,7 +4752,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         WepCapable = true;
         StallSpeed = 0.095;
         ServiceCeilingAltitude = 1760;
-        } 
+        } //  end FIGHTER_P38F
     if (id >= FIGHTER1 && id <= FIGHTER2)
         {
         recthrust = maxthrust;
@@ -4884,7 +4884,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         thrust = 0.05;
         maxgamma = 0;
         maxtheta = 0.03;
-        manoeverability = 4.0; 
+        manoeverability = 4.0; //  was 4.0
         impact = 200;
         Durability = maxDurability = 30000;
         missiles [6] = 200;
@@ -4899,7 +4899,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         thrust = 0.05;
         maxgamma = 0;
         maxtheta = 0.03;
-        manoeverability = 6.0; 
+        manoeverability = 6.0; //  was 6.0
         impact = 300;
         Durability = maxDurability = 15000;
         o->cubex = zoom * 0.4;
@@ -4921,7 +4921,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         {
         intelligence = 100;
         maxthrust = 0.5 * missilethrustbase;
-        RollRate = 3.5; 
+        RollRate = 3.5; //  old 3.5
         manoeverability = 4.5;
         StaticDrag = 8;
         ttl = 320 * timestep;
@@ -4932,7 +4932,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         intelligence = 100;
         maxthrust = 0.65 * missilethrustbase;
         RollRate = 4.5;
-        manoeverability = 5.5; 
+        manoeverability = 5.5; //  was 2.0
         StaticDrag = 8;
         ttl = 340 * timestep;
         impact = 2200;
@@ -4942,7 +4942,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         intelligence = 10;
         maxthrust = 0.60 * missilethrustbase;
         RollRate = 1.2;
-        manoeverability = 1.0; 
+        manoeverability = 1.0; //  was 1.0
         ai = true;
         StaticDrag = 8;
         ttl = 300 * timestep;
@@ -4953,7 +4953,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         intelligence = 10;
         maxthrust = 0.75 * missilethrustbase;
         RollRate = 1.5;
-        manoeverability = 1.0; 
+        manoeverability = 1.0; //  was 1.0
         ai = true;
         StaticDrag = 8;
         ttl = 400 * timestep;
@@ -4985,7 +4985,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         intelligence = 100;
         maxthrust = 0.90 * missilethrustbase;
         RollRate = 3.0;
-        manoeverability = 6.0; 
+        manoeverability = 6.0; //  was 2.0
         StaticDrag = 10;
         ttl = 320 * timestep;
         impact = 2200;
@@ -4995,7 +4995,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         intelligence = 0;
         maxthrust = 0.1;
         RollRate = 1.0;
-        manoeverability = 1.0; 
+        manoeverability = 1.0; //  was 1.0
         ai = true;
         StaticDrag = 8;
         ttl = -1;
@@ -5032,9 +5032,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         Durability = maxDurability = 120000;
         zoom = 12.0;
         impact = 2000;
-        o->cubex = zoom * 0.20;  
-        o->cubey = zoom * 0.16; 
-        o->cubez = zoom * 1.05; 
+        o->cubex = zoom * 0.20;  //  Width of parked battleship's hit bubble
+        o->cubey = zoom * 0.16; //  Altitude of parked battleship's hit bubble
+        o->cubez = zoom * 1.05; //  Length of parked battleship's hit bubble
         }
     if (id == STATIC_HALL2)
         {
@@ -5103,7 +5103,9 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
     this->precision = precision;
     this->aggressivity = aggressivity;
     missileCount ();
-    } 
+    } //  end AIObj::newinit ()
+
+
 
 void AIObj::newinit (int id, int party, int intelligence)
     {
@@ -5423,57 +5425,57 @@ void DynamicObj::checkDurability ()
                       }
                    if (ThreeDObjects[28]->Durability <= 400)
                       { 
-                      ThreeDObjects[24]->Durability = 0; //@ Destroy associated RADARReflector too.
+                      ThreeDObjects[24]->Durability = 0; //  Destroy associated RADARReflector too.
                       if (ThreeDObjects[28]->Durability <= 0)
-                         { //@ Get here when BlueTeam HQ is completely destroyed.
+                         { //  Get here when BlueTeam HQ is completely destroyed.
                          if (fplayer->target == ThreeDObjects[28])
-                            { //@ Get here if we were targeting the airfield about to be destroyed
-                            fplayer->targetNext ((AIObj **) ThreeDObjects); //@ Don't let this continue
+                            { //  Get here if we were targeting the airfield about to be destroyed
+                            fplayer->targetNext ((AIObj **) ThreeDObjects); //  Don't let this continue
                             display ((char*)"DynamicObj::checkDurability() advancing target beyond destroyed airfield 28.", LOG_MOST);
                             }
                          sound->haltMusic();
                          display ((char*)"DynamicObj::checkDurability Playing mission-end music...", LOG_MOST);
                          if (MyNetworkId%2)
-                            { //@ Get here if player is on RedTeam and won the battle
+                            { //  Get here if player is on RedTeam and won the battle
                             sound->setVolume (SOUND_MISSIONENDINGINSTRUMENTAL, 127);
                             sound->play (SOUND_MISSIONENDINGINSTRUMENTAL, false);
                             }
                          else
-                            { //@ Get here if player is on BlueTeam and lost the battle
+                            { //  Get here if player is on BlueTeam and lost the battle
                             sound->setVolume (SOUND_DEFEAT00, 127);
                             sound->play (SOUND_DEFEAT00, false);
                             }
                          sprintf (SystemMessageBufferA, "THE RED TEAM HAS WON THE BATTLE.");
                          NewSystemMessageNeedsScrolling = true;
-                         MissionEndingTimer = 13000; //@ Signal end of mission in 13 seconds.
+                         MissionEndingTimer = 13000; //  Signal end of mission in 13 seconds.
                          ThreeDObjects[28]->DamageInNetQueue = 300000; // Force other logic to propogate destruct message to all players
                          }
                       }
                    else if (ThreeDObjects[29]->Durability <= 400)
                       { 
-                      ThreeDObjects[25]->Durability = 0; //@ Destroy associated RADARReflector too.
+                      ThreeDObjects[25]->Durability = 0; //  Destroy associated RADARReflector too.
                       if (ThreeDObjects[29]->Durability <= 0)
-                         { //@ Get here when RedTeam HQ is completely destroyed.
+                         { //  Get here when RedTeam HQ is completely destroyed.
                          if (fplayer->target == ThreeDObjects[29])
-                            { //@ Get here if we were targeting the airfield about to be destroyed
-                            fplayer->targetNext ((AIObj **) ThreeDObjects); //@ Don't let this continue
+                            { //  Get here if we were targeting the airfield about to be destroyed
+                            fplayer->targetNext ((AIObj **) ThreeDObjects); //  Don't let this continue
                             display ((char*)"DynamicObj::checkDurability() advancing target beyond destroyed airfield 29.", LOG_MOST);
                             }
                          sound->haltMusic();
                          display ((char*)"DynamicObj::checkDurability Playing mission-end music...", LOG_MOST);
                          if (!MyNetworkId%2)
-                            { //@ Get here if player is on BlueTeam and won the battle
+                            { //  Get here if player is on BlueTeam and won the battle
                             sound->setVolume (SOUND_DEFEAT00, 127);
                             sound->play (SOUND_DEFEAT00, false);
                             }
                          else
-                            { //@ Get here if player is on RedTeam and lost the battle
+                            { //  Get here if player is on RedTeam and lost the battle
                             sound->setVolume (SOUND_MISSIONENDINGINSTRUMENTAL, 127);
                             sound->play (SOUND_MISSIONENDINGINSTRUMENTAL, false);
                             }
                          sprintf (SystemMessageBufferA, "THE BLUE TEAM HAS WON THE BATTLE.");
                          NewSystemMessageNeedsScrolling = true;
-                         MissionEndingTimer = 13000; //@ Signal end of mission in 13 seconds.
+                         MissionEndingTimer = 13000; //  Signal end of mission in 13 seconds.
                          ThreeDObjects[29]->DamageInNetQueue = 300000; // Force other logic to propogate destruct message to all players
                          }
                       }

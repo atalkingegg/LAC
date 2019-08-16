@@ -115,6 +115,7 @@ extern int SkewViewUp;
 
 extern float ScreenFOVx;
 extern float SeaLevel;
+extern float TargetAltitude;
 extern float TrueAirSpeed;
 
 Cockpit::Cockpit ()
@@ -1087,7 +1088,8 @@ void Cockpit::drawCounter ()
 
     if(fplayer->target && RadarOnOff && IffOnOff && RadarZoom != 8)
       {
-      sprintf (buf, "TAR ALT:  %5.0f", 25.0 * (fplayer->target->tl->y + SeaLevel ));
+      TargetAltitude = 25.0 * (fplayer->target->tl->y + SeaLevel );
+      sprintf (buf, "TAR ALT:  %5.0f", TargetAltitude);
       if(fplayer->target->party != fplayer->party)
          {
          font1->drawTextCentered (-29.0, (yf-1.45)*10, zf, buf, &red);

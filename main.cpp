@@ -394,7 +394,7 @@ Uint16 OutGoingPacketSignature;
 Uint32 DeltaTime;
 Uint32 LandingTimer = 0;
 Uint32 LastTime = 0;
-Uint32 Me163LandingTimer = 60000;           
+Uint32 Me163LandingTimer = 90000;           
 Uint32 MissionEndingTimer = 0;              
 Uint32 MissionEndingTimer2 = 0;             
 Uint32 MissionNetworkBattle01Timer = 0;     
@@ -490,6 +490,7 @@ float StallRatio;
 float sungamma = 45.0;
 float sunlight = 1.0;
 float sunlight_dest = 1.0;
+float TargetAltitude = 0.0; // Set in cockpit.cpp's "drawCounter()" and used in TargetVocalizeProcess1().
 float ThetaDelta = 0;
 float ThetaNormalized = 5;
 float ThetaTemp3=0; 
@@ -7709,6 +7710,19 @@ void event_targetNext ()
              FinalTarget = fplayer->target;
              }
           
+          // Don't allow selection of 3d object 22, 23, 24, 25, 26, or 27 to avoid segmentation faults if those objects are ever destroyed.
+          if (fplayer->target == ThreeDObjects[22])
+             { //@ Get here if the player ever targets object 22 in any of the three online, multiplayer missions.
+             display ((char*)"event_targetNext() attempted to target object 22. Skipping ahead.", LOG_MOST);
+             fplayer->targetNext ((AIObj **) ThreeDObjects); //@ Skip ahead. Select the next 3d object.
+             fplayer->targetNext ((AIObj **) ThreeDObjects); //@ Skip ahead. Select the next 3d object.
+             }
+          if (fplayer->target == ThreeDObjects[23])
+             { //@ Get here if the player ever targets object 23 in any of the three online, multiplayer missions.
+             display ((char*)"event_targetNext() attempted to target object 23. Skipping ahead.", LOG_MOST);
+             fplayer->targetNext ((AIObj **) ThreeDObjects); //@ Skip ahead. Select the next 3d object.
+             fplayer->targetNext ((AIObj **) ThreeDObjects); //@ Skip ahead. Select the next 3d object.
+             }
           if (fplayer->target == ThreeDObjects[24])
              { 
              display ((char*)"event_targetNext() attempted to target object 24. Skipping ahead.", LOG_MOST);
@@ -7856,7 +7870,7 @@ void event_targetPrevious ()
              fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
              FinalTarget = fplayer->target;
              }
-          
+          // Don't allow selection of 3d object 22, 23, 24, 25, 26, or 27 to avoid segmentation faults if those objects are ever destroyed.
           if (fplayer->target == ThreeDObjects[27])
              { 
              fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
@@ -7873,7 +7887,14 @@ void event_targetPrevious ()
              { 
              fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
              }
-          
+          if (fplayer->target == ThreeDObjects[23])
+             {
+             fplayer->targetPrevious ((AIObj **) ThreeDObjects);
+             }
+          if (fplayer->target == ThreeDObjects[22])
+             { 
+             fplayer->targetPrevious ((AIObj **) ThreeDObjects);
+             }          
           if (fplayer->target == ThreeDObjects[1])
              {
              SelectedMissionTarget = 1;
@@ -13355,7 +13376,7 @@ void TargetVocalizeProcess1 ()
              {
              break;
              }
-        } 
+        } //@ end switch (MissionAircraft)
       State8Vocalized = false;
       State7Vocalized = false;
       State6Vocalized = false;
@@ -13364,7 +13385,7 @@ void TargetVocalizeProcess1 ()
       State3Vocalized = false;
       State2Vocalized = true;
       State1Vocalized = false;
-      } 
+      } //@ end if (TargetVocalize1State == 2)
    else if (TargetVocalize1State == 3  && !State3Vocalized)
       {
       sound->setVolume (SOUND_IsAt, 90);
@@ -13379,62 +13400,62 @@ void TargetVocalizeProcess1 ()
       State1Vocalized = false;
       }
    else if (TargetVocalize1State == 4  && !State4Vocalized)
-      { 
+      { //@ Get here to vocalize target clock direction
       int InterceptAngle = fplayer->getAngle (ThreeDObjects [SelectedMissionTarget]);
       InterceptAngle *= -1;
       if (InterceptAngle < 0)
-             { 
+             { //@ Get here if calculated angle is out of range. Fix it.
              InterceptAngle += 360;
              }
       if (InterceptAngle >= 0  && InterceptAngle < 15)
          {
          sound->play (SOUND_DIGIT012, false);
          }
-      else if (InterceptAngle > 15 && InterceptAngle < 45)
+      else if (InterceptAngle >= 15 && InterceptAngle < 45)
          {
          sound->play (SOUND_DIGIT001, false);
          }
-      else if (InterceptAngle > 45 && InterceptAngle < 75)
+      else if (InterceptAngle >= 45 && InterceptAngle < 75)
          {
          sound->play (SOUND_DIGIT002, false);
          }
-      else if (InterceptAngle > 75 && InterceptAngle < 105 )
+      else if (InterceptAngle >= 75 && InterceptAngle < 105 )
          {
          sound->play (SOUND_DIGIT003, false);
          }
-      else if (InterceptAngle > 105 && InterceptAngle < 135)
+      else if (InterceptAngle >= 105 && InterceptAngle < 135)
          {
          sound->play (SOUND_DIGIT004, false);
          }
-      else if (InterceptAngle > 135 && InterceptAngle < 165)
+      else if (InterceptAngle >= 135 && InterceptAngle < 165)
          {
          sound->play (SOUND_DIGIT005, false);
          }
-      else if (InterceptAngle > 165 && InterceptAngle < 195)
+      else if (InterceptAngle >= 165 && InterceptAngle < 195)
          {
          sound->play (SOUND_DIGIT006, false);
          }
-      else if (InterceptAngle > 195 && InterceptAngle < 225)
+      else if (InterceptAngle >= 195 && InterceptAngle < 225)
          {
          sound->play (SOUND_DIGIT007, false);
          }
-      else if (InterceptAngle > 225 && InterceptAngle < 255)
+      else if (InterceptAngle >= 225 && InterceptAngle < 255)
          {
          sound->play (SOUND_DIGIT008, false);
          }
-      else if (InterceptAngle > 255 && InterceptAngle < 285)
+      else if (InterceptAngle >= 255 && InterceptAngle < 285)
          {
          sound->play (SOUND_DIGIT009, false);
          }
-      else if (InterceptAngle > 285 && InterceptAngle < 315)
+      else if (InterceptAngle >= 285 && InterceptAngle < 315)
          {
          sound->play (SOUND_DIGIT010, false);
          }
-      else if (InterceptAngle > 315 && InterceptAngle < 345)
+      else if (InterceptAngle >= 315 && InterceptAngle < 345)
          {
          sound->play (SOUND_DIGIT011, false);
          }
-      else if (InterceptAngle > 345 && InterceptAngle <= 360)
+      else if (InterceptAngle >= 345 && InterceptAngle <= 360)
          {
          sound->play (SOUND_DIGIT012, false);
          }
@@ -13446,7 +13467,7 @@ void TargetVocalizeProcess1 ()
       State3Vocalized = false;
       State2Vocalized = false;
       State1Vocalized = false;
-      } 
+      } //@ end else if (TargetVocalize1State == 4)
    else if (TargetVocalize1State == 5  && !State5Vocalized)
       {
       sound->setVolume (SOUND_Oclock, 90);
@@ -13473,127 +13494,112 @@ void TargetVocalizeProcess1 ()
       State2Vocalized = false;
       State1Vocalized = false;
       }
-
-// critical warning section 
-   else if (fplayer->target == nullptr)
-   {
-             sprintf (DebugBuf, "CRITICAL ERROR: Called TargetVocalizeProcess1()in main.cpp when fplayer->target is NULL");
-             display (DebugBuf, LOG_ERROR);
-             return;
-   }
-// end critical warning section 
-
    else if (TargetVocalize1State == 7  && !State7Vocalized)
-      { 
-      if ((fplayer->target->tl->y / 25.0) < 1.4)
+      { //@ Get here to vocalize the first word of target altitude. With divisor of 23, 2800 feet vocalizes as angel's 4. With divisor of 24, 2900 feet vocalizes as angel's 4. However, by the time target altitude reaches 10,000 feet, vocalization reports only Angel's 9.
+      if (TargetAltitude < 500.0)
          {
          sound->setVolume (SOUND_DIGIT000, 90);
          sound->play (SOUND_DIGIT000, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 3.4)
+      else if (TargetAltitude < 1500.0)
          {
          sound->setVolume (SOUND_DIGIT001, 90);
          sound->play (SOUND_DIGIT001, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 5.2)
+      else if (TargetAltitude < 2500.0)
          {
          sound->setVolume (SOUND_DIGIT002, 90);
          sound->play (SOUND_DIGIT002, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 7.0)
+      else if (TargetAltitude < 3500.0)
          {
          sound->setVolume (SOUND_DIGIT003, 90);
          sound->play (SOUND_DIGIT003, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 8.8)
+      else if (TargetAltitude < 4500.0)
          {
          sound->setVolume (SOUND_DIGIT004, 90);
          sound->play (SOUND_DIGIT004, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 10.6)
+      else if (TargetAltitude < 5500.0)
          {
          sound->setVolume (SOUND_DIGIT005, 90);
          sound->play (SOUND_DIGIT005, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 12.4)
+      else if (TargetAltitude < 6500.0)
          {
          sound->setVolume (SOUND_DIGIT006, 90);
          sound->play (SOUND_DIGIT006, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 14.2)
+      else if (TargetAltitude < 7500.0)
          {
          sound->setVolume (SOUND_DIGIT007, 90);
          sound->play (SOUND_DIGIT007, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 16.0)
+      else if (TargetAltitude < 8500.0)
          {
          sound->setVolume (SOUND_DIGIT008, 90);
          sound->play (SOUND_DIGIT008, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 18.0)
+      else if (TargetAltitude < 9500.0)
          {
          sound->setVolume (SOUND_DIGIT009, 90);
          sound->play (SOUND_DIGIT009, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 20.0)
+      else if (TargetAltitude < 10500.0)
          {
          sound->setVolume (SOUND_DIGIT010, 90);
          sound->play (SOUND_DIGIT010, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 22)
+      else if (TargetAltitude < 11500.0)
          {
          sound->setVolume (SOUND_DIGIT011, 90);
          sound->play (SOUND_DIGIT011, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) <24)
+      else if (TargetAltitude < 12500.0)
          {
          sound->setVolume (SOUND_DIGIT012, 90);
          sound->play (SOUND_DIGIT012, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 26)
+      else if (TargetAltitude < 13500.0)
          {
          sound->setVolume (SOUND_DIGIT013, 90);
          sound->play (SOUND_DIGIT013, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 28)
+      else if (TargetAltitude < 14500.0)
          {
          sound->setVolume (SOUND_DIGIT014, 90);
          sound->play (SOUND_DIGIT014, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 30)
+      else if (TargetAltitude < 15500.0)
          {
          sound->setVolume (SOUND_DIGIT015, 90);
          sound->play (SOUND_DIGIT015, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 32)
+      else if (TargetAltitude < 16500.0)
          {
          sound->setVolume (SOUND_DIGIT016, 90);
          sound->play (SOUND_DIGIT016, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 34)
+      else if (TargetAltitude < 17500.0)
          {
          sound->setVolume (SOUND_DIGIT017, 90);
          sound->play (SOUND_DIGIT017, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 36)
+      else if (TargetAltitude < 18500.0)
          {
          sound->setVolume (SOUND_DIGIT018, 90);
          sound->play (SOUND_DIGIT018, false);
          }
-      else if ((fplayer->target->tl->y / 25.0) < 38)
+      else if (TargetAltitude < 19500.0)
          {
          sound->setVolume (SOUND_DIGIT019, 90);
          sound->play (SOUND_DIGIT019, false);
          }
-      else if (((fplayer->target->tl->y / 25.0) > 38) && ((fplayer->target->tl->y / 25.0) < 58))
+      else if (TargetAltitude < 20500.0)
          {
          sound->setVolume (SOUND_DIGIT020, 90);
          sound->play (SOUND_DIGIT020, false);
-         }
-      else if ((fplayer->target->tl->y / 25.0) > 58)
-         {
-         sound->setVolume (SOUND_DIGIT030, 90);
-         sound->play (SOUND_DIGIT030, false);
          }
       State8Vocalized = false;
       State7Vocalized = true;
@@ -13603,104 +13609,18 @@ void TargetVocalizeProcess1 ()
       State3Vocalized = false;
       State2Vocalized = false;
       State1Vocalized = false;
-      } 
+      } //@ end else if (TargetVocalize1State == 7)
    else if (TargetVocalize1State == 8  && !State8Vocalized)
-      { 
-      if (((fplayer->target->tl->y / 25.0) > 40) && ((fplayer->target->tl->y / 25.0) < 60))
-         { 
-         if ((fplayer->target->tl->y / 25.0) < 42)
-            {
-            sound->setVolume (SOUND_DIGIT001, 90);
-            sound->play (SOUND_DIGIT001, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 44)
-            {
-            sound->setVolume (SOUND_DIGIT002, 90);
-            sound->play (SOUND_DIGIT002, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 46)
-            {
-            sound->setVolume (SOUND_DIGIT003, 90);
-            sound->play (SOUND_DIGIT003, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 48)
-            {
-            sound->setVolume (SOUND_DIGIT004, 90);
-            sound->play (SOUND_DIGIT004, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 50)
-            {
-            sound->setVolume (SOUND_DIGIT005, 90);
-            sound->play (SOUND_DIGIT005, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 52)
-            {
-            sound->setVolume (SOUND_DIGIT006, 90);
-            sound->play (SOUND_DIGIT006, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 54)
-            {
-            sound->setVolume (SOUND_DIGIT007, 90);
-            sound->play (SOUND_DIGIT007, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 56)
-            {
-            sound->setVolume (SOUND_DIGIT008, 90);
-            sound->play (SOUND_DIGIT008, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 58)
-            {
-            sound->setVolume (SOUND_DIGIT009, 90);
-            sound->play (SOUND_DIGIT009, false);
-            }
-         } 
-      else if (((fplayer->target->tl->y / 25.0) > 60) && ((fplayer->target->tl->y / 25.0) < 80))
-         { 
-         if ((fplayer->target->tl->y / 25.0) < 62)
-            {
-            sound->setVolume (SOUND_DIGIT001, 90);
-            sound->play (SOUND_DIGIT001, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 64)
-            {
-            sound->setVolume (SOUND_DIGIT002, 90);
-            sound->play (SOUND_DIGIT002, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 66)
-            {
-            sound->setVolume (SOUND_DIGIT003, 90);
-            sound->play (SOUND_DIGIT003, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 68)
-            {
-            sound->setVolume (SOUND_DIGIT004, 90);
-            sound->play (SOUND_DIGIT004, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 70)
-            {
-            sound->setVolume (SOUND_DIGIT005, 90);
-            sound->play (SOUND_DIGIT005, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 72)
-            {
-            sound->setVolume (SOUND_DIGIT006, 90);
-            sound->play (SOUND_DIGIT006, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 74)
-            {
-            sound->setVolume (SOUND_DIGIT007, 90);
-            sound->play (SOUND_DIGIT007, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 76)
-            {
-            sound->setVolume (SOUND_DIGIT008, 90);
-            sound->play (SOUND_DIGIT008, false);
-            }
-         else if ((fplayer->target->tl->y / 25.0) < 78)
-            {
-            sound->setVolume (SOUND_DIGIT009, 90);
-            sound->play (SOUND_DIGIT009, false);
-            }
+      { //@ Get here to vocalize second word of target altitude
+      if ((TargetAltitude > 20000) && (TargetAltitude > 30000))
+         { //@ Get here if target altitude is between 20K and 30K feet
+         //@ Vocalizer doesn't work above 20000 feet.
+         sound->play (SOUND_BEEP1, false);
+         } //@ end Get here if target altitude is between 20K and 30K feet
+      else if ((TargetAltitude > 30000) && (TargetAltitude < 40000))
+         { //@ Get here if target altitude is between 30K and 40K feet
+         //@ Vocalizer doesn't work above 20000 feet.
+         sound->play (SOUND_BEEP1, false);
          }
       State8Vocalized = true;
       State7Vocalized = false;
@@ -13713,7 +13633,8 @@ void TargetVocalizeProcess1 ()
       TargetVocalize1State = 0;
       TargetVocalizeTimer1 = 0;
       }
-   } 
+   } //@ end TargetVocalizeProcess1()
+
 
 void TargetVocalizeProcess2 ()
 {
