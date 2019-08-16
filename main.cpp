@@ -13953,9 +13953,8 @@ void TimerGame (int dt)
             sound->stop (SOUND_CANNON1);
             }
         }
-    if (lastDurability > fplayer->Durability && !fplayer->ai)
+    if (lastDurability > fplayer->Durability && !fplayer->ai && !LandedAtSafeSpeed)
         {
-        
         fplayer->RollRate *=0.95; 
         fplayer->maxthrust*=0.995; 
         sound->play (SOUND_HIT1, false);
