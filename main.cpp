@@ -9226,7 +9226,7 @@ char *getModelName (int id)
         }
     else if (id == BOMBER_G5M)
         {
-        return (char *)"JAPAN MITSUBISHI G4M BETTY";
+        return (char *)"JAPAN MITSUBISHI G5M BETTY";
         }
     else if (id == BOMBER_B25)
         {
@@ -10968,7 +10968,6 @@ static void LacKeyboardFuncUp (unsigned char key, int x, int y)
 
 static void LacMouseFunc (int button, int state, int x, int y)
     {
-    display ((char*)"Function entry: LacMouseFunc()", LOG_MOST);
     // Abstract Event Branch
     void MouseMission (int button, int state, int x, int y);
     void MouseCreate (int button, int state, int x, int y);
