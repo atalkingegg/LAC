@@ -1,4 +1,4 @@
-TARGET := Lac07p70
+TARGET := LacSdl2-191121A
 
 OBJS := 3ds.o aiobject.o audio.o cockpit.o common.o conf.o dirs.o effects.o fileloader.o FlightModel.o gl.o glland.o land.o loader_tga.o main.o mathtab.o menu.o mission.o model.o NetworkApi.o object.o objload.o pilots.o vertexarray.o
 
@@ -15,8 +15,8 @@ endif
 
 ifeq ($(UNAME), Darwin)
 	CXX       := /usr/bin/llvm-g++ -fno-color-diagnostics
-	CXXFLAGS  := -std=c++17 -m64 -Wall -g -I/opt/local/include -I/opt/X11/include
-#	CXXFLAGS  := -std=c++17 -m64 -Wall -Ofast -I/opt/local/include -I/opt/X11/include
+#	CXXFLAGS  := -std=c++17 -m64 -Wall -g -I/opt/local/include -I/opt/X11/include
+	CXXFLAGS  := -std=c++17 -m64 -Wall -Ofast -I/opt/local/include -I/opt/X11/include
 	SYS_FLAGS := -framework Cocoa -framework OpenGL -L/opt/local/lib -L/opt/X11/lib
 	SDL2FLAGS := -lSDL2 -lSDL2main -lSDL2_mixer -lGLU
 endif
