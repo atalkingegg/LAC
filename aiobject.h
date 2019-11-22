@@ -229,7 +229,7 @@ class DynamicObj : public CSpaceObj
   float MaxFullPowerAltRatio = 0.6; // Engines decrease above this fraction of MAXALTITUDE
   float CompressibilitySpeed = 0.38; // Above this speed, controls get stiff or lock up.
   float CompressibilitySpeedWithSpeedBrakes = 0.38; // Some planes enter compressibility at a different speed when speedbrakes are active.
-  float DiveSpeedLimitThreshold = 0.35; // Faster than this is not wise.
+  float SeaLevelSpeedLimitThreshold = 0.35; // Faster than this is not wise.
   float DiveSpeedLimit1 = 0.40; // Faster than this is usually fatal.
   float DiveSpeedStructuralLimit = 0.50; // Faster than this will rip off the wings.
   float SpeedHistoryArray[10] = {0.11}; // This aircraft's speed during 10 prior Inertia periods.

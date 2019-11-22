@@ -288,7 +288,7 @@ display ((char *)"DegradeFlightModelDueToOrdnanceLoad() has completed.", LOG_MOS
 void DragEffects()
 {
 fplayer->DragEffect = fplayer->StaticDrag;
-float SpeedRatio = fplayer->InertiallyDampenedPlayerSpeed * fplayer->InertiallyDampenedPlayerSpeed / fplayer->DiveSpeedLimitThreshold * fplayer->DiveSpeedLimitThreshold;
+float SpeedRatio = fplayer->InertiallyDampenedPlayerSpeed * fplayer->InertiallyDampenedPlayerSpeed / fplayer->SeaLevelSpeedLimitThreshold * fplayer->SeaLevelSpeedLimitThreshold;
 SpeedRatio *= 0.4;
 fplayer->forcex *= (1.0 - SpeedRatio);
 fplayer->forcey *= (1.0 - SpeedRatio);
@@ -332,7 +332,7 @@ Uint32 OverSpeedTimer = 0;
 static float ForceXRegulator = 0.0;
 static float ForceYRegulator = 0.0;
 static float ForceZRegulator = 0.0;
-if (fplayer->InertiallyDampenedPlayerSpeed > fplayer->DiveSpeedLimitThreshold)
+if (fplayer->InertiallyDampenedPlayerSpeed > fplayer->SeaLevelSpeedLimitThreshold)
    { 
    
    OverSpeedTimer += DeltaTime; // How much time has accumulated since we entered overspeed condition?

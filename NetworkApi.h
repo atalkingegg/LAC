@@ -83,7 +83,7 @@ char          UdpObjCommunityHandle[16] = {"00000000000000"};
 
 struct Admin013Packet
 {
-unsigned char NetworkApiVersion = 8;
+unsigned char NetworkApiVersion = 10;
 unsigned char UdpObjCommand = 13;
 unsigned char UdpObjMissionId = 0;
 unsigned char UdpObjRealm = 0;

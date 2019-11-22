@@ -94,3 +94,96 @@ I updated Makefile to reference the new executable name "LacSdl2-191121A".
 I updated "lac" to prevent it from activating mumble, since LAC now does that for itself.
 
 
+
+
+
+
+
+
+
+
+
+Version 191122a
+
+
+I went into conf.cpp and enhanced the prompting text describing this more sophisticated, bit-coded, handling of "NetworkMode". Here is the resulting, enhanced
+block of code:
+
+
+    cf->writeText ((char *)"# NetworkMode. On a network, LAC can operate in either of two distinct modes.");
+    cf->writeText ((char *)"# The simplest of these is PeerToPeer mode. In PeerToPeer mode, pairs of");
+    cf->writeText ((char *)"# players connect with one another directly, with no need for a network server.");
+    cf->writeText ((char *)"# PeerToPeer mode is limited to two-player missions.");
+    cf->writeText ((char *)"# ");
+    cf->writeText ((char *)"# The other mode is known as ClientServer mode. In ClientServer mode, all players");
+    cf->writeText ((char *)"# must connect with a remote LAC Server, and several players can participate in");
+    cf->writeText ((char *)"# any multiplayer mission. The number of players in each mission is limited only");
+    cf->writeText ((char *)"# by the design of the mission itself and the quality of the network connections");
+    cf->writeText ((char *)"# in use. We use the least significant bit of NetworkMode to make this determination.");
+    cf->writeText ((char *)"# ");
+    cf->writeText ((char *)"# We use the second least significant bit of NetworkMode to tell LAC how to handle");
+    cf->writeText ((char *)"# Mumble commands. Old versions of Mumble (prior to V1.3.0), which cannot handle");
+    cf->writeText ((char *)"# our Mumble commands, are indicated by setting that bit to 0. If you are using");
+    cf->writeText ((char *)"# Mumble V1.3.0 or later, calculate a value of NetworkMode with that bit set to 1.");
+    cf->writeText ((char *)"# ");
+    cf->writeText ((char *)"# Accordingly, set NetworkMode as follows:");
+    cf->writeText ((char *)"# ");
+    cf->writeText ((char *)"# For PeerToPeer mode without the latest Mumble, set NetworkMode to 0.");
+    cf->writeText ((char *)"# For ClientServer mode without the latest Mumble, set NetworkMode to 1.");
+    cf->writeText ((char *)"# For PeerToPeer mode and Mumble V1.3.0 or later, set NetworkMode to 2.");
+    cf->writeText ((char *)"# For ClientServer mode and Mumble V1.3.0 or later, set NetworkMode to 3.");
+    cf->writeText ((char *)"");
+    cf->write     ((char *)" NetworkMode", NetworkMode);
+
+
+I went into main.cpp's "LacMouseFunc()" function and commented out the following line of diagnostic reporting code in order to improve frame rate in those environments:
+
+   display ((char*)"Function entry: LacMouseFunc()", LOG_MOST);
+
+I fixed the spelling of the Mitsubishi G5M in the menus, changing "G4M" to "G5M" inside main.cpp's "getModelName()" function.
+
+Extensive experience with the pior versios revealed a need to update the player's XZ position with greater influence from his "realspeed" and with correspondingly less influence from his thrust. Accordingly, I went into aiobject.cpp's "DynamicObj::move()" function and began experimentations to re-balance those variables.
+
+In particular, I found it helpful to nullify a divisor associated with "fplayer->realspeed". I changed two lines of code from this:
+
+        accx -= sin(fplayer->phi * DegreesToRadiansFactor) * ((fplayer->realspeed)/5);
+        accz -= cos(fplayer->phi * DegreesToRadiansFactor) * ((fplayer->realspeed)/5);
+
+
+to this:
+
+        accx -= sin(fplayer->phi * DegreesToRadiansFactor) * ((fplayer->realspeed));
+        accz -= cos(fplayer->phi * DegreesToRadiansFactor) * ((fplayer->realspeed));
+
+As a consequence of this little change, the apparent speed of travel past terrain objects is greatly accelerated, making the sim much more exciting and more fun to fly (especially down low).
+
+Since that change affected velocity calculations, it was necessary to adjust all of the flight model parameters for all aircraft. They are all initialized in aiobject.pp's large "AIObj::newinit()" function. Accordingly, I copied all of those flight models from the corresponding areas of aiobject.cpp from Lac07R92. During that process I updated all references to the old "DiveSpeedLimitThreshold" to "SeaLevelSpeedLimitThreshold" because the new name is more descriptively accurate.
+
+I also had to adjust the maximum speed at which landing gear can be lowered. To do that, I went into main.cpp's "event_ToggleUndercarriage()" function and changed the relevant condition statement from this:
+
+    if (fplayer->InertiallyDampenedPlayerSpeed < (fplayer->FlapSpeed * 0.75))
+
+to this:
+
+    if (fplayer->InertiallyDampenedPlayerSpeed < (fplayer->FlapSpeed * 0.95))
+
+
+I also had to go into main.cpp's "TimerGame()" function and make a similar change to adjust automatic retraction of the undercarriage according to the same speed pattern. Here is the changed condition code line:
+
+     if(fplayer->InertiallyDampenedPlayerSpeed > (fplayer->FlapSpeed * 0.95))
+
+Then I had to go into cockpit.cpp's huge "Cockpit::drawCounter()" function and recalibrate the display of "SPEED". I decreased the displayed value by 30%. To make that adjustment, I changed the following line of code:
+
+   sprintf (buf, "SPEED:       %3d", (int) (fplayer->InertiallyDampenedPlayerSpeed / timestep * 50000.0F)); // Was * 54760
+
+to this:
+
+sprintf (buf, "SPEED:       %3d", (int) (fplayer->InertiallyDampenedPlayerSpeed / timestep * 35000.0F)); // Was * 54760
+
+
+Significant offline and online testing confirms progress: The visual sensation of speed is significantly improved, and jockeying for position while flying in formation is now more realistically affected by realspeed and not just by throttle setting.
+
+I also updated main.cpp's "NetworkApiVersion" from "9" to "10" for compatibility with the contempory setting used by LAC players.
+
+
+

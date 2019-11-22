@@ -588,7 +588,7 @@ void Cockpit::drawCounter ()
        }
     if (!OnTheGround)
        {
-       sprintf (buf, "SPEED:       %3d", (int) (fplayer->InertiallyDampenedPlayerSpeed / timestep * 50000.0F)); // Was * 54760
+       sprintf (buf, "SPEED:       %3d", (int) (fplayer->InertiallyDampenedPlayerSpeed / timestep * 35000.0F)); 
        }
     else
        {

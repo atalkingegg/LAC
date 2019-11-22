@@ -208,7 +208,7 @@ unsigned char MissionStateNetworkBattle;
 unsigned char MorseCharacterIn = 0;
 unsigned char MumbleChannelPresumed = 0;
 unsigned char MyNetworkId = 1;
-unsigned char NetworkApiVersion = 9;
+unsigned char NetworkApiVersion = 10;
 unsigned char NetworkOpponent = 0;
 unsigned char NewestInPacketId = 0;
 unsigned char NewestMumblePacketId = 0;
@@ -8232,7 +8232,7 @@ void event_ToggleUndercarriage()
     {
     display ((char *)"event_ToggleUndercarriage.", LOG_MOST);
 
-    if (fplayer->InertiallyDampenedPlayerSpeed < (fplayer->FlapSpeed * 0.75))
+    if (fplayer->InertiallyDampenedPlayerSpeed < (fplayer->FlapSpeed * 0.95))
         {
 
         if (fplayer->UndercarriageLevel)
@@ -14071,7 +14071,7 @@ void TimerGame (int dt)
     if(fplayer->UndercarriageLevel)
         {
 
-        if(fplayer->InertiallyDampenedPlayerSpeed > (fplayer->FlapSpeed * 0.85))
+        if(fplayer->InertiallyDampenedPlayerSpeed > (fplayer->FlapSpeed * 0.95))
             {
 
             sound->setVolume (SOUND_UNDERCARRIAGE, 88);
