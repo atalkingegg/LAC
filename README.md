@@ -84,5 +84,6 @@ and: https://sourceforge.net/projects/linuxaircombat/
 Also a shout out to the original GL-117 project, where this code started back in 2005.
 
 Bob Bosen has joined this effort as a collaborator (11Jun2019)
+Bob Bosen is working to update this with all features up thru LAC Release 7.92
 
 ################################################################################
