@@ -1,0 +1,96 @@
+Version 191121a
+
+
+I created all of the following Mumble-related global variables:
+
+bool Promoted = false; //@ Handled in GetNetworkApiPacket(). Grants administrative authority to issue Multiplayer Mumble Commands.
+char ConvertedMumbleUrl[128]; //@ Passes parameters between ConvertUrlToRealm1() and popen().
+char CommsMacro17String1[64] = "ACTIVE-TEAMCAST-CHANNEL";
+char CommsMacro18String1[64] = "ACTIVE-MISSIONCAST-CHANNEL";
+char CommsMacro19String1[64] = "VOCALIZE-ENEMY-HQ-STATUS";
+char Mumble1p2StringActive[128]; //@ Contains a copy of one of the other Mumble1p2 strings in preparation for issuing as the next command
+char MumbleStringR0Mission1All[128] =  "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle01/?version=1.2.0";
+char MumbleStringR0Mission1Blue[128] = "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle01/M1Blue/?version=1.2.0";
+char MumbleStringR0Mission1Red[128]  = "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle01/M1Red/?version=1.2.0";
+char MumbleStringR0Mission2All[128] =  "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle02/?version=1.2.0";
+char MumbleStringR0Mission2Blue[128] = "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle02/M2Blue/?version=1.2.0";
+char MumbleStringR0Mission2Red[128]  = "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle02/M2Red/?version=1.2.0";
+char MumbleStringR0Mission3All[128] =  "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle03/?version=1.2.0";
+char MumbleStringR0Mission3Blue[128] = "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle03/M3Blue/?version=1.2.0";
+char MumbleStringR0Mission3Red[128]  = "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle03/M3Red/?version=1.2.0";
+char MumbleStringCh01[128] = "mumble mumble://linuxaircombat.com/001/?version=1.2.0";
+char MumbleStringCh02[128] = "mumble mumble://linuxaircombat.com/002/?version=1.2.0";
+char MumbleStringCh03[128] = "mumble mumble://linuxaircombat.com/003/?version=1.2.0";
+char MumbleStringCh04[128] = "mumble mumble://linuxaircombat.com/004/?version=1.2.0";
+char MumbleStringCh05[128] = "mumble mumble://linuxaircombat.com/005/?version=1.2.0";
+char MumbleStringCh06[128] = "mumble mumble://linuxaircombat.com/006/?version=1.2.0";
+char MumbleStringCh07[128] = "mumble mumble://linuxaircombat.com/007/?version=1.2.0";
+char MumbleStringCh08[128] = "mumble mumble://linuxaircombat.com/008/?version=1.2.0";
+char MumbleStringCh09[128] = "mumble mumble://linuxaircombat.com/009/?&version=1.2.0";
+char MumbleStringCh10[128] = "mumble mumble://linuxaircombat.com/010/?&version=1.2.0";
+char MumbleStringRoot[128] = "mumble mumble://linuxaircombat.com/?version=1.2.0";
+unsigned char RepeatedMorseOutCharCount = 0;    //@ Managed in TransmitCharacterViaMorseRadio().
+extern int NetworkMode; (Created in conf.cpp).
+Uint32 MumbleCommand1p2Timer = 1000000000;  //@ Interval between Mumble1.2 reset URL and Mumble1.2 Channel change URL commands. Initialize to infinity....
+Uint32 MumbleCommandTimer = 11000;          //@ Updated in timergame(). Tested in MumbleChannelChange(). Prevents too rapid flood of Mumble commands
+Uint32 MumbleTimeRemainingBeforeChannelReset = 10000000; //@ Counts down. When it reaches zero we try to reset Mumble to proper TeamCast channel.
+
+I created the following function prototypes at the top of main.cpp:
+
+void MumbleChannelChange (char MumbleUrl[]);
+void VocalizeEnemyHqStatus();
+void event_fireCannon();
+void MumbleChannelChange (char MumbleUrl[]);
+
+
+
+
+I copied all of the following functions from Lac07p92 into main.cpp:
+
+void SwitchMumbleToSecretChannel(unsigned char PlayerId)
+void ConvertUrlToRealm1(char *MumbleUrl)
+void event_CommsMacro01 ()
+void event_CommsMacro02 ()
+void event_CommsMacro03 ()
+void event_CommsMacro04 ()
+void event_CommsMacro05 ()
+void event_CommsMacro06 ()
+void event_CommsMacro07 ()
+void event_CommsMacro08 ()
+void event_CommsMacro09 ()
+void event_CommsMacro10 ()
+void event_CommsMacro11 ()
+void event_CommsMacro12 ()
+void event_CommsMacro13 ()
+void event_CommsMacro14 ()
+void event_CommsMacro15 ()
+void event_CommsMacro16 ()
+void event_CommsMacro17 ()
+void event_CommsMacro18 ()
+void event_CommsMacro19 ()
+void Mumble1p2ChannelChange(char MumbleUrl[])
+void MumbleChannelChange (char MumbleUrl[])
+void TransmitCharacterViaMorseRadio (int key)
+void VocalizeEnemyHqStatus()
+void WrongChannelMessage()
+
+I copied the following logic from lac07p92 into main.cpp's "TimerGame()" function:
+
+    MumbleCommandTimer += dt; //@ How long since prior Mumble Command was issued?
+    MumbleCommand1p2Timer -= dt; //@ How long since prior Mumble Reset Command was issued?
+    if (MumbleCommand1p2Timer < 1000)
+       { //@ Get here if we've waited at least 1 second since last reset of old-style Mumble client
+       display ((char *)"TimerGame() issuing old-style Mumble URL for channel change.", LOG_MOST);
+       popen (Mumble1p2StringActive, "r");
+       display ((char *)"TimerGame() resetting Mumble1p2Timer to infinity.", LOG_MOST);
+       MumbleCommand1p2Timer = 100000000; //@ Reset to infinity
+       MumbleCommandTimer = 0; //@ Prevent another Mumble channel change for 10 seconds.
+       }
+
+Brief online testing confirms progress: Now LAC can command Mumble to change channels as expected (at least with Mumble V1.3 and later) in response to the user pressing any of the ten keyboard digits "1", "2", "3", "4", "5", "6", "7", "8", "9", and "0". None of the more automatic Mumble channel-changing tools have been tested yet, so users are NOT automatically changed to our standardized channels according to their selected mission.
+
+I updated install.sh to reference the new executable name "LacSdl2-191121A".
+I updated Makefile to reference the new executable name "LacSdl2-191121A".
+I updated "lac" to prevent it from activating mumble, since LAC now does that for itself.
+
+
