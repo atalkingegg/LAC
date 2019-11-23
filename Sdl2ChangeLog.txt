@@ -187,3 +187,71 @@ I also updated main.cpp's "NetworkApiVersion" from "9" to "10" for compatibility
 
 
 
+
+
+
+
+
+
+
+
+Version 191122b
+
+
+I fixed a takeoff acceleration bug by inserting the following little block of new code into the area of aiobject.cpp's "CrashGround()" function that handles safe landings:
+
+   //
+   // Preload entire SpeedHistoryArray[] when the user tries to take off again, in order
+   // to improve takeoff acceleration. Detect this situation by watching for throttle
+   // greater than 90%:
+   //
+   if (fplayer->thrust > 1.0)
+      { // Get here whenever the user is still on the ground after landing and asserts high throttle for takeoff
+      unsigned char HistoryArrayPointer;
+      // Fill every entry of SpeedHistoryArray[] with StallSpeed to help takeoff acceleration
+      for (HistoryArrayPointer=0; HistoryArrayPointer<=9; HistoryArrayPointer++)
+         {
+         SpeedHistoryArray[HistoryArrayPointer] = (fplayer->StallSpeed) * 0.6;
+         }
+      }
+
+As a result, takeoff acceleration is much improved even if the player has lingered for a long time on the runway, and takeoffs no longer suffer frequent damage at the end of the runway.
+
+
+I fixed a typographical error in the "MissionHeadToHead00" menus by eliminating a closing parenthesis character from the end of the following line of code, found in main.cpp's "mission_display()" function:
+
+        font1->drawText (xstats / fontscale, -1 / fontscale, -2, (char *)"FOR THIS MISSION, YOUR AIRCRAFT\nIS FULLY ARMED AND FUELED.\n\nIF THERE IS NO ONLINE OPPONENT,\nYOU WILL FLY AGAINST 9 BOTS,\nJUST ONE AT A TIME.", col);
+
+
+
+
+
+
+
+
+
+
+
+Version 191123a
+
+Version 191123a derives directly from Version 191122b and:
+
+I replaced the entire "mission.cpp"" file with the updated one from Lac07r92.
+
+I copied the "void event_UnMuteMorseAll()" function from version Lac07r92 into main.cpp.
+
+I went into main.cpp and created a new global bool variable named "SkipTargetTourWhileRefueling".
+
+I went into main.cpp's "TimerGame()" function and inserted the following little block of new code to clear "SkipTargetTourWhileRefueling":
+
+    if (!LandedAtSafeSpeed)
+       { //@ Get here if we are in the air.
+       //@ This is a handy place to reset "SkipTargetTourWhileRefueling"
+       //@ in preparation for RearmRefuelRepair() during our next landing
+       //@ and refuel cycle:
+       SkipTargetTourWhileRefueling = false;
+       }
+
+Brief testing confirms improvement of all missions according to the recent advancement from Lac07p92. For example, the automated tactical tour can be stopped during refueling by activating "TargetPrevious".
+
+
