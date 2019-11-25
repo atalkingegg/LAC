@@ -182,6 +182,7 @@ bool RadarReflectorRedHasBeenDestroyedAtLeastOnce;
 bool RadarTargetColorLogged = false;
 bool RecoveredFromStall = false;
 bool ShotDownByBomberOrAirfieldGunners = false;
+bool SkipTargetTourWhileRefueling = false;
 bool SpaceBarPressed = false;
 bool SpeedBrakeRequested = false;
 bool StartCannon = false;
