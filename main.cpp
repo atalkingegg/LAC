@@ -8363,6 +8363,20 @@ void event_TrimRudderRight()
         }
     }
 
+void event_UnMuteMorseAll()
+{
+display ((char *)"event_UnMuteMorseAll()", LOG_MOST);
+sprintf (SystemMessageBufferA, "MORSE UNSQUELCHINGING ALL PLAYERS...");
+NewSystemMessageNeedsScrolling = true;
+sound->play (SOUND_BEEP2, false);
+unsigned char i;
+for (i=0; i<=9; i++)
+   {
+   MorseSquelches[i] = false;
+   }
+}
+
+
 void event_ZoomFovIn()
    {
 
