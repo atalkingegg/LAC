@@ -6023,6 +6023,21 @@ void DynamicObj::crashGround (Uint32 dt)
                            WheelRolloutSounded = true;
                            }
                         }
+                     //
+                     // Preload entire SpeedHistoryArray[] when the user tries to take off again, in order
+                     // to improve takeoff acceleration. Detect this situation by watching for throttle
+                     // greater than 90%:
+                     //
+                     if (fplayer->thrust > 1.0)
+                        { // Get here whenever the user is still on the ground after landing and asserts high throttle for takeoff
+                        unsigned char HistoryArrayPointer;
+                        // Fill every entry of SpeedHistoryArray[] with StallSpeed to help takeoff acceleration
+                        for (HistoryArrayPointer=0; HistoryArrayPointer<=9; HistoryArrayPointer++)
+                           {
+                           SpeedHistoryArray[HistoryArrayPointer] = (fplayer->StallSpeed) * 0.7;
+                           }
+                        }
+			  
                      }
                   else
                      { 
