@@ -8020,6 +8020,7 @@ void event_targetPrevious ()
          {
          return;
          }
+    SkipTargetTourWhileRefueling = true;
     fplayer->targetPrevious ((AIObj **) ThreeDObjects);
     FinalTarget = fplayer->target;
     if (InitialTarget == FinalTarget)
