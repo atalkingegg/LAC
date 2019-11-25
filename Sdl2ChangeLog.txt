@@ -255,3 +255,27 @@ I went into main.cpp's "TimerGame()" function and inserted the following little 
 Brief testing confirms improvement of all missions according to the recent advancement from Lac07p92. For example, the automated tactical tour can be stopped during refueling by activating "TargetPrevious".
 
 
+
+
+
+
+
+
+
+
+Version 191125a
+
+Version 191125a was downloaded from github on 25Nov2019 and various githut upload oversights were corrected. After those corrections I confirmed that it compiles and runs correctly, duplicating the functionality of the prior version 191123a.
+
+Players using this version online can successfully fly among players using the production Lac07r92 version of LAC.
+
+However, keyboard mapping is still very cumbersome, and I suspect that some of the prompting text in various menus and configuration files is not as clear or as helpful as in the production version.
+
+The main deficiency of this version is the cumbersome keyboard mapping, due to differences in the way the SDL2 logic decodes keyboard characters versus the method used by SDL1.
+
+While watching run-time diagnostics as keyboard characters are processed, I can see that the values reported by "LacKeyboardFunc()" do not always correspond with values reported by "KeyGame()". LAC has been relying on the "KeyGame()" values, but the SDL2 logic actually duplicates some of the important keystroke values (meaning that different keyboard keys, used by LAC's standard keyboard layout, result in identical KeyGame values). Perhaps I should change LAC so it will rely on the "LacKeyboardFunc()" values instead, since the important ones all seem to be reliably and uniquely decoded under SDL2.
+
+
+
+
+
