@@ -14083,10 +14083,10 @@ void TimerGame (int dt)
         l->lsticker = 0;
         }
     if (!LandedAtSafeSpeed)
-       { //@ Get here if we are in the air.
-       //@ This is a handy place to reset "SkipTargetTourWhileRefueling"
-       //@ in preparation for RearmRefuelRepair() during our next landing
-       //@ and refuel cycle:
+       { // Get here if we are in the air.
+       // This is a handy place to reset "SkipTargetTourWhileRefueling"
+       // in preparation for RearmRefuelRepair() during our next landing
+       // and refuel cycle:
        SkipTargetTourWhileRefueling = false;
        }
     if(fplayer->UndercarriageLevel)
