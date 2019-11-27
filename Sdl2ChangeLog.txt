@@ -279,3 +279,22 @@ While watching run-time diagnostics as keyboard characters are processed, I can 
 
 
 
+
+
+
+Version 191127a
+
+Version 191127a derives directly from Version 191125a and:
+
+I replaced "conf.cpp" with the version from Lac07r92, bringing the format of all of the "LacConfig.txt" file and the "LacControls.txt" files completely up to date.
+
+Significant online testing has revealed a long-standing problem: There is something wrong with the "LacConfig.txt" file that is automagically generated at startup if that file is missing. For most functions it is OK, but something is wrong with the way it stores or retrieves "NetworkPassword", because online activities always fail every packet authentication test.
+
+Further testing confirms that this problem has been present for a very long time in this LacSdl2 project.
+
+A simple workaround, however, is available: I have included a copy of an appropriate "LacConfig.txt" file with the source code. If a copy of that file is present in the user's ~home/.LAC folder upon program startup, everything works properly thereafter, and the user can subsequently modify LacConfg.txt files through LAC's menus without problems. Note that our "install.sh" installation scrip copies that file into the appropriate location, so anybody that uses that "install.sh" installation method from this source code will NOT suffer from this problem.
+
+I also stored an optimized copy of the "LacControls.txt" file with this source code. That file adjusts keyboard mappings to the best current setting for SDL2. Like the "LacConfig.txt" file, this "LacControls.txt" file is also copied into the user's ~home/.LAC folder by our "install.sh" installation script.
+
+
+

@@ -1,3 +1,12 @@
+Changes in the late November 2019 version (LacSdl191127a) include:
+
+This version is updated for compatibility with Lac07r92 as described in LAC's main website at AskMisterWizard.com, allowing full online interoperability.
+
+
+
+
+
+
 Changes in the late April 2019 version (Lac07p64) include:
 
 No functional changes. This version remains operationally compatible with all versions since 7.56. Source code cleanup has eliminated more than 1,000 compiler warnings. Now, when Codeblocks is used to rebuild all 80,000 lines of source code, only 19 compiler warnings are detected, and all of them are now individually documented in the source code and all are known to be harmless. As a result of this cleanup, the code is now more robust and more tolerant of configuration errors. Some of the compiler warnings that have been eliminated could possibly have have caused occasional segmentation faults had they not been fixed.

@@ -1,5 +1,5 @@
 /*
-    LAC (Linux Air combat)
+    LAC (Linux Air combat) 
     Copyright 2015 by Robert J. Bosen. Major portions of
     this code were derived from "gl-117", by Thomas A. Drexl and
     other contributors, who are mentioned in the "Credits" menu.
@@ -23,19 +23,16 @@
 
 /* This file contains all configuration parsing code. */
 
-//##################################################################################################
-// Headers needed only by conf.cpp
-//##################################################################################################
+#ifndef IS_CONF_H
 
-#include "common.h" /* MOUSE_BUTTON_LEFT */
-#include "conf.h" /* ConfigFile */
-#include "main.h" /* FileSystemDefaultHeightMapFilePath */
-#include "dirs.h" /* dirs */
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
-//#include <stdio.h>
-//#include <string.h>
-//#include <ctype.h>
-//#include "aiobject.h"
+#include "aiobject.h"
+#include "conf.h"
+#include "common.h"
+#include "dirs.h"
 
 // Global Variables:
 
@@ -55,7 +52,7 @@ int dithering = 0;
 int dynamiclighting = 0;
 int fullscreen = 0;
 int mouse_autorudder = 30;
-int NetworkMode = 1; // 0=PeerToPeer, 1=Client/Server
+int NetworkMode = 3; // Bit coded. Bit00 = Peer-to-peer. Bit01 = Client/Server. Bit 1 indicates Mumble Version.
 int physics = 1;
 int quality = 0;
 int specialeffects = 0;
@@ -114,23 +111,29 @@ int joystick_view_x = 4;
 int joystick_view_y = 5;
 
 // global unsigned int variables:
-unsigned int key_AutoPilot = 275;    // Defaults to Keyboard "Break" key
-unsigned int key_CommsMacro01 = 49;  // Defaults to Keyboard "1"
-unsigned int key_CommsMacro02 = 50;  // Defaults to Keyboard "2"
-unsigned int key_CommsMacro03 = 51;  // Defaults to Keyboard "3"
-unsigned int key_CommsMacro04 = 52;  // Defaults to Keyboard "4"
-unsigned int key_CommsMacro05 = 53;  // Defaults to Keyboard "5"
-unsigned int key_CommsMacro06 = 54;  // Defaults to Keyboard "6"
-unsigned int key_CommsMacro07 = 55;  // Defaults to Keyboard "7"
-unsigned int key_CommsMacro08 = 56;  // Defaults to Keyboard "8"
-unsigned int key_CommsMacro09 = 57;  // Defaults to Keyboard "9"
-unsigned int key_CommsMacro10 = 48;  // Defaults to Keyboard "0"
-unsigned int key_CommsMacro11 = 538; // Defaults to Keyboard "F1"
-unsigned int key_CommsMacro12 = 539; // Defaults to Keyboard "F2"
-unsigned int key_CommsMacro13 = 540; // Defaults to Keyboard "F3"
-unsigned int key_CommsMacro14 = 541; // Defaults to Keyboard "F4"
-unsigned int key_CommsMacro15 = 542; // Defaults to Keyboard "F5"
-unsigned int key_CommsMacro16 = 543; // Defaults to Keyboard "F6"
+unsigned int key_AutoPilot = 275;     // Defaults to Keyboard "Break" key
+unsigned int key_CommsMacro01 = 49;      // Defaults to Keyboard "1"
+unsigned int key_CommsMacro02 = 50;      // Defaults to Keyboard "2"
+unsigned int key_CommsMacro03 = 51;      // Defaults to Keyboard "3"
+unsigned int key_CommsMacro04 = 52;      // Defaults to Keyboard "4"
+unsigned int key_CommsMacro05 = 53;      // Defaults to Keyboard "5"
+unsigned int key_CommsMacro06 = 54;      // Defaults to Keyboard "6"
+unsigned int key_CommsMacro07 = 55;      // Defaults to Keyboard "7"
+unsigned int key_CommsMacro08 = 56;      // Defaults to Keyboard "8"
+unsigned int key_CommsMacro09 = 57;      // Defaults to Keyboard "9"
+unsigned int key_CommsMacro10 = 48;      // Defaults to Keyboard "0"
+unsigned int key_CommsMacro11 = 538;     // Defaults to Keyboard "F1"
+unsigned int key_CommsMacro12 = 539;     // Defaults to Keyboard "F2"
+unsigned int key_CommsMacro13 = 540;     // Defaults to Keyboard "F3"
+unsigned int key_CommsMacro14 = 541;     // Defaults to Keyboard "F4"
+unsigned int key_CommsMacro15 = 542;     // Defaults to Keyboard "F5"
+unsigned int key_CommsMacro16 = 543;     // Defaults to Keyboard "F6"
+unsigned int key_MuteMorseBlueTeam = 544; // Defaults to Keyboard "F7"
+unsigned int key_MuteMorseRedTeam = 545;  // Defaults to Keyboard "F8"
+unsigned int key_UnMuteMorseAll = 546;   // Defaults to Keyboard "F9"
+unsigned int key_CommsMacro17 = 547;     // Defaults to Keyboard "F10"
+unsigned int key_CommsMacro18 = 548;     // Defaults to Keyboard "F11"
+unsigned int key_CommsMacro19 = 549;     // Defaults to Keyboard "F12"
 unsigned int key_DROPCHAFF = 61;          //
 unsigned int key_DROPFLARE = 45;          //
 unsigned int key_FlapsDn = 68;            // d
@@ -166,10 +169,10 @@ unsigned int key_TARGETVOCALIZE = 86;     // v
 unsigned int key_THRUSTDOWN = 91;         // [
 unsigned int key_THRUSTUP = 93;           // ]
 unsigned int key_ToggleViewIntExt = 88;   // x
-unsigned int key_TrimElevatorDn = 205;    //
-unsigned int key_TrimElevatorUp = 546;    //
-unsigned int key_TrimRudderLeft = 544;    //
-unsigned int key_TrimRudderRight = 545;   //
+unsigned int key_TrimElevatorDn = 999;    //
+unsigned int key_TrimElevatorUp = 999;    //
+unsigned int key_TrimRudderLeft = 999;    //
+unsigned int key_TrimRudderRight = 999;   //
 unsigned int key_Undercarriage = 71;      // g
 unsigned int key_WEAPONSELECT = 12;       // NUM *
 unsigned int key_WepAfterburner = 80;     // p
@@ -181,6 +184,8 @@ unsigned int mouse_sensitivity = 100;
 float view = 90.0;
 
 /* External Variables: */
+// external bool variables:
+extern bool DefaultHeightMapFileIsMissing;
 
 // external unsigned chars:
 extern unsigned char DefaultAircraft;
@@ -225,8 +230,14 @@ extern char CommsMacro15String1[64];
 extern char CommsMacro15String2[64];
 extern char CommsMacro16String1[64];
 extern char CommsMacro16String2[64];
+extern char CommsMacro17String1[64];
+extern char CommsMacro17String2[64];
+extern char CommsMacro18String1[64];
+extern char CommsMacro18String2[64];
+extern char CommsMacro19String1[64];
+extern char CommsMacro19String2[64];
 extern char DebugBuf[100];
-//extern char FileSystemDefaultHeightMapFilePath [];
+extern char FileSystemDefaultHeightMapFilePath [];
 extern char NetworkPassword [32]; 
 extern char RemoteDnsIpAddress[];
 extern char RemoteDnsIpAddressHost[32];
@@ -272,20 +283,23 @@ ConfigFile::ConfigFile (char *fname)
         sprintf (buf2, "Could not load %s", fname);
         display (buf2, LOG_MOST);
         display ((char *)"\n\nERROR: REQUIRED CONFIGURATION FILE CANNOT BE FOUND. LAC CANNOT CONTINUE.\n", LOG_MOST);
-        display ((char *)"This usually happens the first time LAC is executed. LAC is now attempting to\n", LOG_MOST);
-        display ((char *)"generate that file for you. Please try LAC again to see if it works better...\n", LOG_MOST);
+        display ((char *)"   This usually happens the first time LAC is executed. LAC is now attempting to", LOG_MOST);
+        display ((char *)"   generate that file for you. Please try LAC again to see if it works better...\n", LOG_MOST);
         display ((char *)"\n\nLAC IS TERMINATING.\n\n", LOG_MOST);
         buf [0] = 0;
         save_config ();
         save_configInterface ();
+        
         SourceHeightMap = fopen ("/usr/local/bin/LAC/LacSim/music/DefaultHeightMap.LAC", "rb");
         if (SourceHeightMap != NULL)
            { 
            display ((char *)"Succesfully located backup copy of DefaultHeightMap.LAC.", LOG_MOST);
+           DefaultHeightMapFileIsMissing = false;
            DestHeightMap = fopen (FileSystemDefaultHeightMapFilePath, "wb");
            if (DestHeightMap != NULL)
               { 
               display ((char *)"Succesfully created blank new DefaultHeightMap.LAC.", LOG_MOST);
+              display ((char *)"Try running LAC again now....", LOG_MOST);
               
               do {
                  SourceCount = fread(FileReadBuffer, 1, sizeof FileReadBuffer, SourceHeightMap);
@@ -306,17 +320,107 @@ ConfigFile::ConfigFile (char *fname)
               }
            else
               { 
-              display ((char *)"Unable to create blank new DefaultHeightMap.LAC.", LOG_MOST);
-              display ((char *)"LAC will run sub-optimally without that DefaultHeightMap.LAC", LOG_MOST);
-              display ((char *)"file, but terrain features will be randomly relocated and will not match expected layouts.", LOG_MOST);
-              display ((char *)"Airfield locations and altitudes will look odd and out of place.", LOG_MOST);
+              display ((char *)"ConfigFile::ConfigFile(): TROUBLE. Unable to write to ~home/.LAC/DefaultHeightMap.LAC file.", LOG_MOST);
               }
            }
         else
            { 
+           DefaultHeightMapFileIsMissing = true;
+           } 
+
+        if (DefaultHeightMapFileIsMissing)
+           { 
+           
+           SourceHeightMap = fopen ("DefaultHeightMap.LAC", "rb");
+           if (SourceHeightMap != NULL)
+              { 
+              display ((char *)"Succesfully located DefaultHeightMap.LAC from current directory.", LOG_MOST);
+              display ((char *)"   NOTE THAT LAC DOES NOT LIKE TO RUN FROM THE SAME FOLDER CONTAINING ITS SOURCE CODE.", LOG_MOST);
+              display ((char *)"   The preferred installation and execution tactics can be found in our online documentation.", LOG_MOST);
+              DefaultHeightMapFileIsMissing = false;
+              DestHeightMap = fopen (FileSystemDefaultHeightMapFilePath, "wb");
+              if (DestHeightMap != NULL)
+                 { 
+                 display ((char *)"Succesfully created blank new DefaultHeightMap.LAC.", LOG_MOST);
+                 display ((char *)"Try running LAC again now....", LOG_MOST);
+                 
+                 do {
+                    SourceCount = fread(FileReadBuffer, 1, sizeof FileReadBuffer, SourceHeightMap);
+                    if (SourceCount)
+                       { 
+                       
+                       DestCount = fwrite(FileReadBuffer, 1, SourceCount, DestHeightMap);
+                       }
+                    else
+                       {
+                       DestCount = 0;
+                       }
+                    } while ((SourceCount > 0) && (SourceCount == DestCount));
+                 if (DestCount)
+                    {
+                    display ((char *)"Copied the DefaultHeightMap.LAC file.", LOG_MOST);
+                    }
+                 }
+              else
+                 { 
+                 display ((char *)"ConfigFile::ConfigFile(): TROUBLE. Unable to write to ~home/.LAC/DefaultHeightMap.LAC file.", LOG_MOST);
+                 }
+              }
+           else
+              { 
+              DefaultHeightMapFileIsMissing = true;
+              }
+           } 
+
+        if (DefaultHeightMapFileIsMissing)
+           { 
+           
+           SourceHeightMap = fopen ("../../DefaultHeightMap.LAC", "rb");
+           if (SourceHeightMap != NULL)
+              { 
+              display ((char *)"Succesfully located DefaultHeightMap.LAC from two directories higher up in the filesystem.", LOG_MOST);
+              DefaultHeightMapFileIsMissing = false;
+              DestHeightMap = fopen (FileSystemDefaultHeightMapFilePath, "wb");
+              if (DestHeightMap != NULL)
+                 { 
+                 display ((char *)"Succesfully created blank new DefaultHeightMap.LAC.", LOG_MOST);
+                 display ((char *)"Try running LAC again now....", LOG_MOST);
+                 
+                 do {
+                    SourceCount = fread(FileReadBuffer, 1, sizeof FileReadBuffer, SourceHeightMap);
+                    if (SourceCount)
+                       { 
+                       
+                       DestCount = fwrite(FileReadBuffer, 1, SourceCount, DestHeightMap);
+                       }
+                    else
+                       {
+                       DestCount = 0;
+                       }
+                    } while ((SourceCount > 0) && (SourceCount == DestCount));
+                 if (DestCount)
+                    {
+                    display ((char *)"Copied the DefaultHeightMap.LAC file.", LOG_MOST);
+                    }
+                 }
+              else
+                 { 
+                 display ((char *)"ConfigFile::ConfigFile(): TROUBLE. Unable to write to ~home/.LAC/DefaultHeightMap.LAC file.", LOG_MOST);
+                 }
+              }
+           else
+              { 
+              DefaultHeightMapFileIsMissing = true;
+              }
+           } 
+        if (DefaultHeightMapFileIsMissing)
+           {
            display ((char *)"Could not locate backup copy of DefaultHeightMap.LAC. LAC will run without that", LOG_MOST);
            display ((char *)"file, but terrain features will be randomly relocated and will not match expected layouts.", LOG_MOST);
            display ((char *)"Airfield locations and altitudes will look odd and out of place.", LOG_MOST);
+           display ((char *)"", LOG_MOST);
+           display ((char *)"THIS IS BEST FIXED BY RUNNING THE install.sh SCRIPT OR BY MANUALLY COPYING THE", LOG_MOST);
+           display ((char *)"DefaultHeightMap.LAC FILE INTO YOUR NEW, HIDDEN, ~/home/.LAC FOLDER.", LOG_MOST);
            }
         exit(0);
         }
@@ -442,13 +546,17 @@ char *ConfigFile::getString (char *dest, char *str)
     } 
 
 int ConfigFile::getValue (char *str)
-{
-	char res [256];
+    {
+    char res [256];
+    getString (res, str);
 
-	if (getString(res, str) == NULL)
-		return -1;
-	return atoi (res);
-} 
+    if (res == NULL)
+        {
+        return -1;
+        }
+
+    return atoi (res);
+    } 
 
 int ConfigFile::openOutput (char *fname)
     {
@@ -721,15 +829,22 @@ void save_config ()
     cf->writeText ((char *)"# ");
     cf->writeText ((char *)"# We use the second least significant bit of NetworkMode to tell LAC how to handle");
     cf->writeText ((char *)"# Mumble commands. Old versions of Mumble (prior to V1.3.0), which cannot handle");
-    cf->writeText ((char *)"# our Mumble commands, are indicated by setting that bit to 0. If you are using");
+    cf->writeText ((char *)"# newer Mumble commands, are indicated by setting that bit to 0. If you are using");
     cf->writeText ((char *)"# Mumble V1.3.0 or later, calculate a value of NetworkMode with that bit set to 1.");
+    cf->writeText ((char *)"# ");
+    cf->writeText ((char *)"# We set the next bit of NetworkMode to command LAC to avoid all automated use of");
+    cf->writeText ((char *)"# Mumble. This will help anybody who cannot use Mumble for some reason.");
     cf->writeText ((char *)"# ");
     cf->writeText ((char *)"# Accordingly, set NetworkMode as follows:");
     cf->writeText ((char *)"# ");
-    cf->writeText ((char *)"# For PeerToPeer mode without the latest Mumble, set NetworkMode to 0.");
-    cf->writeText ((char *)"# For ClientServer mode without the latest Mumble, set NetworkMode to 1.");
+    cf->writeText ((char *)"# For PeerToPeer mode with old Mumble Version 1.2.x, set NetworkMode to 0.");
+    cf->writeText ((char *)"# For ClientServer mode with old Mumble Version 1.2.x, set NetworkMode to 1.");
     cf->writeText ((char *)"# For PeerToPeer mode and Mumble V1.3.0 or later, set NetworkMode to 2.");
     cf->writeText ((char *)"# For ClientServer mode and Mumble V1.3.0 or later, set NetworkMode to 3.");
+    cf->writeText ((char *)"# For PeerToPeer mode and NO automated use of Mumble, set NetworkMode to 4.");
+    cf->writeText ((char *)"# For ClientServer mode and NO automated use of Mumble, set NetworkMode to 5.");
+    cf->writeText ((char *)"");
+    cf->writeText ((char *)"# Most people will want to set NetworkMode to our default value of 3.");
     cf->writeText ((char *)"");
     cf->write     ((char *)" NetworkMode", NetworkMode);
     cf->writeText ((char *)"");
@@ -826,9 +941,9 @@ void save_config ()
     cf->write     ((char *)" DefaultAircraft", DefaultAircraft);
     cf->writeText ((char *)"");
     cf->writeText ((char *)"");
-    cf->writeText ((char *)"# The following 16 items define text labels to be displayed on your cockpit console");
-    cf->writeText ((char *)"# when you press any of the 16 keyboard keys defined in your LacControls.txt file");
-    cf->writeText ((char *)"# named key_CommsMacro01 through key_CommsMacro16. By default, their values are set up");
+    cf->writeText ((char *)"# The following 19 items define text labels to be displayed on your cockpit console");
+    cf->writeText ((char *)"# when you press any of the 19 keyboard keys defined in your LacControls.txt file");
+    cf->writeText ((char *)"# named key_CommsMacro01 through key_CommsMacro19. By default, their values are set up");
     cf->writeText ((char *)"# to integrate the recommended, free, open-source VOIP application named Mumble into");
     cf->writeText ((char *)"# LAC. Each of these is an upper-case text label that is associated with a keyboard");
     cf->writeText ((char *)"# key, and which is displayed on your cockpit when you press the corresponding key.");
@@ -838,10 +953,10 @@ void save_config ()
     cf->writeText ((char *)"# LacControls.txt file and create a corresponding set of Mumble shortcuts so that when");
     cf->writeText ((char *)"# your Mumble application is connected with our Mumble server at LacServer2.LinuxAirCombat.com, it");
     cf->writeText ((char *)"# will instantly perform the communication function described in each of the following");
-    cf->writeText ((char *)"# 16 phrases. That way, whenever you use those keys with Mumble, LAC can confirm what");
+    cf->writeText ((char *)"# 19 phrases. That way, whenever you use those keys with Mumble, LAC can confirm what");
     cf->writeText ((char *)"# Mumble will do by displaying the corresponding phrase on your cockpit panel. (Until");
     cf->writeText ((char *)"# you install and configure Mumble as described, it will be cumbersome to communicate with");
-    cf->writeText ((char *)"# other LAC users and these 16 items will be of no use to you.)");
+    cf->writeText ((char *)"# other LAC users and these 19 items will be of no use to you.)");
     cf->writeText ((char *)"# Because of the way LAC uses these text labels to predict the way your copy of Mumble");
     cf->writeText ((char *)"# will respond when you press the corresponding keyboard keys, you probably don't want");
     cf->writeText ((char *)"# to change any of these items. If you leave them alone, LAC knows that (at least in");
@@ -851,7 +966,7 @@ void save_config ()
     cf->writeText ((char *)"# corresponding key with some other external program like TeamSpeak, Ventrillo, etc.");
     cf->writeText ((char *)"# with diminished cockpit integration.");
     cf->writeText ((char *)"#");
-    cf->writeText ((char *)"# When editing these 16 items, avoid whitespace and avoid punctuation. Separate distinct");
+    cf->writeText ((char *)"# When editing these 19 items, avoid whitespace and avoid punctuation. Separate distinct");
     cf->writeText ((char *)"# words with dashes.");
     cf->writeText ((char *)"# ");
     cf->writeText ((char *)" CommsMacro01");
@@ -886,6 +1001,12 @@ void save_config ()
     cf->writeText (&CommsMacro15String1[0]);
     cf->writeText ((char *)" CommsMacro16");
     cf->writeText (&CommsMacro16String1[0]);
+    cf->writeText ((char *)" CommsMacro17");
+    cf->writeText (&CommsMacro17String1[0]);
+    cf->writeText ((char *)" CommsMacro18");
+    cf->writeText (&CommsMacro18String1[0]);
+    cf->writeText ((char *)" CommsMacro19");
+    cf->writeText (&CommsMacro19String1[0]);
     cf->writeText ((char *)"# ");
     cf->writeText ((char *)"# The following 10 items can record and manage the visible CommunityHandle strings most");
     cf->writeText ((char *)"# recently used by online players. LAC automatically manages these items, so you won't");
@@ -1337,6 +1458,12 @@ int load_config ()
         display ((char *)"NetworkMode=", LOG_MOST);
         sprintf (DebugBuf, "%d", NetworkMode);
         display (DebugBuf, LOG_MOST);
+        if (NetworkMode > 5)
+           { 
+           display ((char *)"load_config(): The configured value of NetworkMode is outside the expected range.", LOG_MOST);
+           display ((char *)"This probably means your attempt to configure use of Mumble or PeerToPeer mode", LOG_MOST);
+           display ((char *)"or ClientServer mode needs more thought....", LOG_MOST);
+           }
         }
     str = cf->getString (ret, (char *)"Realm");
     if (str == NULL)
@@ -1531,7 +1658,7 @@ int load_config ()
     if (str == NULL)
         { 
         display ((char *)"Load_config() Did NOT find CommsMacro11 in LacConfig.txt. Loading default....", LOG_MOST);
-        strncpy(&CommsMacro11String1[0], "MUMBLE MACRO 11", 63);
+        strncpy(&CommsMacro11String1[0], "MUMBLE-MACRO-11", 63);
         }
     else
         {
@@ -1546,7 +1673,7 @@ int load_config ()
     if (str == NULL)
         { 
         display ((char *)"Load_config() Did NOT find CommsMacro12 in LacConfig.txt. Loading default....", LOG_MOST);
-        strncpy(&CommsMacro12String1[0], "MUMBLE MACRO 12", 64);
+        strncpy(&CommsMacro12String1[0], "MUMBLE-MACRO-12", 64);
         }
     else
         {
@@ -1561,7 +1688,7 @@ int load_config ()
     if (str == NULL)
         { 
         display ((char *)"Load_config() Did NOT find CommsMacro13 in LacConfig.txt. Loading default....", LOG_MOST);
-        strncpy(&CommsMacro13String1[0], "MUMBLE MACRO 13", 64);
+        strncpy(&CommsMacro13String1[0], "MUMBLE-MACRO-13", 64);
         }
     else
         {
@@ -1576,7 +1703,7 @@ int load_config ()
     if (str == NULL)
         { 
         display ((char *)"Load_config() Did NOT find CommsMacro14 in LacConfig.txt. Loading default....", LOG_MOST);
-        strncpy(&CommsMacro14String1[0], "MUMBLE MACRO 14", 64);
+        strncpy(&CommsMacro14String1[0], "MUMBLE-MACRO-14", 64);
         }
     else
         {
@@ -1591,7 +1718,7 @@ int load_config ()
     if (str == NULL)
         { 
         display ((char *)"Load_config() Did NOT find CommsMacro15 in LacConfig.txt. Loading default....", LOG_MOST);
-        strncpy(&CommsMacro15String1[0], "MUMBLE MACRO 15", 64);
+        strncpy(&CommsMacro15String1[0], "MUMBLE-MACRO-15", 64);
         }
     else
         {
@@ -1606,11 +1733,56 @@ int load_config ()
     if (str == NULL)
         { 
         display ((char *)"Load_config() Did NOT find CommsMacro16 in LacConfig.txt. Loading default....", LOG_MOST);
-        strncpy(&CommsMacro16String1[0], "MUMBLE MACRO 16", 64);
+        strncpy(&CommsMacro16String1[0], "MUMBLE-MACRO-16", 64);
         }
     else
         {
         display ((char *)"load_config() Found CommsMacro16 in LacConfig.txt. str=", LOG_MOST);
+        StringToUpperCase(str);
+        sprintf (DebugBuf, "%s", str);
+        display (DebugBuf, LOG_MOST);
+        strncpy (&CommsMacro16String1[0], str, 63); 
+        }
+
+    str = cf->getString (ret, (char *)"CommsMacro17");
+    if (str == NULL)
+        { 
+        display ((char *)"Load_config() Did NOT find CommsMacro17 in LacConfig.txt. Loading default....", LOG_MOST);
+        strncpy(&CommsMacro16String1[0], "MUMBLE-MACRO-17", 64);
+        }
+    else
+        {
+        display ((char *)"load_config() Found CommsMacro17 in LacConfig.txt. str=", LOG_MOST);
+        StringToUpperCase(str);
+        sprintf (DebugBuf, "%s", str);
+        display (DebugBuf, LOG_MOST);
+        strncpy (&CommsMacro16String1[0], str, 63); 
+        }
+
+    str = cf->getString (ret, (char *)"CommsMacro18");
+    if (str == NULL)
+        { 
+        display ((char *)"Load_config() Did NOT find CommsMacro18 in LacConfig.txt. Loading default....", LOG_MOST);
+        strncpy(&CommsMacro16String1[0], "MUMBLE-MACRO-18", 64);
+        }
+    else
+        {
+        display ((char *)"load_config() Found CommsMacro18 in LacConfig.txt. str=", LOG_MOST);
+        StringToUpperCase(str);
+        sprintf (DebugBuf, "%s", str);
+        display (DebugBuf, LOG_MOST);
+        strncpy (&CommsMacro16String1[0], str, 63); 
+        }
+
+    str = cf->getString (ret, (char *)"CommsMacro19");
+    if (str == NULL)
+        { 
+        display ((char *)"Load_config() Did NOT find CommsMacro19 in LacConfig.txt. Loading default....", LOG_MOST);
+        strncpy(&CommsMacro16String1[0], "MUMBLE-MACRO-19", 64);
+        }
+    else
+        {
+        display ((char *)"load_config() Found CommsMacro19 in LacConfig.txt. str=", LOG_MOST);
         StringToUpperCase(str);
         sprintf (DebugBuf, "%s", str);
         display (DebugBuf, LOG_MOST);
@@ -2773,3 +2945,5 @@ int load_configInterface ()
         StringPointer++;
         }
     }
+
+#endif

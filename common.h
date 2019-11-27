@@ -60,7 +60,7 @@ typedef uint16_t Uint16;
 
 #define ZOOM 256
 #define GLOBALSCALE 1
-#define VERSIONSTRING "LINUX AIR COMBAT SDL2-191125A"
+#define VERSIONSTRING "LINUX AIR COMBAT SDL2-191127A"
 #define MAXALTITUDE 1320 //1320 =43660ft. Any attempt to go higher is completely prevented.
 
 // data types

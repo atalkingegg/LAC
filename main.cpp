@@ -144,6 +144,7 @@ bool ChaffPacketFired = false;
 bool ClearSpeedHistoryArrayFlag = false;
 bool ClimbAngleExceedsMaxSustainable = false;
 bool ConfigInit = false;
+bool DefaultHeightMapFileIsMissing = false; 
 bool EnterPressed = false;
 bool FirstStart = false;
 bool FlareFired = false;
@@ -9144,6 +9145,17 @@ void game_quit ()
        display ((char*)"text editor to write it into the LacConfig.txt file that you will find in", LOG_MOST);
        display ((char*)"the hidden .LAC folder within your home directory. If you search for", LOG_MOST);
        display ((char*)"CommunityHandle within that file you will find detailed instructions.\n", LOG_MOST);
+       }
+    if (DefaultHeightMapFileIsMissing)
+       {
+       display ((char *)"Your ~home/.LAC/DefaultHeightMap.LAC file is missing.", LOG_MOST);
+       display ((char *)"", LOG_MOST);
+       display ((char *)"LAC will run sub-optimally without that DefaultHeightMap.LAC", LOG_MOST);
+       display ((char *)"file, but terrain features will be randomly relocated and will not match expected layouts.", LOG_MOST);
+       display ((char *)"Airfield locations and altitudes will look odd and out of place.", LOG_MOST);
+       display ((char *)"", LOG_MOST);
+       display ((char *)"THIS IS BEST FIXED BY RUNNING THE install.sh script OR BY MANUALLY COPYING THE", LOG_MOST);
+       display ((char *)"DefaultHeightMap.txt FILE INTO YOUR NEW, HIDDEN, ~/home/.LAC FOLDER.", LOG_MOST);
        }
     exit (EXIT_NORMAL);
     }
