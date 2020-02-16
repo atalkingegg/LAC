@@ -1,4 +1,5 @@
-Known Bugs still present in Version Lac07p18:
+Known Bugs still present in Version Lac07p65:
+
 
 "Default Aircraft Selection MenuRendering Bug": When selecting a new default aircraft from the main menu, none of the aircraft are visually rendered if any mission has ever been commenced. (After flying a mission and returning to the main menu's default aircraft selection menu, aircraft can still be selected, and the text describing their attributes is still appropriately displayed, but the visual appearance of the various aircraft can no longer be seen.) This bug has been present for a long time and we have not yet found its cause. The only known workaround is to exit and re-start the sim, whereupon all of the aircraft are appropriately rendered within the main menu's default aircraft selection logic as one would expect.
 
@@ -10,12 +11,23 @@ Known Bugs still present in Version Lac07p18:
 
 
 
-"Destruction of last Selected Target Bug:" In the training missions, upon selection of the last target, the mission ends ubruptly with a segmentation fault.
+
+"Me163 Refuel Bug": The Me163 "Komet" is refueled, rearmed, and repaired too quickly in all subsequent landing cycles after the first one. Instead of the historic delays associated with mounting of its dispensible landing gear and sequencing through two distinct fuel pumps, it is immediately available for flight within about 1 second after landing.
 
 
 
 
-"Admin012OutPacket.UdpObjCommunityHandle Overflow Bug": It is possible for the user to configure an excessively long "CommunityHandle" which would in turn cause a buffer overflow in OutPackets of type Admin012.
 
+
+
+"LAC Maneuver Segmentation Faults": Sometimes LAC will suffer from a segmentation fault in flight. This is rare overall, but some aircraft seem to suffer more than others. The most common symptom occurs within about 10 seconds of commencing flight if the player initiates a strong "climb" maneuver. To avoid this bug, we recommend issuing a modest little "dive" or "descent" maneuver during the first two or three seconds of each mission. The resulting descent should last for at least one second, before any attempt to climb. Pilots that form this habit report no trouble with this bug.
+
+
+
+
+
+
+
+"LAC Shutdown Bug": Sometimes LAC will "hang". This is not very frequent, but when it does happen, it can lock up your X-Windows environment and force a re-boot. Most of these situations seem to be related to LAC's attempts to return to the main menu about 10 seconds after the player is destroyed in flight as a consequence of crashing into the ground or being shot down. It can also happen after one team defeats the other in an online mission, as LAC tries to end the mission for everybody by destroyng all participating players after about 15 seconds. To avoid these "hang" situations, we recommend that players explicitly exit from LAC (using the "ESC" key) soon after being shot down or crashing. LAC will then return to its main menu immediately, and you can then proceed with other main menu functions as you might expect. If you wait too long before pressing "ESC" to explicitly return to LAC's main menu, it might "hang" on you. You have about 10 seconds to hit "ESC" before there is any risk of "hanging".
 
 

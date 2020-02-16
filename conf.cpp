@@ -1,5 +1,5 @@
 /*
-    LAC (Linux Air combat) 
+    LAC (Linux Air combat)
     Copyright 2015 by Robert J. Bosen. Major portions of
     this code were derived from "gl-117", by Thomas A. Drexl and
     other contributors, who are mentioned in the "Credits" menu.
@@ -236,7 +236,7 @@ extern char CommsMacro18String1[64];
 extern char CommsMacro18String2[64];
 extern char CommsMacro19String1[64];
 extern char CommsMacro19String2[64];
-extern char DebugBuf[100];
+extern char DebugBuf[];
 extern char FileSystemDefaultHeightMapFilePath [];
 extern char NetworkPassword [32]; 
 extern char RemoteDnsIpAddress[];

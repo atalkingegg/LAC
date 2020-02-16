@@ -70,7 +70,7 @@ extern bool TakeoffLogged;
 
 extern char CurrentMissionNumber;
 
-extern char DebugBuf[100];
+extern char DebugBuf[];
 extern char SystemMessageBufferA[];
 
 extern unsigned char BattleshipSunkAlertCountBlue;
@@ -79,6 +79,8 @@ extern unsigned char MissionHeadToHead00State;
 extern unsigned char MyNetworkId;
 extern unsigned char NetworkOpponent; 
 extern unsigned char RecentVictim;
+
+extern unsigned int DisplayedAirSpeed;
 
 extern int AirfieldXMax;    
 extern int AirfieldXMin;    
@@ -420,7 +422,7 @@ void AIObj::aiAction (Uint32 dt, AIObj **f, AIObj **m, DynamicObj **c, DynamicOb
                         }
         }
     // manoevers (may use the height information)
-    if (tl->y > 200)
+    if (tl->y > 200 && manoeverstate != 100)
        { 
        manoeverstate = 11; 
        }
@@ -632,7 +634,7 @@ void AIObj::aiAction (Uint32 dt, AIObj **f, AIObj **m, DynamicObj **c, DynamicOb
         recheight2 = -100;
         recgamma = 90;
         }
-    else if (ai)
+    else if (ai && manoeverstate != 100)
         {
         if (target != NULL && ((id >= MISSILE1 && id <= MISSILE2) || (id >= FIGHTER1 && id <= FIGHTER2 && manoeverheight <= 0)))   // is AGM
             {
@@ -900,7 +902,7 @@ void AIObj::aiAction (Uint32 dt, AIObj **f, AIObj **m, DynamicObj **c, DynamicOb
         }
     // heading calculations
     
-    if (id >= FIGHTER1 && id < FIGHTER2)   // for aircraft do the following
+    if (id >= FIGHTER1 && id < FIGHTER2 && manoeverstate != 100)   // for aircraft do the following
         {
         if (!acttype && disttarget <= 1000 && manoevertheta <= 0)   // no special action, near distance, no roll manoever
             {
@@ -1100,7 +1102,7 @@ void AIObj::aiAction (Uint32 dt, AIObj **f, AIObj **m, DynamicObj **c, DynamicOb
             }
         }
     // thrust and manoever calculations
-    if (id >= FIGHTER1 && id <= FIGHTER2)   // fighters
+    if (id >= FIGHTER1 && id <= FIGHTER2 && manoeverstate != 100)   // fighters
         {
         if (disttarget > 5 + aggressivity / 12)   // 2.5 seems to be best, but fighters become far too strong
             {
@@ -1466,7 +1468,7 @@ void AIObj::fireCannon (DynamicObj *MachineGunBullet, float phi)
     MachineGunBullet->party = party;
     MachineGunBullet->ttl = 80 * timestep;
     MachineGunBullet->Durability = 1;
-    MachineGunBullet->immunity = (int) (zoom * 3) * timestep; 
+    MachineGunBullet->immunity = (int) (zoom * 9) * timestep; 
     MachineGunBullet->source = this;
     MachineGunBullet->phi = phi;
     MachineGunBullet->theta = theta;
@@ -1698,19 +1700,23 @@ void AIObj::fireFlare2 (DynamicObj *flare)
 
 bool AIObj::fireMissile (int id, AIObj **missile, AIObj *target)
     {
+    display ((char*)"AIObj::fireMissile (int id, AIObj **missile, AIObj *target)", LOG_MOST);
     int i;
     if (!haveMissile (id))
         {
         return false;
+        display ((char*)"AIObj::fireMissile (int id, AIObj **missile, AIObj *target) returned false due to !haveMissile(id).", LOG_MOST);
         }
     if (ttf > 0)
         {
         return false;
+        display ((char*)"AIObj::fireMissile (int id, AIObj **missile, AIObj *target) returned false due to ttf>0.", LOG_MOST);
         }
     for (i = 0; i < maxmissile; i ++)
         {
         if (missile [i]->ttl <= 0)
             {
+            display ((char*)"AIObj::fireMissile (int id, AIObj **missile, AIObj *target) breaking out due to missile [i]->ttl <= 0.", LOG_MOST);
             break;
             }
         }
@@ -1719,13 +1725,16 @@ bool AIObj::fireMissile (int id, AIObj **missile, AIObj *target)
         fireMissile2 (id, missile [i], target);
         decreaseMissile (id);
         firemissilettl = 20 * timestep;
+        display ((char*)"AIObj::fireMissile (int id, AIObj **missile, AIObj *target) returned true as expected.", LOG_MOST);
         return true;
         }
     return false;
+    display ((char*)"AIObj::fireMissile (int id, AIObj **missile, AIObj *target) returned false by default.", LOG_MOST);
     }
 
 bool AIObj::fireMissile (AIObj **missile, AIObj *target)
     {
+    display ((char*)"AIObj::fireMissile (AIObj **missile, AIObj *target)", LOG_MOST);
     if (ttf > 0)
         {
         return false;
@@ -1735,15 +1744,19 @@ bool AIObj::fireMissile (AIObj **missile, AIObj *target)
 
 bool AIObj::fireMissile (int id, AIObj **missile)
     {
+    display ((char*)"AIObj::fireMissile (int id, AIObj **missile)", LOG_MOST);
     if (ttf > 0)
         {
+        display ((char*)"AIObj::fireMissile (int id, AIObj **missile) returned false due to ttf >0.",LOG_MOST);
         return false;
         }
+    display ((char*)"AIObj::fireMissile (int id, AIObj **missile) returning true as expected.",LOG_MOST);
     return fireMissile (id, missile, (AIObj *) target);
     }
 
 bool AIObj::fireMissile (AIObj **missile)
     {
+    display ((char*)"AIObj::fireMissile (AIObj **missile)", LOG_MOST);
     if (ttf > 0)
         {
         return false;
@@ -2147,7 +2160,7 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
         deadweight = 0.07;
         CompressibilitySpeed = 0.280; // Faster than this degrades elevator and aileron response unless SpeedBrakes are available and active.
         CompressibilitySpeedWithSpeedBrakes = 0.280; // Replaces above setting when SpeedBrakes are active.
-        SeaLevelSpeedLimitThreshold = 0.306324110672; //@A6M2 0.306324110672 yields 310MPH@SeaLevel.
+        //SeaLevelSpeedLimitThreshold = 0.306324110672; //@A6M2 0.306324110672 yields 310MPH@SeaLevel.
         DiveSpeedLimit1 = 0.290; // Faster than this induces extra turbulence
         DiveSpeedStructuralLimit = 0.370; // Faster than this will induce severe airframe damage
         WepCapable = false;
@@ -4910,11 +4923,11 @@ void AIObj::newinit (int id, int party, int intelligence, int precision, int agg
     if (id == BOMB01)
         {
         intelligence = 0;
-        maxthrust = 0.01 * missilethrustbase;
+        maxthrust = 0.01 * missilethrustbase; 
         RollRate = 0.0;
         manoeverability = 0.0;
         ai = true;
-        StaticDrag = 8;
+        StaticDrag = 3000;  
         ttl = 2000 * timestep;
         impact = 30000;
         }
@@ -5333,7 +5346,7 @@ void DynamicObj::activate ()
 
 // check the objects Durability value for damage. Explode/sink if necessary
 void DynamicObj::checkDurability ()
-{
+    {
         if (fplayer->target == nullptr)
         {
              sprintf (DebugBuf, "CRITICAL ERROR: Called DynamicObj::checkDurability when fplayer->target is NULL");
@@ -5502,7 +5515,7 @@ void DynamicObj::checkDurability ()
                 sink = 1;
                 }
         }
-} 
+    } 
 
 // check whether the object is exploding or sinking and deactivate if necessary
 void DynamicObj::checkExplosion (Uint32 dt) 
@@ -5863,13 +5876,14 @@ void DynamicObj::crashGround (Uint32 dt)
            }
         else
            { 
-           if (Sentient > 3)
+           if (Sentient > 3) 
               { 
               tl->y -= (height - zoom*0.3); 
               }
            else
               { 
-              if (this->id !=0)
+              
+              if ((CurrentMissionNumber == MISSION_FREEFLIGHTWW2) || (CurrentMissionNumber == MISSION_TUTORIAL) || (this->id !=0))
                  { 
                  sprintf (
                          DebugBuf,
@@ -5990,9 +6004,13 @@ void DynamicObj::crashGround (Uint32 dt)
                               TakeoffLogged = false;
                               }
                            }
-                        else if (TrueAirSpeed < 3.5)
+                        else if (TrueAirSpeed < 29)
                            { 
                            LandedAtSafeSpeed = true; 
+                           fplayer->InertiallyDampenedPlayerSpeed = 0;
+                           fplayer->accx = 0;
+                           fplayer->accy = 0;
+                           fplayer->accz = 0;
                            UpdateOnlineScoreLogFileWithLandings();
                            
                            if (TakeoffLogged == true)
@@ -6303,15 +6321,52 @@ void DynamicObj::move (Uint32 dt)
         }
     if (id == BOMB01)
        { 
-       recgamma -= dt/15; 
-       gamma -= dt/15;
-       if (recgamma < 109)
+       
+       unsigned char CycleLimit = 11; 
+       if (DisplayedAirSpeed <= 180)
           {
-          recgamma = 109;
+          CycleLimit = 7; 
           }
-       if (gamma < 109)
+       else if (DisplayedAirSpeed >180 && DisplayedAirSpeed <= 210)
+          { 
+          CycleLimit = 10; 
+          }
+       else if (DisplayedAirSpeed > 210 && DisplayedAirSpeed <= 240)
           {
-          gamma = 109;
+          CycleLimit = 15; 
+          }
+       else if (DisplayedAirSpeed > 240 && DisplayedAirSpeed <=250)
+          {
+          CycleLimit = 19; 
+          }
+       else if (DisplayedAirSpeed > 250 && DisplayedAirSpeed <=270)
+          {
+          CycleLimit = 30; 
+          }
+       else if (DisplayedAirSpeed > 270 && DisplayedAirSpeed <=300)
+          {
+          CycleLimit = 48;  
+          }
+       else if (DisplayedAirSpeed > 300)
+          {
+          CycleLimit = 130; 
+          }
+       static unsigned char Cycle = 0;
+       Cycle++;
+       if (Cycle == CycleLimit)
+          {
+          tl->y -= dt/23; 
+          Cycle = 0;
+          }
+       recgamma -= dt/12; 
+       gamma -= dt/12;
+       if (recgamma < 108)
+          {
+          recgamma = 108;
+          }
+       if (gamma < 108)
+          {
+          gamma = 108;
           }
        }
     if (id >= STATIC_PASSIVE)   // only buildings, static objects
@@ -6438,8 +6493,8 @@ void DynamicObj::move (Uint32 dt)
         accy *= brakepower;
         accz *= brakepower;
 
-        accz += thrust * vaxis.z * 0.3 * timefac;
-        accx += thrust * vaxis.x * 0.3 * timefac;
+        accz += thrust * vaxis.z * 0.3 * timefac; 
+        accx += thrust * vaxis.x * 0.3 * timefac; 
         accy -= thrust * vaxis.y * 0.1 * timefac;
         
         accz += thrust * uaxis.z * 0.067 * timefac;

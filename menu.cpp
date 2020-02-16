@@ -26,6 +26,11 @@
 //##################################################################################################
 // Headers needed only by menu.cpp
 //##################################################################################################
+
+extern char DebugBuf[];
+
+#ifndef IS_MENU_H
+
 #include "menu.h"
 #include "main.h" /* DebugBuf */
 #include <GL/glu.h> /* GLuint */
@@ -37,6 +42,13 @@ int menu_z = -2;
 CColor menu_colgrey (220, 220, 220, 200);
 CColor menu_colwhite (255, 255, 255, 200);
 CColor menu_colyellow (255, 255, 0, 200);
+
+extern unsigned int key_LookBK;
+extern unsigned int key_LookDN;
+extern unsigned int key_LookFD;
+extern unsigned int key_LookLT;
+extern unsigned int key_LookRT;
+extern unsigned int key_LookUP;
 
 Component::Component ()
     {
@@ -887,3 +899,4 @@ void EditField::eventKey (unsigned char key)
         text [ptr] = 0;
         }
     }
+#endif

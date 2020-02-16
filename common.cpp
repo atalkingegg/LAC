@@ -36,7 +36,7 @@
 #include "dirs.h" /* dirs */
 //#include <ctype.h>
 
-extern char DebugBuf[100];
+extern char DebugBuf[];
 
 void display_stream (FILE *stream, char *str, int level)
     {
@@ -47,6 +47,8 @@ void display_stream (FILE *stream, char *str, int level)
     else if (level == LOG_FATAL)
         {
         fprintf (stream, "Fatal: %s\n", str);
+        printf ("Are you attempting to run LAC from the source code folder or from some OTHER nonstandard filesystem location? \n");
+        printf ("Please consult online documentation for proper installation details.\n\n");
         }
     else if (level == LOG_ERROR)
         {

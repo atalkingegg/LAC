@@ -92,7 +92,7 @@ typedef uint16_t Uint16;
 
 // view range limits.
 #define VIEW_MIN 30
-#define VIEW_MAX 210
+#define VIEW_MAX 230
 
 extern bool MultiPlayer, isserver;
 extern bool SunBlinding; // viewer gazing into the sun?

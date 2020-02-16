@@ -57,6 +57,7 @@ extern bool MumbleChannelMainRequested;
 extern bool MumbleTransmissionRequested; 
 extern bool NetworkMissionIsActiveWithDataFlow;
 extern bool NewSystemMessageNeedsScrolling;
+extern bool Promoted;
 extern bool UdpSetupCompleted;
 
 extern bool MorseSquelches[10];
@@ -86,8 +87,10 @@ extern unsigned char MyNetworkId;
 extern unsigned char NetworkApiVersion;
 extern unsigned char NewestInPacketId;
 extern unsigned char NewestMumblePacketId;
+extern unsigned char PreviousMorseInCharacter;
 extern unsigned char PreviousMorseSender;
 extern unsigned char Realm;
+extern unsigned char RepeatedMorseInCharCount;
 extern unsigned char ServerIpByte1of4; 
 extern unsigned char ServerIpByte2of4;
 extern unsigned char ServerIpByte3of4;
@@ -113,6 +116,10 @@ extern Uint16 OutGoingPacketSignature;
 
 extern float ThrustReadiness;
 
+extern void SwitchMumbleToSecretChannel(unsigned char);
+extern void event_CommsMacro10();
+extern void event_CommsMacro17();
+extern void event_CommsMacro18();
 extern void VocalizeMorseCharacter(unsigned char);
 
 /* Function Prototypes: */
@@ -382,16 +389,12 @@ if (BindStatus <0)
       display ((char *)"ConfigureClientUdpSocket() ClientServer mode getsockname() failed for ClientSourceAddress.", LOG_NET);
       }
    }
-if(NetworkMode == 1)
+if((NetworkMode & 1) == 1)
    { 
    EphemeralClientPort = ntohs(ClientSourceAddress.sin_port);
    display ((char *)"EphemeralClientPort = ", LOG_NET);
    sprintf (DebugBuf, "%d", EphemeralClientPort); 
    display (DebugBuf, LOG_NET);
-   }
-else if (NetworkMode !=0)
-   {
-   display ((char *)"ConfigureClientUdpSocket() Invalid NetworkMode configured in LacConfig.txt.", LOG_NET);
    }
 } 
 
@@ -407,21 +410,17 @@ int BindStatus = 1; // Initialize to 1 to see if it changes to 0 as expected
 memset (&InSocketAddress, 0, InSocketAddressLength); 
 InSocketAddress.sin_family = AF_INET; // Configure for IPV4
 InSocketAddress.sin_addr.s_addr = htonl(INADDR_ANY); 
-if (NetworkMode == 0)
+if ((NetworkMode & 1) == 0)
    { 
    InSocketAddress.sin_port = htons(MyInPortNumber); 
    }
-else if (NetworkMode==1)
+else if ((NetworkMode & 1) == 1)
    { 
    display ((char *)"ConfigureIncomingUdpSocket() InSocketAddress.sin_port=", LOG_NET);
    sprintf (DebugBuf, "%hu", ntohs(InSocketAddress.sin_port));
    display (DebugBuf, LOG_NET);
    }
-else
-   {
-   display ((char *)"ConfigUreIncomingUdpSocket() ClientServer mode. Invalid NetworkMode from LacConfig.txt", LOG_NET);
-   }
-if (NetworkMode == 0)
+if ((NetworkMode & 1) == 0)
    { 
    
    BindStatus = bind  (
@@ -447,7 +446,7 @@ if (NetworkMode == 0)
       display (DebugBuf, LOG_NET);
       }
    } 
-if (NetworkMode == 1)
+if ((NetworkMode & 1) == 1)
    { 
    
    InSocketAddress.sin_port = 0;
@@ -490,19 +489,12 @@ void ConfigureOutgoingUdpSocket()
 /* Local Variables: */
 short unsigned int DestinationPort; 
 memset (&OutSocketAddress, 0, sizeof (struct sockaddr_in)); 
-if(NetworkMode==0 || NetworkMode == 1)
-   { 
-   display ((char *)"ConfigureOutgoingUdpSocket() Using LacConfig.txt PeerInPortNumber for Destination port.", LOG_NET);
-   OutSocketAddress.sin_port = htons(PeerInPortNumber); 
-   DestinationPort = ntohs(OutSocketAddress.sin_port);
-   display ((char *)"DestinationPort = ", LOG_NET);
-   sprintf (DebugBuf, "%d", DestinationPort); 
-   display (DebugBuf, LOG_NET);
-   }
-else
-   {
-   display ((char *)"ConfigureOutgoingUdpSocket() Invalid NetworkMode configured in LacConfig.txt.", LOG_NET);
-   }
+display ((char *)"ConfigureOutgoingUdpSocket() Using LacConfig.txt PeerInPortNumber for Destination port.", LOG_NET);
+OutSocketAddress.sin_port = htons(PeerInPortNumber); 
+DestinationPort = ntohs(OutSocketAddress.sin_port);
+display ((char *)"DestinationPort = ", LOG_NET);
+sprintf (DebugBuf, "%d", DestinationPort); 
+display (DebugBuf, LOG_NET);
 OutSocketAddress.sin_family = AF_INET; 
 memcpy (&OutSocketAddress.sin_addr, hostlist->h_addr_list[0], hostlist->h_length); 
 } 
@@ -523,8 +515,8 @@ int DiscardAnyInPacketsInQueue()
    bool PacketIsAvailable = true; // Assume at least one packet is available
    while (PacketIsAvailable)
       { 
-      if (NetworkMode == 0)
-         {
+      if ((NetworkMode & 1) == 0)
+         { 
          RecFromStatus = recvfrom (
                                InSocketHandle,
                                ReceiveBuffer,
@@ -534,8 +526,8 @@ int DiscardAnyInPacketsInQueue()
                                &InSocketAddressLength
                                );
          }
-      else if (NetworkMode == 1)
-         {
+      else if ((NetworkMode & 1) == 1)
+         { 
          RecFromStatus = recvfrom (
                                InSocketHandle,
                                ReceiveBuffer,
@@ -568,8 +560,8 @@ int GetNetworkApiPacket()
 short unsigned int EphemeralPort; 
 char ReceiveBuffer [1024]; 
 int RecFromStatus = 0;
-if (NetworkMode == 0)
-   {
+if ((NetworkMode & 1) == 0)
+   { 
    RecFromStatus = recvfrom (
                             InSocketHandle,
                             ReceiveBuffer,
@@ -579,8 +571,8 @@ if (NetworkMode == 0)
                             &InSocketAddressLength
                             );
    }
-else if (NetworkMode == 1)
-   {
+else if ((NetworkMode & 1) == 1)
+   { 
    RecFromStatus = recvfrom (
                             ClientSocketHandle,
                             ReceiveBuffer,
@@ -590,17 +582,13 @@ else if (NetworkMode == 1)
                             &ClientSourceAddressLength
                             );
    }
-else
-   {
-   display ((char *)"GetNetworkApiPacket() detected improper value for NetworkMode.", LOG_NET);
-   }
 if (RecFromStatus == -1)
    { 
    display ((char *)"No packet received because:", LOG_NET);
    sprintf (DebugBuf, "%s", strerror(errno));
    display (DebugBuf, LOG_NET);
-   if (NetworkMode == 0)
-      {
+   if ((NetworkMode & 1) == 0)
+      { 
       if((getsockname(InSocketHandle, (struct sockaddr *)&InSocketAddress, &InSocketAddressLength))!=-1)
          { 
          EphemeralPort = ntohs(InSocketAddress.sin_port);
@@ -613,8 +601,8 @@ if (RecFromStatus == -1)
          display ((char *)"GetNetworkApiPacket() getsockname() failed.", LOG_NET);
          }
       }
-   else if (NetworkMode == 1)
-      {
+   else if ((NetworkMode & 1) == 1)
+      { 
       if((getsockname(ClientSocketHandle, (struct sockaddr *)&ClientSourceAddress, &ClientSourceAddressLength))!=-1)
          {
          EphemeralPort = ntohs(ClientSourceAddress.sin_port);
@@ -755,6 +743,7 @@ if (InPacket.UdpObjCommand == 0)
      
      if (InPacket.UdpObjTerrainOrMorse > LANDSCAPE_ALPINE_SEA)
         { 
+        static bool ExpectingTeamPlayerNumber = false;
         if (!MorseSquelches[InPacket.UdpObjPlayerNumber -1])
            { 
            MorseCharacterIn = InPacket.UdpObjTerrainOrMorse; 
@@ -772,7 +761,72 @@ if (InPacket.UdpObjCommand == 0)
                }
            sprintf (DebugBuf, "%c", MorseCharacterIn);
            strncat (MorseRadioMessageBuffer, DebugBuf, 1);
+           if (ExpectingTeamPlayerNumber)
+              { 
+              ExpectingTeamPlayerNumber = false;
+              int InputNumber = MorseCharacterIn - '0';
+              if (((unsigned char) InputNumber == MyNetworkId))
+                 { 
+                 display ((char *)"GetNetworkApiPacket(): Incoming Morse Message just promoted us!", LOG_MOST);
+                 Promoted = true;
+                 sprintf (SystemMessageBufferA, "YOU HAVE BEEN PROMOTED.");
+                 NewSystemMessageNeedsScrolling = true;
+                 }
+              if (((unsigned char) InputNumber == 0))
+                 { 
+                 if (MyNetworkId == 10)
+                    { 
+                    display ((char *)"GetNetworkApiPacket(): Incoming Morse Message just promoted us!", LOG_MOST);
+                    Promoted = true;
+                    sprintf (SystemMessageBufferA, "YOU HAVE BEEN PROMOTED.");
+                    NewSystemMessageNeedsScrolling = true;
+                    }
+                 }
+              }
+           if ((MorseCharacterIn == PreviousMorseInCharacter) && (PreviousMorseSender == InPacket.UdpObjPlayerNumber))
+              { 
+              RepeatedMorseInCharCount++;
+              sprintf (DebugBuf, "GetNetworkApiPacket() got a duplicated Morse InCharacter. RepeatedMorseInCharCount = %d.", RepeatedMorseInCharCount);
+              display (DebugBuf, LOG_MOST);
+              }
+           else
+              { 
+              RepeatedMorseInCharCount = 0;
+              }
            PreviousMorseSender = InPacket.UdpObjPlayerNumber; 
+           PreviousMorseInCharacter = MorseCharacterIn; 
+           if ((RepeatedMorseInCharCount > 7) && ((InPacket.UdpObjPlayerNumber & 1) == (MyNetworkId & 1)))
+              { 
+              if (MorseCharacterIn == 'M')
+                 { 
+                 display ((char *)"GetNetworkApiPacket() detected Morse In Command M.", LOG_MOST);
+                 event_CommsMacro18(); 
+                 RepeatedMorseInCharCount = 0;
+                 }
+              else if (MorseCharacterIn == 'P')
+                 { 
+                 display ((char *)"GetNetworkApiPacket() detected Morse In Command P.", LOG_MOST);
+                 ExpectingTeamPlayerNumber = true;
+                 }
+              else if (MorseCharacterIn == 'R')
+                 { 
+                 display ((char *)"GetNetworkApiPacket() detected Morse In Command R.", LOG_MOST);
+                 event_CommsMacro10(); 
+                 RepeatedMorseInCharCount = 0;
+                 }
+              else if (MorseCharacterIn == 'S')
+                 { 
+                 display ((char *)"GetNetworkApiPacket() detected Morse In Command S.", LOG_MOST);
+                 SwitchMumbleToSecretChannel(InPacket.UdpObjPlayerNumber);
+                 RepeatedMorseInCharCount = 0;
+                 }
+              else if (MorseCharacterIn == 'T')
+                 { 
+                 display ((char *)"GetNetworkApiPacket() detected Morse In Command T.", LOG_MOST);
+                 event_CommsMacro17(); 
+                 RepeatedMorseInCharCount = 0;
+                 }
+              }
            }
         }
       
@@ -974,6 +1028,14 @@ else
       
       display ((char *)"GetNetworkApiPacket() Processing Admin013InPacket.", LOG_NET);
 
+      // (Although we TRANSMIT as many as 16 characters in that field to the LAC Server,
+      // the LAC Server should someday be enhanced so as to never send us more than the first
+      // 8 characters. However, even if a LAC Server DOES send more than 8 characters,
+      // each of these ten blocks deliberately truncates them at 8 characters.
+      // In all ten of the little code blocks below, we can safely ignore compiler warnings
+      // about possibly truncated output, since we are DELIBERATELY limiting copy lengths
+      // to avoid ever receiving more than the first 8 characters of CommunityHandles.)
+      //
       sprintf (DebugBuf, "Admin013InPacket.UdpObjCommunityHandle01 = %s", Admin013InPacket.UdpObjCommunityHandle01);
       display (DebugBuf, LOG_NET);
       strncpy (PlayerIdStrings[0], Admin013InPacket.UdpObjCommunityHandle01, (sizeof(PlayerIdStrings[0])-1));
@@ -1378,7 +1440,7 @@ void SendNetworkApiPacket()
    SignOutPacket();                                          
    OutPacket.UdpObjHash = OutGoingPacketSignature;           
    
-   if (NetworkMode == 0)
+   if ((NetworkMode & 1) == 0)
       { 
       BytesSent =sendto (
                         OutSocketHandle,                      
@@ -1389,7 +1451,7 @@ void SendNetworkApiPacket()
                         SockAddrInSize                        
                         );
       }
-   else if (NetworkMode == 1)
+   else if ((NetworkMode & 1) == 1)
       { 
       BytesSent =sendto (
                         ClientSocketHandle,                           

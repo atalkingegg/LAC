@@ -1,8 +1,291 @@
+Changes in the Feb2020 version (Lac07p95) include:
+
+When flying at very high speeds (beyond 380MPH) it has been possible to collide with your own bullets. This didn't happen very often, but it seemed to be a bit more frequent when flying in a straight line. Subsequent testing confirmed that aircraft began colliding with their own bullets at any speed beyond about 375MPH. This has now been fixed. After this change you will find that aircraft can now safely fire their guns and cannons at extremely high speeds without ill effect. This will be especially helpful for fans of the German Me163 "Komet", which can easily exceed 500MPH in combat. This version remains operationally compatible with all versions since Lac07p90.
+
+
+
+
+
+
+
+
+Changes in the mid December 2019 version (Lac07r94) include:
+
+Improvement in the visual representation of network "jitter". This version remains operationally compatible with all versions since Lac07p90.
+
+
+
+
+
+
+
 Changes in the late November 2019 version (LacSdl191127a) include:
 
 This version is updated for compatibility with Lac07r92 as described in LAC's main website at AskMisterWizard.com, allowing full online interoperability.
 
 
+
+
+
+
+
+
+
+Changes in the mid November 2019 version (Lac07r92) include:
+
+Users can now edit the "NetworkMode" field of their LacConfig.txt file to instruct LAC to ignore the presence of Mumble. This will be good for users with computers suffering incompatibilities when trying to use Mumble, or for users wishing to employ some other VOIP application.
+
+Run-time diagnostic reporting was simplified, eliminating several unimportant details and improving framerate when looking to the right, left, up, down, or to the rear from within the cockpit.
+
+LAC's video resolution configuration menu now offers nine standard resolution options instead of just five, making it far less likely that inexperienced users will ever need to manually edit the corresponding resolution fields in their LacConfig.txt file. The vast majority of new users will be able to find an appropriate setting from within LAC's menus.
+
+The flight model of the Nakajima N1K1 fighter was improved with better handling of high-speed compressibility.
+
+LAC's volunteer flight test crew flew meaningful missions, including takeoffs and landings with agressive ACM, in all 54 of the WW2 aircraft and confirmed that all of them fly reasonably without a lot of segmentation errors, and within expected flight performance parameters according to the best available historic and anecdotal records. Top speeds at sea level, climb rates, stall speeds, roll rates, maneuverability, lethality, and durability are all adjusted to our satisfaction. For controlled flight at normal altitudes and speeds, the overall performance and "feel" is entirely reasonable for anybody willing to use a little imagination. (At the extremes of speed and altitude, the flight models are less accurate, but still respectable.)  The biggest flight model compromise is evident during takeoffs and landings, which are considerably simplified and easier than in real life, but all of the active principles of flight are modeled in principle; LAC's compromises in takeoff and landing are matters of degree. All of the flight testers are satisfied with the resulting compromises.
+
+Accordingly, we are declaring this release of "classic" Linux Air Combat as DONE, and we are issuing it with a new name:
+
+"LINUX AIR COMBAT R 7.92".
+
+The compiled executable program is now named "lac07r92".
+
+This is the version that will be release for public distribution on 15Nov2019 after more than four years of intense development effort.
+
+
+
+
+
+
+
+
+
+Changes in the early November version (Lac07p91) include:
+
+Minor adjustments to some of the aircraft flight model parameters.
+
+Minor improvement in network latency.
+
+Minor improvement in the Norden Bombsight's impact point prediction accuracy.
+
+Takeoff logic is improved so that aircraft are better able to lift off before suffering minor damage as they drop over the far edge of the runway.
+
+Fixed a minor typographical error in the menu describing "MissionHeadToHead00".
+
+Fixed a bug that sometimes prevented visibility of Player #1 while parked on the runway.
+
+
+
+
+
+
+
+Changes in the late October 2019 version (Lac07p90) include:
+
+This version adjusts and improves flight models and other competitive aspects of online combat. Accordingly, this is a REQUIRED update. Players using older versions will be constantly alerted of the need to upgrade whenever a player using THIS version enters their mission.
+
+Terrain geometry proportions have been changed to enhance the perception of high speed flight past terrain features. Now, especially when flying fast and low, the visual perception of speed is much more dramatic.
+
+The logic that regulates the maximum climb rate of all aircraft at extreme altitudes has been improved.
+
+The "Map Mode" shows a wider view of the terrain, allowing a better, more sweeping overview.
+
+The flight parameters of all aircraft have been given a final "tweaking" to bring top speeds and climb rates into very accurate alignment with the best available flight test data from historic records. Performance from sea level on up to about 15,000 feet is now generally within 1% of the best available data. At higher altitudes, accuracy diminishes somewhat, but it remains respectable. Roll rates, zoom climb performance, turning rates, lethality, and durability have also been tuned to yield more accurate relative performance and to better match available historic and anecdotal information. This is the most accurate version of LAC ever.
+
+Bomb loads of the Lancaster and B29 were adjusted to better match historic loadouts used in combat.
+
+The Norden Bombsight is now a little more accurate across a wider range of drop speeds.
+
+Airfield anti-aircraft guns now reach a maximum altitude of 10,000 feet instead of 15,000 feet.
+
+Bomber auto-gunners are now slightly less accurate versus nearby opponents that are flying at very high speed.
+
+
+
+
+
+
+
+Changes in the mid October 2019 version (Lac07p89) include:
+
+No new flight or mission features. This version remains operationally compatible with all prior versions since Lac07p70
+
+One line of diagnostic reporting code was eliminated after extensive testing revealed that it was diminishing framerate in ATi/Radeon systems.
+
+
+
+
+
+
+
+
+
+Changes in the early October 2019 version (Lac07p88) include:
+
+No new flight or mission features. This version remains operationally compatible with all prior versions since Lac07p70. 
+
+This version is even more reliable and "bullet proof" than the prior version, as a consequence of two tiny new user-management improvements as follows:
+
+1 of 2: To make the Morse Code Radio more robust and reliable, "Squelch" settings now automatically expire every time the player's aircraft is serviced with fuel, ammo, or repairs while on the runway, deactivating old squelch settings to ensure more constant Morse Radio monitoring and availablity for interpretation of text-broadcast commands. As a consequence, stale old Morse Radio squelch settings (which can easily be forgotten during the activity associated with landings and takeoffs) no longer block subsequent Morse Code Radio messages, making all players more alert and more aware of LAC's most fundamental interplayer communication system and less likely to accidentally miss out on MultiPlayer commands, directives, bulletins, or queries transmitted by that means.
+
+2 of 2: This version is easier to install than prior versions, even if the user does not read the online documentation and does not use the convenient "install.sh" script to optimize all of the installation steps. If a user attempts to run LAC immediately after downloading and/or compiling it (without making use of our standard "install.sh" script), it tries very hard, on its first execution attempt, to find or automatically generate all of the necessary configuration files, creating the required ~home/.LAC subdirectory to hold them. Any missing files that are absolutely required for LAC's basic operation are now generated automatically as needed, after which LAC generates explanatory diagnostic messages explaining their successful generation and urging the player to try running LAC again. Subsequent attempts to run LAC almost always succeed after that, allowing the user to experiment with the menus and basic flight.
+
+However, the terrain that is used in LAC's most important missions is populated with random mountains, lakes, islands, and other geographic features unless the "DefaultHeightMap.LAC" file is present, and that file cannot be automatically generated. It is always downloaded as part of our standard distribution archive. If that "DefaultHeightMap.LAC" file is deleted or misplaced, the resulting, randomly generated terrain features never match up with the location or altitude of airfields, so runways are sometimes located underwater or displaced, in bizarre ways, from land features. (Sometimes the random terrain even exhibits water levels at altitudes high enough to swamp aircraft immediately upon their entry into a mission.)
+
+To overcome this problem, new logic in this version of LAC tries very hard to find and appropriately utilize the "DefaultHeightMap.LAC" file, searching for it in all of the most likely places according to our experience monitoring user behavior. Usually this is successful during the first attempt to execute LAC, whereupon a series of helpful advisory messages are generated on the user's console upon program termination, along with an admonition to try running LAC again. These advisory messages differ slightly depending on the filesystem location where any copy of the "DefaultHeightMap.LAC" file is found, in order to be as helpful as possible to the user and to increase understanding of the ideal place to store LAC's executable file relative to its other components. Users that read and follow that guidance are very likely to experience complete success the next time they try to execute LAC.
+
+Of course, if the "DefaultHeightMap.LAC" cannot be found in any of the usual places, then LAC proceeds to generate new terrain, populated with random geographic features that do NOT match the airfield locations that are expected in the missions. Affected users can only recover from this by placing a copy of the official "DefaultHeightMap.LAC" file into their ~home/.LAC folder. Detailed instructions for this have now been published in our "Frequently Asked Questions" ("FAQ") web page as FAQ #44.
+
+(NOTE: Even though the improved installation logic in this version makes it easier to achieve basic LAC installation without using our "install.sh" script, the preferred installation process still uses that script because it automatically creates a tiny, convenient, additional new script named "lac" in the user's home directory which can thereafter be used to launch Linux Air Combat and also, according to long-standing desktop LINUX practice, to create graphical desktop or kicker-panel shortcuts to launch LAC with a single mouse click.)
+
+If you are already happily using any version of LAC since Lac07p70, having formed good interplayer online habits and already having success with Mumble-based interplayer voice communication, then there is little reason for you to upgrade to this version. However, for new users, this version is the easiest to install of any LAC version, and routine operation helps inexperienced users to more reliably participate in the best interests of their team, less likely to miss out on interplayer communication.
+
+
+
+
+
+
+
+
+
+
+Changes in the mid Sep2019 version (Lac07p85) include:
+
+This version is operationally compatible with all prior versions since Lac07p70, but all of the new features of its Mumble interface, previously limited to users of Mumble Version 1.3 and newer, now work with older versions of Mumble too! We've had success with versions as old as Mumble V1.2.3. Prior to version 1.3.0, Mumble used an older set of commands, so LAC still needs to know if your copy of Mumble is older than that. As with the prior LAC release, this is specified in the "NetworkMode" field of your "LacConfig.txt" file. Repeating our previous instructions on this subject, the four allowed values of "NetworkMode" are:
+
+if NetworkMode is set to "0", LAC will operate in "Peer-to-Peer" mode and will control older versions of Mumble using the "old style".
+
+if NetworkMode is set to "1", LAC will operate in "Client/Server" mode and will control older versions of Mumble using the "old style".
+
+if NetworkMode is set to "2", LAC will operate in "Peer-to-Peer" mode but it will take full advantage of advanced functions for  Mumble 1.3.0 and later.
+
+if NetworkMode is set to "3", LAC will operate in "Client/Server" mode and it will take full advantage of advanced functions for Mumble 1.3.0 and later.
+
+The features of LAC's Mumble interface are now the same whether you use new Mumble 1.3.0, old Mumble 1.2.3, or something in between. (One minor difference: the newest versions of Mumble switch channels in about 5 seconds, while the older ones need about 6 seconds on average.)
+
+If you have installed Mumble on the same computer that is hosting your copy of LAC, you should definitely upgrade to this version because the Mumble interface no longer requires such tedious configuration and is much more reliable. You will really enjoy the difference, and your team-mates will appreciate the way your communication will be automatically integrated into the action.
+
+If you don't use Mumble, or if you have Mumble (or one of the other Mumble-compatible voice comms apps) installed on your phone, tablet, or another computer, then you won't see any important benefit from installing any version since Lac07p72.
+
+
+
+
+
+
+
+
+Changes in the early Sep2019 version (Lac07p82) include:
+
+This version is operationally compatible with all prior versions since Lac07p70, but it takes powerful advantage of the newest (optional) features in Mumble V1.3.0, and the area of the keyboard used in our standard configuration has been expanded with additional functions for those that have updated their copy of Mumble.
+
+Even more powerful Mumble integration, with an improved standard keyboard layout, placing even more Communication-oriented commands within easy reach. 
+
+Unfortunately, older versions of Mumble, which do not support new commands that recent versions of LAC like to use for interprocess communication, are still in common use. Accordingly, this version of LAC has enhanced its interpratation of the "NetworkMode" attribute that can be set in the "LacConfig.txt" configuration file. That variable is now "Bit Coded". Use of the least significant bit is unchanged, so a value of "0" still indicates "Peer to Peer Mode" as before, and a value of "1" still indicates "Client/Server" mode as before. However, we are no longer ignoring the other bits. As a consequence, four distinct settings of "NetworkMode" are now fundamental to LAC's operation on the network and with Mumble, as follows:
+
+if NetworkMode is set to "0", LAC will operate in "Peer-to-Peer" mode and will not attempt to use any advanced Mumble functions.
+
+if NetworkMode is set to "1", LAC will operate in "Client/Server" mode and will not attempt to use any advanced Mumble functions.
+
+if NetworkMode is set to "2", LAC will operate in "Peer-to-Peer" mode but it will take full advantage of advanced Mumble functions.
+
+if NetworkMode is set to "3", LAC will operate in "Client/Server" mode and it will take full advantage of advanced Mumble functions. This is the preferred setting.
+
+(Explanatory text within the LacConfig.txt file explains all of this and will help users set the value of NetworkMode appropriately.)
+
+When LAC is told to avoid Mumble's advanced functions, it relies on the user to configure Mumble "Shortcuts", as described in our "Frequently Asked Questions", as the basis for our Mumble interface. Users that configure all 26 of those Mumble shortcuts will enjoy very smooth, high-speed Mumble performance for all of the basics. However, for unknown reasons, Mumble loses some or all of those 26 shortcuts from time to time, so it is frequently necessary to reprogram them. Without those shortcuts, it is still easy to use Mumble on a single channel, but it is difficult to optimize channel choices. As a consequence, most Mumble transmissions will be broadcast to friendly and opposing team members alike.
+
+When LAC is allowed to use the advanced functions from Mumble version 1.3.0 and later, it automatically tunes Mumble to the best channel for every mission as soon as the player selects it, and all of the following "Hot Keys" always work immediately during those online missions, with no need to program the corresponding Mumble Shortcuts:
+
+"1":   Switch to M1All Channel.
+"2":   Switch to M1Blue Channel.
+"3":   Switch to M1Red Channel. 
+"4":   Switch to M2All Channel. 
+"5":   Switch to M2Blue Channel.
+"6":   Switch to M2Red Channel.
+"7":   Switch to M3All Channel.
+"8":   Switch to M3Blue Channel.
+"9":   Switch to M3Red Channel.
+"0":   Switch to Root Channel.
+"F7":  Morse Squelch BlueTeam
+"F8":  Morse Squelch RedTeam
+"F9":  Morse Unsquelch All
+"F10": Switch to TeamCast channel.
+"F11": Switch to MissionCast channel.
+"CapsLock": Toggle keyboard in and out of "Morse Code Radio" mode.
+
+In addition, the following Mumble commands are instantly available if the associated (very simple and well-behaved) Mumble shortcuts are configured:
+
+F1: Push To Talk in Current Channel 
+F2: Shout to Parent Channel and its Children 
+F3: Volume Down 
+F4: Volume Up 
+F5: Mute Speaker 
+F6: Mute Microphone 
+
+Furthermore, LAC even uses those advanced Mumble commands in conjunction with six types of specially formatted Morse Code Radio messages as follows:
+
+1 of 6: "PPPPPPPP2" (Eight or more sequential "P" characters followed by one or more copies of the single digit "1", "2", "3", "4", "5","6","7", "8", "9", or "0", corresponding with one of the ten players in the mission.) This is the "PROMOTE" command, and it grants administrative privileges to the designated mission player. Although no player can promote himself, he can promote any other player on his team. The player remains "promoted" until he is killed or exits the mission. After being promoted in this manner, the promoted player can thereafter issue any of these other six specially formatted Morse Radio messages:
+
+2 of 6: "SSSSSSSS" (Eight or more sequential "S" characters). This is the "SECRECY" command, and it switches every member of the player's team onto a new, secret, Mumble channel for private communication. Members of the other team are NOT switched, and it is cumbersome and time-consuming for them to ever discover which channel is being used for this secret conversation. It is unlikely that members of the opposing team will hear conversations held in this manner.
+
+3 of 6: "MMMMMMMM" (Eight or more sequential "M" characters). This is the "MISSIONCAST" command, and it switches every member of the player's team onto the "MissionCast" channel for the current realm and mission so that everybody participating in the mission will be able to hear and converse with everybody else.
+
+4 of 6: "TTTTTTTT" (Eight or more sequential "T" characters). This is the "TeamCast" command, and it switches every member of the player's team onto the "TeamCast" channel for the current realm and mission. The other team also has its own TeamCast mission as a "sibling" channel, and those two sibling channels are isolated from one another so that voice communication in one is not heard in the other. Note, however, that any player that chooses to enter the mission's "MissionCast" channel WILL hear everything, so this "TeamCast" option is best viewed as a means of minimizing congestion rather than a means of ensuring secrecy.
+
+5 of 6: "RRRRRRRR" (Eight or more sequential "R" characters). This is the "Root" command, and it switches every member of the player's team onto the "Root" channel of our Mumble server at LinuxAirCombat.com. This is handy for recruiting new players into the mission, since it is commonplace for new players to hang out in our Root channel while waiting for mission activity elsewhere.
+
+As a consequence of these advanced commands, it is now much easier for teams equipped with the latest versions of Mumble to make powerful and orderly use of our Mumble channels, enjoying a significant advantage in combat.
+
+While parked on the runway waiting for refueling and repairs, the player can now stop the automated review and vocalization of all of the mission targets (which normally cycles "Select Next Target" through all ten mission aircraft) by tapping the "Select Previous Target" key. This gives the player an opportunity to examine the tactical situation at his own pace and designate his own preferred target while his aircraft is being serviced.
+
+
+
+
+
+
+
+
+
+Changes in the late-Aug 2019 version (Lac07p72) include:
+
+1- Better integration with "Mumble". After installing the free, well-known "Mumble" VOIP application according to the usual and customary norms, it is no longer necessary to configure Mumble with the 20 "Shortcuts" that have heretofore been recommended in order to automate switching between the 10 most important of our Mumble Channels. Now all of LAC's online, server-based, multiplayer missions automatically invoke Mumble and direct it to the appropriate channel according to the player's team affiliation and chosen mission, with no user intervention at all. Furthermore, all ten of LAC's standard Mumble channel-changing "Hot Keys" now directly command Mumble to switch to the corresponding channel on our Mumble server at LinuxAirCombat.com, so it is very easy for users participating in any of our missions to hop around among our popular Mumble channels at will (without exiting LAC or mouse-clicking anywhere) in order, for example, to speak temporarily on the Root channel and welcome new players, or even with players participating in other missions. (In order to avoid saturation of Mumble's administrative tasks, LAC enforces a 10-second time interval between these Mumble commands.) LAC's cockpit "Mumble Panel" and three-line, scrolling "System Message Panel" alert all players throughout the mission of all Mumble activity triggered by any of our standard Mumble Hot keys, so everybody knows who is talking, the Mumble Channels they are using, etc.
+
+2- Improved Mumble Server configuration: each of our three online, multiplayer, server-based missions within our most important domains have long been served by a trio of associated Mumble channels arranged rather like a family, with one "Parent" channel named after the mission and two "Child" channels (one for BlueTeam and one for RedTeam). The intent has always been for team members to hold private conversations within their own "Child" channel, and for the "Parent" channel to serve for shared conversations among all team members. This can be very conveniently automated with a single Mumble "shortcut" configured with Mumble's "Shout to parent channel and all its children" facility. However, some players are reluctant to configure Mumble shortcuts or are using less powerful Mumble clients (like Android's "Plumble") that do not offer that option. As of 20Aug2019 we enhanced our Mumble Server to automatically enforce those relationships: Any "Push to Talk" transmission in one of the "BlueTeam" or "RedTeam" channels is never heard by others tuned to the "Sibling" channel of the opposing team. However, both of those sibling channels always hear and can speak to anybody tuned to the "Parent" channel. All of this can now be done without configuring any Mumble shortcuts. 
+
+3- Fixed several minor bugs in heavy bomber ordnance loading.
+
+4- Removed some unimportant status messages that were cluttering the cockpit's three-line, scrolling "SystemMessage" panel, making it a lot easier to rely on that panel to learn of significant mission events.
+
+This version remains interoperable and fully compatible with version Lac07p70. When limited to MissionNetworkBattle03, it remains operationally compatible with all versions since Lac07p56.
+
+
+
+
+
+
+
+
+
+
+Changes in the mid-Aug 2019 version (Lac07p70) include:
+
+Numerous small bug fixes.
+
+1- Flight Models tuned: We tweaked flight models of medium bombers and dive bombers. In prior versions, several of these bombers lacked power to climb acceptably when lugging their full bomb loads. Others needed increased durability to perform according to the best historic information. These problems have all been fixed.
+
+2- Mission-Ending improvements: We improved handling of network messages responsible for ending missions when one of the HQ airfields is destroyed. In prior versions (especially on networks suffering packet loss), it was commonplace for one or more players to miss these messages and continue in a mission, unaware that it had ended because somebody had already destroyed one of those HQ airfields. Now those messages are more robustly propogated and everybody gets the message.
+
+3- Player "Death" is now more realistic: MissionNetworkBattle01 and MissionNetworkBattle02 now implement more realistic handling of pilot/player death (but MissionNetworkBattle03 retains the prior, simpler and easier logic): In prior versions, unsophisticated players were sometimes using "kamikaze" tactics, committing deliberate suicide after dropping bombs or completing a gunnery pass when far away from their own airfield in order to short-circuit and avoid the long flight back home. In this more sophisticated implementation, getting killed, or killing yourself, (or starting out from a fresh, "dead" state) carries a penalty in terms of refueling time. Upon entry into MissionNetworkBattle01 or MissionNetworkBattle02, whether starting out fresh or restarting after being killed, the player is almost out of fuel and is forced to land as in prior verions, but when fuel levels are low, it now takes a lot longer to be refueled. On the other hand, because it is normal and commonplace for players returning from a successful mission to have significant, unused fuel in their tanks, they spend far less time grounded during the refueling process. The same is true for repairs: Players that return to base without aircraft damage experience no ground delays associated with repairs, but players returning a heavily damaged aircraft must wait while the ground crew fixes them back up. While waiting for these ground services, players are, of course, vulnerable to attack, and any damage they suffer while grounded will either kill them or delay their takeoff further while the additional damage is repaired. (The delays are much, much smaller if only a small amount of fuel or minor repairs are needed.) The consequence of all of this is that players that kill themselves or get killed in some other way suffer new delays on the runway while they are refueled and repaired, while players that land with undamaged aircraft and with fuel in their tanks suffer little or no delay. This adds a new dynamic to MissionNetworkBattle01 and MissionNetworkBattle02: in addition to the obvious incentives to return to base alive, undamaged, and with unused fuel ready for re-use, the change also subjects players to additional, realistic risks associated with exposure on the runway, vulnerable to enemy players that may have positioned themselves advantageously above in order to vulch them while they are stuck there. (For those that prefer no such punishment associated with getting killed, MissionNetworkBattle03 was left with the old system where refuel, repair, and rearm tasks are completed almost instantly. Beginners, in particular, are urged to start out with this system while they build up their skills for more realistic treatment in the more sophisticated missions.)
+
+Players using prior versions should update to this new version before joining others in MissionNetworkBattle01 or MissionNetworkBattle02. On the other hand, MissionNetworkBattle03 remains operationally compatible with all LAC versions since 7.56.
+
+
+
+
+
+
+Changes in the Late June 2019 version (Lac07p65) include:
+
+This version remains operationally compatible with all versions since 7.56, but the cockpit instrumentation has been improved slightly with the addition of an indicator revealing the rate of repair of the player's HQ airfield. As a consequence, where prior versions had been scrolling messages about that repair rate through the three-line "SystemStatus Panel", this version eliminates those messages.
 
 
 
