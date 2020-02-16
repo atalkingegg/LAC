@@ -41,7 +41,7 @@
 */
 #define DATADIR '/usr/local/share'
 
-extern char DebugBuf[500];
+extern char DebugBuf[];
 
 char *mystrtok (char *str, int len, char *tok)
     {

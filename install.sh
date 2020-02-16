@@ -121,7 +121,7 @@ skip7:
     echo Copying default terrain...
     cp DefaultHeightMap.LAC $CONFIG_DIR/DefaultHeightMap.LAC
     echo Copying icon...
-    cp lac.png $CONFIG_DIR/lac.png
+    cp lac.png $LAC_DIR/lac.png
 
 
 skip8:

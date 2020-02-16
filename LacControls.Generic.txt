@@ -64,7 +64,7 @@
  key_DROPFLARE = 45
  key_DROPCHAFF = 61
  key_WEAPONSELECT = 12
- key_TARGETNEXT = 87
+ key_TARGETNEXT = 78
  key_TARGETPREVIOUS = 80
  key_TARGETVOCALIZE = 86
  key_ZoomFovIn = 536
@@ -75,24 +75,24 @@
  key_WepAfterburner = 87
  key_SpeedBrake = 66
  key_Undercarriage = 71
- key_TrimRudderLeft = 544
- key_TrimRudderRight = 545
- key_TrimElevatorUp = 546
- key_TrimElevatorDn = 205
- key_LookBK = 90
- key_LookDN = 84
- key_LookFD = 96
- key_LookLT = 92
- key_LookRT = 94
- key_LookUP = 93
- key_RadarZoomIn = 74
- key_RadarZoomOut = 77
+ key_TrimRudderLeft = 999
+ key_TrimRudderRight = 999
+ key_TrimElevatorUp = 999
+ key_TrimElevatorDn = 999
+ key_LookBK = 2
+ key_LookDN = 11
+ key_LookFD = 8
+ key_LookLT = 4
+ key_LookRT = 6
+ key_LookUP = 5
+ key_RadarZoomIn = 534
+ key_RadarZoomOut = 535
  key_RadarOnOff = 82
- key_HudOnOff = 81
- key_IffOnOff = 65
+ key_HudOnOff = 72
+ key_IffOnOff = 73
  key_HudLadderBarsOnOff = 76
- key_MapViewOnOff = 70
- key_MapZoomIn = 73
+ key_MapViewOnOff = 77
+ key_MapZoomIn = 533
  key_MapZoomOut = 127
  key_MapScrollEast = 531
  key_MapScrollWest = 532
@@ -198,4 +198,4 @@
 
 # To get back to default settings, just delete this file!
 
-# Online help is available at AskMisterWizard.com
+# Online help is available at AskMisterWizard.com/FlightSimMovies/LAC

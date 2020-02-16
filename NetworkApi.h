@@ -78,6 +78,10 @@ unsigned char UdpObjMyNetworkId = MyNetworkId;
 unsigned char UdpObjRealm = Realm;
 char          UdpObjCurrentMissionNumber = CurrentMissionNumber;
 char          UdpObjLacVersion[32];   
+// Note that some compilers don't like the curly braces around the following literal string.
+// At least one user found it necessary to eliminate the curly braces from the following line
+// of code and from similar code throughout the remainder of this file. If your compiler refuses
+// to compile this line without error, you might experiment with elimination of the curly braces.
 char          UdpObjCommunityHandle[16] = {"00000000000000"}; 
 };
 

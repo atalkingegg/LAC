@@ -27,6 +27,8 @@
 // Headers needed only by land.cpp
 //##################################################################################################
 
+#ifndef IS_LAND_H
+
 #include <SDL2/SDL.h> /* SDL_Window */
 #include <SDL2/SDL_mixer.h>
 #include <stdio.h> /* FILE */
@@ -44,6 +46,7 @@
 * Global Variables
 *
 ****************************************************************************/
+extern bool DefaultHeightMapFileIsMissing;
 // extern char DebugBuf[];
 // extern char  FileSystemDefaultHeightMapFilePath [];
 
@@ -345,6 +348,7 @@ void Landscape::genSurface (int hoehepc, int *heightmap)
        { 
        display ((char *)"Terrain file DefaultHeightMap.LAC not found.", LOG_MOST);
        display ((char *)"Generating new terrain....", LOG_MOST);
+       DefaultHeightMapFileIsMissing = true;
        }
     type = LAND_ALPINE;
     hoehe = hoehepc * 200; 
@@ -1892,3 +1896,5 @@ Landscape::Landscape ()
 Landscape::~Landscape ()
     {
     }
+
+#endif

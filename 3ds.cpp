@@ -60,7 +60,7 @@
 // #include <ctype.h>
 // #include "common.h"
 
-extern char DebugBuf[100];
+extern char DebugBuf[];
 
 FILE *debugstream3ds = stdout;
 

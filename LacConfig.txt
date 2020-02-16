@@ -231,7 +231,7 @@ password
 
 # Most people will want to set NetworkMode to our default value of 3.
 
- NetworkMode = 1
+ NetworkMode = 3
 
 # 
 # Realm. As Linux Air Combat becomes more popular, users within the community will

@@ -139,92 +139,94 @@ bool AirfieldRepairsAcceleratedForRedTeam = false;
 bool AirfieldRepairsStoppedForBlueTeam = false;
 bool AirfieldRepairsStoppedForRedTeam = false;
 bool AutoPilotActive = false;
-bool CapsLockActive = false;
-bool ChaffPacketFired = false;
-bool ClearSpeedHistoryArrayFlag = false;
+bool CapsLockActive = false; 
+bool ChaffPacketFired = false; 
+bool ClearSpeedHistoryArrayFlag = false; 
 bool ClimbAngleExceedsMaxSustainable = false;
-bool ConfigInit = false;
+bool ConfigInit = false; 
 bool DefaultHeightMapFileIsMissing = false; 
-bool EnterPressed = false;
+bool EnterPressed = false; 
 bool FirstStart = false;
-bool FlareFired = false;
+bool FlareFired = false; 
 bool GearUpDamageAlreadyInflicted = false;
-bool GunCameraActive = false;
-bool GunCameraStartSegmentFlag = false;
-bool GunCameraStopSegmentFlag = false;
+bool GunCameraActive = false; 
+bool GunCameraStartSegmentFlag = false; 
+bool GunCameraStopSegmentFlag = false;  
 bool initing = true;
 bool InPacketContainsMumbleBroadcast  = false;
 bool InPacketContainsMumbleNarrowcast = false;
 bool JoystickFireButton = false;
-bool LandedAtSafeSpeed = false;
-bool LandingLogged = false;
+bool LandedAtSafeSpeed = false; 
+bool LandingLogged = false; 
 bool OnTheGround = false;
-bool MissileFired = false;
+bool MissileFired = false; 
 bool MissionActive = false;
-bool MissionRunning;
-bool MumbleBroadcastRequested = false;
+bool MissionRunning; 
+bool MumbleBroadcastRequested = false; 
 bool MumbleChannelExitRequested = false;
 bool MumbleChannelMainRequested = false;
-bool MumbleCurrentMissionBlueSubChannelRequested = false;
-bool MumbleCurrentMissionChannelRequested = false;
-bool MumbleCurrentMissionRedSubChannelRequested  = false;
-bool MumbleTunedToCurrentMissionChannel = false;
-bool MumbleTunedToMyBlueMissionAndSubchannel = false;
-bool MumbleTunedToMyRedMissionAndSubchannel  = false;
-bool MumbleTransmissionRequested = false;
-bool NetworkMissionIsActiveWithDataFlow = false;
-bool NetworkPlayerKilled = false;
-bool NewSystemMessageNeedsScrolling = false;
-bool NoMissionHasYetCommenced = true;
-bool PeerPacketReceivedInThisMissionState = false;
-bool Promoted = false;
-bool RadarReflectorBlueHasBeenDestroyedAtLeastOnce;
-bool RadarReflectorRedHasBeenDestroyedAtLeastOnce;
-bool RadarTargetColorLogged = false;
-bool RecoveredFromStall = false;
-bool ShotDownByBomberOrAirfieldGunners = false;
-bool SkipTargetTourWhileRefueling = false;
-bool SpaceBarPressed = false;
+bool MumbleCurrentMissionBlueSubChannelRequested = false; 
+bool MumbleCurrentMissionChannelRequested = false; 
+bool MumbleCurrentMissionRedSubChannelRequested  = false; 
+bool MumbleTunedToCurrentMissionChannel = false; 
+bool MumbleTunedToMyBlueMissionAndSubchannel = false; 
+bool MumbleTunedToMyRedMissionAndSubchannel  = false; 
+bool MumbleTransmissionRequested = false; 
+bool NetworkMissionIsActiveWithDataFlow = false; 
+bool NetworkPlayerKilled = false; 
+bool NewSystemMessageNeedsScrolling = false; 
+bool NoMissionHasYetCommenced = true; 
+bool PeerPacketReceivedInThisMissionState = false; 
+bool Promoted = false; 
+bool RadarReflectorBlueHasBeenDestroyedAtLeastOnce; 
+bool RadarReflectorRedHasBeenDestroyedAtLeastOnce; 
+bool RadarTargetColorLogged = false; 
+bool RecoveredFromStall = false;  
+bool ShotDownByBomberOrAirfieldGunners = false; 
+bool SkipTargetTourWhileRefueling = false; 
+bool SpaceBarPressed = false; 
 bool SpeedBrakeRequested = false;
 bool StartCannon = false;
 bool SunBlinding = false;
-bool TakeoffLogged = false;
+bool TakeoffLogged = false; 
 bool TargetSelectNotYetInitialized = true;
 bool UdpSetupCompleted = false;
 bool WindNoiseOn = false;
 
 // global boolean arrays:
-bool MorseSquelches[10] = {false};
+bool MorseSquelches[10] = {false}; 
 
 // global unsigned char variables:
-unsigned char AirfieldChosenForLanding = 0;
-unsigned char AirfieldRequested = 1;
-unsigned char BattleshipSunkAlertCountBlue = 0;
-unsigned char BattleshipSunkAlertCountRed = 0;
-unsigned char DefaultAircraft = FIGHTER_P38L;
-unsigned char MaxPlayersInCurrentMission = 10;
-unsigned char MissionHeadToHead00State = 0;
-unsigned char MissionIdNegotiationCount = 0;
-unsigned char MissionOutPacketCount = 0;
-unsigned char MissionStateNetworkBattle;
-unsigned char MorseCharacterIn = 0;
-unsigned char MumbleChannelPresumed = 0;
-unsigned char MyNetworkId = 1;
-unsigned char NetworkApiVersion = 10;
-unsigned char NetworkOpponent = 0;
-unsigned char NewestInPacketId = 0;
-unsigned char NewestMumblePacketId = 0;
-unsigned char PreviousMorseOutCharacter = 0;
-unsigned char PreviousMorseSender = 1;
-unsigned char Realm = 0;
-unsigned char RecentVictim = 0;
-unsigned char RepeatedMorseOutCharCount = 0;
-unsigned char SelectedMissionTarget = 0;
-unsigned char ServerIpByte1of4 = 192;
+unsigned char AirfieldChosenForLanding = 0;     
+unsigned char AirfieldRequested = 1;            
+unsigned char BattleshipSunkAlertCountBlue = 0; 
+unsigned char BattleshipSunkAlertCountRed = 0;  
+unsigned char DefaultAircraft = FIGHTER_P38L;   
+unsigned char MaxPlayersInCurrentMission = 10;  
+unsigned char MissionHeadToHead00State = 0;     
+unsigned char MissionIdNegotiationCount = 0;    
+unsigned char MissionOutPacketCount = 0;        
+unsigned char MissionStateNetworkBattle;      
+unsigned char MorseCharacterIn = 0;             
+unsigned char MumbleChannelPresumed = 0;        
+unsigned char MyNetworkId = 1;                  
+unsigned char NetworkApiVersion = 10;           
+unsigned char NetworkOpponent = 0;              
+unsigned char NewestInPacketId = 0;             
+unsigned char NewestMumblePacketId = 0;         
+unsigned char PreviousMorseInCharacter = 0;     
+unsigned char PreviousMorseOutCharacter = 0;    
+unsigned char PreviousMorseSender = 1;          
+unsigned char Realm = 0;                        
+unsigned char RecentVictim = 0;                 
+unsigned char RepeatedMorseInCharCount = 0;     
+unsigned char RepeatedMorseOutCharCount = 0;    
+unsigned char SelectedMissionTarget = 0;        
+unsigned char ServerIpByte1of4 = 192;           
 unsigned char ServerIpByte2of4 = 168;
 unsigned char ServerIpByte3of4 = 1;
 unsigned char ServerIpByte4of4 = 2;
-unsigned char ServerMessageRecipient = 255;
+unsigned char ServerMessageRecipient = 255;     
 
 // global char array variables (single-dimensional):
 char CommsMacro01String1[64] = "CHANNEL-M1-ALL";
@@ -246,15 +248,15 @@ char CommsMacro16String1[64] = "RADIO-SOUND-TOGGLED";
 char CommsMacro17String1[64] = "ACTIVE-TEAMCAST-CHANNEL";
 char CommsMacro18String1[64] = "ACTIVE-MISSIONCAST-CHANNEL";
 char CommsMacro19String1[64] = "VOCALIZE-ENEMY-HQ-STATUS";
-char CommunityHandle [20] = "00000000000000";
-char ControlsMenu0Names [37] [37];
-char ConvertedMumbleUrl[128];
-char CurrentMissionNumber;
-char DebugBuf[1100];
-char MainMenuNames [7] [50];
-char MissionEntryLatch [32] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+char CommunityHandle [20] = "00000000000000"; 
+char ControlsMenu0Names [37] [37]; 
+char ConvertedMumbleUrl[128]; 
+char CurrentMissionNumber; 
+char DebugBuf[1100]; 
+char MainMenuNames [7] [50]; 
+char MissionEntryLatch [32] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; 
 char MorseRadioMessageBuffer [64] = "";
-char Mumble1p2StringActive[128];
+char Mumble1p2StringActive[128]; 
 char MumbleStringR0Mission1All[128] =  "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle01/?version=1.2.0";
 char MumbleStringR0Mission1Blue[128] = "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle01/M1Blue/?version=1.2.0";
 char MumbleStringR0Mission1Red[128]  = "mumble mumble://linuxaircombat.com/LinuxAirCombat/Realm0/MissionNetworkBattle01/M1Red/?version=1.2.0";
@@ -275,16 +277,16 @@ char MumbleStringCh08[128] = "mumble mumble://linuxaircombat.com/008/?version=1.
 char MumbleStringCh09[128] = "mumble mumble://linuxaircombat.com/009/?&version=1.2.0";
 char MumbleStringCh10[128] = "mumble mumble://linuxaircombat.com/010/?&version=1.2.0";
 char MumbleStringRoot[128] = "mumble mumble://linuxaircombat.com/?version=1.2.0";
-char NetworkPassword [32] = "password";
-char NetworkPlayerMumbleChannel[32] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-char OptionsMenuNames [5] [25];
-char RemoteDnsIpAddress[100] = "LacServer2.LinuxAirCombat.com";
+char NetworkPassword [32] = "password"; 
+char NetworkPlayerMumbleChannel[32] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; 
+char OptionsMenuNames [5] [25]; 
+char RemoteDnsIpAddress[100] = "LacServer2.LinuxAirCombat.com"; 
 char RemoteDnsIpAddressHost[32] = "LacServer2";
 char RemoteDnsIpAddressSecondLevelDomain[32] = "LinuxAirCombat";
 char RemoteDnsIpAddressTopLevelDomain[32] = "com";
 char ServerIpAddressAscii[16] = "000.000.000.000";
 char ServerMessageBuffer[81] = "";
-char submenu1names [20] [50];
+char submenu1names [20] [50]; 
 char SystemMessageBuffer0 [64] = "____________________________________________________";
 char SystemMessageBuffer1 [64] = "____________________________________________________";
 char SystemMessageBuffer2 [64] = "____________________________________________________";
@@ -292,19 +294,19 @@ char SystemMessageBufferA [64] = "______________________________________________
 char TargetVocalize1State = 0;
 char TargetVocalize2State = 0;
 
-char *FileSystemHomeDir = getenv("HOME");
+char *FileSystemHomeDir = getenv("HOME"); 
 char *FileSystemDefaultHeightMapFileName = (char*)"/.LAC/DefaultHeightMap.LAC";
 char *FileSystemGunCamHistoryFileName = (char*)"/.LAC/GunCamHistory.LAC";
 char *FileSystemLastTerrainFileName = (char*)"/.LAC/LastTerrain.LAC";
 char *FileSystemOnlineLineScoreLogFileName = (char*)"/.LAC/OnlineScoreLog.LAC";
-char  FileSystemDefaultHeightMapFilePath [512];
-char  FileSystemGunCamHistoryFilePath [512];
-char  FileSystemLastTerrainFilePath [512];
-char  FileSystemOnlineScoreLogFilePath [512];
+char  FileSystemDefaultHeightMapFilePath [512]; 
+char  FileSystemGunCamHistoryFilePath [512];    
+char  FileSystemLastTerrainFilePath [512];      
+char  FileSystemOnlineScoreLogFilePath [512];   
 
 // global char array variables (two-dimensional):
 char PlayerIdStrings[10][9] =
-{
+{ 
     {"PLAYER01"},
     {"PLAYER02"},
     {"PLAYER03"},
@@ -318,19 +320,19 @@ char PlayerIdStrings[10][9] =
 };
 
 // global unsigned char array variables:
-unsigned char MorseCharacterOut[16] = {0};
+unsigned char MorseCharacterOut[16] = {0};            
 unsigned char firetex [maxfx * maxfy * 4];
 
 // global integer variables:
-int AirfieldXMax = 219;
-int AirfieldXMin = 161;
-int AirfieldYMax = 10;
-int AirfieldYMin = 3;
+int AirfieldXMax = 219;    
+int AirfieldXMin = 161;    
+int AirfieldYMax = 10;     
+int AirfieldYMin = 3;      
 int BattleDamageRiskTimer = 0;
 int brightness = 0;
 int camera = 0;
 int clouds = 0;
-int contrast = 10;
+int contrast = 10; 
 int CreditsTimer;
 int day = 1;
 int debug = 1;
@@ -339,13 +341,13 @@ int DoneFiringCannon=0;
 int FinishTimer;
 int flash = 0;
 int FlapsLevelElevatorEffectNow=0;
-int FlightIsInverted=0;
+int FlightIsInverted=0; 
 int frames = 0;
 int game = GAME_INIT;
-int HudLadderBarsOnOff = 0;
+int HudLadderBarsOnOff = 0; 
 int HudOnOff=1;
-int IffOnOff = 0;
-int InertiaTimer = 0;
+int IffOnOff = 0; 
+int InertiaTimer = 0; 
 int initsynchrotimer = 0;
 int inittimer = 0;
 int joybutton = 0;
@@ -356,43 +358,43 @@ int keyb_roll = 0;
 int keyb_rudder = 0;
 int LacTimer = 0;
 int lastDurability = 0;
-int MapEastWestScroll = 0;
-int MapNorthSouthScroll = 0;
-int MapViewOnOff = 0;
-int MapZoomFactor = 0;
+int MapEastWestScroll = 0; 
+int MapNorthSouthScroll = 0; 
+int MapViewOnOff = 0; 
+int MapZoomFactor = 0; 
 int MenuTimer = 0;
-int MissionAircraftDamaged = 0;
+int MissionAircraftDamaged = 0; 
 int MissionEnding = 0;
 int MissionMenuTimer;
-int MissionNumber = 0;
+int MissionNumber = 0; 
 int missionstate = 0;
-int MouseControlFlag = 0;
+int MouseControlFlag = 0; 
 int mousex;
 int mousey;
-int MorsePanelHighlightTimer = 0;
-int NetworkTransmitTimer = 0;
-int NetworkTransmitTimerInterval = 200;
-int PlayersOriginalDurability;
-int PriorPeerId=0;
-int PriorStateEndTimer = 0;
+int MorsePanelHighlightTimer = 0; 
+int NetworkTransmitTimer = 0; 
+int NetworkTransmitTimerInterval = 200; 
+int PlayersOriginalDurability; 
+int PriorPeerId=0; 
+int PriorStateEndTimer = 0; 
 int PlayerAircraftType;
-int PlayerEngineType=0;
-int RadarOnOff = 1;
-int RadarWasOn=0;
-int RadarZoom = 4;
+int PlayerEngineType=0; 
+int RadarOnOff = 1; 
+int RadarWasOn=0; 
+int RadarZoom = 4; 
 int sdldisplay = true;
 int sdlreshape = true;
 int SelectedAircraft = 1;
-int ServerMessageTimer = 0;
+int ServerMessageTimer = 0; 
 int showcollision = 0;
 int SkewViewBack = 20;
 int SkewViewLeft = 0;
 int SkewViewRight = 10;
 int SkewViewUp = 10;
-int SkipCount = 8;
+int SkipCount = 8;  
 int starttime;
 int StateTransitionTimer = 0;
-int StaticObjectUpdateTimer = 3900;
+int StaticObjectUpdateTimer = 3900; 
 int TargetVocalizeTimer1 = 0;
 int TargetVocalizeTimer2 = 0;
 int time1 = 0;
@@ -409,38 +411,38 @@ int16_t PriorServerMessageChecksum;
 int16_t ServerMessageChecksumBuffer;
 
 // global Unsigned integer variables:
-unsigned int MissedPacketCount = 0;
-unsigned int MyInPortNumber = 51100;
-unsigned int NetworkReceiveTimer = 0;
-unsigned int NetworkReceiveTimerInterval = 100;
-unsigned int PeerInPortNumber = 51100;
-unsigned int RefuelRearmRepairDurationTimer = 0;
-
+unsigned int DisplayedAirSpeed = 0.0; 
+unsigned int MissedPacketCount = 0;    
+unsigned int MyInPortNumber = 51100;   
+unsigned int NetworkReceiveTimer = 0;  
+unsigned int NetworkReceiveTimerInterval = 100; 
+unsigned int PeerInPortNumber = 51100; 
+unsigned int RefuelRearmRepairDurationTimer = 0; 
 
 // global Unsigned 16-bit integer variables:
-Uint16 OutGoingPacketSignature;
+Uint16 OutGoingPacketSignature;    
 
 // global Unsigned 32-bit integer variables:
 Uint32 DeltaTime;
-Uint32 LandingTimer = 0;
 Uint32 LastTime = 0;
-Uint32 Me163LandingTimer = 90000;
-Uint32 MissionEndingTimer = 0;
-Uint32 MissionEndingTimer2 = 0;
-Uint32 MissionNetworkBattle01Timer = 0;
-Uint32 MissionNetworkBattle02Timer = 0;
-Uint32 MissionNetworkBattle03Timer = 0;
-Uint32 MissionNetworkBattleRadarTimer = 0;
-Uint32 MumbleCommand1p2Timer = 1000000000;
-Uint32 MumbleCommandTimer = 11000;
-Uint32 MumbleTimeRemainingBeforeChannelReset = 10000000;
-Uint32 NetworkApiPriorTimer[32];
+Uint32 LandingTimer = 0;                    
+Uint32 Me163LandingTimer = 90000;           
+Uint32 MissionEndingTimer = 0;              
+Uint32 MissionEndingTimer2 = 0;             
+Uint32 MissionNetworkBattle01Timer = 0;     
+Uint32 MissionNetworkBattle02Timer = 0;     
+Uint32 MissionNetworkBattle03Timer = 0;     
+Uint32 MissionNetworkBattleRadarTimer = 0;  
+Uint32 MumbleCommand1p2Timer = 1000000000;  
+Uint32 MumbleCommandTimer = 11000;          
+Uint32 MumbleTimeRemainingBeforeChannelReset = 10000000; 
+Uint32 NetworkApiPriorTimer[32];            
 Uint32 SpeedBrakeTimer;
 Uint32 StallTimer;
-Uint32 ViewResetTimer;
+Uint32 ViewResetTimer;                  
 
 // global Long integer variables:
-long CountdownTimer = 100;
+long CountdownTimer = 100; 
 
 // global integer array variables:
 int heat [maxfy] [maxfx];
@@ -449,15 +451,15 @@ int jaxis [maxjaxis * maxjoysticks];
 int MissionNetworkBattle01PriorAircraft[10];
 int MissionNetworkBattle02PriorAircraft[10];
 int MissionNetworkBattle03PriorAircraft[10];
-int MissionMumbleTimer[32];
-int MissionPacketTimer[32];
+int MissionMumbleTimer[32]; 
+int MissionPacketTimer[32]; 
 int sdljoystickaxes [maxjoysticks];
 
 // NOTE: DO NOT USE IN PRODUCTION, this should be dynamicly generated
 // only ones matching display should ever be used
 // Note: Xres, Yres, BPP (why?), fullscreen (why?)
 // also, original table for CRTs, should now pull info from SDL display info.
-
+    
 #define NUM_SCREEN_RES 13
 int resolution [NUM_SCREEN_RES] [4] =
     {
@@ -481,75 +483,80 @@ float AirDensityAtThisAltitude;
 float AutoPilotAltitude = 0;
 float blackout = 0;
 float BlackoutSensitivity;
-float CalculatedDamageDueToCurrentRisk = 0;
-float camphi = 0, camgamma = 0, camtheta = 0;
-float CamPhiTemp2   = 0;
-float camx = 0, camy = 0, camz = 0;
+float CalculatedDamageDueToCurrentRisk = 0; 
+float camphi = 0, camgamma = 0, camtheta = 0; 
+float CamPhiTemp2   = 0; 
+float camx = 0, camy = 0, camz = 0; 
 float ChaseViewDistance = 0;
-float cloudfog = 100; // Maximum view distance before fog obscures everything. 1 = about 400 meters.
+float cloudfog = 10; // Maximum view distance before fog obscures everything. 1 = about 400 meters.
 float CompressibilityElevatorFactor = 1.0;
 float CompressibilityRollFactor = 1.0;
-float ConfiguredViewDistance;
-float DamageToClaim = 0.0;
+float ConfiguredViewDistance; 
+float DamageToClaim = 0.0; 
 float dtheta = 0, dgamma = 0;
 float fps = 30;
 float FuelLevelAtLastLanding = 0;
 float GammaDelta = 0;
-float HitBubbleRadius = 0.125;
+float HitBubbleRadius = 0.125; 
 float lastfps = -1;
 float LoopedBeyondVerticalDrag = 1.0;
-float MaxGammaPenaltyPerWeapon = 0.0;
+float MaxGammaPenaltyPerWeapon = 0.0; 
 float MaxFullPowerAltitude;
-float nearclippingplane = 0.026;
+float nearclippingplane = 0.026; 
 float redout = 0;
-float PlayersOriginalRollRate = 0;
-float PlayersOriginalMaxGamma = 0;
-float PlayersOriginalMaxThrust = 0;
+float PlayerAltitude = 0;  
+float PlayersOriginalRollRate = 0; 
+float PlayersOriginalMaxGamma = 0;  
+float PlayersOriginalMaxThrust = 0; 
 float PriorGamma = 0;
 float PriorThetaNormalized = 5;
 float RedoutSensitivity;
-float RecentVictimAltitude = 0;
-float RecentVictimGamma = 0;
-float RecentVictimPhi = 0;
-float RecentVictimTheta = 0;
-float RecentVictimVelocity = 0;
-float RecentVictimXPosition = 0;
-float RecentVictimZPosition = 0;
-float ScreenFOVx = 1.0;
-float ScreenFOVy = 1.0;
-float ScreenFOVz = 1.0;
-float SeaLevel = -13.0;
-float StallRatio;
+float RecentVictimAltitude = 0;  
+float RecentVictimGamma = 0;     
+float RecentVictimPhi = 0;       
+float RecentVictimTheta = 0;     
+float RecentVictimVelocity = 0;  
+float RecentVictimXPosition = 0; 
+float RecentVictimZPosition = 0; 
+float RegulatedForceX; 
+float RegulatedForceY; 
+float RegulatedForceZ; 
+float ScreenFOVx = 1.0; 
+float ScreenFOVy = 1.0; 
+float ScreenFOVz = 1.0; 
+float SeaLevel = -13.0; 
+float StallRatio;       
 float sungamma = 45.0;
 float sunlight = 1.0;
 float sunlight_dest = 1.0;
 float TargetAltitude = 0.0; // Set in cockpit.cpp's "drawCounter()" and used in TargetVocalizeProcess1().
 float ThetaDelta = 0;
 float ThetaNormalized = 5;
-float ThetaTemp3=0;
-float ThrustReadiness = 0;
-float TrueAirSpeed = 500;
-float Turbulence = 0;
-float TurbulenceFactor = 1.0;
-float view_x = 0;
-float view_y = 0;
+float ThetaTemp3=0; 
+float ThrustReadiness = 0; 
+float TrueAirSpeed = 500; 
+float Turbulence = 0; 
+float TurbulenceFactor = 1.0; 
+float view_x = 0; 
+float view_y = 0; 
 float VisibleAngle = 80.0F;
 
 // global Floating-point array variables:
-float NetDeltaX;
-float NetDeltaY;
-float NetDeltaZ;
-float NetworkApiPriorXPosition[32];
-float NetworkApiPriorYPosition[32];
-float NetworkApiPriorZPosition[32];
-float RegulatedForceX;
-float RegulatedForceY;
-float RegulatedForceZ;
+float NetDeltaX[32]; 
+float NetDeltaY[32]; 
+float NetDeltaZ[32]; 
+float NetXErr[32]; 
+float NetYErr[32]; 
+float NetZErr[32]; 
+float NetworkApiPriorXPosition[32]; 
+float NetworkApiPriorYPosition[32]; 
+float NetworkApiPriorZPosition[32]; 
+float ThrustFactor[32] = {0.0}; 
 
 // global AIObj pointer variables:
-AIObj *fplayer;
-AIObj *ThreeDObjects [maxfighter];
-AIObj *missile [maxmissile];
+AIObj *fplayer; 
+AIObj *ThreeDObjects [maxfighter]; 
+AIObj *missile [maxmissile]; 
 
 // global Button pointer variables:
 Button *mainbutton [10];
@@ -857,6 +864,11 @@ extern unsigned int key_CommsMacro13;
 extern unsigned int key_CommsMacro14;
 extern unsigned int key_CommsMacro15;
 extern unsigned int key_CommsMacro16;
+extern unsigned int key_CommsMacro17;
+extern unsigned int key_MuteMorseRedTeam;
+extern unsigned int key_MuteMorseBlueTeam;
+extern unsigned int key_CommsMacro18;
+extern unsigned int key_CommsMacro19;
 extern unsigned int key_DROPCHAFF;
 extern unsigned int key_DROPFLARE;
 extern unsigned int key_FlapsDn;
@@ -897,6 +909,7 @@ extern unsigned int key_TrimElevatorDn;
 extern unsigned int key_TrimRudderLeft;
 extern unsigned int key_TrimRudderRight;
 extern unsigned int key_Undercarriage;
+extern unsigned int key_UnMuteMorseAll;
 extern unsigned int key_WEAPONSELECT;
 extern unsigned int key_WepAfterburner;
 extern unsigned int key_ZoomFovIn;
@@ -914,7 +927,7 @@ void CompressibilityTurbulenceEffects();
 void DisplayGame();
 void DragEffects();
 void ElevatorSettings(int x, int y);
-void event_fireCannon();
+void event_CommsMacro10 ();
 void event_FlapsDN();
 void event_FlapsUP();
 void event_ToggleSpeedBrake();
@@ -945,8 +958,8 @@ void UpdateOnlineScoreLogFileWithNewSession();
 void UpdateOnlineScoreLogFileWithNewSorties();
 void UpdateOnlineScoreLogFileWithVictories();
 void VocalizeBlueHqStatus();
-void VocalizeRedHqStatus();
 void VocalizeEnemyHqStatus();
+void VocalizeRedHqStatus();
 void WrongChannelMessage();
 void ZeroSpeedCorrection();
 
@@ -971,7 +984,7 @@ void sdlMainLoop (void);
 ****************************************************************************/
 
 int main (int argc, char **argv)
-{
+    {
 
     char buf [STDSIZE]; // temp buffer
     int i;
@@ -980,7 +993,7 @@ int main (int argc, char **argv)
     dirs = new Dirs (argv [0]); // get data directory (DATADIR, defined via autoconf)
     sprintf (buf, "Startup %s, %s ... ", argv [0], VERSIONSTRING);
     display (buf, LOG_MOST);
-
+    
     size_t size1 = strlen(FileSystemHomeDir) + strlen(FileSystemLastTerrainFileName) + 1;
     snprintf(FileSystemLastTerrainFilePath, size1, "%s%s", FileSystemHomeDir, FileSystemLastTerrainFileName);
     display ((char*)"GLLandscape::GLLandscape() path to LastTerrain.LAC file =", LOG_MOST);
@@ -1001,29 +1014,29 @@ int main (int argc, char **argv)
     display ((char*)"GLLandscape::GLLandscape() path to GunCamHistory.LAC file =", LOG_MOST);
     display (FileSystemGunCamHistoryFilePath, LOG_MOST);
 
-    if (!load_config ())
+    if (!load_config ())   
         {
-
+        
         config_test (argc, argv); // do screen test
-        FirstStart = true;
+        FirstStart = true; 
         }
-    save_config ();
-    load_configInterface ();
-    save_configInterface ();
-
-   GunCamHistoryFile = fopen (FileSystemGunCamHistoryFilePath, "a");
+    save_config (); 
+    load_configInterface (); 
+    save_configInterface (); 
+    
+   GunCamHistoryFile = fopen (FileSystemGunCamHistoryFilePath, "a"); 
    if (GunCamHistoryFile == NULL)
-      {
+      { 
       display ((char*)"main() failed to open GunCamHistory.LAC", LOG_MOST);
       }
    else
       {
       display ((char*)"main() succesfully opened GunCamHistory.LAC", LOG_MOST);
       }
-
-   OnlineScoreLogFile = fopen (FileSystemOnlineScoreLogFilePath, "a");
+    
+   OnlineScoreLogFile = fopen (FileSystemOnlineScoreLogFilePath, "a"); 
    if (OnlineScoreLogFile == NULL)
-      {
+      { 
       display ((char*)"main() failed to open OnlineScoreLogFile.LAC", LOG_MOST);
       }
    else
@@ -1031,125 +1044,125 @@ int main (int argc, char **argv)
       display ((char*)"main() succesfully opened OnlineScoreLogFile.LAC", LOG_MOST);
       }
     UpdateOnlineScoreLogFileWithNewSession();
-
+    
     display ((char *)"joystick_FIREPRIMARY=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_FIREPRIMARY);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_FIREPRIMARY); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_FIRESECONDARY=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_FIRESECONDARY);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_FIRESECONDARY); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_DROPFLARE=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_DROPFLARE);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_DROPFLARE); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_DROPCHAFF=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_DROPCHAFF);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_DROPCHAFF); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_WEAPONSELECT=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_WEAPONSELECT);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_WEAPONSELECT); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_ZoomFOVin=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_ZoomFOVin);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_ZoomFOVin); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_ZoomFOVout=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_ZoomFOVout);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_ZoomFOVout); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_TargetNext=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_TargetNext);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_TargetNext); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_TargetPrev=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_TargetPrev);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_TargetPrev); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_TargetVocalize=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_TargetVocalize);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_TargetVocalize); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_ToggleExtIntView=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_ToggleExtIntView);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_ToggleExtIntView); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_FlapsUP=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_FlapsUP);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_FlapsUP); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_FlapsDN=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_FlapsDN);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_FlapsDN); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_WEPorAfterburner=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_WEPorAfterburner);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_WEPorAfterburner); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_SpeedBrake=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_SpeedBrake);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_SpeedBrake); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_Undercarriage=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_Undercarriage);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_Undercarriage); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_TrimRudderLeft=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_TrimRudderLeft);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_TrimRudderLeft); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_TrimRudderRight=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_TrimRudderRight);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_TrimRudderRight); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_TrimElevatorUP=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_TrimElevatorUp);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_TrimElevatorUp); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_TrimElevatorDn=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_TrimElevatorDn);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_TrimElevatorDn); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_LookBK=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_LookBK);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_LookBK); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_LookDN=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_LookDN);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_LookDN); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_LookFD=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_LookFD);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_LookFD); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_LookLT=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_LookLT);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_LookLT); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_LookRT=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_LookRT);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_LookRT); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_LookUP=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_LookUP);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_LookUP); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_RadarZoomIn=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_RadarZoomIn);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_RadarZoomIn); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_RadarZoomOut=", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_RadarZoomOut);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_RadarZoomOut); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_RadarOnOff", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_RadarOnOff);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_RadarOnOff); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_HudOnOff", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_HudOnOff);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_HudOnOff); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_IffOnOff", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_IffOnOff);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_IffOnOff); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_HudLadderBarsOnOff", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_HudLadderBarsOnOff);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_HudLadderBarsOnOff); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_MapViewOnOff", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_MapViewOnOff);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_MapViewOnOff); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_MapZoomIn", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_MapZoomIn);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_MapZoomIn); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_MapZoomOut", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_MapZoomOut);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_MapZoomOut); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_MapScrollEast", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_MapScrollEast);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_MapScrollEast); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_MapScrollWest", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_MapScrollWest);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_MapScrollWest); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_MapScrollNorth", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_MapScrollNorth);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", joystick_MapScrollNorth); 
+    display (DebugBuf, LOG_MOST);  
     display ((char *)"joystick_MapScrollSouth", LOG_MOST);
-    sprintf (DebugBuf, "%d", joystick_MapScrollSouth);
-    display (DebugBuf, LOG_MOST);
-    pilots = new PilotList (dirs->getSaves ((char *)"pilots"));
+    sprintf (DebugBuf, "%d", joystick_MapScrollSouth); 
+    display (DebugBuf, LOG_MOST);  
+    pilots = new PilotList (dirs->getSaves ((char *)"pilots")); 
     // display ((char *)"Using SDL and GLUT", LOG_MOST);
     display ((char *)"Using SDL2 and OpenGL", LOG_MOST);
 
@@ -1161,7 +1174,6 @@ int main (int argc, char **argv)
             exit (EXIT_INIT);
             }
     atexit (SDL_Quit);
-
     if (!ConfigInit)
         {
         if (!setScreen (width, height, bpp, fullscreen))
@@ -1180,11 +1192,11 @@ int main (int argc, char **argv)
 //    SDL_WM_SetCaption ("LINUX Air Combat", "Linux Air Combat");
 
     display ((char *)"Creating sound system", LOG_MOST);
-    sound = new SoundSystem ();
+    sound = new SoundSystem (); 
     sound->volumesound = volumesound;
     sound->volumemusic = volumemusic;
-    sound->setVolume ();
-    sound->setVolumeMusic ();
+    sound->setVolume (); 
+    sound->setVolumeMusic (); 
     sound->setVolume (SOUND_AIRRAIDSIREN, 3);
     sound->play (SOUND_AIRRAIDSIREN, false);
     sound->setVolume (SOUND_LACSTARTUP00, 126);
@@ -1213,14 +1225,14 @@ int main (int argc, char **argv)
         {
         display ((char *)"No joystick found", LOG_MOST);
 
-        if (controls == CONTROLS_JOYSTICK)
+        if (controls == CONTROLS_JOYSTICK)   
             {
             controls = CONTROLS_MOUSE;
             }
         }
     if (MouseControlFlag)
         {
-
+        
         controls = CONTROLS_MOUSE;
         }
 
@@ -1230,14 +1242,14 @@ int main (int argc, char **argv)
 
     createMenu ();
     display ((char *)"Entering SDL main loop (GLUT emulation)", LOG_MOST);
+    
+    sdlMainLoop (); 
+    return 0; 
+    } 
 
-    sdlMainLoop ();
-    return 0;
-}
-
-void adjustBrightness (void)
-{
-
+void adjustBrightness ()
+    {
+    
     if (brightness < 0)
         {
         glColor4ub (0, 0, 0, -brightness);
@@ -1268,7 +1280,7 @@ void adjustBrightness (void)
         glEnd ();
         glDisable (GL_BLEND);
         }
-}
+    } 
 
 void callbackAntialiasing (Component *comp, int key)
     {
@@ -1287,7 +1299,7 @@ void callbackAntialiasing (Component *comp, int key)
         }
     ((Label *) optmenu [0]->components [7])->setText (buf);
     event_setAntialiasing ();
-    }
+    } 
 
 void callbackBrightness (Component *comp, int key)
     {
@@ -1315,7 +1327,7 @@ void callbackBrightness (Component *comp, int key)
 
     sprintf (buf, "%d%%", brightness);
     ((Label *) optmenu [0]->components [13])->setText (buf);
-    }
+    } 
 
 void callbackControls (Component *comp, int key)
     {
@@ -1324,7 +1336,7 @@ void callbackControls (Component *comp, int key)
     char buf [256];
 
     if (key == MOUSE_BUTTON_LEFT)
-        {
+        { 
         fplayer->rolleffect = 0;
         fplayer->ruddereffect = 0;
         fplayer->elevatoreffect = 0;
@@ -1359,16 +1371,16 @@ void callbackControls (Component *comp, int key)
         {
         allmenus.components [12]->setVisible (true);
         }
-    controls = CONTROLS_JOYSTICK;
+    controls = CONTROLS_JOYSTICK; 
     textControls (buf);
-    }
+    } 
 
 void callbackCredits (Component *comp, int key)
     {
     display ((char*)"Function Entry callbackCredits()", LOG_MOST);
     void switch_credits ();
     switch_credits ();
-    }
+    } 
 
 void callbackDifficulty (Component *comp, int key)
     {
@@ -1394,7 +1406,7 @@ void callbackDifficulty (Component *comp, int key)
         sprintf (buf, "%s", "REALISTIC");
 
     ((Label *) optmenu [2]->components [1])->setText (buf);
-    }
+    } 
 
 void callbackDithering (Component *comp, int key)
     {
@@ -1411,7 +1423,7 @@ void callbackDithering (Component *comp, int key)
         }
 
     ((Label *) optmenu [0]->components [5])->setText (buf);
-    }
+    } 
 
 void callbackDynamicLighting (Component *comp, int key)
     {
@@ -1428,14 +1440,14 @@ void callbackDynamicLighting (Component *comp, int key)
         }
 
     ((Label *) optmenu [0]->components [11])->setText (buf);
-    }
+    } 
 
 void callbackFighter (Component *comp, int key)
-    {
+    { 
     display ((char*)"Function Entry: callbackFighter()", LOG_MOST);
-
+    
     switch_fighter ();
-    }
+    } 
 
 void callbackFighterNext (Component *comp, int key)
     {
@@ -1447,13 +1459,13 @@ void callbackFighterNext (Component *comp, int key)
         display ((char*)"callbackFighterNext() decrementing SelectedAircraft. Now", LOG_MOST);
         sprintf (DebugBuf, "%d", SelectedAircraft);
         display (DebugBuf, LOG_MOST);
-
+        
     if (SelectedAircraft > 55)
             {
             SelectedAircraft = 1;
             }
         }
-    }
+    } 
 
 void callbackFighterPrev (Component *comp, int key)
     {
@@ -1470,7 +1482,7 @@ void callbackFighterPrev (Component *comp, int key)
             SelectedAircraft = 55;
             }
         }
-    }
+    } 
 
 void callbackFullscreen (Component *comp, int key)
     {
@@ -1491,14 +1503,14 @@ void callbackFullscreen (Component *comp, int key)
         {
         ((Label *) optmenu [0]->components [18])->setText ((char *)"NO");
         }
-    }
+    } 
 
 void callbackJoystickAxis (Component *comp, int key)
     {
     int i;
     int buttonnum = -1;
     display ((char*)"callbackJoystickAxis()", LOG_MOST);
-
+    
     for (i = 0; i < 12; i ++)
         {
         if (comp == controlsmenu [2]->components [i])
@@ -1626,14 +1638,14 @@ void callbackJoystickAxis (Component *comp, int key)
         {
         la->setText ((char *)"N/A");
         }
-    }
+    } 
 
 void callbackKeyboard (Component *comp, int key)
     {
     display ((char*)"callbackKeyboard()", LOG_MOST);
     int i;
 
-    for (i = 5; i < 42; i ++)
+    for (i = 5; i < 42; i ++) 
         if (comp == controlsmenu [0]->components [i])
             {
             int z = 5;
@@ -1863,7 +1875,7 @@ void callbackKeyboard (Component *comp, int key)
                 display (DebugBuf, LOG_MOST);
                 }
             }
-    }
+    } 
 
 void callbackMainMenu (Component *comp, int key)
     {
@@ -1948,7 +1960,7 @@ void callbackMainMenu (Component *comp, int key)
             currentoptmenu = allmenus.components [i + 1 + 7];
             return;
             }
-    }
+    } 
 
 void callbackMouseAutorudder (Component *comp, int key)
     {
@@ -1976,7 +1988,7 @@ void callbackMouseAutorudder (Component *comp, int key)
 
     sprintf (buf, "%d%%", mouse_autorudder);
     ((Label *) controlsmenu [1]->components [7])->setText (buf);
-    }
+    } 
 
 void callbackMouseDefaults (Component *comp, int key)
     {
@@ -2012,7 +2024,7 @@ void callbackMouseDefaults (Component *comp, int key)
     ((Label *) controlsmenu [1]->components [3])->setText (buf);
     sprintf (buf, "%d%%", mouse_sensitivity);
     ((Label *) controlsmenu [1]->components [1])->setText (buf);
-    }
+    } 
 
 void callbackMouseRelative (Component *comp, int key)
     {
@@ -2030,7 +2042,7 @@ void callbackMouseRelative (Component *comp, int key)
         }
 
     ((Label *) controlsmenu [1]->components [5])->setText (buf);
-    }
+    } 
 
 void callbackMouseReverse (Component *comp, int key)
     {
@@ -2048,7 +2060,7 @@ void callbackMouseReverse (Component *comp, int key)
         }
 
     ((Label *) controlsmenu [1]->components [3])->setText (buf);
-    }
+    } 
 
 void callbackMouseSensitivity (Component *comp, int key)
     {
@@ -2076,7 +2088,7 @@ void callbackMouseSensitivity (Component *comp, int key)
 
     sprintf (buf, "%d%%", mouse_sensitivity);
     ((Label *) controlsmenu [1]->components [1])->setText (buf);
-    }
+    } 
 
 void callbackMusic (Component *comp, int key)
     {
@@ -2123,7 +2135,7 @@ void callbackMusic (Component *comp, int key)
         sprintf (buf, "%d%%", volumemusic);
         ((Label *) optmenu [1]->components [3])->setText (buf);
         }
-    }
+    } 
 
 void callbackPhysics (Component *comp, int key)
     {
@@ -2132,7 +2144,7 @@ void callbackPhysics (Component *comp, int key)
     physics = 1;
     sprintf (buf, "%s", "SIMULATOR");
     ((Label *) optmenu [2]->components [3])->setText (buf);
-    }
+    } 
 
 void callbackQuality (Component *comp, int key)
     {
@@ -2141,7 +2153,7 @@ void callbackQuality (Component *comp, int key)
 
     if (key == MOUSE_BUTTON_LEFT)
         {
-        quality ++;
+        quality ++; 
 
         if (quality > 5)
             {
@@ -2159,25 +2171,25 @@ void callbackQuality (Component *comp, int key)
         }
 
     sprintf (buf, "%d", quality);
-    ((Label *) optmenu [0]->components [1])->setText (buf);
-    }
+    ((Label *) optmenu [0]->components [1])->setText (buf); 
+    } 
 
 void callbackQuit (Component *comp, int key)
     {
     display ((char*)"Function entry: callbackQuit()", LOG_MOST);
     void switch_quit ();
     switch_quit ();
-    }
+    } 
 
 void callbackQuitNow (Component *comp, int key)
     {
     display ((char*)"Function entry: callbackQuitNow()", LOG_MOST);
     void game_quit ();
     game_quit ();
-    }
+    } 
 
 void callbackResolution (Component *comp, int key)
-{
+    {
     display ((char*)"Function entry: callbackResolution()", LOG_MOST);
 // NOTE: now tied this to resolution array
 // Also, non-fullscreen window resolutions don't need to be subset of display resolutions
@@ -2216,14 +2228,14 @@ void callbackResolution (Component *comp, int key)
     wantheight = resolution[found][1]; // resy [found];
     sprintf (buf, "%d*%d", wantwidth, wantheight);
     ((Label *) optmenu [0]->components [16])->setText (buf);
-}
+    } 
 
 void callbackReturn (Component *comp, int key)
     {
     display ((char*)"Function entry: callbackReturn()", LOG_MOST);
     void switch_game ();
     switch_game ();
-    }
+    } 
 
 void callbackSound (Component *comp, int key)
     {
@@ -2268,7 +2280,7 @@ void callbackSound (Component *comp, int key)
         sprintf (buf, "%d%%", volumesound);
         ((Label *) optmenu [1]->components [1])->setText (buf);
         }
-    }
+    } 
 
 void callbackSpecialEffects (Component *comp, int key)
     {
@@ -2286,66 +2298,67 @@ void callbackSpecialEffects (Component *comp, int key)
         }
 
     ((Label *) optmenu [0]->components [9])->setText (buf);
-    }
+    } 
 
 void callbackSwitchMainMenu (Component *comp, int key)
     {
     display ((char*)"Function entry: callbackSwitchMainMenu()", LOG_MOST);
     void switch_menu ();
     switch_menu ();
-    }
+    } 
 
 void callbackSwitchStartMission (Component *comp, int key)
     {
     display ((char*)"Function entry: callbackSwitchStartMission()", LOG_MOST);
+    int game_levelInit ();
     void pleaseWait ();
     void switch_game ();
     void switch_menu ();
     pleaseWait ();
-    if (!game_levelInit())
+    if (!game_levelInit ())
         {
         switch_menu ();
         return;
         }
     switch_game ();
-
+    
     fplayer->FuelLevel = 100;
-    if (MissionNumber == 1)
+    if (MissionNumber == 1)   
         {
         sound->loadMusic (MUSIC_TUTORIAL01);
-        sound->playMusic (1);
+        sound->playMusic (1); 
         }
-    else if (MissionNumber == 2)
+    else if (MissionNumber == 2)     
         {
         sound->loadMusic (MUSIC_TUTORIAL02);
-        sound->playMusic (1);
+        sound->playMusic (1); 
         }
-    else if (MissionNumber == 3)
+    else if (MissionNumber == 3)     
         {
-
-        sound->loadMusic (MUSIC_TUTORIAL03);
-        sound->playMusic (1);
+        
+        sound->loadMusic (MUSIC_TUTORIAL03); 
+        sound->playMusic (1); 
         }
     else if (MissionNumber == 12)
-        {
+        { 
         display ((char*)"Loading music file for MissionHeadToHead00.", LOG_MOST);
         sound->loadMusic (MUSIC_HEADTOHEAD);
-        sound->playMusic (1);
+        sound->playMusic (1); 
         }
-    else if (MissionNumber == 20)
+    else if (MissionNumber == 20)     
         {
         sound->loadMusic (MUSIC_MISSIONNETWORKBATTLE01);
-        sound->playMusic (1);
+        sound->playMusic (1); 
         }
-    else if (MissionNumber == 21)
+    else if (MissionNumber == 21)     
         {
         sound->loadMusic (MUSIC_MISSIONNETWORKBATTLE02);
-        sound->playMusic (1);
+        sound->playMusic (1); 
         }
-    else if (MissionNumber == 23)
+    else if (MissionNumber == 23)     
         {
         sound->loadMusic (MUSIC_MISSIONNETWORKBATTLE03);
-        sound->playMusic (1);
+        sound->playMusic (1); 
         }
     else
         {
@@ -2353,16 +2366,16 @@ void callbackSwitchStartMission (Component *comp, int key)
         sound->playMusic (1);
         }
     MissionActive = true;
-    }
+    } 
 
 void callbackTraining (Component *comp, int key)
-    {
+    { 
     display ((char*)"Function Entry callbackTraining()", LOG_MOST);
     int getTrainingIdFromValue (int n);
     void switch_mission (int missionid);
     allmenus.setVisible (false);
     switch_mission (getTrainingIdFromValue (comp->id - TrainingStartId));
-    }
+    } 
 
 void callbackView (Component *comp, int key)
     {
@@ -2394,24 +2407,24 @@ void callbackView (Component *comp, int key)
         }
 
     sprintf (buf, "%d", (int) view);
-    ((Label *) optmenu [0]->components [3])->setText (buf);
-    }
+    ((Label *) optmenu [0]->components [3])->setText (buf); 
+    } 
 
 void checkargs (int argc, char **argv)
     {
     void viewParameters ();
-    char buf [STDSIZE];
-    int i;
-    MouseControlFlag = 0;
+    char buf [STDSIZE]; 
+    int i; 
+    MouseControlFlag = 0; 
 
-    for (i = 1; i < argc; i ++)
+    for (i = 1; i < argc; i ++)   
         {
-        if (argv [i] [1] == 'd')
+        if (argv [i] [1] == 'd')   
             {
             char *ptr = &argv [i] [2];
             DebugLevel = atoi (ptr);
 
-            if (DebugLevel < LOG_NONE || DebugLevel > LOG_ALL)
+            if (DebugLevel < LOG_NONE || DebugLevel > LOG_ALL)   
                 {
                 display ((char *)"Invalid debug level", LOG_FATAL);
                 viewParameters ();
@@ -2435,7 +2448,7 @@ void checkargs (int argc, char **argv)
             }
         else if (argv [i] [1] == 'm')
             {
-
+            
             display ((char *)"MouseControl acknowledged.", LOG_MOST);
             MouseControlFlag = 1;
             }
@@ -2446,9 +2459,7 @@ void checkargs (int argc, char **argv)
             exit (EXIT_COMMAND);
             }
         }
-    }
-
-
+    } 
 
 void SwitchMumbleToSecretChannel(unsigned char PlayerId)
 {
@@ -2516,13 +2527,10 @@ switch (SecretChannel)
        break;
        }
    }
-MumbleChannelPresumed = 97;
+MumbleChannelPresumed = 97; 
 SecretChannel = 0;
-MumbleTimeRemainingBeforeChannelReset = 120000;
-}
-
-
-
+MumbleTimeRemainingBeforeChannelReset = 120000; 
+} 
 
 CModel *getModel (int id)
     {
@@ -2822,8 +2830,8 @@ CModel *getModel (int id)
         {
         return &model_depot1;
         }
-    return &model_figBS;
-    }
+    return &model_figBS; 
+    } 
 
 // test screen settings automatically
 void config_test (int argc, char **argv)
@@ -2840,40 +2848,38 @@ void config_test (int argc, char **argv)
     ConfigInit = true;
     int valids = -1; // valid screen mode? (-1 = no mode)
     int n = 0;
-
+   
     while (n < NUM_SCREEN_RES)
         {
         if (setScreen (resolution [n] [0], resolution [n] [1], resolution [n] [2], resolution [n] [3]))
-            {
-            bppi [n] = bpp;
-            valids = n;
-            break;
+            { 
+            bppi [n] = bpp; 
+            valids = n; 
+            break; 
             }
         else
-            {
+            { 
             bppi [n] = -1;
             }
         n ++;
         }
     if (valids == -1)
-        {
+        { 
         display ((char *)"No working display modes found. Your computer may not be compatible. Try editing the ./LAC/LacConfig.txt file yourself.", LOG_FATAL);
         display ((char *)"Online help is available at AskMisterWizard.com", LOG_FATAL);
         exit (EXIT_INIT);
         }
-
+    
     quality = 0;
     view = 80;
     width = resolution [valids] [0];
     height = resolution [valids] [1];
     bpp = bppi [valids];
     fullscreen = 0;
-    wantwidth = width;
+    wantwidth = width; 
     wantheight = height;
     wantfullscreen = fullscreen;
-    }
-
-
+    } 
 
 void ConvertUrlToRealm1(char *MumbleUrl)
 {
@@ -2890,8 +2896,9 @@ unsigned int Segment3Length = 0;
 
 MarkerIndex = strstr (UnconvertedMumbleUrl, Realm0Marker);
 if (!MarkerIndex)
-   {
+   { 
    display ((char *)"ConvertUrlToRealm1() could not convert Mumble URL to Realm1. Does the URL refer to any Realm?", LOG_MOST);
+   
    strncpy (ConvertedMumbleUrl, UnconvertedMumbleUrl, strlen(ConvertedMumbleUrl));
 
    sprintf (DebugBuf, "ConvertUrlToRealm1() outgoing MumbleUrl = %s", ConvertedMumbleUrl);
@@ -2902,6 +2909,7 @@ if (!MarkerIndex)
 
 sprintf (DebugBuf, "ConvertUrlToRealm1() Found this text at Realm: %s", MarkerIndex);
 display (DebugBuf, LOG_MOST);
+
 MarkerIndex ++;
 MarkerIndex ++;
 MarkerIndex ++;
@@ -2911,7 +2919,6 @@ MarkerIndex ++;
 
 sprintf (DebugBuf, "ConvertUrlToRealm1() Found this text at MarkerIndex: %s", MarkerIndex);
 display (DebugBuf, LOG_MOST);
-
 
 Segment1Length = MarkerIndex - UnconvertedMumbleUrl -6;
 Segment3Length = ((UnconvertedMumbleUrl + sizeof(UnconvertedMumbleUrl)) - MarkerIndex);
@@ -2946,15 +2953,11 @@ strncat (ConvertedMumbleUrl, MarkerIndex, Segment3Length -7);
 sprintf (DebugBuf, "ConvertUrlToRealm1() ConvertedMumbleUrl[] all three segments = %s", ConvertedMumbleUrl);
 display (DebugBuf, LOG_MOST);
 
-
 sprintf (DebugBuf, "ConvertUrlToRealm1() outgoing MumbleUrl = %s", ConvertedMumbleUrl);
 display (DebugBuf, LOG_MOST);
 
 return;
 }
-
-
-
 
 void createMenu ()
     {
@@ -2967,9 +2970,9 @@ void createMenu ()
     int i;
     int z = 0;
     float xf = -2;
-    float xfstep = 3;
+    float xfstep = 3; 
     float yf = 12;
-    float yfstep = 0.8;
+    float yfstep = 0.8; 
     float xsubmenu = -1;
     float ysubmenu = 12;
     Button *button;
@@ -2998,16 +3001,16 @@ void createMenu ()
         }
 
     for (i = 1; i < 2; i ++)
-        {
+        { 
         mainbutton [i] = new Button (MainMenuNames [i]);
         mainbutton [i]->setBounds (-12, yf, 10, yfstep - 0.1);
         yf -= yfstep;
         mainbutton [i]->setFunction (callbackMainMenu);
         mainmenu->add (mainbutton [i]);
         }
-
+    
     for (i = 3; i < 7; i ++)
-        {
+        { 
         mainbutton [i] = new Button (MainMenuNames [i]);
         mainbutton [i]->setBounds (-12, yf, 10, yfstep - 0.1);
         yf -= yfstep;
@@ -3038,29 +3041,29 @@ void createMenu ()
     yf = ysubmenu - 2;
     xfstep = 12;
     yfstep = 0.8;
-
+    
     for (i = 0; i < z; i ++)
-        {
-
+        { 
+        
         button = new Button (submenu1names [i]);
         button->setBounds (xf, yf, xfstep, yfstep - 0.1);
         button->setFunction (callbackTraining);
         yf -= yfstep;
-
+        
         if (i == 3)
             {
             yf -= yfstep;
             }
-        submenu [1]->add (button);
+        submenu [1]->add (button); 
         }
-
+    
     TrainingStartId = submenu [1]->components [0]->id;
     yf -= yfstep;
     xf = xsubmenu;
     yf = ysubmenu;
     yfstep = 1;
     button = new Button ((char *)"DEFAULT AIRCRAFT");
-    button->setFunction (callbackFighter);
+    button->setFunction (callbackFighter); 
     button->setBounds (xf, yf, xfstep - 0.2, yfstep - 0.1);
     xf += xfstep;
     submenu [1]->add (button);
@@ -3076,12 +3079,12 @@ void createMenu ()
     strncpy (OptionsMenuNames [1], "AUDIO", 6);
     strncpy (OptionsMenuNames [2], "GAME", 5);
     for (i = 0; i < 3; i ++)
-        {
+        { 
         optmenu [i] = new Container ();
         allmenus.add (optmenu [i]);
         }
     for (i = 0; i < 3; i ++)
-        {
+        { 
         optbutton [i] = new Button (OptionsMenuNames [i]);
         optbutton [i]->setBounds (xf, yf, xfstep - 0.2, 1);
         xf += xfstep;
@@ -3357,7 +3360,7 @@ void createMenu ()
     xf = xsubmenu -11;
     yf = ysubmenu - 6;
     xfstep = 10;
-    yfstep = 0.7;
+    yfstep = 0.7; 
     for (i = 0; i < 3; i ++)
         {
         controlsmenu [i] = new Container ();
@@ -3367,19 +3370,19 @@ void createMenu ()
     label->setBounds (xf, yf, xfstep, yfstep - 0.1);
     controlsmenu [0]->add (label);
     yf -= yfstep;
-
+    
     controlsmenu [0]->add (label);
     yf -= yfstep;
-
+    
     controlsmenu [0]->add (label);
     yf -= yfstep;
-
+    
     controlsmenu [0]->add (label);
     yf -= yfstep;
-
+    
     controlsmenu [0]->add (label);
     yf -= yfstep;
-    yf = yf + (5 * yfstep);
+    yf = yf + (5 * yfstep); 
     z = 0;
     display ((char*)"Register keyboard control submenu", LOG_MOST);
     strncpy (ControlsMenu0Names [z ++], "FIRE PRIMARY", 13);
@@ -3419,8 +3422,8 @@ void createMenu ()
     strncpy (ControlsMenu0Names [z ++], "LOOK LEFT", 10);
     strncpy (ControlsMenu0Names [z ++], "LOOK RIGHT", 11);
     strncpy (ControlsMenu0Names [z ++], "LOOK UP", 8);
-
-    int keys [38];
+    
+    int keys [38]; 
     keys [0]  = key_PRIMARY;
     keys [1]  = key_SECONDARY;
     keys [2]  = key_DROPFLARE;
@@ -3454,10 +3457,10 @@ void createMenu ()
     keys [30] = key_ZoomFovOut;
     keys [31] = key_RadarOnOff;
 
-    yf -=0.5;
+    yf -=0.5; 
 
     for (i = 0; i < 25; i ++)
-        {
+        { 
         editkey = new EditKey (ControlsMenu0Names [i]);
         editkey->setKey (keys [i]);
         editkey->setFunction (callbackKeyboard);
@@ -3465,10 +3468,10 @@ void createMenu ()
         controlsmenu [0]->add (editkey);
         yf -= yfstep;
         }
-    yf =6;
+    yf =6; 
     xf = -1;
 
-    for (i = 25; i < 31; i ++)
+    for (i = 25; i < 31; i ++)   
         {
         editkey = new EditKey (ControlsMenu0Names [i]);
         editkey->setKey (keys [i]);
@@ -3641,7 +3644,7 @@ void createMenu ()
     label->setTransparent (true);
     controlsmenu [2]->add (label);
     yf -= yfstep;
-
+    
     yf -= 1;
     xfstep = 26.5;
     yfstep = 1.0;
@@ -3701,9 +3704,9 @@ void createMenu ()
      Register fighter menu
     +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     */
-    xf = -14;
+    xf = -14; 
     yf = 12;
-    xfstep = 25;
+    xfstep = 25; 
     yfstep = 1.2;
     sprintf (buf, "      SELECT YOUR AIRCRAFT:");
     label = new Label (buf);
@@ -3742,7 +3745,7 @@ void createMenu ()
     button->setFunction (callbackFighterNext);
     fightermenu.add (button);
     textfield = new TextField ((char *)"    PREV/NEXT AIRCRAFT   ", yfstep - 0.1);
-    textfield->setBounds (xf + 1.5, yf, 17, 1.5);
+    textfield->setBounds (xf + 1.5, yf, 17, 1.5);  
     fightermenu.add (textfield);
     yf -= 13;
     sprintf (buf, "               BACK TO MAIN MENU");
@@ -3828,11 +3831,11 @@ void createMenu ()
     allmenus.setVisible (false);
     allmenus.visible = true;
     allmenus.components [0]->setVisible (true);
-    }
+    } 
 
 void createMission (int missionid)
     {
-    mission = new MissionDemo1 ();
+    mission = new MissionDemo1 (); 
     CurrentMissionNumber = (char)missionid;
     display (DebugBuf, LOG_MOST);
     if (missionnew != NULL)
@@ -3845,25 +3848,25 @@ void createMission (int missionid)
         }
     else if (missionid == MISSION_TUTORIAL)
         {
-
+        
         MissionNumber = 1;
         missionnew = new MissionTutorial1 ();
         }
     else if (missionid == MISSION_TUTORIAL2)
         {
-
+        
         MissionNumber = 2;
         missionnew = new MissionTutorial2 ();
         }
     else if (missionid == MISSION_TUTORIAL3)
         {
-
+        
         MissionNumber = 3;
         missionnew = new MissionTutorial3 ();
         }
     else if (missionid == MISSION_FREEFLIGHTWW2)
         {
-
+        
         MissionNumber = 4;
         missionnew = new MissionFreeFlightWW2 ();
         }
@@ -3893,14 +3896,14 @@ void createMission (int missionid)
         missionnew = new MissionNetworkBattle03 ();
         sound->haltMusic ();
         }
-    }
+    } 
 
 void credits_mouse (int button, int state, int x, int y)
     {
     display ((char*)"Function entry: credits_mouse()", LOG_MOST);
     void switch_menu ();
     switch_menu ();
-    }
+    } 
 
 void DisplayCredits ()
     {
@@ -3939,21 +3942,21 @@ void DisplayCredits ()
     font2->zoom = 0.1;
     font2->zoom = 0.1;
     glPopMatrix ();
-    }
+    } 
 
 void DisplayFighter ()
     {
     char *getModelName (int id);
     void drawMouseCursor ();
     allmenus.setVisible (false);
-    fightermenu.setVisible (true);
-    fightermenu.draw ();
+    fightermenu.setVisible (true); 
+    fightermenu.draw (); 
     AIObj ffighter;
     char buf [256];
     CVector3 vec;
     CVector3 tl;
-    tl.y = -0.08;
-    tl.z = -0.3;
+    tl.y = -0.08; 
+    tl.z = -0.3; 
     CRotation rot;
     rot.a = 300;
     rot.b = 0;
@@ -3963,297 +3966,297 @@ void DisplayFighter ()
     model = &model_figBT;
     id = FIGHTER_P38F;
     if (SelectedAircraft == 1)
-        {
+        { 
         model = &model_figAY;
         id = FIGHTER_DW520;
         }
     else if (SelectedAircraft == 2)
-        {
+        { 
         model = &model_figBH;
         id = BOMBER_DORNIER;
         }
     else if (SelectedAircraft == 3)
-        {
+        { 
         model = &model_figz;
         id = FIGHTER_FW190;
         }
     else if (SelectedAircraft == 4)
-        {
+        { 
         model = &model_figBI;
         id = BOMBER_HE111;
         }
     else if (SelectedAircraft == 5)
-        {
+        { 
         model = &model_figAA;
         id = BOMBER_JU87;
         }
     else if (SelectedAircraft == 6)
-        {
+        { 
         model = &model_figBJ;
         id = BOMBER_JU88;
         }
     else if (SelectedAircraft == 7)
-        {
+        { 
         model = &model_figBR;
         id = FIGHTER_ME109F;
         }
     else if (SelectedAircraft == 8)
-        {
+        { 
         model = &model_figAD;
         id = FIGHTER_ME109G;
         }
     else if (SelectedAircraft == 9)
-        {
+        { 
         model = &model_figBG;
         id = FIGHTER_ME110;
         }
     else if (SelectedAircraft == 10)
-        {
+        { 
         model = &model_figBB;
         id = FIGHTER_ME163;
         }
     else if (SelectedAircraft == 11)
-        {
+        { 
         model = &model_figAC;
         id = FIGHTER_FIATG55;
         }
     else if (SelectedAircraft == 12)
-        {
+        { 
         model = &model_figAS;
         id = FIGHTER_MACCIC202;
         }
     else if (SelectedAircraft == 13)
-        {
+        { 
         model = &model_figBD;
         id = FIGHTER_D3A;
         }
     else if (SelectedAircraft == 14)
-        {
+        { 
         model = &model_figAI;
         id = FIGHTER_N1K1;
         }
     else if (SelectedAircraft == 15)
-        {
+        { 
         model = &model_figBL;
         id = FIGHTER_KI61;
         }
     else if (SelectedAircraft == 16)
-        {
+        { 
         model = &model_figv;
         id = FIGHTER_A6M2;
         }
     else if (SelectedAircraft == 17)
-        {
+        { 
         model = &model_figBN;
         id = FIGHTER_A6M5;
         }
     else if (SelectedAircraft == 18)
-        {
+        { 
         model = &model_figAL;
         id = BOMBER_G5M;
         }
     else if (SelectedAircraft == 19)
-        {
+        { 
         model = &model_figBE;
         id = BOMBER_B5N;
         }
     else if (SelectedAircraft == 20)
-        {
+        { 
         model = &model_figAG;
         id = FIGHTER_KI43;
         }
     else if (SelectedAircraft == 21)
-        {
+        { 
         model = &model_figBK;
         id = FIGHTER_KI84;
         }
     else if (SelectedAircraft == 22)
-        {
+        { 
         model = &model_figAT;
         id = BOMBER_LANCASTER;
         }
     else if (SelectedAircraft == 23)
-        {
+        { 
         model = &model_figAU;
         id = BOMBER_MOSQUITOB;
         }
     else if (SelectedAircraft == 24)
-        {
+        { 
         model = &model_figAF;
         id = FIGHTER_HURRICANE;
         }
     else if (SelectedAircraft == 25)
-        {
+        { 
         model = &model_figBC;
         id = FIGHTER_TEMPEST;
         }
     else if (SelectedAircraft == 26)
-        {
+        { 
         model = &model_figAV;
         id = FIGHTER_TYPHOON;
         }
     else if (SelectedAircraft == 27)
-        {
+        { 
         model = &model_figBO;
         id = FIGHTER_SPIT5;
         }
     else if (SelectedAircraft == 28)
-        {
+        { 
         model = &model_figi;
         id = FIGHTER_SPIT9;
         }
     else if (SelectedAircraft == 29)
-        {
+        { 
         model = &model_figAK;
         id = FIGHTER_P39;
         }
     else if (SelectedAircraft == 30)
-        {
+        { 
         model = &model_figu;
         id = BOMBER_B17;
         }
     else if (SelectedAircraft == 31)
-        {
+        { 
         model = &model_figAX;
         id = BOMBER_B29;
         }
     else if (SelectedAircraft == 32)
-        {
+        { 
         model = &model_figAJ;
         id = BOMBER_B24;
         }
     else if (SelectedAircraft == 33)
-        {
+        { 
         model = &model_figAE;
         id = FIGHTER_P40;
         }
     else if (SelectedAircraft == 34)
-        {
+        { 
         model = &model_figAZ;
         id = BOMBER_SB2C;
         }
     else if (SelectedAircraft == 35)
-        {
+        { 
         model = &model_figBF;
         id = BOMBER_DAUNTLESS;
         }
     else if (SelectedAircraft == 36)
-        {
+        { 
         model = &model_figAO;
         id = FIGHTER_F4F;
         }
     else if (SelectedAircraft == 37)
-        {
+        { 
         model = &model_figx;
         id = FIGHTER_F6F;
         }
     else if (SelectedAircraft == 38)
-        {
+        { 
         model = &model_figBA;
         id = BOMBER_TBF;
         }
     else if (SelectedAircraft == 39)
-        {
+        { 
         model = &model_figBS;
         id = FIGHTER_P38F;
         }
     else if (SelectedAircraft == 40)
-        {
+        { 
         model = &model_fig;
         id = FIGHTER_P38L;
         }
     else if (SelectedAircraft == 41)
-        {
+        { 
         model = &model_figAN;
         id = BOMBER_B26;
         }
     else if (SelectedAircraft == 42)
-        {
+        { 
         model = &model_figAM;
         id = BOMBER_B25;
         }
     else if (SelectedAircraft == 43)
-        {
+        { 
         model = &model_figBP;
         id = FIGHTER_P51B;
         }
     else if (SelectedAircraft == 44)
-        {
+        { 
         model = &model_figc;
         id = FIGHTER_P51D;
         }
     else if (SelectedAircraft == 45)
-        {
+        { 
         model = &model_figBQ;
         id = FIGHTER_P47B;
         }
     else if (SelectedAircraft == 46)
-        {
+        { 
         model = &model_figw;
         id = FIGHTER_P47D;
         }
     else if (SelectedAircraft == 47)
-        {
+        { 
         model = &model_figy;
         id = FIGHTER_F4U;
         }
     else if (SelectedAircraft == 48)
-        {
+        { 
         model = &model_figAR;
         id = FIGHTER_IL2;
         }
     else if (SelectedAircraft == 49)
-        {
+        { 
         model = &model_figAP;
         id = FIGHTER_LA5;
         }
     else if (SelectedAircraft == 50)
-        {
+        { 
         model = &model_figAQ;
         id = FIGHTER_LA7;
         }
     else if (SelectedAircraft == 51)
-        {
+        { 
         model = &model_figAB;
         id = FIGHTER_IL16;
         }
     else if (SelectedAircraft == 52)
-        {
+        { 
         model = &model_figAW;
         id = FIGHTER_YAK1;
         }
     else if (SelectedAircraft == 53)
-        {
+        { 
         model = &model_figAH;
         id = FIGHTER_YAK9;
         }
     else if (SelectedAircraft == 54)
-        {
+        { 
         model = &model_figb;
         id = FIGHTER_HAWK;
         }
     else if (SelectedAircraft == 55)
-        {
+        { 
         model = &model_figBM;
         id = FIGHTER_GENERIC01;
         }
     PlayerAircraftType = id;
     glEnable (GL_DEPTH_TEST);
     glEnable (GL_LIGHTING);
-
+    
     if (NoMissionHasYetCommenced)
-       {
+       { 
        model->draw (&vec, &tl, &rot, 0.11, 0.5, 0);
        }
     else
-       {
+       { 
        }
     glDisable (GL_LIGHTING);
     glDisable (GL_DEPTH_TEST);
     ffighter.o = model;
     ffighter.newinit (id, 1, 0);
     float fontzoom = 0.7;
-    float textx = -13.75;
+    float textx = -13.75; 
     font1->zoom = 0.07;
     font1->drawText (textx / fontzoom, 9.7 / fontzoom, -2, getModelName (id), &menu_colwhite);
     float yf = 8.5;
@@ -4340,7 +4343,7 @@ void DisplayFighter ()
        }
 
     font1->drawText (textx / fontzoom, yf / fontzoom, -2, buf, &menu_colwhite);
-    yf -= 0.3;
+    yf -= 0.3; 
     if (ffighter.id == FIGHTER_P38L)
        {
        yf -= 1.0;
@@ -4428,7 +4431,7 @@ void DisplayFighter ()
     else if (ffighter.id == FIGHTER_HAWK)
        {
        yf -= 1;
-       strncpy (buf, "SPEED: 740   CLIMB: 13000 FT/MIN", 33);
+       strncpy (buf, "SPEED: 740   CLIMB: 11000 FT/MIN", 33);
        if (ffighter.HistoricPeriod == 1)
            {
            strncat (buf, "     EARLY WW2", 15);
@@ -4596,7 +4599,7 @@ void DisplayFighter ()
     else if (ffighter.id == FIGHTER_KI43)
        {
        yf -= 1;
-       strncpy (buf, "SPEED: 333   CLIMB: 3900 FT/MIN", 32);
+       strncpy (buf, "SPEED: 347   CLIMB: 3900 FT/MIN", 32);
        if (ffighter.HistoricPeriod == 1)
            {
            strncat (buf, "     EARLY WW2", 15);
@@ -5174,10 +5177,10 @@ void DisplayFighter ()
        strncpy (buf, "MANEUVERABILITY: POOR", 22);
        font1->drawText (textx / fontzoom, yf / fontzoom, -2, buf, &menu_colwhite);
        yf -= 1;
-       strncpy (buf, "DURABILITY: EXCELLENT", 22);
+       strncpy (buf, "DURABILITY: VERY GOOD", 22);
        font1->drawText (textx / fontzoom, yf / fontzoom, -2, buf, &menu_colwhite);
        yf -= 1;
-       strncpy (buf, "ARMAMENT: 8X30CAL, 28X500LB BOMBS", 34);
+       strncpy (buf, "ARMAMENT: 8X30CAL, 22X500LB BOMBS", 34);
        font1->drawText (textx / fontzoom, yf / fontzoom, -2, buf, &menu_colwhite);
        DefaultAircraft = BOMBER_LANCASTER;
        }
@@ -5289,7 +5292,7 @@ void DisplayFighter ()
        strncpy (buf, "DURABILITY: EXCELLENT", 22);
        font1->drawText (textx / fontzoom, yf / fontzoom, -2, buf, &menu_colwhite);
        yf -= 1;
-       strncpy (buf, "ARMAMENT: 40X500LB, 10X50CAL IN REMOTE-\nCONTROL TURRETS, 2X50CAL (TAIL GUNNER)", 80);
+       strncpy (buf, "ARMAMENT: 30X500LB, 10X50CAL IN REMOTE-\nCONTROL TURRETS, 2X50CAL (TAIL GUNNER)", 80);
        font1->drawText (textx / fontzoom, yf / fontzoom, -2, buf, &menu_colwhite);
        DefaultAircraft = BOMBER_B29;
        }
@@ -5604,7 +5607,7 @@ void DisplayFighter ()
     else if (ffighter.id == BOMBER_JU88)
        {
        yf -= 1;
-       strncpy (buf, "SPEED: 317   CLIMB: 770 FT/MIN", 31);
+       strncpy (buf, "SPEED:317 CLIMB:770 FPM LOADED", 31);
        if (ffighter.HistoricPeriod == 1)
            {
            strncat (buf, "     EARLY WW2", 15);
@@ -5882,13 +5885,13 @@ void DisplayFighter ()
        DefaultAircraft = FIGHTER_P38F;
        }
     else
-       {
+       { 
        display ((char*)"DisplayFighter() cannot provide details for undefined aircraft.", LOG_MOST);
        DefaultAircraft = FIGHTER_P38L;
        }
     font1->zoom = 0.1;
     drawMouseCursor ();
-    }
+    } 
 
 void DisplayGame ()
     {
@@ -5911,7 +5914,7 @@ void DisplayGame ()
         {
         if (camera == 0)
             {
-
+            
             float sinvib = sin ((float) vibration / timestep);
             mycamphi += 0.2 * vibration * sinvib / timestep;
             mycamgamma += 0.2 * vibration * sinvib / timestep;
@@ -5964,7 +5967,7 @@ void DisplayGame ()
             sunlight_dest = (float) flash / timestep;
             }
         }
-
+    
     if (dynamiclighting)
         {
         for (i = 0; i < maxfighter; i ++)
@@ -6008,7 +6011,7 @@ void DisplayGame ()
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode (GL_MODELVIEW);
     glLoadIdentity ();
-    glScalef (ScreenFOVx, ScreenFOVy, ScreenFOVz);
+    glScalef (ScreenFOVx, ScreenFOVy, ScreenFOVz); 
     glShadeModel (GL_SMOOTH);
     glPushMatrix ();
     glRotatef (-mycamtheta, 0.0, 0.0, 1.0);
@@ -6031,7 +6034,7 @@ void DisplayGame ()
         mylight = mylight / 5.0 + 0.8;
         }
     gl->foglum = mylight;
-
+    
     sphere->drawGL (tlminf, tlinf, tlnull, space->alpha, mylight, true, false);
     if (weather == WEATHER_SUNNY || weather == WEATHER_CLOUDY)
         {
@@ -6056,7 +6059,7 @@ void DisplayGame ()
         }
     glEnable (GL_DEPTH_TEST);
     glEnable (GL_FOG); // To disable fog altogether, eliminate this line and the other glEnable (GL_FOG) line in gl.cpp
-    if (quality >= 2 && clouds > 0 && view !=9)
+    if (quality >= 2 && clouds > 0 && view !=9)   
         {
         cloudfog = pseudoview + 40;
         if (cloudfog > 150)
@@ -6064,10 +6067,10 @@ void DisplayGame ()
             cloudfog = 150;
             }
         gl->enableFog (cloudfog);
-
+        
         highclouds->zoom = 390;
-
-        float ch2 = -370 - fplayer->tl->y / 10.0;
+        
+        float ch2 = -370 - fplayer->tl->y / 10.0; 
         CVector3 tlsphere2 (0, ch2, 0);
         highclouds->drawGL_HC(&tlsphere2, fplayer->tl);
         glDisable (GL_FOG);
@@ -6143,7 +6146,7 @@ void DisplayGame ()
                     gm = 0.5;
                     }
 
-                glColor4f (1.0, 1.0 - gm/2, 0.95 - gm/2, 1.0);
+                glColor4f (1.0, 1.0 - gm/2, 0.95 - gm/2, 1.0); 
                 }
             else
                 {
@@ -6159,7 +6162,7 @@ void DisplayGame ()
             glTexCoord2d (0, 0);
             glVertex3f (-1, -1, 0);
             glEnd ();
-
+            
             double proj[16];
             double modl[16];
             int vp[4];
@@ -6181,7 +6184,7 @@ void DisplayGame ()
         }
     glPopMatrix ();
     glPushMatrix ();
-    glRotatef (-mycamtheta, 0.0, 0.0, 1.0);
+    glRotatef (-mycamtheta, 0.0, 0.0, 1.0);  
     glRotatef (mycamgamma, 1.0, 0.0, 0.0);
     glRotatef (-mycamphi, 0.0, 1.0, 0.0);
     glDisable (GL_FOG);
@@ -6189,8 +6192,8 @@ void DisplayGame ()
     glTranslatef (-camx, -camy, -camz);
     if (camera != 50 && camera !=9)
         {
-
-        gl->enableFog (pseudoview);
+        
+        gl->enableFog (pseudoview); 
         }
     // draw terrain
     l->calcDynamicLight (explosion, MachineGunBullet, (DynamicObj **) missile, flare);
@@ -6199,7 +6202,7 @@ void DisplayGame ()
     l->draw ((int) mycamphi, (int) (-mycamgamma + 180.0));
     glDisable (GL_CULL_FACE);
     // draw objects
-
+    
     gl->extractFrustum ();
     if (camera != 50)
         {
@@ -6244,22 +6247,22 @@ void DisplayGame ()
         glEnable( GL_LIGHTING);
         glEnable( GL_LIGHT0 );
         glTexEnvi (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-
+        
         space->drawGL ();
         glDisable (GL_LIGHTING);
         glDepthMask (GL_FALSE);
-
+        
         for (i = 0; i < space->no; i ++)
             {
             AIObj *dobj = (AIObj *) space->o [i];
             if (dobj->id > BOMB01)
-                {
+                { 
                 if (dobj->draw && dobj->drawlight && dobj->active)
-                    {
+                    { 
                     if (dobj->smoke)
                         {
                         if ((dobj->id <= MISSILE2) || (dobj->id == FIGHTER_HAWK || dobj->id == FIGHTER_ME163))
-                            {
+                            { 
                             if (dobj->ttl > 0)
                                 {
                                 dobj->smoke->draw ();
@@ -6285,7 +6288,7 @@ void DisplayGame ()
             {
             glDisable (GL_LINE_SMOOTH);
             }
-
+        
         }
     glPopMatrix ();
    // SunBlinding test
@@ -6329,7 +6332,7 @@ void DisplayGame ()
         cockpit->drawRadar();
         }
     // draw blackout/redout (blending)
-    if (camera!=1)
+    if (camera!=1)   
         {
         int black = (int) blackout;
         if (black > 255)
@@ -6371,7 +6374,7 @@ void DisplayGame ()
         adjustBrightness ();
         glEnable (GL_DEPTH_TEST);
         }
-
+    
     mission->draw ();
     glPushMatrix ();
     glDisable (GL_DEPTH_TEST);
@@ -6400,7 +6403,7 @@ void DisplayGame ()
           }
        sprintf (buf, "SECTOR= %i, %i", SectorX, SectorZ);
        font2->drawText (-30 / ScreenFOVx, 22 / ScreenFOVx, -3.0, buf, &colorgreen);
-
+       
        float CCIPoffsetX = 0.0;
        float CCIPoffsetY = 0.0;
        float DegreesToRadiansFactor = -0.01745333;
@@ -6415,37 +6418,66 @@ void DisplayGame ()
               (MapEastWestScroll == 0)  &&
               (MapNorthSouthScroll == 0)
           )
-          {
-
-          if (view < 200)
-             {
+          { 
+          
+          if (view < VIEW_MAX)
+             { 
              ConfiguredViewDistance = view;
-             view = 200;
-             ViewResetTimer = 1;
+             view = VIEW_MAX;
+             ViewResetTimer = 1; 
              }
-
-          CCIPoffsetX = sin(fplayer->phi * DegreesToRadiansFactor) * fplayer->realspeed * ScreenFOVx;
-          CCIPoffsetX *= fplayer->tl->y;
-          CCIPoffsetX /= 3.0;
-          CCIPoffsetY = cos(fplayer->phi * DegreesToRadiansFactor) * fplayer->realspeed * ScreenFOVy;
-          CCIPoffsetY *= fplayer->tl->y;
-          CCIPoffsetY /= 3.0;
-          font2->drawText (CCIPoffsetX / ScreenFOVx, (CCIPoffsetY - 0.30) / ScreenFOVx, -3.2, buf, &colorgreen);
+          
+          float PredictionDistanceFactor = 3.2;
+          if (fplayer->realspeed < .210)
+             {
+             PredictionDistanceFactor = 3.85;
+             }
+          else if (fplayer->realspeed >= .210 && fplayer->realspeed < .230)
+             {
+             PredictionDistanceFactor = 3.60;
+             }
+          else if (fplayer->realspeed >= .230 && fplayer->realspeed < .250)
+             {
+             PredictionDistanceFactor = 3.32;
+             }
+          else if (fplayer->realspeed >= .250 && fplayer->realspeed < .270)
+             {
+             PredictionDistanceFactor = 3.18;
+             }
+          else if (fplayer->realspeed >= .270 && fplayer->realspeed < .290)
+             {
+             PredictionDistanceFactor = 3.02;
+             }
+          else if (fplayer->realspeed >= .290 && fplayer->realspeed < .310)
+             {
+             PredictionDistanceFactor = 3.80; 
+             }
+          else if (fplayer->realspeed >= .310)
+             {
+             PredictionDistanceFactor = 4.85; 
+             }
+          CCIPoffsetX = sin(fplayer->phi * DegreesToRadiansFactor) * fplayer->realspeed * ScreenFOVx; 
+          CCIPoffsetX *= fplayer->tl->y; 
+          CCIPoffsetX /= PredictionDistanceFactor; 
+          CCIPoffsetY = cos(fplayer->phi * DegreesToRadiansFactor) * fplayer->realspeed * ScreenFOVy; 
+          CCIPoffsetY *= fplayer->tl->y; 
+          CCIPoffsetY /= PredictionDistanceFactor; 
+          font2->drawText (CCIPoffsetX / ScreenFOVx, (CCIPoffsetY - 0.30) / ScreenFOVx, -3.2, buf, &colorgreen); 
           if (MapEastWestScroll == 0 && MapNorthSouthScroll == 0 && camera == 9)
              {
-             font2->drawText (0.01 / ScreenFOVx, -0.30 / ScreenFOVx, -3.2, buf, &colorwhite);
+             font2->drawText (0.01 / ScreenFOVx, -0.30 / ScreenFOVx, -3.2, buf, &colorwhite); 
              sprintf (buf, "BOMB SITE MODE ACTIVE. WHITE PIPPER = YOUR AIRCRAFT. GREEN PIPPER = PREDICTED IMPACT POINT.");
              font2->drawTextCentered (1 / ScreenFOVx, -17 / ScreenFOVx, -2.5, buf, &colorgreen);
-             sprintf (buf, "FOR BEST ACCURACY FLY LEVEL & STEADY AT BETWEEN 8,000 AND 12,000 FEET, AT 240MPH.");
+             sprintf (buf, "FOR BEST ACCURACY FLY LEVEL & STEADY BETWEEN 7,000 AND 16,000 FEET ALT, 200-310 MPH.");
              font2->drawTextCentered (1 / ScreenFOVx, -18 / ScreenFOVx, -2.5, buf, &colorgreen);
-             sprintf (buf, "AT 190MPH BOMBS FALL SHORT BY 1/2 RUNWAY LENGTH. AT 330MPH BOMBS GO LONG BY 1/2 RUNWAY LENGTH.");
+             sprintf (buf, "TO HELP BOMBSIGHT PREDICTOR SETTLE, AVOID ACCELERATION OR DECELERATION.");
              font2->drawTextCentered (1 / ScreenFOVx, -19 / ScreenFOVx, -2.5, buf, &colorgreen);
-             sprintf (buf, "AT HIGHER ALTITUDES, BOMBS WILL FALL A LITTLE SHORT. AT LOWER ALTITUDES THEY WILL FLY A LITTLE BEYOND PREDICTED POINT.");
+             sprintf (buf, "KEEP FLIGHT STRAIGHT AND LEVEL AND KEEP SPEED CONSTANT.");
              font2->drawTextCentered (1 / ScreenFOVx, -20 / ScreenFOVx, -2.5, buf, &colorgreen);
              }
           }
        else if ((fplayer->missiletype == 0) && (fplayer->missiles [fplayer->missiletype]))
-          {
+          { 
           sprintf (buf, "BOMB SITE MODE INACTIVE. (IT IS AVAILABLE WHEN BOMBS ARE ARMED AND MAP IS ZOOMED ALL THE WAY OUT AND CENTERED.)");
           font2->drawTextCentered (1 / ScreenFOVx, -23 / ScreenFOVx, -3.0, buf, &colorwhite);
           }
@@ -6479,7 +6511,7 @@ void DisplayGame ()
         {
         drawMouseCursor ();
         }
-    }
+    } 
 
 void DisplayMenu ()
     {
@@ -6509,7 +6541,7 @@ void DisplayMenu ()
         }
     allmenus.draw ();
     drawMouseCursor ();
-    }
+    } 
 
 void DisplayQuit ()
     {
@@ -6534,7 +6566,7 @@ void drawMouseCursor ()
     glLoadIdentity ();
     gl->enableAlphaBlending ();
     glEnable (GL_ALPHA_TEST);
-    glAlphaFunc (GL_GEQUAL, 0.0);
+    glAlphaFunc (GL_GEQUAL, 0.0); 
     glTexEnvi (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
     gl->enableTextures (texcross2->textureID);
     int crossradius = width / 64;
@@ -6559,7 +6591,7 @@ void drawMouseCursor ()
     glMatrixMode (GL_MODELVIEW);
     glPopMatrix ();
     glPopMatrix ();
-    }
+    } 
 
 void event_AutoPilot ()
    {
@@ -6582,261 +6614,238 @@ void event_AutoPilot ()
       }
    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void event_CommsMacro01 ()
    {
    display ((char*)"event_CommsMacro01", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro01String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro01String1[0], "CHANNEL-M1-ALL"))
-      {
+      { 
       display ((char*)"event_CommsMacro01 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 1;
       MumbleChannelChange(MumbleStringR0Mission1All);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro01 NOT setting MumbleChannelPresumed because CommsMacro01 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleCurrentMissionBlueSubChannelRequested = false;
    MumbleCurrentMissionRedSubChannelRequested = false;
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE02 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
-      {
+      { 
       MumbleChannelExitRequested = true;
       MumbleCurrentMissionChannelRequested = false;
       MumbleTunedToCurrentMissionChannel = false;
       }
    else
-      {
+      { 
       MumbleChannelExitRequested = false;
       MumbleCurrentMissionChannelRequested = true;
       MumbleTunedToCurrentMissionChannel = true;
       }
    }
-
 
 void event_CommsMacro02 ()
    {
    display ((char*)"event_CommsMacro02", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro02String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro02String1[0], "CHANNEL-M1-BLUE"))
-      {
+      { 
       display ((char*)"event_CommsMacro02 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 2;
       MumbleChannelChange(MumbleStringR0Mission1Blue);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro02 NOT setting MumbleChannelPresumed because CommsMacro02 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleCurrentMissionChannelRequested = false;
    MumbleTunedToCurrentMissionChannel = false;
    MumbleCurrentMissionRedSubChannelRequested = false;
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE02 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
-      {
+      { 
       MumbleChannelExitRequested = true;
       MumbleCurrentMissionBlueSubChannelRequested = false;
       }
    else
-      {
+      { 
       MumbleChannelExitRequested = false;
       MumbleCurrentMissionBlueSubChannelRequested = true;
       }
    }
-
 
 void event_CommsMacro03 ()
    {
    display ((char*)"event_CommsMacro03", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro03String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro03String1[0], "CHANNEL-M1-RED"))
-      {
+      { 
       display ((char*)"event_CommsMacro03 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 3;
       MumbleChannelChange(MumbleStringR0Mission1Red);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro03 NOT setting MumbleChannelPresumed because CommsMacro03 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleCurrentMissionChannelRequested = false;
    MumbleTunedToCurrentMissionChannel = false;
    MumbleCurrentMissionBlueSubChannelRequested = false;
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE02 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
-      {
+      { 
       MumbleChannelExitRequested = true;
       MumbleCurrentMissionRedSubChannelRequested = false;
       }
    else
-      {
+      { 
       MumbleChannelExitRequested = false;
       MumbleCurrentMissionRedSubChannelRequested = true;
       }
    }
-
 
 void event_CommsMacro04 ()
    {
    display ((char*)"event_CommsMacro04", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro04String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro04String1[0], "CHANNEL-M2-ALL"))
-      {
+      { 
       display ((char*)"event_CommsMacro04 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 4;
       MumbleChannelChange(MumbleStringR0Mission2All);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro04 NOT setting MumbleChannelPresumed because CommsMacro04 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleCurrentMissionBlueSubChannelRequested = false;
    MumbleCurrentMissionRedSubChannelRequested = false;
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
-      {
+      { 
       MumbleChannelExitRequested = true;
       MumbleCurrentMissionChannelRequested = false;
       MumbleTunedToCurrentMissionChannel = false;
       }
    else
-      {
+      { 
       MumbleChannelExitRequested = false;
       MumbleCurrentMissionChannelRequested = true;
       MumbleTunedToCurrentMissionChannel = true;
       }
    }
 
-
 void event_CommsMacro05 ()
    {
    display ((char*)"event_CommsMacro05", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro05String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro05String1[0], "CHANNEL-M2-BLUE"))
-      {
+      { 
       display ((char*)"event_CommsMacro05 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 5;
       MumbleChannelChange(MumbleStringR0Mission2Blue);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro05 NOT setting MumbleChannelPresumed because CommsMacro05 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleCurrentMissionChannelRequested = false;
    MumbleTunedToCurrentMissionChannel = false;
    MumbleCurrentMissionRedSubChannelRequested = false;
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
-      {
+      { 
       MumbleChannelExitRequested = true;
       MumbleCurrentMissionBlueSubChannelRequested = false;
       }
    else
-      {
+      { 
       MumbleChannelExitRequested = false;
       MumbleCurrentMissionBlueSubChannelRequested = true;
       }
    }
-
 
 void event_CommsMacro06 ()
    {
    display ((char*)"event_CommsMacro06", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro06String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro06String1[0], "CHANNEL-M2-RED"))
-      {
+      { 
       display ((char*)"event_CommsMacro06 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 6;
       MumbleChannelChange(MumbleStringR0Mission2Red);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro06 NOT setting MumbleChannelPresumed because CommsMacro06 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleCurrentMissionChannelRequested = false;
    MumbleTunedToCurrentMissionChannel = false;
    MumbleCurrentMissionBlueSubChannelRequested = false;
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
-      {
+      { 
       MumbleChannelExitRequested = true;
       MumbleCurrentMissionRedSubChannelRequested = false;
       }
    else
-      {
+      { 
       MumbleChannelExitRequested = false;
       MumbleCurrentMissionRedSubChannelRequested = true;
       }
    }
-
 
 void event_CommsMacro07 ()
    {
    display ((char*)"event_CommsMacro07", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro07String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro07String1[0], "CHANNEL-M3-ALL"))
-      {
+      { 
       display ((char*)"event_CommsMacro07 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 7;
       MumbleChannelChange(MumbleStringR0Mission3All);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro07 NOT setting MumbleChannelPresumed because CommsMacro07 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleCurrentMissionBlueSubChannelRequested = false;
    MumbleCurrentMissionRedSubChannelRequested = false;
    display ((char*)"event_CommsMacro07() CurrentMissionNumber = ", LOG_MOST);
@@ -6846,7 +6855,7 @@ void event_CommsMacro07 ()
    sprintf (DebugBuf, "%d", CurrentMissionNumber);
    display (DebugBuf, LOG_MOST);
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE02)
-      {
+      { 
       MumbleChannelExitRequested = true;
       display ((char*)"event_CommsMacro07() MumbleChannelExitRequested = true", LOG_MOST);
       MumbleCurrentMissionChannelRequested = false;
@@ -6854,7 +6863,7 @@ void event_CommsMacro07 ()
       display ((char*)"event_CommsMacro07() MumbleCurrentMissionChannelRequested = false", LOG_MOST);
       }
    else
-      {
+      { 
       MumbleChannelExitRequested = false;
       display ((char*)"event_CommsMacro07() MumbleChannelExitRequested = false", LOG_MOST);
       MumbleCurrentMissionChannelRequested = true;
@@ -6863,98 +6872,98 @@ void event_CommsMacro07 ()
       }
    }
 
-
 void event_CommsMacro08 ()
    {
    display ((char*)"event_CommsMacro08", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro08String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro08String1[0], "CHANNEL-M3-BLUE"))
-      {
+      { 
       display ((char*)"event_CommsMacro08 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 8;
       MumbleChannelChange(MumbleStringR0Mission3Blue);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro08 NOT setting MumbleChannelPresumed because CommsMacro08 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleCurrentMissionChannelRequested = false;
    MumbleTunedToCurrentMissionChannel = false;
    MumbleCurrentMissionRedSubChannelRequested = false;
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE02)
-      {
+      { 
       MumbleChannelExitRequested = true;
       MumbleCurrentMissionBlueSubChannelRequested = false;
       }
    else
-      {
+      { 
       MumbleChannelExitRequested = false;
       MumbleCurrentMissionBlueSubChannelRequested = true;
       }
    }
-
 
 void event_CommsMacro09 ()
    {
    display ((char*)"event_CommsMacro09", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro09String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro09String1[0], "CHANNEL-M3-RED"))
-      {
+      { 
       display ((char*)"event_CommsMacro09 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 9;
       MumbleChannelChange(MumbleStringR0Mission3Red);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro09 NOT setting MumbleChannelPresumed because CommsMacro09 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleCurrentMissionChannelRequested = false;
    MumbleTunedToCurrentMissionChannel = false;
    MumbleCurrentMissionBlueSubChannelRequested = false;
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE02)
-      {
+      { 
       MumbleChannelExitRequested = true;
       MumbleCurrentMissionRedSubChannelRequested = false;
       }
    else
-      {
+      { 
       MumbleChannelExitRequested = false;
       MumbleCurrentMissionRedSubChannelRequested = true;
       }
    }
-
 
 void event_CommsMacro10 ()
    {
    display ((char*)"event_CommsMacro10", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro10String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    MumbleChannelMainRequested = true;
    if (!strcmp (&CommsMacro10String1[0], "CHANNEL-ROOT"))
-      {
+      { 
       display ((char*)"event_CommsMacro10 setting MumbleChannelPresumed.", LOG_MOST);
       MumbleChannelPresumed = 10;
-      MumbleTimeRemainingBeforeChannelReset = 300000;
+      MumbleTimeRemainingBeforeChannelReset = 300000; 
       MumbleChannelChange(MumbleStringRoot);
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro10 NOT setting MumbleChannelPresumed because CommsMacro10 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
+   
    MumbleChannelExitRequested = false;
    MumbleCurrentMissionChannelRequested = false;
    MumbleTunedToCurrentMissionChannel = false;
@@ -6962,93 +6971,93 @@ void event_CommsMacro10 ()
    MumbleCurrentMissionRedSubChannelRequested = false;
    }
 
-
 void event_CommsMacro11 ()
    {
    display ((char*)"event_CommsMacro11", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro11String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
+   
    MumbleChannelExitRequested = false;
    }
-
 
 void event_CommsMacro12 ()
    {
    display ((char*)"event_CommsMacro012", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro12String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
+   
    MumbleChannelExitRequested = false;
    }
-
 
 void event_CommsMacro13 ()
    {
    display ((char*)"event_CommsMacro13", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro13String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
+   
    MumbleChannelExitRequested = false;
    }
-
 
 void event_CommsMacro14 ()
    {
    display ((char*)"event_CommsMacro14", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro14String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
+   
    MumbleChannelExitRequested = false;
    }
-
 
 void event_CommsMacro15 ()
    {
    display ((char*)"event_CommsMacro15", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro15String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
+   
    MumbleChannelExitRequested = false;
    }
-
 
 void event_CommsMacro16 ()
    {
    display ((char*)"event_CommsMacro16", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro16String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
+   
    MumbleChannelExitRequested = false;
    }
-
 
 void event_CommsMacro17 ()
    {
    display ((char*)"event_CommsMacro17", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro17String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro17String1[0], "ACTIVE-TEAMCAST-CHANNEL"))
-      {
+      { 
+      
       display ((char*)"event_CommsMacro17 setting MumbleChannelPresumed.", LOG_MOST);
       switch (CurrentMissionNumber)
          {
          case MISSION_NETWORKBATTLE01:
             {
             if (MyNetworkId % 2)
-               {
+               { 
                event_CommsMacro03();
                }
             else
-               {
+               { 
                event_CommsMacro02();
                }
             break;
@@ -7056,11 +7065,11 @@ void event_CommsMacro17 ()
          case MISSION_NETWORKBATTLE02:
             {
             if (MyNetworkId % 2)
-               {
+               { 
                event_CommsMacro06();
                }
             else
-               {
+               { 
                event_CommsMacro05();
                }
             break;
@@ -7068,40 +7077,39 @@ void event_CommsMacro17 ()
          case MISSION_NETWORKBATTLE03:
             {
             if (MyNetworkId % 2)
-               {
+               { 
                event_CommsMacro09();
                }
             else
-               {
+               { 
                event_CommsMacro08();
                }
             break;
             }
          default:
-            {
+            { 
             MumbleChannelPresumed = 99;
             }
          }
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro17 NOT setting MumbleChannelPresumed because CommsMacro17 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
    }
 
-
-
 void event_CommsMacro18 ()
    {
    display ((char*)"event_CommsMacro18", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro18String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    if (!strcmp (&CommsMacro18String1[0], "ACTIVE-MISSIONCAST-CHANNEL"))
-      {
+      { 
+      
       display ((char*)"event_CommsMacro18 setting MumbleChannelPresumed.", LOG_MOST);
       switch (CurrentMissionNumber)
          {
@@ -7121,13 +7129,13 @@ void event_CommsMacro18 ()
             break;
             }
          default:
-            {
+            { 
             MumbleChannelPresumed = 99;
             }
          }
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro18 NOT setting MumbleChannelPresumed because CommsMacro18 has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
@@ -7139,22 +7147,20 @@ void event_CommsMacro19 ()
    display ((char*)"event_CommsMacro19", LOG_MOST);
    sprintf (SystemMessageBufferA, "%s", CommsMacro19String1);
    NewSystemMessageNeedsScrolling = true;
-   sound->setVolume (SOUND_BEEP1, 20);
+   sound->setVolume (SOUND_BEEP1, 20); 
    sound->play (SOUND_BEEP1, false);
    MumbleChannelExitRequested = false;
    if (!strcmp (&CommsMacro19String1[0], "VOCALIZE-ENEMY-HQ-STATUS"))
-      {
+      { 
       VocalizeEnemyHqStatus();
       }
    else
-      {
+      { 
       display ((char*)"event_CommsMacro19 NOT vocalizing Enemy HQ Status becuase string has been customized.", LOG_MOST);
       MumbleChannelPresumed = 99;
       return;
       }
    }
-
-
 
 void event_fireCannon ()
     {
@@ -7171,10 +7177,7 @@ void event_fireCannon ()
         return;
         }
     fplayer->autofire = true;
-    }
-
-
-
+    } 
 
 void event_fireChaff ()
     {
@@ -7192,7 +7195,7 @@ void event_fireChaff ()
         sound->play (SOUND_CHAFF1, false);
         ChaffPacketFired = true;
         }
-    }
+    } 
 
 void event_fireFlare ()
     {
@@ -7208,9 +7211,9 @@ void event_fireFlare ()
     if (fplayer->fireFlare (flare, missile))
         {
         sound->play (SOUND_CHAFF1, false);
-        FlareFired = true;
+        FlareFired = true; 
         }
-    }
+    } 
 
 void event_fireMissile ()
     {
@@ -7221,32 +7224,37 @@ void event_fireMissile ()
         }
     if (fplayer->firemissilettl > 0)
         {
+        display ((char *)"event_fireMissile() abort: ttl>0", LOG_MOST);
         return;
         }
     if (fplayer->fireMissile (fplayer->missiletype + BOMB01, missile))
         {
         sound->play (SOUND_BOMB01, false);
-        fplayer->maxgamma += MaxGammaPenaltyPerWeapon;
+        fplayer->maxgamma += MaxGammaPenaltyPerWeapon; 
         sprintf (DebugBuf, "fplayer->maxgamma now = %f", fplayer->maxgamma);
         display (DebugBuf, LOG_MOST);
-        fplayer->maxthrust += 0.01;
+        fplayer->maxthrust += 0.01; 
         if (fplayer->maxthrust > PlayersOriginalMaxThrust)
-           {
+           { 
            fplayer->maxthrust = PlayersOriginalMaxThrust;
            }
         sprintf (DebugBuf, "fplayer->maxthrust now = %f", fplayer->maxthrust);
         display (DebugBuf, LOG_MOST);
         }
-    }
+    else
+       {
+       display ((char *)"event_fireMissile(): fplayer->fireMissile(fplayer->missiletype + BOMB01, missile) failed.", LOG_MOST);
+       }
+    } 
 
 void event_FlapsDN()
     {
     //
-
+    
     //
     if  (fplayer->InertiallyDampenedPlayerSpeed < fplayer->FlapSpeed)
         {
-
+        
         sprintf (DebugBuf, "event_FlapsDN() InertiallyDampenedPlayerSpeed=%f (slow enough)", fplayer->InertiallyDampenedPlayerSpeed);
         display (DebugBuf, LOG_MOST);
         fplayer->FlapsLevel++;
@@ -7257,7 +7265,7 @@ void event_FlapsDN()
         else
             {
             display ((char *)"event_FlapsDN() 150808AA", LOG_MOST);
-            sound->setVolume (SOUND_FLAPSDN, 99);
+            sound->setVolume (SOUND_FLAPSDN, 99); 
             sound->play (SOUND_FLAPSDN, false);
             switch (fplayer->FlapsLevel)
                 {
@@ -7290,26 +7298,26 @@ void event_FlapsDN()
         }
     else
         {
-
+        
         sound->play (SOUND_CLICK1, false);
         FlapsLevelElevatorEffectNow=fplayer->FlapsLevelElevatorEffect0;
         }
-    }
+    } 
 
 void event_FlapsUP()
     {
     if (fplayer->FlapsLevel<=0)
         {
-
+        
         fplayer->FlapsLevel=0;
         FlapsLevelElevatorEffectNow=fplayer->FlapsLevelElevatorEffect0;
         }
     else
         {
-
+        
         fplayer->FlapsLevel--;
         fplayer->elevatoreffect *=0.85;
-        sound->setVolume (SOUND_FLAPSUP, 88);
+        sound->setVolume (SOUND_FLAPSUP, 88); 
         sound->play (SOUND_FLAPSUP, false);
         switch (fplayer->FlapsLevel)
             {
@@ -7340,7 +7348,7 @@ void event_FlapsUP()
             }
         }
     sound->play (SOUND_CLICK1, false);
-    }
+    } 
 
 void event_GunCameraToggle()
    {
@@ -7350,10 +7358,10 @@ void event_GunCameraToggle()
    if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE02 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
       {
       if (GunCameraActive)
-         {
+         { 
          GunCameraActive = false;
-         GunCameraStopSegmentFlag = true;
-         sound->setVolume (SOUND_BEEP1, 20);
+         GunCameraStopSegmentFlag = true; 
+         sound->setVolume (SOUND_BEEP1, 20); 
          sound->play (SOUND_BEEP1, false);
          display ((char*)"event_GunCameraToggle() Switching Gun Camera off.", LOG_MOST);
          sprintf (SystemMessageBufferA, "GUN CAMERA SERVICE REQUEST ENDED. ");
@@ -7381,10 +7389,10 @@ void event_GunCameraToggle()
          fwrite (DebugBuf, strlen(DebugBuf), 1, GunCamHistoryFile);
          }
       else
-         {
+         { 
          GunCameraActive = true;
-         GunCameraStartSegmentFlag = true;
-         sound->setVolume (SOUND_BEEP2, 20);
+         GunCameraStartSegmentFlag = true; 
+         sound->setVolume (SOUND_BEEP2, 20); 
          sound->play (SOUND_BEEP2, false);
          display ((char*)"event_GunCameraToggle() Switching Gun Camera on.", LOG_MOST);
          sprintf (SystemMessageBufferA, "GUN CAMERA SERVICE REQUEST STARTED. ");
@@ -7421,7 +7429,7 @@ void event_GunCameraToggle()
          }
       }
    else
-      {
+      { 
       sprintf (SystemMessageBufferA, "GUN CAMERA NOT AVAILABLE IN THIS MISSION.");
       NewSystemMessageNeedsScrolling = true;
       }
@@ -7432,22 +7440,22 @@ void event_HudLadderBarsOnOff()
     display ((char *)"event_HudLadderBarsOnOff().", LOG_MOST);
     sound->play (SOUND_CLICK1, false);
     if (HudLadderBarsOnOff)
-        {
+        { 
         HudLadderBarsOnOff = 0;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     else
-        {
+        { 
         if (HudOnOff)
-          {
+          { 
           HudLadderBarsOnOff = 1;
-          sound->setVolume (SOUND_BEEP2, 20);
+          sound->setVolume (SOUND_BEEP2, 20); 
           sound->play (SOUND_BEEP2, false);
           }
          else
-         {
-            HudLadderBarsOnOff = 0;
+         { 
+            HudLadderBarsOnOff = 0; 
          }
         }
     }
@@ -7459,16 +7467,16 @@ void event_HudOnOff ()
     if (HudOnOff)
         {
         HudOnOff=0;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     else
         {
         HudOnOff=1;
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
-    }
+    } 
 
 void event_IffOnOff()
     {
@@ -7482,28 +7490,28 @@ void event_IffOnOff()
     if (IffOnOff)
         {
         IffOnOff=0;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     else
         {
         IffOnOff=1;
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
     }
 
 void event_LookBK()
     {
-    display ((char *)"event_LookBK().", LOG_MOST);
+    //display ((char *)"event_LookBK().", LOG_MOST);
     camera = 2;
     }
 
 void event_LookDN()
     {
-       display ((char *)"event_LookDN().", LOG_MOST);
+       //display ((char *)"event_LookDN().", LOG_MOST);
        if (camera == 1)
-       {
+       { 
        view_y ++;
        }
     else
@@ -7514,7 +7522,7 @@ void event_LookDN()
 
 void event_LookFD()
     {
-    display ((char *)"event_LookFD().", LOG_MOST);
+    //display ((char *)"event_LookFD().", LOG_MOST);
     camera = 0;
     view_x = 0;
     view_y = 0;
@@ -7522,9 +7530,9 @@ void event_LookFD()
 
 void event_LookLT()
     {
-    display ((char *)"event_LookLT().", LOG_MOST);
+    //display ((char *)"event_LookLT().", LOG_MOST);
        if (camera == 1)
-       {
+       { 
        view_x ++;
        }
     else
@@ -7535,9 +7543,9 @@ void event_LookLT()
 
 void event_LookRT()
     {
-    display ((char *)"event_LookRT().", LOG_MOST);
+    //display ((char *)"event_LookRT().", LOG_MOST);
        if (camera == 1)
-       {
+       { 
        view_x --;
        }
     else
@@ -7548,9 +7556,9 @@ void event_LookRT()
 
 void event_LookUP()
     {
-    display ((char *)"event_LookUP().", LOG_MOST);
+    //display ((char *)"event_LookUP().", LOG_MOST);
        if (camera == 1)
-       {
+       { 
        view_y --;
        }
     else
@@ -7567,12 +7575,12 @@ void event_MapScrollEast()
     if (MapEastWestScroll < -250)
         {
         MapEastWestScroll = -250;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     if (MapEastWestScroll == 0)
         {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
     }
@@ -7584,13 +7592,13 @@ void event_MapScrollNorth()
     MapNorthSouthScroll-=10;
     if (MapNorthSouthScroll == 0)
         {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
     if (MapNorthSouthScroll < -250)
         {
         MapNorthSouthScroll = -250;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     }
@@ -7602,13 +7610,13 @@ void event_MapScrollSouth()
     MapNorthSouthScroll+=10;
     if (MapNorthSouthScroll == 0)
         {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
     if (MapNorthSouthScroll > 250)
         {
         MapNorthSouthScroll = 250;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     }
@@ -7620,13 +7628,13 @@ void event_MapScrollWest()
     MapEastWestScroll+=10;
     if (MapEastWestScroll == 0)
         {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
     if (MapEastWestScroll > 250)
         {
         MapEastWestScroll = 250;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     }
@@ -7640,14 +7648,14 @@ void event_MapViewOnOff()
     if (MapViewOnOff)
         {
         MapViewOnOff = 0;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         camera = 0;
         }
     else
         {
         MapViewOnOff = 1;
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         camera = 9;
         }
@@ -7659,13 +7667,13 @@ void event_MapZoomIn()
     MapZoomFactor-=10;
     if (MapZoomFactor < -130)
         {
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         MapZoomFactor = -130;
         }
     if (MapZoomFactor == -60)
        {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
        }
     sprintf (DebugBuf, "event_MapZoomIn() MapZoomFactor = %d", MapZoomFactor);
@@ -7679,13 +7687,13 @@ void event_MapZoomOut()
     MapZoomFactor+=10;
     if (MapZoomFactor >= 0)
         {
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         MapZoomFactor = 0;
         }
     if (MapZoomFactor == -60)
        {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
        }
     sprintf (DebugBuf, "event_MapZoomOut() MapZoomFactor = %d", MapZoomFactor);
@@ -7694,40 +7702,95 @@ void event_MapZoomOut()
 
 void event_MumblePtt ()
     {
-
+    
     display ((char *)"event_MumblePtt().", LOG_MOST);
     MumbleTransmissionRequested = true;
     }
 
 void event_MumbleWhisper ()
     {
-
+    
     display ((char *)"event_MumbleWhisper().", LOG_MOST);
     MumbleBroadcastRequested = true;
     }
+
+void event_MuteMorseBlueTeam()
+{
+display ((char *)"event_MuteMorseBlueTeam()", LOG_MOST);
+if (MorseSquelches[1])
+   { 
+   sound->play (SOUND_BEEP1, false);
+   sprintf (SystemMessageBufferA, "MORSE RADIO UNSQUELCHING BLUETEAM");
+   NewSystemMessageNeedsScrolling = true;
+   
+   MorseSquelches [1] = false;
+   MorseSquelches [3] = false;
+   MorseSquelches [5] = false;
+   MorseSquelches [7] = false;
+   MorseSquelches [9] = false;
+   }
+else
+   { 
+   sound->play (SOUND_BEEP2, false);
+   sprintf (SystemMessageBufferA, "MORSE RADIO SQUELCHING BLUETEAM");
+   NewSystemMessageNeedsScrolling = true;
+   
+   MorseSquelches [1] = true;
+   MorseSquelches [3] = true;
+   MorseSquelches [5] = true;
+   MorseSquelches [7] = true;
+   MorseSquelches [9] = true;
+   }
+}
+
+void event_MuteMorseRedTeam()
+{
+display ((char *)"event_MuteMorseRedTeam()", LOG_MOST);
+if (MorseSquelches[0])
+   { 
+   sound->play (SOUND_BEEP1, false);
+   sprintf (SystemMessageBufferA, "MORSE RADIO UNSQUELCHING REDTEAM");
+   NewSystemMessageNeedsScrolling = true;
+   
+   MorseSquelches [0] = false;
+   MorseSquelches [2] = false;
+   MorseSquelches [4] = false;
+   MorseSquelches [6] = false;
+   MorseSquelches [8] = false;
+   }
+else
+   { 
+   sound->play (SOUND_BEEP2, false);
+   sprintf (SystemMessageBufferA, "MORSE RADIO SQUELCHING REDTEAM");
+   NewSystemMessageNeedsScrolling = true;
+   
+   MorseSquelches [0] = true;
+   MorseSquelches [2] = true;
+   MorseSquelches [4] = true;
+   MorseSquelches [6] = true;
+   MorseSquelches [8] = true;
+   }
+}
 
 void event_RadarOnOff ()
     {
     display ((char *)"event_RadarOnOff(). 15080829AA", LOG_MOST);
     sound->play (SOUND_CLICK1, false);
-    TargetSelectNotYetInitialized = true;
+    TargetSelectNotYetInitialized = true; 
     if (RadarOnOff)
         {
         RadarOnOff=0;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     else
         {
         RadarOnOff=1;
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         fplayer->target = ThreeDObjects[0];
-        sprintf(DebugBuf, "WARNING: at main:event_RadarOnOff:7552 fplayer->target is now %p",
-		(void*) &ThreeDObjects[0]);
-        display(DebugBuf, LOG_MOST);
         }
-    }
+    } 
 
 void event_RadarZoomIn ()
     {
@@ -7737,10 +7800,10 @@ void event_RadarZoomIn ()
     if (RadarZoom>7)
         {
         RadarZoom=7;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
-    }
+    } 
 
 void event_RadarZoomOut ()
     {
@@ -7750,40 +7813,40 @@ void event_RadarZoomOut ()
     if (RadarZoom<0)
         {
         RadarZoom=0;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
-
+    
     if (MyNetworkId%2)
-       {
+       { 
        if (RadarReflectorRedHasBeenDestroyedAtLeastOnce)
-          {
+          { 
           if (RadarZoom <1)
-             {
-             RadarZoom = 1;
+             { 
+             RadarZoom = 1; 
              sprintf (SystemMessageBufferA, "HQ RADAR TOO DAMAGED FOR THAT RANGE.");
              NewSystemMessageNeedsScrolling = true;
-             sound->setVolume (SOUND_BEEP1, 20);
+             sound->setVolume (SOUND_BEEP1, 20); 
              sound->play (SOUND_BEEP1, false);
              }
           }
        }
     else
-       {
+       { 
        if (RadarReflectorBlueHasBeenDestroyedAtLeastOnce)
-          {
+          { 
           if (RadarZoom <1)
-             {
-             RadarZoom = 1;
+             { 
+             RadarZoom = 1; 
              sprintf (SystemMessageBufferA, "HQ RADAR TOO DAMAGED FOR THAT RANGE.");
              NewSystemMessageNeedsScrolling = true;
-             sound->setVolume (SOUND_BEEP1, 20);
+             sound->setVolume (SOUND_BEEP1, 20); 
              sound->play (SOUND_BEEP1, false);
              }
 
           }
        }
-    }
+    } 
 
 void event_selectMissile ()
     {
@@ -7793,29 +7856,29 @@ void event_selectMissile ()
         {
         return;
         }
-    sound->play (SOUND_CLICK1, false);
+    sound->play (SOUND_CLICK1, false);  
     OldMissileType = fplayer->missiletype;
     fplayer->missiletype = fplayer->nextMissile (fplayer->missiletype);
     if (fplayer->missiles [fplayer->missiletype] <= 0)
         {
-
+        
         return;
         }
-
+    
     if(OldMissileType == fplayer->missiletype)
         {
-
-        sound->setVolume (SOUND_BEEP1, 20);
+        
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     else
         {
-
-        sound->setVolume (SOUND_BEEP2, 20);
+        
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
-    sound->play (SOUND_CLICK1, false);
-    }
+    sound->play (SOUND_CLICK1, false); 
+    } 
 
 void event_setAntialiasing ()
     {
@@ -7842,20 +7905,20 @@ void event_setAntialiasing ()
             gl->disableLinearTexture (texearth->textureID);
             }
         }
-    }
+    } 
 
 void event_stopCannon ()
     {
     fplayer->autofire = false;
     sound->stop (SOUND_CANNON1);
-    }
+    } 
 
 void event_targetNext ()
     {
     display ((char *)"event_targetNext(). 150807AF", LOG_MOST);
-    DynamicObj* InitialTarget = fplayer->target;
+    DynamicObj* InitialTarget = fplayer->target; 
     DynamicObj* FinalTarget   = 0;
-
+    
     if (!fplayer->active)
         {
         return;
@@ -7863,59 +7926,59 @@ void event_targetNext ()
     fplayer->targetNext ((AIObj **) ThreeDObjects);
     FinalTarget = fplayer->target;
     if (InitialTarget == FinalTarget)
-       {
+       { 
        sound->play (SOUND_BEEP1, false);
        }
     else
-       {
+       { 
        sound->play (SOUND_BEEP2, false);
-
+       
        }
        if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE02 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
-          {
+          { 
           if (ThreeDObjects[MyNetworkId] == fplayer->target)
-             {
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
+             { 
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
              FinalTarget = fplayer->target;
              }
-
+          
           // Don't allow selection of 3d object 22, 23, 24, 25, 26, or 27 to avoid segmentation faults if those objects are ever destroyed.
           if (fplayer->target == ThreeDObjects[22])
-             {
+             { 
              display ((char*)"event_targetNext() attempted to target object 22. Skipping ahead.", LOG_MOST);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
              }
           if (fplayer->target == ThreeDObjects[23])
-             {
+             { 
              display ((char*)"event_targetNext() attempted to target object 23. Skipping ahead.", LOG_MOST);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
              }
           if (fplayer->target == ThreeDObjects[24])
-             {
+             { 
              display ((char*)"event_targetNext() attempted to target object 24. Skipping ahead.", LOG_MOST);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
              }
           if (fplayer->target == ThreeDObjects[25])
-             {
+             { 
              display ((char*)"event_targetNext() attempted to target object 25. Skipping ahead.", LOG_MOST);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
              }
           if (fplayer->target == ThreeDObjects[26])
-             {
+             { 
              display ((char*)"event_targetNext() attempted to target object 26. Skipping ahead.", LOG_MOST);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
              }
           else if (fplayer->target == ThreeDObjects[27])
-             {
+             { 
              display ((char*)"event_targetNext() attempted to target object 27. Skipping ahead.", LOG_MOST);
-             fplayer->targetNext ((AIObj **) ThreeDObjects);
+             fplayer->targetNext ((AIObj **) ThreeDObjects); 
              }
-
+          
           if (fplayer->target == ThreeDObjects[1])
              {
              SelectedMissionTarget = 1;
@@ -7972,28 +8035,28 @@ void event_targetNext ()
              {
              SelectedMissionTarget = 29;
              }
-
+          
           Admin013OutPacket.UdpObjCommand = (char)13;
           Admin013OutPacket.UdpObjRealm = Realm;
           Admin013OutPacket.UdpObjMissionId = CurrentMissionNumber;
-
+          
           SendAdmin013Packet();
           }
        int MissionAircraft;
        for (MissionAircraft = 0; MissionAircraft < maxfighter; MissionAircraft++)
-          {
-          if (ThreeDObjects[MissionAircraft] == fplayer->target)
-             {
+          { 
+          if ((ThreeDObjects[MissionAircraft] == fplayer->target))
+             { 
              switch (MissionAircraft %2)
                 {
                 case 0:
-                    {
+                    { 
                     sound->setVolume (SOUND_BLUE, 150);
                     sound->play (SOUND_BLUE, false);
                     break;
                     }
                 case 1:
-                    {
+                    { 
                     sound->setVolume (SOUND_RED, 150);
                     sound->play (SOUND_RED, false);
                     break;
@@ -8003,68 +8066,69 @@ void event_targetNext ()
                     break;
                    }
                 }
-             TargetVocalizeTimer2 = 25;
+             TargetVocalizeTimer2 = 25; 
              TargetVocalize2State = true;
              }
           }
-
+    
     RadarTargetColorLogged = false;
-    }
+    } 
 
 void event_targetPrevious ()
     {
     display ((char *)"event_targetPrevious(). 150807AE", LOG_MOST);
-    DynamicObj* InitialTarget = fplayer->target;
+    DynamicObj* InitialTarget = fplayer->target; 
     DynamicObj* FinalTarget   = 0;
-
+    
     if (!fplayer->active)
          {
          return;
          }
-    SkipTargetTourWhileRefueling = true;
+    SkipTargetTourWhileRefueling = true; 
     fplayer->targetPrevious ((AIObj **) ThreeDObjects);
     FinalTarget = fplayer->target;
     if (InitialTarget == FinalTarget)
-       {
+       { 
        sound->play (SOUND_BEEP1, false);
        }
     else
-       {
+       { 
        sound->play (SOUND_BEEP2, false);
-
+       
        int MissionAircraft;
        if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE02 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
-          {
+          { 
           if (ThreeDObjects[MyNetworkId] == fplayer->target)
-             {
-             fplayer->targetPrevious ((AIObj **) ThreeDObjects);
+             { 
+             fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
              FinalTarget = fplayer->target;
              }
           // Don't allow selection of 3d object 22, 23, 24, 25, 26, or 27 to avoid segmentation faults if those objects are ever destroyed.
           if (fplayer->target == ThreeDObjects[27])
-             {
-             fplayer->targetPrevious ((AIObj **) ThreeDObjects);
+             { 
+             fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
              }
           if (fplayer->target == ThreeDObjects[26])
-             {
-             fplayer->targetPrevious ((AIObj **) ThreeDObjects);
+             { 
+             fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
              }
           if (fplayer->target == ThreeDObjects[25])
-             {
-             fplayer->targetPrevious ((AIObj **) ThreeDObjects);
+             { 
+             fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
              }
           if (fplayer->target == ThreeDObjects[24])
-             {
-             fplayer->targetPrevious ((AIObj **) ThreeDObjects);
+             { 
+             fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
              }
           if (fplayer->target == ThreeDObjects[23])
-             {
-             fplayer->targetPrevious ((AIObj **) ThreeDObjects);
+             { 
+             fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
              }
           if (fplayer->target == ThreeDObjects[22])
-             {
-             fplayer->targetPrevious ((AIObj **) ThreeDObjects);
+             { 
+             fplayer->targetPrevious ((AIObj **) ThreeDObjects); 
              }
+          
           if (fplayer->target == ThreeDObjects[1])
              {
              SelectedMissionTarget = 1;
@@ -8121,27 +8185,27 @@ void event_targetPrevious ()
              {
              SelectedMissionTarget = 29;
              }
-
+          
           Admin013OutPacket.UdpObjCommand = (char)13;
           Admin013OutPacket.UdpObjRealm = Realm;
           Admin013OutPacket.UdpObjMissionId = CurrentMissionNumber;
-
+          
           SendAdmin013Packet();
           }
        for (MissionAircraft = 0; MissionAircraft < maxfighter; MissionAircraft++)
-          {
-          if (ThreeDObjects[MissionAircraft] == fplayer->target)
-             {
+          { 
+          if ((ThreeDObjects[MissionAircraft] == fplayer->target))
+             { 
              switch (MissionAircraft %2)
                 {
                 case 0:
-                    {
+                    { 
                     sound->setVolume (SOUND_BLUE, 150);
                     sound->play (SOUND_BLUE, false);
                     break;
                     }
                 case 1:
-                    {
+                    { 
                     sound->setVolume (SOUND_RED, 150);
                     sound->play (SOUND_RED, false);
                     break;
@@ -8151,14 +8215,14 @@ void event_targetPrevious ()
                     break;
                    }
                 }
-             TargetVocalizeTimer2 = 25;
+             TargetVocalizeTimer2 = 25; 
              TargetVocalize2State = true;
              }
           }
        }
-
+    
     RadarTargetColorLogged = false;
-    }
+    } 
 
 void event_targetVocalize ()
    {
@@ -8166,7 +8230,7 @@ void event_targetVocalize ()
    display ((char *)"event_targetVocalize() Function Entry.", LOG_MOST);
    if (TargetVocalize1State < 7)
       {
-      TargetVocalize1State++;
+      TargetVocalize1State++; 
       }
    else
       {
@@ -8189,7 +8253,7 @@ void event_thrustDown ()
        fplayer->recthrust = 0.0;
        }
     sound->play (SOUND_CLICK1, false);
-    }
+    } 
 
 void event_thrustUp ()
     {
@@ -8201,17 +8265,17 @@ void event_thrustUp ()
     fplayer->thrustUp ();
     fplayer->thrustUp ();
     sound->play (SOUND_CLICK1, false);
-    }
+    } 
 
 void event_ToggleSpeedBrake()
     {
     display ((char *)"event_ToggleSpeedBrake(). 150806EA", LOG_MOST);
     if (fplayer->SpeedBrakePower == 1.00)
-       {
-       return;
+       { 
+       return; 
        }
     if (fplayer->SpeedBrake)
-        {
+        { 
         SpeedBrakeRequested = 0;
         fplayer->SpeedBrake=0;
         SpeedBrakeTimer = 0;
@@ -8219,37 +8283,37 @@ void event_ToggleSpeedBrake()
         sound->play (SOUND_SPEEDBRAKE1, false);
         }
     else if (fplayer->SpeedBrake == 0 )
-        {
+        { 
         SpeedBrakeRequested = 1;
         if (SpeedBrakeTimer > 50 && SpeedBrakeTimer < 2000)
-           {
+           { 
            return;
            }
         sound->setVolume (SOUND_SPEEDBRAKE, 50);
         sound->play (SOUND_SPEEDBRAKE, false);
         }
     sound->play (SOUND_CLICK1, false);
-    }
+    } 
 
 void event_ToggleUndercarriage()
     {
     display ((char *)"event_ToggleUndercarriage.", LOG_MOST);
-
+    
     if (fplayer->InertiallyDampenedPlayerSpeed < (fplayer->FlapSpeed * 0.95))
         {
-
+        
         if (fplayer->UndercarriageLevel)
             {
-
+            
             fplayer->UndercarriageLevel--;
-            sound->setVolume (SOUND_UNDERCARRIAGE, 88);
+            sound->setVolume (SOUND_UNDERCARRIAGE, 88); 
             sound->play (SOUND_UNDERCARRIAGE, false);
             }
         else
             {
-
+            
             fplayer->UndercarriageLevel++;
-            sound->setVolume (SOUND_UNDERCARRIAGE, 88);
+            sound->setVolume (SOUND_UNDERCARRIAGE, 88); 
             sound->play (SOUND_UNDERCARRIAGE, false);
             }
         }
@@ -8274,23 +8338,23 @@ void event_ToggleWEP()
     void setPlaneVolume();
     display ((char *)"event_ToggleWEP(). 150806EC", LOG_MOST);
     if (!fplayer->WepCapable)
-       {
+       { 
        sound->play (SOUND_CLICK1, false);
        fplayer->WEPLevel = 0;
        return;
        }
     if ( fplayer->WEPLevel)
-        {
+        { 
         fplayer->WEPLevel--;
         fplayer->maxthrust -= 0.1;
         }
     else if ((fplayer->thrust / fplayer->maxthrust)>0.9)
-        {
+        { 
         fplayer->WEPLevel++;
         fplayer->maxthrust += 0.1;
         }
     sound->play (SOUND_CLICK1, false);
-    setPlaneVolume ();
+    setPlaneVolume (); 
     }
 
 void event_TrimElevatorDn()
@@ -8301,12 +8365,12 @@ void event_TrimElevatorDn()
     if (TrimElevatorSetting < -6000)
         {
         TrimElevatorSetting = -6000;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     if (TrimElevatorSetting == 0)
         {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
     }
@@ -8319,12 +8383,12 @@ void event_TrimElevatorUp()
     if (TrimElevatorSetting > 6000)
         {
         TrimElevatorSetting = 6000;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     if (TrimElevatorSetting == 0)
         {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
     }
@@ -8337,12 +8401,12 @@ void event_TrimRudderLeft()
     if (TrimRudderSetting < -32000)
         {
         TrimRudderSetting = -32000;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     if (TrimRudderSetting == 0)
         {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
     }
@@ -8355,12 +8419,12 @@ void event_TrimRudderRight()
     if (TrimRudderSetting > 32000)
         {
         TrimRudderSetting = 32000;
-        sound->setVolume (SOUND_BEEP1, 20);
+        sound->setVolume (SOUND_BEEP1, 20); 
         sound->play (SOUND_BEEP1, false);
         }
     if (TrimRudderSetting == 0)
         {
-        sound->setVolume (SOUND_BEEP2, 20);
+        sound->setVolume (SOUND_BEEP2, 20); 
         sound->play (SOUND_BEEP2, false);
         }
     }
@@ -8378,16 +8442,15 @@ for (i=0; i<=9; i++)
    }
 }
 
-
 void event_ZoomFovIn()
    {
-
-   ScreenFOVx += 0.1;
-   ScreenFOVy+=0.1;
+   
+   ScreenFOVx += 0.1; 
+   ScreenFOVy+=0.1; 
    if(ScreenFOVy> 1.6)
        {
        ScreenFOVy = 1.6;
-       sound->setVolume (SOUND_BEEP1, 20);
+       sound->setVolume (SOUND_BEEP1, 20); 
        sound->play (SOUND_BEEP1, false);
        }
    if(ScreenFOVx > 1.6)
@@ -8398,7 +8461,7 @@ void event_ZoomFovIn()
        {
        ScreenFOVx = 1.0;
        ScreenFOVy = 1.0;
-       sound->setVolume (SOUND_BEEP2, 20);
+       sound->setVolume (SOUND_BEEP2, 20); 
        sound->play (SOUND_BEEP2, false);
        }
    joybutton=0;
@@ -8407,13 +8470,13 @@ void event_ZoomFovIn()
 
 void event_ZoomFovOut()
 {
-
-   ScreenFOVx -= 0.1;
-   ScreenFOVy-=0.1;
+   
+   ScreenFOVx -= 0.1; 
+   ScreenFOVy-=0.1; 
    if(ScreenFOVy< 0.5)
        {
        ScreenFOVy = 0.5;
-       sound->setVolume (SOUND_BEEP1, 20);
+       sound->setVolume (SOUND_BEEP1, 20); 
        sound->play (SOUND_BEEP1, false);
        }
    if(ScreenFOVx < 0.5)
@@ -8424,7 +8487,7 @@ void event_ZoomFovOut()
        {
        ScreenFOVx = 1.0;
        ScreenFOVy = 1.0;
-       sound->setVolume (SOUND_BEEP2, 20);
+       sound->setVolume (SOUND_BEEP2, 20); 
        sound->play (SOUND_BEEP2, false);
        }
    joybutton=0;
@@ -8446,7 +8509,7 @@ void frame ()
         time1 = time2;
         frames = 0;
         }
-    }
+    } 
 
 void game_joystickaxis (int x, int y, int rudder, int throttle,  int JoyHatX, int JoyHatY)
     {
@@ -8454,17 +8517,17 @@ void game_joystickaxis (int x, int y, int rudder, int throttle,  int JoyHatX, in
     static int PriorJoyHatY = 0;
     if (fplayer->ai)
         {
-        return;
+        return;    
         }
     AileronSettings(x, y);
     ElevatorSettings(x, y);
     RudderSettings(rudder);
     ThrottleSettings(throttle);
-
+    
     if (JoyHatX != PriorJoyHatX)
-       {
+       { 
        if (JoyHatX > 8000)
-          {
+          { 
           display ((char*)"game_joystickaxis() Hat Right", LOG_MOST);
           LacJoystickHatFunc (2);
           }
@@ -8475,9 +8538,9 @@ void game_joystickaxis (int x, int y, int rudder, int throttle,  int JoyHatX, in
           }
        }
     if (JoyHatY != PriorJoyHatY)
-       {
+       { 
        if (JoyHatY > 8000)
-          {
+          { 
           display ((char*)"game_joystickaxis() Hat Down", LOG_MOST);
           LacJoystickHatFunc (4);
           }
@@ -8489,7 +8552,7 @@ void game_joystickaxis (int x, int y, int rudder, int throttle,  int JoyHatX, in
        }
     PriorJoyHatX = JoyHatX;
     PriorJoyHatY = JoyHatY;
-    }
+    } 
 
 void game_JoystickButton (int button)
     {
@@ -8498,7 +8561,7 @@ void game_JoystickButton (int button)
     extern int joystick_TargetNext;
     extern int joystick_TargetPrev;
     sprintf (DebugBuf, (char *)"game_JoystickButton() %d", button);
-    display (DebugBuf, LOG_MOST);
+    display (DebugBuf, LOG_MOST);  
     joybutton=button;
     if (!fplayer->active)
         {
@@ -8630,12 +8693,12 @@ void game_JoystickButton (int button)
         sound->setVolume (SOUND_CANNON1, 120);
         sound->play (SOUND_CANNON1, 1);
         }
-    }
+    } 
 
 void game_joystickhat (int normhat)
     {
     game_JoystickButton (normhat);
-    }
+    } 
 
 void game_mouserelmotion (int xrel, int yrel)
     {
@@ -8673,12 +8736,12 @@ void game_mouserelmotion (int xrel, int yrel)
     fplayer->elevatoreffect = (float) yr * fabs (yr) * 30 * mouse_sensitivity;
     if (mouse_sensitivity < 100)
         {
-
+        
         fplayer->elevatoreffect *=0.2F;
         }
     else if (mouse_sensitivity >200)
         {
-
+        
         fplayer->elevatoreffect *=2.0F;
         }
     if (!mouse_reverse)
@@ -8693,7 +8756,7 @@ void game_mouserelmotion (int xrel, int yrel)
         {
         fplayer->elevatoreffect = -200.0f;
         }
-    }
+    } 
 
 void game_mousemotion (int x, int y)
     {
@@ -8732,7 +8795,7 @@ void game_mousemotion (int x, int y)
         {
         fplayer->ruddereffect = 0;
         }
-    const float roll_deadarea = (float) mouse_autorudder / 1000.0F;
+    const float roll_deadarea = (float) mouse_autorudder / 1000.0F; 
     if (fabs(nx) > roll_deadarea)
         {
         if (nx > 0.0f)
@@ -8774,14 +8837,14 @@ void game_mousemotion (int x, int y)
         fplayer->elevatoreffect = -0.5f;
         }
     sdldisplay = true;
-    }
+    } 
 
-int game_levelInit (void)
+int game_levelInit ()
     {
     void setLightSource (int gamma);
     int i;
     display ((char *)"game_levelInit() beginning.", LOG_MOST);
-
+    
     for (i = 0; i < maxfighter; i ++)
         {
         ThreeDObjects [i]->dinit ();
@@ -8848,7 +8911,7 @@ int game_levelInit (void)
         {
         highclouds2->setTexture (NULL);
         }
-
+    
     for (i = 0; i < maxfighter; i ++)
         {
         if (ThreeDObjects [i]->id >= FLAK1 && ThreeDObjects [i]->id <= FLAK2)
@@ -9031,7 +9094,7 @@ int game_levelInit (void)
     objsphere->list3 = -1;
     setLightSource ((int) sungamma);
     glLightModeli (GL_LIGHT_MODEL_TWO_SIDE, GL_FALSE);
-    glEnable (GL_LIGHT0);
+    glEnable (GL_LIGHT0);                
     float light_ambient [4] = {0.2, 0.2, 0.2, 1.0};
     float light_diffuse [4] = {1.0, 1.0, 1.0, 1.0};
     float light_specular [4] = {1.0, 1.0, 1.0, 1.0};
@@ -9049,21 +9112,21 @@ int game_levelInit (void)
     blackout = 0;
     fplayer->realism = physics;
     return 1;
-    }
+    } 
 
 void game_mouse (int button, int state, int x, int y)
     {
     if (state == MOUSE_DOWN && fplayer->active)
         {
-
+        
         if (button == mouse_firecannon)
             {
-
+            
             fplayer->autofire = !fplayer->autofire;
 
             if (!fplayer->autofire)
                 {
-
+                
                 sound->stop (SOUND_CANNON1);
                 }
             }
@@ -9076,7 +9139,7 @@ void game_mouse (int button, int state, int x, int y)
             event_selectMissile ();
             }
         }
-    }
+    } 
 
 void game_quit ()
     {
@@ -9139,7 +9202,7 @@ void game_quit ()
     display ((char*)"performance with your joystick, keyboard, mouse, network, and display.\n", LOG_MOST);
     display ((char*)"Online help is available at AskMisterWizard.com\n\n", LOG_MOST);
     if (strcmp(CommunityHandle, "00000000000000") == 0 )
-       {
+       { 
        display ((char*)"Your CommunityHandle has not yet been set, so other LAC players will never", LOG_MOST);
        display ((char*)"know your name. You should choose a name for yourself and then use a simple", LOG_MOST);
        display ((char*)"text editor to write it into the LacConfig.txt file that you will find in", LOG_MOST);
@@ -9161,12 +9224,12 @@ void game_quit ()
     }
 
 void game_view ()
-{
-	frame();
+    {
+    frame ();
 //	SDL_GL_SwapBuffers ();
 	SDL_GL_SwapWindow(win[0]);
 
-}
+    } 
 
 int getJoystickAxisIndex (int n)
     {
@@ -9180,7 +9243,7 @@ int getJoystickAxisIndex (int n)
         idx = 0;
         }
     return idx;
-    }
+    } 
 
 char *getModelName (int id)
     {
@@ -9421,7 +9484,7 @@ char *getModelName (int id)
         return (char *)"AIR-AIR MISSILE PACK";
         }
     return (char *)"NO INFO";
-    }
+    } 
 
 int getTrainingIdFromValue (int n)
     {
@@ -9460,7 +9523,7 @@ int getTrainingIdFromValue (int n)
        return MISSION_NETWORKBATTLE03;
        }
     return (100);
-    }
+    } 
 
 float getView ()
     {
@@ -9469,10 +9532,10 @@ float getView ()
         return 40.0;
         }
     return view;
-    }
+    } 
 
 void init_display ()
-    {
+    { 
     CVector3 vec;
     CColor color (255, 160, 160, 255);
     CColor red (255, 0, 0);
@@ -9483,82 +9546,82 @@ void init_display ()
     glEnable (GL_DEPTH_TEST);
     glEnable (GL_LIGHTING);
     float LacTimerRatio = 1.0 - ((float)(LacTimer - 6900)/3000.0);
-
+    
     glPushMatrix ();
-
+    
     float ThetaRotation1 = -20 + LacTimer/22;
-    rot.a = 270;
+    rot.a = 270; 
     rot.b = 50 - ThetaRotation1;
     rot.c = 00;
     float ZDepth1 = -80 +LacTimer/40;
-    glTranslatef (-4.0, 0.15, ZDepth1);
-    model_figv.draw (&vec, &tl, &rot, 1.0, 3.0, 0);
+    glTranslatef (-4.0, 0.15, ZDepth1); 
+    model_figv.draw (&vec, &tl, &rot, 1.0, 3.0, 0); 
     glPopMatrix ();
-
+    
     glPushMatrix ();
-
+    
     float ThetaRotation2 = -20 + (LacTimer-1600)/26;
-    rot.a = 270;
+    rot.a = 270; 
     rot.b = 50 - ThetaRotation2;
     rot.c = 00;
     float ZDepth2 = -80 + (LacTimer-1600)/40;
-    glTranslatef (-3, 0.2, ZDepth2);
-    model_figx.draw (&vec, &tl, &rot, 1.0, 3.0, 0);
+    glTranslatef (-3, 0.2, ZDepth2); 
+    model_figx.draw (&vec, &tl, &rot, 1.0, 3.0, 0); 
     glPopMatrix ();
-
+    
     glPushMatrix ();
-
+    
     float ThetaRotation3 = -20 + (LacTimer-3200)/25;
-    rot.a = 270;
+    rot.a = 270; 
     rot.b = 50 - ThetaRotation3;
     rot.c = 00;
     float ZDepth3 = -80 +(LacTimer-3200)/40;
-    glTranslatef (-1, 0.0, ZDepth3);
-    model_figAQ.draw (&vec, &tl, &rot, 1.0, 3.0, 0);
+    glTranslatef (-1, 0.0, ZDepth3); 
+    model_figAQ.draw (&vec, &tl, &rot, 1.0, 3.0, 0); 
     glPopMatrix ();
-
+    
     glPushMatrix ();
-
+    
     float ThetaRotation4 = -20 + (LacTimer-4800)/24;
-    rot.a = 270;
+    rot.a = 270; 
     rot.b = 50 - ThetaRotation4;
     rot.c = 10;
     float ZDepth4 = -80 +(LacTimer-4800)/40;
-    glTranslatef (-1, 0.2, ZDepth4);
-    model_figc.draw (&vec, &tl, &rot, 1.0, 3.0, 0);
+    glTranslatef (-1, 0.2, ZDepth4); 
+    model_figc.draw (&vec, &tl, &rot, 1.0, 3.0, 0); 
     glPopMatrix ();
-
+    
     glPushMatrix ();
-
+    
     float ThetaRotation5 = -20 + (LacTimer-6400)/23;
-    rot.a = 270;
+    rot.a = 270; 
     rot.b = 50 - ThetaRotation5;
     rot.c = 00;
     float ZDepth5 = -80 +(LacTimer-6400)/40;
-    glTranslatef ((10.0 - (float)((float)LacTimer/800.0)), (8.0-(float)((float)LacTimer/1200.0)), ZDepth5);
-    model_fig.draw (&vec, &tl, &rot, 1.0, 1.0, 0);
+    glTranslatef ((10.0 - (float)((float)LacTimer/800.0)), (8.0-(float)((float)LacTimer/1200.0)), ZDepth5); 
+    model_fig.draw (&vec, &tl, &rot, 1.0, 1.0, 0); 
     glPopMatrix ();
-
+    
     glPushMatrix ();
-
+    
     float ThetaRotation6 = -20 + (LacTimer-6400)/22;
-    rot.a = 270;
+    rot.a = 270; 
     rot.b = 50 - ThetaRotation6;
     rot.c = 00;
     float ZDepth6 = -80 +(LacTimer-6400)/40;
-    glTranslatef ((12.0 - (float)((float)LacTimer/800.0)), (6.0-(float)((float)LacTimer/1500.0)), ZDepth6);
-    model_fig.draw (&vec, &tl, &rot, 1.0, 3.0, 0);
+    glTranslatef ((12.0 - (float)((float)LacTimer/800.0)), (6.0-(float)((float)LacTimer/1500.0)), ZDepth6); 
+    model_fig.draw (&vec, &tl, &rot, 1.0, 3.0, 0); 
     glPopMatrix ();
-
+    
     glPushMatrix ();
-
+    
     float ThetaRotation7 = -20 + (LacTimer-6400)/21;
-    rot.a = 270;
+    rot.a = 270; 
     rot.b = 50 - ThetaRotation7;
     rot.c = 20;
     float ZDepth7 = -80 +(LacTimer-6400)/40;
-    glTranslatef ((14.0 - (float)((float)LacTimer/800.0)), (4.0-(float)((float)LacTimer/1500.0)), ZDepth7);
-    model_fig.draw (&vec, &tl, &rot, 1.0, 0.0, 0);
+    glTranslatef ((14.0 - (float)((float)LacTimer/800.0)), (4.0-(float)((float)LacTimer/1500.0)), ZDepth7); 
+    model_fig.draw (&vec, &tl, &rot, 1.0, 0.0, 0); 
     glPopMatrix ();
     if (LacTimer > 3700 && LacTimer < 3900)
        {
@@ -9691,7 +9754,7 @@ void init_display ()
     font1->drawTextCentered(0,-20,-3,(char *)"DERIVED FROM THOMAS A. DREXL'S GL-117");
     font1->drawTextCentered(0,-28,-4,(char *)"NO COMMERCIAL PRODUCTS WERE USED IN THE DEVELOPMENT OF THIS SOFTWARE.");
     font1->zoom = 0.1;
-    }
+    } 
 
 /****************************************************************************
   DATA INITIALIZATION
@@ -9704,7 +9767,7 @@ void InitLac ()
     void pleaseWait ();
     void ReshapeMenu ();
     int i, i2;
-
+    
     tlinf = new CVector3 (1E10, 1E10, 1E10);
     tlminf = new CVector3 (-1E10, -1E10, -1E10);
     tlnull = new CVector3 (0, 0, 0);
@@ -9712,7 +9775,7 @@ void InitLac ()
     rotmissile = new CRotation ();
     rotmissile->a = 90;
     rotmissile->c = 270;
-
+    
     for (i = 0; i < maxgroundobj; i ++)
         {
         groundobj [i] = new DynamicObj (space, &model_tent1, 3);
@@ -9776,10 +9839,10 @@ void InitLac ()
         }
     cockpit = new Cockpit ();
     pleaseWait ();
-    createMission (MISSION_DEMO);
+    createMission (MISSION_DEMO); 
     game_levelInit ();
     ReshapeMenu ();
-    }
+    } 
 
 void init_mouse (int button, int state, int x, int y)
     {
@@ -9793,10 +9856,10 @@ void InitReshape ()
     glViewport (0, 0, (GLint) width, (GLint) height);
     glMatrixMode (GL_PROJECTION);
     glLoadIdentity ();
-
+    
     gluPerspective (VisibleAngle, 1.0, nearclippingplane, 80);
     glPolygonMode (GL_FRONT_AND_BACK, polygonMode);
-    }
+    } 
 
 void init_timer (Uint32 dt)
     {
@@ -9818,14 +9881,14 @@ void init_timer (Uint32 dt)
         {
         r = myrandom (100);    // do not optimize this: random number generator initialization
         }
-
+    
     if (inittimer >= 8000)
         {
-        KeyInit (27, 0, 0);
+        KeyInit (27, 0, 0); 
         }
     inittimer ++;
     sdldisplay = true;
-    }
+    } 
 
 void KeyCredits (unsigned char key, int x, int y)
     {
@@ -9835,7 +9898,7 @@ void KeyCredits (unsigned char key, int x, int y)
         {
         switch_menu ();
         }
-    }
+    } 
 
 void KeyFighter (unsigned char key, int x, int y)
     {
@@ -9845,7 +9908,7 @@ void KeyFighter (unsigned char key, int x, int y)
         {
         switch_menu ();
         }
-    }
+    } 
 
 void KeyFinish (unsigned char key, int x, int y)
     {
@@ -9855,18 +9918,18 @@ void KeyFinish (unsigned char key, int x, int y)
         void switch_menu ();
         switch_menu ();
         }
-    }
+    } 
 
 void KeyGame (unsigned int key, int x, int y)
     {
-    display ((char*)"Function Entry: KeyGame()", LOG_MOST);
+    display ((char*)"Function Entry: KeyGame()", LOG_ALL);
     void switch_menu ();
     void ReshapeGame ();
     unsigned int hikey = key;
     unsigned int lokey = key;
     sprintf (DebugBuf, "KeyGame() received %d", key);
-    display (DebugBuf, LOG_MOST);
-
+    display (DebugBuf, LOG_ALL);
+    
     NetworkMissionIsActiveWithDataFlow = false;
     if (camera == 50 && game == GAME_PAUSE)
         {
@@ -9875,7 +9938,7 @@ void KeyGame (unsigned int key, int x, int y)
         return;
         }
     if (key == 557)
-       {
+       { 
        if (!CapsLockActive)
           {
           CapsLockActive = true;
@@ -9887,19 +9950,20 @@ void KeyGame (unsigned int key, int x, int y)
         switch_menu ();
         }
     if (CapsLockActive)
-       {
-
+       { 
+       
        if (key == 8)
-          {
+          { 
           if (MorseSquelches[PreviousMorseSender -1] == false)
-             {
-             MorseSquelches[PreviousMorseSender -1] = true;
+             { 
+             MorseSquelches[PreviousMorseSender -1] = true; 
              sprintf (SystemMessageBufferA, "MORSE: SQUELCHED PLAYER %d", PreviousMorseSender);
              NewSystemMessageNeedsScrolling = true;
+             sound->play (SOUND_BEEP2, false);
              }
           else
-             {
-
+             { 
+             
              unsigned char i;
              for (i=0; i<=9; i++)
                 {
@@ -9907,17 +9971,18 @@ void KeyGame (unsigned int key, int x, int y)
                 }
              sprintf (SystemMessageBufferA, "MORSE: UNSQUELCHED ALL PLAYERS");
              NewSystemMessageNeedsScrolling = true;
+             sound->play (SOUND_BEEP1, false);
              }
           }
        if (key == 92)
-          {
+          { 
           key = '?';
           }
        if (key >= 32 && key <= 192)
-          {
-
+          { 
+          
           TransmitCharacterViaMorseRadio (key);
-          return;
+          return; 
           }
        }
     if (hikey == key_AutoPilot || lokey == key_AutoPilot)
@@ -10149,11 +10214,35 @@ void KeyGame (unsigned int key, int x, int y)
         {
         event_CommsMacro16();
         }
-
-    display ((char *)"Key Pressed 150729ab", LOG_ALL);
-    sprintf (DebugBuf, "%d", key);
-    display (DebugBuf, LOG_ALL);
-
+    else if (hikey == key_CommsMacro17 || lokey == key_CommsMacro17)
+        {
+        event_CommsMacro17();
+        }
+    else if (hikey == key_CommsMacro18 || lokey == key_CommsMacro18)
+        {
+        event_CommsMacro18();
+        }
+    else if (hikey == key_CommsMacro19 || lokey == key_CommsMacro19)
+        {
+        event_CommsMacro19();
+        }
+    else if (hikey == key_MuteMorseRedTeam || lokey == key_MuteMorseRedTeam)
+        {
+        event_MuteMorseRedTeam();
+        }
+    else if (hikey == key_MuteMorseBlueTeam || lokey == key_MuteMorseBlueTeam)
+        {
+        event_MuteMorseBlueTeam();
+        }
+    else if (hikey == key_UnMuteMorseAll || lokey == key_UnMuteMorseAll)
+        {
+        event_UnMuteMorseAll();
+        }
+    
+    display ((char *)"Key Pressed 150729ab", LOG_ALL); 
+    sprintf (DebugBuf, "%d", key); 
+    display (DebugBuf, LOG_ALL);  
+    
     if (key == key_LookBK)
         {
         event_LookBK();
@@ -10179,27 +10268,27 @@ void KeyGame (unsigned int key, int x, int y)
         event_LookUP();
         }
     sdldisplay = true;
-    }
+    } 
 
 void KeyInit (int key, int x, int y)
     {
     display ((char*)"Function Entry: KeyInit()", LOG_MOST);
     void InitLac ();
     void switch_menu ();
-    gl->clearScreen ();
+    gl->clearScreen (); 
     InitLac ();
     switch_menu ();
     fplayer->ai = true;
     camera = 5;
     starttime = SDL_GetTicks ();
-    }
+    } 
 
 void KeyMenu (unsigned char key, int x, int y)
     {
     display ((char*)"Function Entry: KeyMenu()", LOG_MOST);
     void switch_game ();
     void switch_quit();
-    if (key == 27)
+    if (key == 27)   
         {
         if (MissionActive)
             {
@@ -10210,7 +10299,7 @@ void KeyMenu (unsigned char key, int x, int y)
             switch_quit ();
             }
         }
-    }
+    } 
 
 void KeyMission (unsigned char key, int x, int y)
     {
@@ -10233,7 +10322,7 @@ void KeyMission (unsigned char key, int x, int y)
         switch_game ();
         MissionActive = true;
         }
-    }
+    } 
 
 void KeyStats (unsigned char key, int x, int y)
     {
@@ -10249,7 +10338,7 @@ void KeyStats (unsigned char key, int x, int y)
         sound->haltMusic ();
         switch_menu ();
         }
-    }
+    } 
 
 void KeyQuit (unsigned char key, int x, int y)
     {
@@ -10263,21 +10352,21 @@ void KeyQuit (unsigned char key, int x, int y)
         {
         switch_menu ();
         }
-    }
+    } 
 
 void KeyupGame (unsigned int key, int x, int y)
     {
-    display ((char *)"KeyupGame()", LOG_MOST);
+    display ((char *)"KeyupGame()", LOG_MOST); 
     unsigned int hikey = (unsigned int) key;
     unsigned int lokey = (unsigned int) key;
     if (hikey == key_PRIMARY || lokey == key_PRIMARY)
         {
         event_stopCannon ();
         }
-    sprintf (DebugBuf, "%d", key);
-    display (DebugBuf, LOG_MOST);
+    sprintf (DebugBuf, "%d", key); 
+    display (DebugBuf, LOG_MOST);  
     if (key == 557)
-      {
+      { 
       if (CapsLockActive)
          {
          CapsLockActive = false;
@@ -10289,11 +10378,11 @@ void KeyupGame (unsigned int key, int x, int y)
        key -= 512;
        }
     if (key == key_LookBK || key == key_LookDN || key == key_LookLT || key == key_LookRT || key == key_LookUP )
-       {
+       { 
        event_LookFD();
-       camera = 0;
+       camera = 0; 
        }
-    switch (key - 256)
+    switch (key - 256)   
         {
         case KEY_UP:
             keyb_elev = 0;
@@ -10317,7 +10406,7 @@ void KeyupGame (unsigned int key, int x, int y)
             break;
         }
     sdldisplay = true;
-    }
+    } 
 
 static void LacDisplayFunc ()
     {
@@ -10400,11 +10489,11 @@ static void LacDisplayFunc ()
         DisplayQuit ();
         game_view ();
         }
-    }
+    } 
 
 void LacFirstInit ()
     {
-
+    
     void setMissiles (CModel *model);
     void InitReshape ();
     void setLightSource (int gamma);
@@ -10413,7 +10502,7 @@ void LacFirstInit ()
     mathtab_init ();
     display ((char *)"LacFirstInit() 150808AB Creating advanced OpenGL methods", LOG_MOST);
     gl = new GL ();
-
+    
     display ((char *)"Loading textures", LOG_MOST);
     texgrass = gl->genTextureTGA (dirs->getTextures ((char *)"grass1.tga"), 0, 0, 1, false);
     texrocks = gl->genTextureTGA (dirs->getTextures ((char *)"rocks1.tga"), 0, 0, 1, false);
@@ -10621,7 +10710,7 @@ void LacFirstInit ()
     display ((char *)" * P38F.3ds", LOG_MOST);
     g_Load3ds.Import3DS (&model_figBS, dirs->getModels ((char *)"P38F.3ds"));
     model_figBS.setName ((char *)"P38F");
-
+    
     display ((char *)" * cannon1.3ds", LOG_MOST);
     g_Load3ds.Import3DS (&model_cannon1, dirs->getModels ((char *)"cannon1.3ds"));
     model_cannon1.cubex = HitBubbleRadius;
@@ -10632,7 +10721,7 @@ void LacFirstInit ()
     model_cannon1b.cubex = HitBubbleRadius;
     model_cannon1b.cubey = HitBubbleRadius;
     model_cannon1b.cubez = HitBubbleRadius;
-
+    
     display ((char *)" * cannon2.3ds", LOG_MOST);
     g_Load3ds.Import3DS (&model_cannon2, dirs->getModels ((char *)"cannon2.3ds"));
     model_cannon2.nolight = true;
@@ -10738,7 +10827,7 @@ void LacFirstInit ()
     glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
     display ((char *)"Setting up world geometry", LOG_MOST);
     space = new Space ();
-    space->drawlight = true;
+    space->drawlight = true; 
     clip1 = space->z1;
     clip2 = space->z2;
     clip1->x = -ZOOM;
@@ -10748,17 +10837,17 @@ void LacFirstInit ()
     clip2->y = ZOOM;
     clip2->z = ZOOM;
     //
-
+    
     //
     tl.x = 0.0;
     tl.y = -0.5;
-    tl.z = 0.5;
-
-    rot.a = 295;
+    tl.z = 0.5; 
+    
+    rot.a = 295; 
     rot.b = 10;
     rot.c = 00;
     textitle = new CTexture ();
-
+    
     textitle = gl->genTextureTGA (dirs->getTextures ((char *)"LacTitle.tga"), 0, 0, 0, false);
     sungamma = 60;
     setLightSource (60);
@@ -10768,7 +10857,7 @@ void LacFirstInit ()
     glEnable (GL_LIGHTING);
     glEnable (GL_COLOR_MATERIAL);
     glHint (GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
-    }
+    } 
 
 static void LacJoystickAxisFunc (int x, int y, int t, int r, int JoyHatX, int JoyHatY)
     {
@@ -10776,11 +10865,11 @@ static void LacJoystickAxisFunc (int x, int y, int t, int r, int JoyHatX, int Jo
         {
         if (controls == CONTROLS_JOYSTICK || controls == CONTROLS_KEYBOARD)
             {
-
+            
             game_joystickaxis (x, y, t, r, JoyHatX, JoyHatY);
             }
         }
-    }
+    } 
 
 static void LacJoystickButtonFunc (int button)
     {
@@ -10790,18 +10879,18 @@ static void LacJoystickButtonFunc (int button)
             {
             game_JoystickButton (button);
             DoneFiringCannon=0;
-            NetworkMissionIsActiveWithDataFlow = false;
+            NetworkMissionIsActiveWithDataFlow = false; 
             }
         }
     else if (game == GAME_MENU)
         {
         allmenus.eventJoystick (button);
         }
-    }
+    } 
 
 static void LacJoystickHatFunc (int hat)
     {
-
+    
     int normhat = hat;
 
     if (hat % 1000 == SDL_HAT_RIGHT)
@@ -10827,7 +10916,7 @@ static void LacJoystickHatFunc (int hat)
     else
         {
         display ((char *)"LacJoystickHatFunc() Hat Released", LOG_MOST);
-        event_stopCannon ();
+        event_stopCannon (); 
         DoneFiringCannon = 1;
         }
     normhat += (hat / 1000) * 1000;
@@ -10843,7 +10932,7 @@ static void LacJoystickHatFunc (int hat)
         {
         allmenus.eventJoystick (normhat);
         }
-    }
+    } 
 
 static void LacKeyboardFunc (unsigned char uckey, int x, int y)
     {
@@ -10948,7 +11037,7 @@ static void LacKeyboardFunc (unsigned char uckey, int x, int y)
         quitmenu.eventKey (key);
         MouseQuit (1, 1, x, y);
         }
-    }
+    } 
 
 static void LacKeyboardFuncUp (unsigned char key, int x, int y)
     {
@@ -10959,7 +11048,7 @@ static void LacKeyboardFuncUp (unsigned char key, int x, int y)
 #ifdef NOTDEF
     if (game == GAME_PLAY || game == GAME_PAUSE)
         {
-        KeyupGame ((int) key + 256, x, y);
+        KeyupGame ((int) key, x, y);
         }
 #endif /* NOTDEF */
 
@@ -10992,10 +11081,11 @@ static void LacKeyboardFuncUp (unsigned char key, int x, int y)
         }
     KeyupGame ((int) key, x, y);
 
-    }
+    } 
 
 static void LacMouseFunc (int button, int state, int x, int y)
     {
+    // display ((char*)"Function entry: LacMouseFunc()", LOG_MOST);
     // Abstract Event Branch
     void MouseMission (int button, int state, int x, int y);
     void MouseCreate (int button, int state, int x, int y);
@@ -11054,7 +11144,7 @@ static void LacMouseFunc (int button, int state, int x, int y)
         display (DebugBuf, LOG_MOST);
         credits_mouse (button, state, x, y);
         }
-    }
+    } 
 
 static void LacPassiveMotionFunc (int x, int y)
     {
@@ -11090,7 +11180,7 @@ static void LacPassiveMotionFunc (int x, int y)
         quitmenu.eventMouse (x, y, 0);
         MouseQuit (-1, -1, x, y);
         }
-    }
+    } 
 
 static void LacPassiveRelMotionFunc (int xrel, int yrel)
     {
@@ -11103,7 +11193,6 @@ static void LacPassiveRelMotionFunc (int xrel, int yrel)
 
 void LacReshapeFunc (int width, int height)
     {
-    display ((char*)"Function entry: LacReshapFunc()", LOG_MOST);
     // Abstract Event Branch
     void ReshapeGame ();
     void ReshapeMenu ();
@@ -11133,7 +11222,7 @@ void LacReshapeFunc (int width, int height)
         {
         ReshapeStats ();
         }
-    }
+    } 
 
 // Note: these no longer used, remove once everything's working
 #ifdef NOTDEF
@@ -11147,7 +11236,7 @@ static void LacSpecialFunc (int key, int x, int y)
         {
         allmenus.eventSpecial (key);
         }
-    }
+    } 
 
 static void LacSpecialFuncUp (int key, int x, int y)
     {
@@ -11155,7 +11244,7 @@ static void LacSpecialFuncUp (int key, int x, int y)
         {
         KeyupGame (key + 256, x, y);
         }
-    }
+    } 
 
 #endif /* NOTDEF */
 
@@ -11172,26 +11261,26 @@ static void LacTimerFunc (int value)
     void TimerMission (Uint32 dt);
     void TimerStats (Uint32 dt);
     Uint32 akttime, dt;
-
+    
     akttime = SDL_GetTicks ();
     if (LastTime == 0)
         {
-
-        dt = 1;
+        
+        dt = 1; 
         }
     else
         {
-
+        
         dt = akttime - LastTime;
         }
-
+    
     LastTime = akttime;
-
+    
     if (dt > 1000)
         {
         dt = 1;
         }
-
+    
     DeltaTime = dt;
 
     if (game == GAME_PLAY)
@@ -11250,20 +11339,20 @@ static void LacTimerFunc (int value)
             }
         TimerMission (dt);
         }
-    }
+    } 
 
 void LookBack()
 {
         fplayer->draw=1;
         float cgamma = fplayer->gamma - (AngleAheadToBestViewpoint + 50) * COS(fplayer->theta);
         float cphi = fplayer->phi - (AngleAheadToBestViewpoint + 50) * SIN(fplayer->theta);
-        float fac = fplayer->zoom/5;
+        float fac = fplayer->zoom/5; 
         camx = fplayer->tl->x - COS(cgamma) * SIN(cphi) * (fac/PilotPositionFactor) * 0.5;
         camy = fplayer->tl->y + SIN(cgamma) * (fac/PilotPositionFactor) * 0.5;
         camz = fplayer->tl->z - COS(cgamma) * COS(cphi) * (fac/PilotPositionFactor) * 0.5;
         if (SkewViewBack)
             {
-
+            
             SkewViewBack--;
             if (SkewViewBack == 19)
                 {
@@ -11340,8 +11429,8 @@ void LookBack()
             }
         else
             {
-
-            camphi = fplayer->phi;
+            
+            camphi = fplayer->phi; 
             }
         if (camphi > 360)
             {
@@ -11351,60 +11440,60 @@ void LookBack()
             {
             camphi +=360;
             }
-        camgamma = -fplayer->gamma;
-        camtheta = -fplayer->theta + 180;
+        camgamma = -fplayer->gamma; 
+        camtheta = -fplayer->theta + 180; 
         if(camtheta >= 180)
             {
             camtheta-=360;
             }
-    }
+    } 
 
 void LookChase()
 {
-        ChaseViewDistance = fplayer->zoom * 1.5;
+        ChaseViewDistance = fplayer->zoom * 1.5; 
         camx = fplayer->tl->x;
         camz = fplayer->tl->z;
         if (!view_x)
-           {
+           { 
            camx = fplayer->tl->x + ChaseViewDistance * SIN(fplayer->phi);
            camz = fplayer->tl->z + ChaseViewDistance * COS(fplayer->phi);
            }
         else
-        {
+        { 
            camx = fplayer->tl->x;
            camz = fplayer->tl->z;
         }
         if (!view_y)
-           {
-           camy = fplayer->tl->y + fplayer->zoom * 0.25;
+           { 
+           camy = fplayer->tl->y + fplayer->zoom * 0.25; 
            }
         else if (view_y < 0)
-           {
+           { 
            camy = fplayer->tl->y - (ChaseViewDistance * 1.5);
            }
         else if (view_y > 0)
-           {
+           { 
            camy = fplayer->tl->y + (ChaseViewDistance * 2);
            }
         camphi = fplayer->phi;
         fplayer->draw = 1;
-        camgamma = 5;
-        camtheta = fplayer->theta;
-}
+        camgamma = 5; 
+        camtheta = fplayer->theta; 
+} 
 
 void LookDown()
 {
         camx = fplayer->tl->x;
         camy = fplayer->tl->y;
         camz = fplayer->tl->z;
-        camphi = fplayer->phi;
-        camtheta = fplayer->theta;
-        camgamma = -fplayer->gamma-90;
-}
+        camphi = fplayer->phi;         
+        camtheta = fplayer->theta;     
+        camgamma = -fplayer->gamma-90; 
+} 
 
 void LookForward ()
    {
-
+   
    SkewViewBack = 20;
    SkewViewLeft = 0;
    SkewViewRight = 0;
@@ -11416,55 +11505,55 @@ void LookForward ()
    PriorGamma = 0;
    GammaDelta = 0;
    if (fabs(ThetaDelta) > 5 )
-      {
+      { 
       ThetaDelta = 5;
       }
    if (fabs(ThetaDelta) < 1.0 )
-      {
+      { 
       ThetaDelta = 0;
       }
-
+   
    float cgamma = fplayer->gamma + AngleAheadToBestViewpoint * COS(fplayer->theta);
    float cphi = fplayer->phi + AngleAheadToBestViewpoint * SIN(fplayer->theta);
-   float fac = fplayer->zoom;
+   float fac = fplayer->zoom; 
    camx = fplayer->tl->x + COS(cgamma) * SIN(cphi) * (fac/PilotPositionFactor);
    camy = fplayer->tl->y - SIN(cgamma) * (fac/PilotPositionFactor);
    camz = fplayer->tl->z + COS(cgamma) * COS(cphi) * (fac/PilotPositionFactor);
    camphi = fplayer->phi;
    camgamma = -fplayer->gamma + 180;
    camtheta = fplayer->theta;
-
+   
    fplayer->draw = 0;
-}
+} 
 
 void LookLeft ()
    {
-
+   
    SkewViewLeft++;
    if (SkewViewLeft>20)
       {
       SkewViewLeft=20;
       }
-
-   float CamGammaTemp1 = 0;
-   float CamGammaTemp2 = 0;
-   float CamPhiTemp1   = 0;
-   float CamThetaTemp1 = 0;
-   float CamThetaTemp2 = 0;
-
+   
+   float CamGammaTemp1 = 0; 
+   float CamGammaTemp2 = 0; 
+   float CamPhiTemp1   = 0; 
+   float CamThetaTemp1 = 0; 
+   float CamThetaTemp2 = 0; 
+   
    float cgamma = fplayer->gamma - (AngleAheadToBestViewpoint + 50) * COS(fplayer->theta);
    float cphi = fplayer->phi - (AngleAheadToBestViewpoint + 50) * SIN(fplayer->theta);
-   float fac = fplayer->zoom/5;
+   float fac = fplayer->zoom/5; 
    camx = fplayer->tl->x - COS(cgamma) * SIN(cphi) * (fac/PilotPositionFactor) * 0.5;
    camy = fplayer->tl->y + SIN(cgamma) * (fac/PilotPositionFactor) * 0.5;
    camz = fplayer->tl->z - COS(cgamma) * COS(cphi) * (fac/PilotPositionFactor) * 0.5;
-
+   
    float DegreesToRadiansFactor = 0.01745333;
    float FlyingFlatComponent = cosf(((fplayer->gamma) * DegreesToRadiansFactor));
    FlyingFlatComponent = -(FlyingFlatComponent);
    float FlyingVerticalComponent = sinf(((fplayer->gamma) * DegreesToRadiansFactor));
    FlyingVerticalComponent = -(FlyingVerticalComponent);
-
+   
    ThetaNormalized = fplayer->theta+180;
    if (ThetaNormalized > 360)
       {
@@ -11474,16 +11563,16 @@ void LookLeft ()
       {
       ThetaNormalized += 360;
       }
-
+   
    float RollDeviationFromHorizontal = 180-ThetaNormalized;
-
+   
    if (!FlightIsInverted)
-      {
+      { 
       CamGammaTemp1  =  -(RollDeviationFromHorizontal * FlyingFlatComponent) * (float)(SkewViewLeft/20.0);
       }
    else
-      {
-
+      { 
+      
       CamGammaTemp1  =  -((RollDeviationFromHorizontal-180) * FlyingFlatComponent) * (float) (SkewViewLeft/20.0);
       if (CamGammaTemp1 > 360)
          {
@@ -11494,11 +11583,11 @@ void LookLeft ()
          CamGammaTemp1 += 360;
          }
       }
-
-   CamGammaTemp2 = 0;
-
+   
+   CamGammaTemp2 = 0; 
+   
    if (!FlightIsInverted)
-      {
+      { 
       CamPhiTemp1 =  (fplayer->phi) + 90 * (float)SkewViewLeft/20.0;
       if (CamPhiTemp1>360)
          {
@@ -11508,9 +11597,9 @@ void LookLeft ()
          {
          CamPhiTemp1+=360;
          }
-      }
+      } 
    else
-      {
+      { 
       CamPhiTemp1 = (fplayer->phi) - 90 * (float)SkewViewLeft/20.0;
       if (CamPhiTemp1 > 360)
          {
@@ -11521,21 +11610,21 @@ void LookLeft ()
          CamPhiTemp1 +=360;
          }
       }
-
+   
    float ThetaDelta = PriorThetaNormalized - ThetaNormalized;
-
+   
    if (fabs(ThetaDelta > 5))
-     {
+     { 
      ThetaDelta=5;
      }
    if (fabs(ThetaDelta) < 1.0 )
-     {
+     { 
      ThetaDelta = 0;
      }
    if (!FlightIsInverted)
-     {
-     CamPhiTemp2 += (ThetaDelta * FlyingVerticalComponent);
-
+     { 
+     CamPhiTemp2 += (ThetaDelta * FlyingVerticalComponent); 
+     
      CamPhiTemp2 *= (float)SkewViewLeft/20.0;
      if (CamPhiTemp2 > 360)
         {
@@ -11547,9 +11636,9 @@ void LookLeft ()
         }
      }
    if (FlightIsInverted)
-     {
-     CamPhiTemp2 += (ThetaDelta * FlyingVerticalComponent);
-
+     { 
+     CamPhiTemp2 += (ThetaDelta * FlyingVerticalComponent); 
+     
      CamPhiTemp2 *= (float)SkewViewLeft/20.0;
      if (CamPhiTemp2 > 360)
         {
@@ -11560,10 +11649,10 @@ void LookLeft ()
         CamPhiTemp2 +=360;
         }
      }
-
+   
    if (FlightIsInverted)
-      {
-      CamThetaTemp1 = -(fplayer->gamma) + 180;
+      { 
+      CamThetaTemp1 = -(fplayer->gamma) + 180; 
       if (CamThetaTemp1 >360)
          {
          CamThetaTemp1-=360;
@@ -11574,8 +11663,8 @@ void LookLeft ()
          }
       }
    else
-      {
-      CamThetaTemp1 = (fplayer->gamma) + 180;
+      { 
+      CamThetaTemp1 = (fplayer->gamma) + 180; 
       if (CamThetaTemp1 >360)
          {
          CamThetaTemp1-=360;
@@ -11585,27 +11674,27 @@ void LookLeft ()
          CamThetaTemp1+=360;
          }
       }
-
-   camgamma = CamGammaTemp1 + CamGammaTemp2;
-   camphi = CamPhiTemp1 + CamPhiTemp2;
-   camtheta = CamThetaTemp1 + CamThetaTemp2;
-
+   
+   camgamma = CamGammaTemp1 + CamGammaTemp2; 
+   camphi = CamPhiTemp1 + CamPhiTemp2;       
+   camtheta = CamThetaTemp1 + CamThetaTemp2; 
+   
    PriorThetaNormalized=ThetaNormalized;
    camtheta -=11;
-   fplayer->draw=1;
-   }
+   fplayer->draw=1; 
+   } 
 
 void LookMap ()
-{
-gl->enableFog (254.0);
+{ 
+gl->enableFog (254.0); 
 camx = fplayer->tl->x - (float) MapEastWestScroll;
-camy = 160.0 + (float)MapZoomFactor;
+camy = 230.0 + (float)MapZoomFactor; 
 camz = fplayer->tl->z - (float) MapNorthSouthScroll;
 camphi = 0;
 fplayer->draw = 1;
 camgamma = 90;
-camtheta = 140.0 + (float)mission->heading;
-}
+camtheta = 140.0 + (float)mission->heading; 
+} 
 
 void LookMissile (float cf)
 {
@@ -11616,36 +11705,36 @@ camz = missile [0]->tl->z + cf * COS(missile [0]->phi);
 camphi = missile [0]->phi;
 camtheta = fplayer->theta;
 fplayer->draw = 1;
-}
+} 
 
 void LookRight ()
 {
-
+        
         SkewViewRight++;
         if (SkewViewRight>20)
            {
            SkewViewRight=20;
            }
-
-        float CamGammaTemp1 = 0;
-        float CamGammaTemp2 = 0;
-        float CamPhiTemp1   = 0;
-        float CamThetaTemp1 = 0;
-        float CamThetaTemp2 = 0;
-
+        
+        float CamGammaTemp1 = 0; 
+        float CamGammaTemp2 = 0; 
+        float CamPhiTemp1   = 0; 
+        float CamThetaTemp1 = 0; 
+        float CamThetaTemp2 = 0; 
+        
         float cgamma = fplayer->gamma - (AngleAheadToBestViewpoint + 50) * COS(fplayer->theta);
         float cphi = fplayer->phi - (AngleAheadToBestViewpoint + 50) * SIN(fplayer->theta);
-        float fac = fplayer->zoom/5;
+        float fac = fplayer->zoom/5; 
         camx = fplayer->tl->x - COS(cgamma) * SIN(cphi) * (fac/PilotPositionFactor) * 0.5;
         camy = fplayer->tl->y + SIN(cgamma) * (fac/PilotPositionFactor) * 0.5;
         camz = fplayer->tl->z - COS(cgamma) * COS(cphi) * (fac/PilotPositionFactor) * 0.5;
-
+        
         float DegreesToRadiansFactor = 0.01745333;
         float FlyingFlatComponent = cosf(((fplayer->gamma) * DegreesToRadiansFactor));
         FlyingFlatComponent = -(FlyingFlatComponent);
         float FlyingVerticalComponent = sinf(((fplayer->gamma) * DegreesToRadiansFactor));
         FlyingVerticalComponent = -(FlyingVerticalComponent);
-
+        
         ThetaNormalized = fplayer->theta+180;
         if (ThetaNormalized > 360)
            {
@@ -11655,17 +11744,17 @@ void LookRight ()
            {
            ThetaNormalized += 360;
            }
-
+        
          float RollDeviationFromHorizontal = 180-ThetaNormalized;
-
+        
         if (!FlightIsInverted)
            {
-
+           
            CamGammaTemp1  =  (RollDeviationFromHorizontal * FlyingFlatComponent) * (float)(SkewViewRight/20.0);
            }
         else
-           {
-
+           { 
+           
            CamGammaTemp1  =  ((RollDeviationFromHorizontal+180) * FlyingFlatComponent) * (float) (SkewViewRight/20.0);
            }
         if (CamGammaTemp1 > 360)
@@ -11676,11 +11765,11 @@ void LookRight ()
            {
            CamGammaTemp1 += 360;
            }
-
-        CamGammaTemp2 = 0;
-
+        
+        CamGammaTemp2 = 0; 
+        
         if (!FlightIsInverted)
-           {
+           { 
            CamPhiTemp1 =  (fplayer->phi) - 90 * (float)SkewViewRight/20.0;
            if (CamPhiTemp1>360)
               {
@@ -11690,9 +11779,9 @@ void LookRight ()
               {
               CamPhiTemp1+=360;
               }
-           }
+           } 
         else
-           {
+           { 
            CamPhiTemp1 = (fplayer->phi) + 90 * (float)SkewViewRight/20.0;
            if (CamPhiTemp1 > 360)
               {
@@ -11703,21 +11792,21 @@ void LookRight ()
               CamPhiTemp1 +=360;
               }
            }
-
+        
         float ThetaDelta = PriorThetaNormalized - ThetaNormalized;
-
+        
         if (fabs(ThetaDelta > 5))
-          {
+          { 
           ThetaDelta=5;
           }
         if (fabs(ThetaDelta) < 1.0 )
-          {
+          { 
           ThetaDelta = 0;
           }
         if (!FlightIsInverted)
-          {
-          CamPhiTemp2 += (ThetaDelta * FlyingVerticalComponent);
-
+          { 
+          CamPhiTemp2 += (ThetaDelta * FlyingVerticalComponent); 
+          
           CamPhiTemp2 *= (float)SkewViewRight/20.0;
           if (CamPhiTemp2 > 360)
              {
@@ -11729,9 +11818,9 @@ void LookRight ()
              }
           }
         if (FlightIsInverted)
-          {
-          CamPhiTemp2 += (ThetaDelta * FlyingVerticalComponent);
-
+          { 
+          CamPhiTemp2 += (ThetaDelta * FlyingVerticalComponent); 
+          
           CamPhiTemp2 *= (float)SkewViewRight/20.0;
           if (CamPhiTemp2 > 360)
              {
@@ -11742,10 +11831,10 @@ void LookRight ()
              CamPhiTemp2 +=360;
              }
           }
-
+        
         if (FlightIsInverted)
-           {
-           CamThetaTemp1 = (fplayer->gamma) + 180;
+           { 
+           CamThetaTemp1 = (fplayer->gamma) + 180; 
            if (CamThetaTemp1 >360)
               {
               CamThetaTemp1-=360;
@@ -11756,8 +11845,8 @@ void LookRight ()
               }
            }
         else
-           {
-           CamThetaTemp1 = -(fplayer->gamma) + 180;
+           { 
+           CamThetaTemp1 = -(fplayer->gamma) + 180; 
            if (CamThetaTemp1 >360)
               {
               CamThetaTemp1-=360;
@@ -11767,43 +11856,43 @@ void LookRight ()
               CamThetaTemp1+=360;
               }
            }
-
-        camgamma = CamGammaTemp1 + CamGammaTemp2;
-        camphi = CamPhiTemp1 + CamPhiTemp2;
-        camtheta = CamThetaTemp1 + CamThetaTemp2;
-
+        
+        camgamma = CamGammaTemp1 + CamGammaTemp2; 
+        camphi = CamPhiTemp1 + CamPhiTemp2;       
+        camtheta = CamThetaTemp1 + CamThetaTemp2; 
+        
         PriorThetaNormalized=ThetaNormalized;
         camtheta +=11;
-        fplayer->draw=1;
-    }
+        fplayer->draw=1; 
+    } 
 
 void LookUp ()
 {
-
+        
         SkewViewUp++;
         if (SkewViewUp>20)
             {
             SkewViewUp = 20;
             }
-
+        
         camx = fplayer->tl->x;
         camy = fplayer->tl->y;
         camz = fplayer->tl->z;
-        camphi = fplayer->phi;
-
+        camphi = fplayer->phi; 
+        
         float DegreesToRadiansFactor = 0.01745333;
         float FlyingFlatComponent = cosf(((fplayer->theta) * DegreesToRadiansFactor));
         float FlyingSidewaysComponent = sinf(((fplayer->theta) * DegreesToRadiansFactor));
         float FlyingVerticalComponent = sinf(((fplayer->gamma) * DegreesToRadiansFactor));
         float ThetaTemp1 = 0;
         float ThetaTemp2 = 0;
-
+        
         GammaDelta = PriorGamma - fplayer->gamma;
         if (fabs(GammaDelta) > 3)
-        {
+        { 
             GammaDelta = 0;
         }
-        ThetaTemp1 = -fplayer->theta;
+        ThetaTemp1 = -fplayer->theta; 
         ThetaTemp2 = -(90 - fabs(fplayer->theta)) * FlyingSidewaysComponent;
         ThetaTemp3 += (GammaDelta * FlyingSidewaysComponent);
 
@@ -12383,7 +12472,7 @@ void LookUp ()
          }
       if (SkewViewUp == 20)
          {
-
+         
          camgamma = 180-fplayer->gamma + 90 * (FlyingFlatComponent);
          if (fabs(FlyingSidewaysComponent) < 0.5)
             {
@@ -12412,7 +12501,7 @@ void LookUp ()
             }
          PriorGamma = fplayer->gamma;
          }
-}
+} 
 
 void mission_display ()
     {
@@ -12439,12 +12528,12 @@ void mission_display ()
     tl.z = -0.5;
     rot.a = 300;
     rot.b = 0;
-
+    
     if (missionnew == NULL)
        {
        display ((char*)"mission_display() alert. missionnew is null.", LOG_MOST);
        }
-    tl.x = -0.16;
+    tl.x = -0.16; 
     rot.c = (5 + MissionMenuTimer * 4 / timestep) % 360;
     ThreeDObjects [0]->zoom = 0.1; //Helps to shrink obscuring components of underlying scene.
     getModel (missionnew->selfighter [0])->draw (&vec, &tl, &rot, 0.04, 0.1, 0);
@@ -12528,19 +12617,19 @@ void mission_display ()
         }
     else if (CurrentMissionNumber == MISSION_HEADTOHEAD00)
         {
-        font1->drawText (xstats / fontscale, -1 / fontscale, -2, (char *)"FOR THIS MISSION, YOUR AIRCRAFT\nIS FULLY ARMED AND FUELED.\n\nIF THERE IS NO ONLINE OPPONENT,\nYOU WILL FLY AGAINST 9 BOTS,\nJUST ONE AT A TIME.)", col);
+        font1->drawText (xstats / fontscale, -1 / fontscale, -2, (char *)"FOR THIS MISSION, YOUR AIRCRAFT\nIS FULLY ARMED AND FUELED.\n\nIF THERE IS NO ONLINE OPPONENT,\nYOU WILL FLY AGAINST 9 BOTS,\nJUST ONE AT A TIME.", col);
         }
     else if (CurrentMissionNumber == MISSION_FREEFLIGHTWW2)
         {
         font1->drawText (xstats / fontscale, -1 / fontscale, -2, (char *)"FOR THIS MISSION, YOUR AIRCRAFT\nIS ONLY ARMED WITH GUNS AND\nAIR/AIR WEAPONS.\n\nTHERE ARE NO AIR-TO-AIR\nTARGETS, BUT YOU CAN STRAFE\nTHE GROUND.\n\nTHIS MISSION IS ALSO GOOD\nFOR PRACTICING LANDINGS\nAND TAKE-OFFS.)", col);
         }
     else
-        {
+        { 
         font1->drawText (xstats / fontscale, -1 / fontscale, -2, (char *)"SELECT STARTING AIRFIELD\n(CLICK AIRFIELD NAME BELOW):", col);
         if (AirfieldRequested == 1)
            {
            if (MyNetworkId%2)
-              {
+              { 
               font1->drawText (xstats / fontscale, -4 / fontscale, -2, (char *)"NEAR THE ENEMY (RADAR BLIP 29): \nRED HQ AIRFIELD \n(BOMBERS 50% LOAD)", col);
               }
            else
@@ -12551,22 +12640,22 @@ void mission_display ()
         else if (AirfieldRequested == 2)
            {
            if (MyNetworkId%2)
-              {
+              { 
               font1->drawText (xstats / fontscale, -4 / fontscale, -2, (char *)"FARTHER OUT: \nRED AIRFIELD 2 (ADJACENT)\n(BOMBERS 75% LOAD)", col);
               }
            else
-              {
+              { 
               font1->drawText (xstats / fontscale, -4 / fontscale, -2, (char *)"FARTHER OUT: \nBLUE AIRFIELD 2 (ADJACENT)\n(BOMBERS 75% LOAD)", col);
               }
            }
         else if (AirfieldRequested == 3)
            {
            if (MyNetworkId%2)
-              {
+              { 
               font1->drawText (xstats / fontscale, -4 / fontscale, -2, (char *)"EVEN FARTHER OUT: \nRED AIRFIELD 3 (FIGHTERS)\nOR RED AIRFIELD 4 (BOMBERS)\n(BOMBERS 100% LOAD)", col);
               }
            else
-              {
+              { 
               font1->drawText (xstats / fontscale, -4 / fontscale, -2, (char *)"EVEN FARTHER OUT: \nBLUE AIRFIELD 3 (FIGHTERS)\nOR BLUE AIRFIELD 4 (BOMBERS)\n(BOMBERS 100% LOAD)", col);
               }
            }
@@ -12574,16 +12663,16 @@ void mission_display ()
     font1->zoom = 0.1;
     font2->zoom = 0.1;
     drawMouseCursor ();
-    }
+    } 
 
 void MouseMission (int button, int state, int x, int y)
     {
     float rx = (float) x / width;
     float ry = (float) y / height;
     if (ry >= 0.53 && ry <= 0.65)
-        {
+        { 
         if (rx >= 0.18 && rx < 0.28)
-            {
+            { 
             if (state == MOUSE_DOWN)
                 {
                 display ((char*)"MouseMission() area 1 click detected", LOG_MOST);
@@ -12591,10 +12680,10 @@ void MouseMission (int button, int state, int x, int y)
                 }
             }
         if (rx >= 0.35 && rx < 0.48)
-            {
-
+            { 
+            
             if (state == MOUSE_DOWN)
-                {
+                { 
                 display ((char*)"MouseMission() area 2 click detected", LOG_MOST);
                 }
             }
@@ -12602,7 +12691,7 @@ void MouseMission (int button, int state, int x, int y)
     if (ry >= 0.53 && ry <= 0.65)
         {
         if (rx >= 0.54 && rx < 0.64)
-            {
+            { 
             if (state == MOUSE_DOWN)
                 {
                 display ((char*)"MouseMission() area 3 click detected", LOG_MOST);
@@ -12641,7 +12730,7 @@ void MouseMission (int button, int state, int x, int y)
                 }
             }
         }
-    }
+    } 
 
 void MouseQuit (int button, int state, int x, int y)
     {
@@ -12664,8 +12753,7 @@ void MouseQuit (int button, int state, int x, int y)
                 }
             }
         }
-    }
-
+    } 
 
 void Mumble1p2ChannelChange(char MumbleUrl[])
 {
@@ -12673,33 +12761,33 @@ display ((char *)"Mumble1p2ChannelChange(): function entry.", LOG_MOST);
 sprintf (DebugBuf, "Mumble1p2ChannelChange(): MumbleCommandTimer = %d", MumbleCommandTimer);
 display ((char *) DebugBuf, LOG_MOST);
 if (MumbleCommandTimer < 10000)
-   {
+   { 
    sprintf (SystemMessageBufferA, "COMM OVERLOAD. RETRY IN A FEW SECS.");
    NewSystemMessageNeedsScrolling = true;
    display ((char *)"Mumble1p2ChannelChange(): Too many channel change attempts within 10 seconds.", LOG_MOST);
    sound->play (SOUND_BEEP1, false);
-   MumbleChannelPresumed = 98;
+   MumbleChannelPresumed = 98; 
    return;
    }
 else
-   {
+   { 
+   
    display ((char *)"Mumble1p2ChannelChange(): issuing Mumble reset URL.",LOG_MOST);
    // Sometimes my production scripts delete one line of code below this point because
    // it contains an "at" sign. It should invoke "popen()" to call mumble and direct
    // it to a nonexistant server with a nonexistant user named "nobody". If that line
    // is missing, then support for old-style versions of Mumble will fail. In that case,
    // you will need to manually re-insert that line of code right here.....
-   popen ("mumble mumble://nobody:nobody@127.0.0.1/?version=1.2.0", "r");
+   popen ("mumble mumble://nobody:nobody@127.0.0.1/?version=1.2.0", "r");  
    display ((char *)"Mumble1p2ChannelChange(): Setting MumbleCommand1p2Timer to 2000ms.", LOG_MOST);
    MumbleCommand1p2Timer = 2000;
+   
    display ((char *)"Mumble1p2ChannelChange(): Mumble1p2StringActive =", LOG_MOST);
    strncpy (Mumble1p2StringActive, MumbleUrl, 127);
    display (Mumble1p2StringActive, LOG_MOST);
    sound->play (SOUND_BEEP2, false);
    }
 }
-
-
 
 void MumbleChannelChange (char MumbleUrl[])
    {
@@ -12711,62 +12799,61 @@ void MumbleChannelChange (char MumbleUrl[])
    // to issue MumbleChannelChange commands:
    //
    if ((NetworkMode & 4))
-      { // Get here if, for any reason, the user has configured NetworkMode to avoid invoking any version of Mumble.
+      { 
       display ((char *)"MumbleChannelChange(): NetworkMode directs us to avoid use of Mumble. Aborting channel change attempt.", LOG_MOST);
       return;
       }
    if ((NetworkMode & 2) == 0)
-      { // Get here if the operator has NOT configured us to exploit the latest version of Mumble
+      { 
       display ((char *)"MumbleChannelChange() indicates older, incompatible Mumble in use. Invoking Mumble1p2ChannelChange().", LOG_MOST);
       Mumble1p2ChannelChange(MumbleUrl);
       return;
       }
-   // Get here if NetworkMode indicates use of a version of Mumble that can handle our channel change commands.
+   
    sprintf (DebugBuf, "MumbleCommandTimer = %d", MumbleCommandTimer);
    display ((char *) DebugBuf, LOG_MOST);
    if (MumbleCommandTimer < 10000)
-      { // Get here if we haven't waited long enough to issue another Mumble Command
+      { 
       sprintf (SystemMessageBufferA, "COMM OVERLOAD. RETRY IN A FEW SECS.");
       NewSystemMessageNeedsScrolling = true;
       display ((char *)"MumbleChannelChange(): Too many channel change attempts within 10 seconds.", LOG_MOST);
-      sound->setVolume (SOUND_BEEP1, 40);
+      sound->setVolume (SOUND_BEEP1, 40); 
       sound->play (SOUND_BEEP1, false);
-      MumbleChannelPresumed = 98;
+      MumbleChannelPresumed = 98; 
       return;
       }
    else
-      {
+      { 
       if (Realm == 0)
-         { // For Realm 0 we can use MumbleUrl string directly.
+         { 
          popen (MumbleUrl, "r");
          MumbleCommandTimer = 0;
          sprintf (SystemMessageBufferA, "MUMBLE CHANNEL CHANGED.");
          NewSystemMessageNeedsScrolling = true;
          display ((char *)"MumbleChannelChange() Mumble Channel change command issued.", LOG_MOST);
-         sound->setVolume (SOUND_BEEP2, 40);
-         sound->play (SOUND_BEEP2, false);
+         sound->setVolume (SOUND_BEEP2, 40); 
+         sound->play (SOUND_BEEP2, false); 
          }
       else if (Realm == 1)
-         { // For Realm 1 we need to change "R0" to "R1" within MumbleUrl string
+         { 
          ConvertUrlToRealm1(MumbleUrl);
          popen (ConvertedMumbleUrl, "r");
          MumbleCommandTimer = 0;
          sprintf (SystemMessageBufferA, "MUMBLE CHANNEL CHANGED.");
          NewSystemMessageNeedsScrolling = true;
          display ((char *)"MumbleChannelChange() Mumble Channel change command issued.", LOG_MOST);
-         sound->setVolume (SOUND_BEEP2, 40);
-         sound->play (SOUND_BEEP2, false);
+         sound->setVolume (SOUND_BEEP2, 40); 
+         sound->play (SOUND_BEEP2, false); 
          }
       else
-         { // Get here if player's Realm is not one of the popular, standard values "0" or "1"
-         // Just drop them into the "LinuxAirCombat" channel.
+         { 
+         
          popen ("mumble mumble://linuxaircombat.com/LinuxAirCombat?title=Root&version=1.2.0", "r");
-         MumbleChannelPresumed = 99; // Signal Mumble Panel NOT to declare channel
+         MumbleChannelPresumed = 99; 
          }
       }
-   MumbleCommandTimer = 0;
-   }
-
+   MumbleCommandTimer = 0; 
+   } 
 
 void pause_display ()
     {
@@ -12775,7 +12862,7 @@ void pause_display ()
     glPushMatrix ();
     font1->drawTextCentered (0, 4, -2, (char *)"PAUSED. PRESS ESCAPE.", &colorwhite);
     glPopMatrix ();
-    }
+    } 
 
 void playRandomMusic ()
     {
@@ -12801,8 +12888,8 @@ void playRandomMusic ()
         sound->loadMusic (MUSIC_MUSIC03);
         }
     sound->playMusic (1);
-    //Mix_HookMusicFinished (playRandomMusic);
-    }
+    //Mix_HookMusicFinished (playRandomMusic); 
+    } 
 
 void pleaseWait ()
     {
@@ -12829,7 +12916,7 @@ void pleaseWait ()
     glEnd ();
     font1->drawTextCentered (0, -0.5, -1.5, (char *)"PLEASE WAIT...", &colorwhite);
     game_view ();
-    }
+    } 
 
 void proceedFire ()
     {
@@ -12910,7 +12997,7 @@ void proceedFire ()
     glBindTexture (GL_TEXTURE_2D, 5000);
     glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexImage2D (GL_TEXTURE_2D, 0, 4, maxfx, maxfy, 0, GL_RGBA, GL_UNSIGNED_BYTE, firetex);
-    }
+    } 
 
 void ReshapeCredits ()
     {
@@ -12925,7 +13012,7 @@ void ReshapeCredits ()
     gluPerspective (VisibleAngle, 1.0, nearclippingplane * GLOBALSCALE, v * GLOBALSCALE);
     glPolygonMode (GL_FRONT_AND_BACK, polygonMode);
     SDL_ShowCursor (0);
-    }
+    } 
 
 void ReshapeGame ()
     {
@@ -12937,12 +13024,12 @@ void ReshapeGame ()
         {
         v = 100000.0;
         }
-
+    
     nearclippingplane = fplayer->ClipDistance;
     gluPerspective (VisibleAngle, (float) width / height, nearclippingplane * GLOBALSCALE, v * GLOBALSCALE);
     glPolygonMode (GL_FRONT_AND_BACK, polygonMode);
     SDL_ShowCursor (0);
-    }
+    } 
 
 void ReshapeMenu ()
     {
@@ -12959,7 +13046,7 @@ void ReshapeMenu ()
     gluPerspective (VisibleAngle, 1.0, nearclippingplane * GLOBALSCALE, v * GLOBALSCALE);
     glPolygonMode (GL_FRONT_AND_BACK, polygonMode);
     SDL_ShowCursor (0);
-    }
+    } 
 
 void ReshapeStats ()
     {
@@ -12974,7 +13061,7 @@ void ReshapeStats ()
     gluPerspective (VisibleAngle, 1.0, nearclippingplane * GLOBALSCALE, v * GLOBALSCALE);
     glPolygonMode (GL_FRONT_AND_BACK, polygonMode);
     SDL_ShowCursor (0);
-    }
+    } 
 
 void sdlMainLoop ()
     {
@@ -12983,19 +13070,19 @@ void sdlMainLoop ()
     display ((char*)"Function Entry: sdlMainLoop()", LOG_MOST);
     while (true)
         {
-
+        
         CountdownTimer--;
         if (CountdownTimer<0)
             {
-
-            CountdownTimer=20;
-
-            Turbulence = ((float) myrandom (10000)) * 0.0000025 * TurbulenceFactor;
-            Turbulence -= TurbulenceFactor * 0.0125;
+            
+            CountdownTimer=20; 
+            
+            Turbulence = ((float) myrandom (10000)) * 0.0000025 * TurbulenceFactor; 
+            Turbulence -= TurbulenceFactor * 0.0125; 
             TargetVocalizeProcess1();
             TargetVocalizeProcess2();
             }
-        while (SDL_PollEvent (&event))
+        while (SDL_PollEvent (&event))   
             {
             switch (event.type)
                 {
@@ -13121,7 +13208,7 @@ void sdlMainLoop ()
                 }
             }
         if (game == GAME_PLAY)
-            {
+            { 
             SkipCount++;
             if (SkipCount>=11)
                 {
@@ -13146,7 +13233,7 @@ void sdlMainLoop ()
         sdlreshape = false;
         LacTimerFunc (1); // dummy value
         }
-    }
+    } 
 
 void setLightSource (int gamma)
     {
@@ -13154,7 +13241,7 @@ void setLightSource (int gamma)
     light_position0 [1] = sine [gamma];
     light_position0 [2] = 0;
     glLightfv (GL_LIGHT0, GL_POSITION, light_position0);
-    }
+    } 
 
 void setJoystickAxisString (int joysetting, char *joystr)
     {
@@ -13169,7 +13256,7 @@ void setJoystickAxisString (int joysetting, char *joystr)
         joystr [1] = 32;
         joystr [2] = '0' + (joysetting % 1000);
         }
-    }
+    } 
 
 // calculate missile rack positions for a fighter
 void setMissiles (CModel *model)
@@ -13200,7 +13287,7 @@ void setMissiles (CModel *model)
             model->addRefPoint (&tlmissile);
             }
         }
-    }
+    } 
 
 void setPlaneVolume ()
     {
@@ -13208,20 +13295,20 @@ void setPlaneVolume ()
         {
         if (fplayer->WEPLevel && ((fplayer->thrust / fplayer->maxthrust)>0.9))
             {
-
+            
             int lev = (int) ((float) 128 * (fplayer->thrust / fplayer->maxthrust)) -1;
             if (PlayerEngineType==0)
                 {
-                sound->setVolume (SOUND_PLANE1, lev);
+                sound->setVolume (SOUND_PLANE1, lev); 
                 }
             else if (PlayerEngineType==1)
                 {
-                sound->setVolume (SOUND_PLANE2, lev);
+                sound->setVolume (SOUND_PLANE2, lev); 
                 }
             }
         else
             {
-
+            
             int lev = (int) ((float) 128 * (fplayer->thrust / fplayer->maxthrust)) - 64;
             if (lev < 1)
                {
@@ -13229,13 +13316,13 @@ void setPlaneVolume ()
                }
             if (PlayerEngineType==0)
                 {
-                sound->setVolume (SOUND_PLANE1, lev);
+                sound->setVolume (SOUND_PLANE1, lev); 
                 }
             else if (PlayerEngineType==1)
                 {
-                sound->setVolume (SOUND_PLANE2, lev);
+                sound->setVolume (SOUND_PLANE2, lev); 
                 }
-            fplayer->WEPLevel=0;
+            fplayer->WEPLevel=0; 
             }
         sound->engine = (int) (fplayer->thrust / fplayer->maxthrust * 20) - 10;
         if(PlayerEngineType==0)
@@ -13248,7 +13335,7 @@ void setPlaneVolume ()
             }
         }
     else
-        {
+        { 
         if (PlayerEngineType==0)
             {
             sound->setVolume (SOUND_PLANE1, 0);
@@ -13258,11 +13345,11 @@ void setPlaneVolume ()
             sound->setVolume (SOUND_PLANE2, 0);
             }
         }
-    }
+    } 
 
 int setScreen (int w, int h, int b, int f)
     {
-
+    
     Uint32 video_flags;
 
     int numdisplays, nummodes;
@@ -13359,16 +13446,16 @@ int setScreen (int w, int h, int b, int f)
     fprintf(stderr, "Note: setScreen Video %d %d %d\n", w, h, b);
 
     glViewport (0, 0, (GLint) w, (GLint) h);
-
+    
     width = w;
     height = h;
     bpp = b; // Note: this is from input, not actual mode.
     fullscreen = f;
-    wantwidth = w;
+    wantwidth = w; 
     wantheight = h;
     wantfullscreen = f;
     return 1;
-    }
+    } 
 
 void switch_credits ()
     {
@@ -13387,10 +13474,10 @@ void switch_credits ()
         }
 
     sound->stop (SOUND_CANNON1);
-    }
+    } 
 
 void switch_fighter ()
-    {
+    { 
     display ((char*)"switch_fighter()", LOG_MOST);
     LastTime = 0;
     setLightSource (60);
@@ -13409,20 +13496,22 @@ void switch_fighter ()
         {
         playRandomMusic ();
         }
-    }
+    } 
 
 void switch_game ()
     {
-
+    
     unsigned char i;
     for (i=0; i<=9; i++)
        {
-       MorseSquelches[i] = false;
+       MorseSquelches[i] = false; 
        }
-    TargetSelectNotYetInitialized = true;
-    MissionOutPacketCount = 0;
-    NetworkTransmitTimer = -1000;
-    NetworkMissionIsActiveWithDataFlow = false;
+    Promoted = false; 
+    TargetSelectNotYetInitialized = true; 
+    RefuelRearmRepairDurationTimer = 0; 
+    MissionOutPacketCount = 0;  
+    NetworkTransmitTimer = -1000; 
+    NetworkMissionIsActiveWithDataFlow = false; 
     LastTime = 0;
     PlayersOriginalMaxThrust = fplayer->maxthrust;
     PlayersOriginalRollRate = fplayer->RollRate;
@@ -13447,16 +13536,16 @@ void switch_game ()
     sound->stop (SOUND_LACSTARTUP00);
     GunCameraActive = false;
     setPlaneVolume ();
-    sprintf (SystemMessageBuffer0, " ");
-    sprintf (SystemMessageBuffer1, " ");
-    sprintf (SystemMessageBuffer2, " ");
-    sprintf (SystemMessageBufferA, " ");
+    sprintf (SystemMessageBuffer0, " "); 
+    sprintf (SystemMessageBuffer1, " "); 
+    sprintf (SystemMessageBuffer2, " "); 
+    sprintf (SystemMessageBufferA, " "); 
     NewSystemMessageNeedsScrolling = true;
 
 //    SDL_WM_GrabInput (SDL_GRAB_ON);
     SDL_SetRelativeMouseMode(SDL_TRUE);
 
-    }
+    } 
 
 void switch_menu ()
     {
@@ -13481,7 +13570,7 @@ void switch_menu ()
         }
     allmenus.visible = true;
     allmenus.components [0]->setVisible (true);
-
+    
     if (currentsubmenu)
         {
         currentsubmenu->setVisible (true);
@@ -13497,7 +13586,7 @@ void switch_menu ()
 
 //    SDL_WM_GrabInput (SDL_GRAB_OFF);
     SDL_SetRelativeMouseMode(SDL_FALSE);
-    }
+    } 
 
 void switch_mission (int missionid)
     {
@@ -13521,13 +13610,13 @@ void switch_mission (int missionid)
         {
         playRandomMusic ();
         }
-    }
+    } 
 
 void switch_quit ()
     {
     LastTime = 0;
     game = GAME_QUIT;
-    }
+    } 
 
 void TargetVocalizeProcess1 ()
    {
@@ -13681,7 +13770,7 @@ void TargetVocalizeProcess1 ()
       State3Vocalized = false;
       State2Vocalized = true;
       State1Vocalized = false;
-      }
+      } 
    else if (TargetVocalize1State == 3  && !State3Vocalized)
       {
       sound->setVolume (SOUND_IsAt, 90);
@@ -13696,11 +13785,11 @@ void TargetVocalizeProcess1 ()
       State1Vocalized = false;
       }
    else if (TargetVocalize1State == 4  && !State4Vocalized)
-      {
+      { 
       int InterceptAngle = fplayer->getAngle (ThreeDObjects [SelectedMissionTarget]);
       InterceptAngle *= -1;
       if (InterceptAngle < 0)
-             {
+             { 
              InterceptAngle += 360;
              }
       if (InterceptAngle >= 0  && InterceptAngle < 15)
@@ -13763,7 +13852,7 @@ void TargetVocalizeProcess1 ()
       State3Vocalized = false;
       State2Vocalized = false;
       State1Vocalized = false;
-      }
+      } 
    else if (TargetVocalize1State == 5  && !State5Vocalized)
       {
       sound->setVolume (SOUND_Oclock, 90);
@@ -13791,7 +13880,7 @@ void TargetVocalizeProcess1 ()
       State1Vocalized = false;
       }
    else if (TargetVocalize1State == 7  && !State7Vocalized)
-      {
+      { 
       if (TargetAltitude < 500.0)
          {
          sound->setVolume (SOUND_DIGIT000, 90);
@@ -13905,14 +13994,14 @@ void TargetVocalizeProcess1 ()
       State3Vocalized = false;
       State2Vocalized = false;
       State1Vocalized = false;
-      }
+      } 
    else if (TargetVocalize1State == 8  && !State8Vocalized)
-      {
+      { 
       if ((TargetAltitude > 20000) && (TargetAltitude > 30000))
-         {
+         { 
          // Vocalizer doesn't work above 20000 feet.
          sound->play (SOUND_BEEP1, false);
-         }
+         } 
       else if ((TargetAltitude > 30000) && (TargetAltitude < 40000))
          { // Get here if target altitude is between 30K and 40K feet
          sound->play (SOUND_BEEP1, false);
@@ -13928,19 +14017,18 @@ void TargetVocalizeProcess1 ()
       TargetVocalize1State = 0;
       TargetVocalizeTimer1 = 0;
       }
-   }
-
+   } 
 
 void TargetVocalizeProcess2 ()
 {
 extern int TargetVocalizeTimer2;
-TargetVocalizeTimer2 -= DeltaTime;
+TargetVocalizeTimer2 -= DeltaTime; 
 if (TargetVocalizeTimer2 < 0)
-   {
+   { 
    TargetVocalizeTimer2 = 0;
    }
 if (TargetVocalizeTimer2 ==0 && TargetVocalize2State)
-   {
+   { 
    switch (SelectedMissionTarget)
       {
       case 1:
@@ -14019,7 +14107,7 @@ if (TargetVocalizeTimer2 ==0 && TargetVocalize2State)
           }
       }
    }
-}
+} 
 
 void textControls (char *buf)
     {
@@ -14047,7 +14135,7 @@ void textMouseButton (char *buf, int button)
         {
         sprintf (buf, "BUTTON%d", button);
         }
-    }
+    } 
 
 void TimerCredits (Uint32 dt)
     {
@@ -14058,7 +14146,7 @@ void TimerCredits (Uint32 dt)
         CreditsTimer = 0;
         }
     sdldisplay = true;
-    }
+    } 
 
 void TimerFinish (Uint32 dt)
     {
@@ -14069,7 +14157,7 @@ void TimerFinish (Uint32 dt)
         FinishTimer = 0;
         }
     sdldisplay = true;
-    }
+    } 
 
 /*
 *
@@ -14079,14 +14167,14 @@ void TimerGame (int dt)
     {
     int i, i2;
     sunlight += (sunlight_dest - sunlight) / 10 * dt / timestep;
-    MumbleCommandTimer += dt;
-    MumbleCommand1p2Timer -= dt;
+    MumbleCommandTimer += dt; 
+    MumbleCommand1p2Timer -= dt; 
     if (MumbleCommand1p2Timer < 1000)
-       {
+       { 
        display ((char *)"TimerGame() issuing old-style Mumble URL for channel change.", LOG_MOST);
        popen (Mumble1p2StringActive, "r");
        display ((char *)"TimerGame() resetting Mumble1p2Timer to infinity.", LOG_MOST);
-       MumbleCommand1p2Timer = 100000000;
+       MumbleCommand1p2Timer = 100000000; 
        MumbleCommandTimer = 0; // Prevent another Mumble channel change for 10 seconds.
        }
     cockpit->dt = dt;
@@ -14102,24 +14190,25 @@ void TimerGame (int dt)
        // and refuel cycle:
        SkipTargetTourWhileRefueling = false;
        }
+
     if(fplayer->UndercarriageLevel)
         {
-
+        
         if(fplayer->InertiallyDampenedPlayerSpeed > (fplayer->FlapSpeed * 0.95))
             {
-
-            sound->setVolume (SOUND_UNDERCARRIAGE, 88);
+            
+            sound->setVolume (SOUND_UNDERCARRIAGE, 88); 
             sound->play (SOUND_UNDERCARRIAGE, false);
             fplayer->UndercarriageLevel=0;
             }
         }
     if(fplayer->FlapsLevel)
         {
-
+        
         if(fplayer->InertiallyDampenedPlayerSpeed > (fplayer->FlapSpeed * 1.1))
             {
-
-            sound->setVolume (SOUND_FLAPSUP, 88);
+            
+            sound->setVolume (SOUND_FLAPSUP, 88); 
             sound->play (SOUND_FLAPSUP, false);
             fplayer->FlapsLevel--;
             switch (fplayer->FlapsLevel)
@@ -14162,23 +14251,23 @@ void TimerGame (int dt)
         }
     if (fplayer->autofire && fplayer->active)
         {
-
+        
         if (fplayer->ammo > 0)
             {
-
+            
             fplayer->fireCannon (MachineGunBullet);
             sound->setVolume (SOUND_CANNON1, 120);
             sound->play (SOUND_CANNON1, 1);
             }
         else
             {
-
+            
             sound->stop (SOUND_CANNON1);
             }
         }
     else
         {
-
+        
         if (StartCannon)
             {
             StartCannon = false;
@@ -14187,8 +14276,9 @@ void TimerGame (int dt)
         }
     if (lastDurability > fplayer->Durability && !fplayer->ai && !LandedAtSafeSpeed)
         {
-        fplayer->RollRate *=0.95;
-        fplayer->maxthrust*=0.995;
+        
+        fplayer->RollRate *=0.95; 
+        fplayer->maxthrust*=0.995; 
         sound->play (SOUND_HIT1, false);
         lastDurability = (int) fplayer->Durability;
         vibration = 12 * timestep;
@@ -14273,7 +14363,7 @@ void TimerGame (int dt)
         ThreeDObjects [i]->aiAction (dt, (AIObj **) ThreeDObjects, missile, MachineGunBullet, flare, chaff);
         float lev;
         if (ThreeDObjects [i]->explode == 1 && (lev = fplayer->distance (ThreeDObjects [i])) < 32)
-            {
+            { 
             sound->setVolume (SOUND_EXPLOSION1, 128);
             float angle = fplayer->getAngle (ThreeDObjects [i]);
             angle = 180 - angle;
@@ -14305,7 +14395,7 @@ void TimerGame (int dt)
         {
         blacksmoke [i]->move (dt);
         }
-
+    
     if (blackout > 0)
         {
         blackout -= 3.0F * dt / timestep;
@@ -14336,8 +14426,8 @@ void TimerGame (int dt)
     float testout;
     if (redout < 1)
         {
-
-        testout = (fplayer->realspeed*2 * (fplayer->elevatoreffect - 0.5F));
+        
+        testout = (fplayer->realspeed*2 * (fplayer->elevatoreffect - 0.5F)); 
         testout = testout *  fplayer->BlackoutSensitivity;
         if (testout > 0.0)
             {
@@ -14346,54 +14436,54 @@ void TimerGame (int dt)
         }
     if (blackout < 1)
         {
-
-        testout = (fplayer->realspeed * (fplayer->elevatoreffect + 0.08F));
+        
+        testout = (fplayer->realspeed * (fplayer->elevatoreffect + 0.08F)); 
         testout=testout *  fplayer->RedoutSensitivity;
         if (testout < 0)
             {
             redout -= testout * dt / timestep;
             }
         }
-
+    
     if (fplayer->Durability <= 0)
         {
         camera = 1;
         }
-
+    
     float cf = -fplayer->zoom / 2;
-    if (camera == 0)
+    if (camera == 0)   
         {
         LookForward();
         }
-    else if (camera == 1)
+    else if (camera == 1)   
         {
         LookChase();
         }
-    else if (camera == 2)
+    else if (camera == 2)     
         {
         LookBack();
         }
-    else if (camera == 4)
+    else if (camera == 4)     
         {
         LookMissile(cf);
         }
-    else if (camera == 5)
+    else if (camera == 5)     
         {
         LookUp();
         }
-    else if (camera == 6)
+    else if (camera == 6)     
         {
         LookLeft();
-        }
-    else if (camera == 7)
+        } 
+    else if (camera == 7)   
         {
         LookRight();
-        }
-    else if (camera == 8)
+        } 
+    else if (camera == 8)   
         {
         LookDown ();
         }
-    else if (camera == 9)
+    else if (camera == 9)     
         {
         LookMap();
         }
@@ -14422,7 +14512,7 @@ void TimerGame (int dt)
     sdldisplay = true;
     fplayer->rectheta -= dtheta;
     fplayer->recgamma += dgamma;
-    missionstate = mission->processtimer (dt); // Causes segfault after program startup.
+    missionstate = mission->processtimer (dt);
     if (missionstate == 2)
         {
         MissionEnding ++;
@@ -14451,7 +14541,7 @@ void TimerGame (int dt)
                 }
             }
         }
-    }
+    } 
 
 void TimerMenu (Uint32 dt)
     {
@@ -14515,19 +14605,19 @@ void TimerMenu (Uint32 dt)
                 }
             }
     sdldisplay = true;
-    }
+    } 
 
 void TimerMission (Uint32 dt)
     {
     MissionMenuTimer += dt;
     sdldisplay = true;
-    }
+    } 
 
 void TimerStats (Uint32 dt)
     {
     MenuTimer += dt;
     sdldisplay = true;
-    }
+    } 
 
 void TransmitCharacterViaMorseRadio (int key)
 {
@@ -14535,68 +14625,71 @@ static bool HaveNotYetSwitchedOurMumbleToTeamCast = true;
 static bool HaveNotYetSwitchedOurMumbleToMissionCast = true;
 static bool HaveNotYetSwitchedOurMumbleToRoot = true;
 static bool HaveNotYetSwitchedOurMumbleToSecret = true;
-unsigned char ArrayIndex = 0;
+unsigned char ArrayIndex = 0; 
 while (MorseCharacterOut[ArrayIndex != 0] && ArrayIndex < 16)
-   {
-   ArrayIndex++;
+   { 
+   
+   ArrayIndex++; 
    }
 if (ArrayIndex > 15)
-   {
+   { 
    ArrayIndex = 0;
    return;
    }
 if (PreviousMorseOutCharacter == (unsigned char)key)
-   {
+   { 
    RepeatedMorseOutCharCount++;
    if ((RepeatedMorseOutCharCount >= 7) && !Promoted && key != 'P')
-      {
+      { 
       display ((char *)"TransmitCharacterViaMorseRadio() alert: Unauthorized attempt to send more than 7 identical characters.", LOG_MOST);
       return;
       }
+   
    if ((RepeatedMorseOutCharCount >= 9) && key == 'S')
-      {
+      { 
       if (HaveNotYetSwitchedOurMumbleToSecret)
          {
          SwitchMumbleToSecretChannel(OutPacket.UdpObjPlayerNumber);
-         HaveNotYetSwitchedOurMumbleToSecret = false;
+         HaveNotYetSwitchedOurMumbleToSecret = false; 
          }
       }
    if ((RepeatedMorseOutCharCount >= 9) && key == 'T')
-      {
+      { 
       if (HaveNotYetSwitchedOurMumbleToTeamCast)
-         {
+         { 
          event_CommsMacro17();
-         HaveNotYetSwitchedOurMumbleToTeamCast = false;
+         HaveNotYetSwitchedOurMumbleToTeamCast = false; 
          }
       }
    if ((RepeatedMorseOutCharCount >= 9) && key == 'M')
-      {
+      { 
       if (HaveNotYetSwitchedOurMumbleToMissionCast)
-         {
+         { 
          event_CommsMacro18();
-         HaveNotYetSwitchedOurMumbleToMissionCast = false;
+         HaveNotYetSwitchedOurMumbleToMissionCast = false; 
          }
       }
    if ((RepeatedMorseOutCharCount >= 9) && key == 'R')
-      {
+      { 
       if (HaveNotYetSwitchedOurMumbleToRoot)
-         {
+         { 
          event_CommsMacro10();
-         HaveNotYetSwitchedOurMumbleToRoot = false;
+         HaveNotYetSwitchedOurMumbleToRoot = false; 
          }
       }
    }
 else
-   {
+   { 
+   
    RepeatedMorseOutCharCount = 0;
    HaveNotYetSwitchedOurMumbleToTeamCast = true;
    HaveNotYetSwitchedOurMumbleToMissionCast = true;
    HaveNotYetSwitchedOurMumbleToRoot = true;
    HaveNotYetSwitchedOurMumbleToSecret = true;
    }
-MorseCharacterOut[ArrayIndex] = (unsigned char)key;
+MorseCharacterOut[ArrayIndex] = (unsigned char)key; 
 PreviousMorseOutCharacter = (unsigned char) key;
-}
+} 
 
 void UpdateOnlineScoreLogFileWithCalculatedRisks()
 {
@@ -14625,9 +14718,7 @@ if (!ShotDownByBomberOrAirfieldGunners)
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    ShotDownByBomberOrAirfieldGunners = true;
    }
-}
-
-
+} 
 
 void UpdateOnlineScoreLogFileWithCrashes()
 {
@@ -14652,13 +14743,13 @@ if (!LandingLogged)
    sprintf (DebugBuf, "   My XZ Position = %f, %f\n\n", fplayer->tl->x, fplayer->tl->z);
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
-}
+} 
 
 void UpdateOnlineScoreLogFileWithDefeats()
 {
 time_t now = time(NULL);
 struct tm *CurrentTimeStruct = gmtime(&now);
-char AircraftName[32];
+char AircraftName[32]; 
 strftime(DebugBuf, sizeof(DebugBuf)-1, "DEFEAT %d %m %Y %H:%M:%S GMT (DD MM YYYY HH:MM:SS)\n", CurrentTimeStruct);
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 sprintf (DebugBuf, "\n");
@@ -14968,7 +15059,7 @@ fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 sprintf (DebugBuf, "   Mission player or facility that destroyed me = %d.\n", InPacket.UdpObjPlayerNumber);
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 if (InPacket.UdpObjPlayerNumber <= 10)
-   {
+   { 
    sprintf (DebugBuf, "   Victorious Opponent's CommunityHandle = %s\n", PlayerIdStrings[InPacket.UdpObjPlayerNumber -1]);
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
@@ -15253,7 +15344,7 @@ switch (InPacket.UdpObjVehicle)
        {
        sprintf (AircraftName, "Unknown");
        }
-   }
+   } 
 sprintf (DebugBuf, "   Aircraft that shot you down was of type %s, ", AircraftName);
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 if (InPacket.UdpObjPlayerNumber <= 10)
@@ -15261,18 +15352,18 @@ if (InPacket.UdpObjPlayerNumber <= 10)
    sprintf (DebugBuf, "an aircraft ");
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    if (OutPacket.UdpObjDamageId%2 !=0)
-      {
+      { 
       sprintf (DebugBuf, "of RedTeam.\n");
       fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
       }
    else
-      {
+      { 
       sprintf (DebugBuf, "of BlueTeam.\n");
       fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
       }
    }
 if (InPacket.UdpObjDamageId == MyNetworkId)
-   {
+   { 
    sprintf (DebugBuf, "   Opponent altitude was = %5.0f.\n", (50.0 * (InPacket.UdpObjYPosition)) - 17.0);
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    sprintf (DebugBuf, "   Opponent velocity was = %5.0f.\n", InPacket.UdpObjSpeed / timestep * 50000.0F);
@@ -15294,7 +15385,7 @@ sprintf (DebugBuf, "   My Ammo = %4d\n", fplayer->ammo);
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 sprintf (DebugBuf, "   My Aircraft Damage State before this hit = %3.0f\n\n", 100 * (1-(fplayer->Durability / fplayer->maxDurability)));
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
-}
+} 
 
 void UpdateOnlineScoreLogFileWithLandings()
 {
@@ -15321,7 +15412,7 @@ if (!LandingLogged)
    sprintf (DebugBuf, "   My Aircraft Damage State = %3.0f\n\n", 100 * (1-(fplayer->Durability / fplayer->maxDurability)));
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
-}
+} 
 
 void UpdateOnlineScoreLogFileWithNewSession()
 {
@@ -15337,7 +15428,7 @@ fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 void UpdateOnlineScoreLogFileWithNewSorties()
 {
 display ((char*)"UpdateOnlineScoreLogFileWithNewSorties()\n", LOG_MOST);
-char AircraftName[32];
+char AircraftName[32]; 
 time_t now = time(NULL);
 struct tm *CurrentTimeStruct = gmtime(&now);
 strftime(DebugBuf, sizeof(DebugBuf)-1, "NEW SORTIE %d %m %Y %H:%M:%S GMT (DD MM YYYY HH:MM:SS)\n", CurrentTimeStruct);
@@ -15636,7 +15727,7 @@ switch (PlayerAircraftType)
    }
 sprintf (DebugBuf, "   MyAircraft=%s.\n\n", AircraftName);
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
-}
+} 
 
 void UpdateOnlineScoreLogFileWithTakeoffs()
 {
@@ -15659,15 +15750,15 @@ if (!TakeoffLogged)
    sprintf (DebugBuf, "   My CommunityHandle=%s.\n\n", CommunityHandle);
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
-}
+} 
 
 void UpdateOnlineScoreLogFileWithVictories()
 {
 time_t now = time(NULL);
 struct tm *CurrentTimeStruct = gmtime(&now);
-char AircraftName[32];
+char AircraftName[32]; 
 if (RecentVictimXPosition == 0.0 && RecentVictimZPosition == 0.0 && OutPacket.UdpObjDamageId == 1)
-   {
+   { 
    return;
    }
 
@@ -15982,7 +16073,7 @@ fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 sprintf (DebugBuf, "   Mission player or facility destroyed or damaged = %d.\n", OutPacket.UdpObjDamageId);
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 if (OutPacket.UdpObjDamageId <= 10)
-   {
+   { 
    sprintf (DebugBuf, "   Victim's CommunityHandle = %s\n", PlayerIdStrings[OutPacket.UdpObjDamageId -1]);
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
@@ -16271,32 +16362,32 @@ switch (RecentVictim)
 sprintf (DebugBuf, "   Destroyed target was of type %s, ", AircraftName);
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 if (OutPacket.UdpObjDamageId == 24)
-   {
+   { 
    sprintf (DebugBuf, "BlueTeam RADAR.\n");
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
 else if (OutPacket.UdpObjDamageId == 25)
-   {
+   { 
    sprintf (DebugBuf, "RedTeam RADAR.\n");
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
 else if (OutPacket.UdpObjDamageId == 26)
-   {
+   { 
    sprintf (DebugBuf, "BlueTeam Dormitory.\n");
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
 else if (OutPacket.UdpObjDamageId == 27)
-   {
+   { 
    sprintf (DebugBuf, "RedTeam Dormitory.\n");
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
 else if (OutPacket.UdpObjDamageId == 28)
-   {
+   { 
    sprintf (DebugBuf, "BlueTeam Airfield.\n");
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
 else if (OutPacket.UdpObjDamageId == 29)
-   {
+   { 
    sprintf (DebugBuf, "RedTeam Airfield.\n");
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    }
@@ -16305,18 +16396,18 @@ if (OutPacket.UdpObjDamageId <= 10)
    sprintf (DebugBuf, "an aircraft ");
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    if (OutPacket.UdpObjDamageId%2 !=0)
-      {
+      { 
       sprintf (DebugBuf, "of RedTeam.\n");
       fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
       }
    else
-      {
+      { 
       sprintf (DebugBuf, "of BlueTeam.\n");
       fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
       }
    }
 if (OutPacket.UdpObjDamageId <= 10)
-   {
+   { 
    sprintf (DebugBuf, "   Target altitude was = %5.0f.\n", (50.0 * (RecentVictimAltitude + SeaLevel )) - 17.0);
    fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
    sprintf (DebugBuf, "   Target velocity was = %5.0f.\n", RecentVictimVelocity / timestep * 50000.0F);
@@ -16338,11 +16429,11 @@ sprintf (DebugBuf, "   My Ammo = %4d\n", fplayer->ammo);
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
 sprintf (DebugBuf, "   My Aircraft Damage State = %3.0f\n\n", 100 * (1-(fplayer->Durability / fplayer->maxDurability)));
 fwrite (DebugBuf, strlen(DebugBuf), 1, OnlineScoreLogFile);
-}
+} 
 
 void viewParameters ()
     {
-
+    
     display ((char *)" ", LOG_NONE);
     display ((char *)"Usage: LacNNpNN [-h -m -v -dLEVEL]", LOG_NONE);
     display ((char *)" ", LOG_NONE);
@@ -16365,72 +16456,71 @@ void viewParameters ()
     display ((char *)" commands. This will allow you to associate any keyboard", LOG_NONE);
     display ((char *)" key or any joystick button with any supported flight function.", LOG_NONE);
     display ((char *)" ", LOG_NONE);
-    }
+    } 
 
 void VocalizeBlueHqStatus ()
 {
 display ((char*)"VocalizeBlueHqStatus()", LOG_MOST);
  if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.1)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM01TO10PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM01TO10PCT, false);
     return;
     }
  else if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.2)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM10TO20PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM10TO20PCT, false);
     return;
     }
  else if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.3)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM20TO30PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM20TO30PCT, false);
     return;
     }
  else if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.4)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM30TO40PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM30TO40PCT, false);
     return;
     }
  else if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.5)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM40TO50PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM40TO50PCT, false);
     return;
     }
  else if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.6)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM50TO60PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM50TO60PCT, false);
     return;
     }
  else if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.7)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM60TO70PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM60TO70PCT, false);
     return;
     }
  else if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.8)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM70TO80PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM70TO80PCT, false);
     return;
     }
  else if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.9)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM80TO90PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM80TO90PCT, false);
     return;
     }
  else if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability)
-    {
+    { 
     display ((char*)"VocalizeBlueHqStatus() SOUND_ENEMYHQACKACKFROM90TO100PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM90TO100PCT, false);
     }
 }
-
 
 void VocalizeEnemyHqStatus()
 {
@@ -16439,7 +16529,7 @@ switch (CurrentMissionNumber)
    case MISSION_NETWORKBATTLE01:
        {
        if (MyNetworkId %2)
-          {
+          { 
           if (MumbleChannelPresumed != 3)
              {
              WrongChannelMessage();
@@ -16447,7 +16537,7 @@ switch (CurrentMissionNumber)
              }
           }
        else
-          {
+          { 
           if (MumbleChannelPresumed != 2)
              {
              WrongChannelMessage();
@@ -16459,7 +16549,7 @@ switch (CurrentMissionNumber)
    case MISSION_NETWORKBATTLE02:
        {
        if (MyNetworkId %2)
-          {
+          { 
           if (MumbleChannelPresumed != 6)
              {
              WrongChannelMessage();
@@ -16467,7 +16557,7 @@ switch (CurrentMissionNumber)
              }
           }
        else
-          {
+          { 
           if (MumbleChannelPresumed != 5)
              {
              WrongChannelMessage();
@@ -16479,7 +16569,7 @@ switch (CurrentMissionNumber)
    case MISSION_NETWORKBATTLE03:
        {
        if (MyNetworkId %2)
-          {
+          { 
           if (MumbleChannelPresumed != 9)
              {
              WrongChannelMessage();
@@ -16487,7 +16577,7 @@ switch (CurrentMissionNumber)
              }
           }
        else
-          {
+          { 
           if (MumbleChannelPresumed != 8)
              {
              WrongChannelMessage();
@@ -16501,10 +16591,10 @@ switch (CurrentMissionNumber)
        break;
        }
    }
-sound->setVolume (SOUND_BEEP2, 40);
+sound->setVolume (SOUND_BEEP2, 40); 
 sound->play (SOUND_BEEP1, false);
 if (MyNetworkId%2)
-   {
+   { 
    if (ThreeDObjects[28]->Durability >= ThreeDObjects[28]->maxDurability)
       {
       display ((char*)"VocalizeEnemyHqStatus() Radio announcing Enemy HQ Airfield Status 100%", LOG_MOST);
@@ -16512,25 +16602,25 @@ if (MyNetworkId%2)
       sound->play (SOUND_ENEMYHQSTATUS100A, false);
       }
    else
-      {
+      { 
       if (myrandom(100) > 20)
-         {
+         { 
          VocalizeBlueHqStatus();
          }
       else
-         {
+         { 
          if (AirfieldRepairsAcceleratedForBlueTeam)
-            {
+            { 
             display ((char*)"VocalizeEnemyHqStatus() Radio announcing Enemy HQ Airfield repairs accelerated", LOG_MOST);
             sound->play (SOUND_ENEMYHQREPAIRSPROCEEDINGRAPIDLY, false);
             }
          else if (AirfieldRepairsStoppedForBlueTeam)
-            {
+            { 
             display ((char*)"VocalizeEnemyHqStatus() Radio announcing Enemy HQ Airfield repairs stopped", LOG_MOST);
             sound->play (SOUND_ENEMYHQREPAIRSSTOPPED, false);
             }
          else if (AirfieldRepairRateNormalForBlueTeam)
-            {
+            { 
             display ((char*)"VocalizeEnemyHqStatus() Radio announcing Enemy HQ Airfield repairs proceeding normally.", LOG_MOST);
             sound->play (SOUND_ENEMYHQREPAIRSPROCEEDINGNORMALLY, false);
             }
@@ -16538,7 +16628,7 @@ if (MyNetworkId%2)
       }
    }
 else
-   {
+   { 
    if (ThreeDObjects[29]->Durability >= ThreeDObjects[29]->maxDurability)
       {
       display ((char*)"VocalizeEnemyHqStatus() Radio announcing Enemy HQ Airfield Status 100%", LOG_MOST);
@@ -16546,25 +16636,25 @@ else
       sound->play (SOUND_ENEMYHQSTATUS100A, false);
       }
    else
-      {
+      { 
       if (myrandom(100) > 20)
-         {
+         { 
          VocalizeRedHqStatus();
          }
       else
-         {
+         { 
          if (AirfieldRepairsAcceleratedForRedTeam)
-            {
+            { 
             display ((char*)"VocalizeEnemyHqStatus() Radio announcing Enemy HQ Airfield repairs accelerated", LOG_MOST);
             sound->play (SOUND_ENEMYHQREPAIRSPROCEEDINGRAPIDLY, false);
             }
          else if (AirfieldRepairsStoppedForRedTeam)
-            {
+            { 
             display ((char*)"VocalizeEnemyHqStatus() Radio announcing Enemy HQ Airfield repairs stopped", LOG_MOST);
             sound->play (SOUND_ENEMYHQREPAIRSSTOPPED, false);
             }
          else if (AirfieldRepairRateNormalForRedTeam)
-            {
+            { 
             display ((char*)"VocalizeEnemyHqStatus() Radio announcing Enemy HQ Airfield repairs proceeding normally.", LOG_MOST);
             sound->play (SOUND_ENEMYHQREPAIRSPROCEEDINGNORMALLY, false);
             }
@@ -16572,11 +16662,6 @@ else
       }
    }
 }
-
-
-
-
-
 
 void VocalizeMorseCharacter (unsigned char MorseChar)
 {
@@ -16745,73 +16830,73 @@ else if (MorseChar == '/')
 void VocalizeRedHqStatus ()
 {
 display ((char*)"VocalizeRedHqStatus()", LOG_MOST);
- if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.1)
-    {
+sound->setVolume (SOUND_BEEP2, 40); 
+sound->play (SOUND_BEEP2, false);
+if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.1)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM01TO10PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM01TO10PCT, false);
     return;
     }
- else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.2)
-    {
+else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.2)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM10TO20PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM10TO20PCT, false);
     return;
     }
- else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.3)
-    {
+else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.3)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM20TO30PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM20TO30PCT, false);
     return;
     }
- else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.4)
-    {
+else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.4)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM30TO40PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM30TO40PCT, false);
     return;
     }
- else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.5)
-    {
+else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.5)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM40TO50PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM40TO50PCT, false);
     return;
     }
- else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.6)
-    {
+else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.6)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM50TO60PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM50TO60PCT, false);
     return;
     }
- else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.7)
-    {
+else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.7)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM60TO70PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM60TO70PCT, false);
     return;
     }
- else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.8)
-    {
+else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.8)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM70TO80PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM70TO80PCT, false);
     return;
     }
- else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.9)
-    {
+else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.9)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM80TO90PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM80TO90PCT, false);
     return;
     }
- else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability)
-    {
+else if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability)
+    { 
     display ((char*)"VocalizeRedHqStatus() SOUND_ENEMYHQACKACKFROM90TO100PCT", LOG_MOST);
     sound->play (SOUND_ENEMYHQACKACKFROM90TO100PCT, false);
     }
 }
 
-
 void WrongChannelMessage()
 {
-sound->setVolume (SOUND_BEEP1, 40);
+sound->setVolume (SOUND_BEEP1, 40); 
 sound->play (SOUND_BEEP1, false);
 sprintf (SystemMessageBufferA, "WRONG MUMBLE CHANNEL. CAN'T REACH FWD OBSERVER.");
 NewSystemMessageNeedsScrolling = true;
 }
-

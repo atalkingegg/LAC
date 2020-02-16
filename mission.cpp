@@ -30,7 +30,7 @@
 #include "glland.h"
 #include "mission.h"
 #include "main.h"
-#include "mathtab.h" 
+#include "mathtab.h"
 #include "NetworkApi.h"
 
 extern bool AirfieldRepairRateNormalForBlueTeam;
@@ -140,9 +140,12 @@ extern float blackout;
 extern float CalculatedDamageDueToCurrentRisk;
 extern float DamageToClaim;
 extern float FuelLevelAtLastLanding;
-extern float NetDeltaX;
-extern float NetDeltaY;
-extern float NetDeltaZ;
+extern float NetDeltaX[32];
+extern float NetDeltaY[32];
+extern float NetDeltaZ[32];
+extern float NetXErr[32];
+extern float NetYErr[32];
+extern float NetZErr[32];
 extern float PlayersOriginalMaxGamma;
 extern float PlayersOriginalRollRate;
 extern float PlayersOriginalMaxThrust;
@@ -151,6 +154,7 @@ extern float redout;
 extern float ScreenFOVx;
 extern float ScreenFOVy;
 extern float SeaLevel;
+extern float ThrustFactor[32];
 
 extern float NetworkApiPriorXPosition[];
 extern float NetworkApiPriorYPosition[];
@@ -1387,6 +1391,163 @@ void LoadVariablesFromNetworkApiPacket(int timer)
    
    ThreeDObjects[PlayerNumber]->id = (int)InPacket.UdpObjVehicle;
    
+   NetDeltaX[PlayerNumber] = InPacket.UdpObjXPosition - NetworkApiPriorXPosition[PlayerNumber];
+   NetDeltaY[PlayerNumber] = InPacket.UdpObjYPosition - NetworkApiPriorYPosition[PlayerNumber];
+   NetDeltaZ[PlayerNumber] = InPacket.UdpObjZPosition - NetworkApiPriorZPosition[PlayerNumber];
+   
+   NetXErr[PlayerNumber] = InPacket.UdpObjXPosition - ThreeDObjects[PlayerNumber]->tl->x;
+   NetYErr[PlayerNumber] = InPacket.UdpObjYPosition - ThreeDObjects[PlayerNumber]->tl->y;
+   NetZErr[PlayerNumber] = InPacket.UdpObjZPosition - ThreeDObjects[PlayerNumber]->tl->z;
+   if (PlayerNumber == 2)
+      {
+      //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() before any correction, ThrustFactor[2] = %f", ThrustFactor[2]);
+      //display (DebugBuf, LOG_MOST);
+      }
+   
+   if (NetDeltaX[PlayerNumber] >= 0)
+      { 
+      if (PlayerNumber == 2)
+         {
+         //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 X increasing (Eastbound).", LOG_MOST);
+         }
+      if (NetXErr[PlayerNumber] <= 0)
+         { 
+         if (PlayerNumber == 2)
+            {
+            //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 needs less X Thrust.", LOG_MOST);
+            //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() Object 2 X correction = %f", fabs(NetXErr[PlayerNumber]) * 0.20);
+            //display (DebugBuf, LOG_MOST);
+            //ThrustFactor[PlayerNumber] -= fabs(NetXErr[PlayerNumber]) * 0.20;
+            }
+         ThrustFactor[PlayerNumber] -= fabs(NetXErr[PlayerNumber]) * 0.20;
+         }
+      else
+         { 
+         if (PlayerNumber == 2)
+            {
+            //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 needs more X Thrust.", LOG_MOST);
+            //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() Object 2 X correction = %f", fabs(NetXErr[PlayerNumber]) * 0.20);
+            //display (DebugBuf, LOG_MOST);
+            //ThrustFactor[PlayerNumber] += fabs(NetXErr[PlayerNumber]) * 0.20;
+            }
+         ThrustFactor[PlayerNumber] += fabs(NetXErr[PlayerNumber]) * 0.20;
+         }
+      }
+   else
+      { 
+      if (PlayerNumber == 2)
+         {
+         //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 X decreasing (Westbound).", LOG_MOST);
+         }
+      if (NetXErr[PlayerNumber] <= 0)
+         { 
+         if (PlayerNumber == 2)
+            {
+            //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 needs more X Thrust.", LOG_MOST);
+            //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() Object 2 X correction = %f", fabs(NetXErr[PlayerNumber]) * 0.20);
+            //display (DebugBuf, LOG_MOST);
+            //ThrustFactor[PlayerNumber] += fabs(NetXErr[PlayerNumber]) * 0.20;
+            }
+         ThrustFactor[PlayerNumber] += fabs(NetXErr[PlayerNumber]) * 0.20;
+         }
+      else
+         { 
+         if (PlayerNumber == 2)
+            {
+            //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 needs less X Thrust.", LOG_MOST);
+            //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() Object 2 X correction = %f", fabs(NetXErr[PlayerNumber]) * 0.20);
+            //display (DebugBuf, LOG_MOST);
+            //ThrustFactor[PlayerNumber] -= fabs(NetXErr[PlayerNumber]) * 0.20;
+            }
+         ThrustFactor[PlayerNumber] -= fabs(NetXErr[PlayerNumber]) * 0.20;
+         }
+      }
+   if (NetDeltaZ[PlayerNumber] >= 0)
+      { 
+      if (PlayerNumber == 2)
+         {
+         //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 Z increasing (Eastbound).", LOG_MOST);
+         }
+      if (NetZErr[PlayerNumber] <= 0)
+         { 
+         if (PlayerNumber == 2)
+            {
+            //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 needs less Z Thrust.", LOG_MOST);
+            //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() Object 2 Z correction = %f", fabs(NetZErr[PlayerNumber]) * 0.20);
+            //display (DebugBuf, LOG_MOST);
+            //ThrustFactor[PlayerNumber] -= fabs(NetZErr[PlayerNumber]) * 0.20;
+            }
+         ThrustFactor[PlayerNumber] -= fabs(NetZErr[PlayerNumber]) * 0.20;
+         }
+      else
+         { 
+         if (PlayerNumber == 2)
+            {
+            //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 needs more Z Thrust.", LOG_MOST);
+            //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() Object 2 Z correction = %f", fabs(NetZErr[PlayerNumber]) * 0.20);
+            //display (DebugBuf, LOG_MOST);
+            //ThrustFactor[PlayerNumber] += fabs(NetZErr[PlayerNumber]) * 0.20;
+            }
+         ThrustFactor[PlayerNumber] += fabs(NetZErr[PlayerNumber]) * 0.20;
+         }
+      }
+   else
+      { 
+      if (PlayerNumber == 2)
+         {
+         //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 Z decreasing (Westbound).", LOG_MOST);
+         }
+      if (NetZErr[PlayerNumber] <= 0)
+         { 
+         if (PlayerNumber == 2)
+            {
+            //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 needs more Z Thrust.", LOG_MOST);
+            //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() Object 2 Z correction = %f", fabs(NetZErr[PlayerNumber]) * 0.20);
+            //display (DebugBuf, LOG_MOST);
+            //ThrustFactor[PlayerNumber] += fabs(NetZErr[PlayerNumber]) * 0.20;
+            }
+         ThrustFactor[PlayerNumber] += fabs(NetZErr[PlayerNumber]) * 0.20;
+         }
+      else
+         { 
+         if (PlayerNumber == 2)
+            {
+            //display ((char *)"LoadVariablesFromNetworkApiPacket() Object 2 needs less Z Thrust.", LOG_MOST);
+            //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() Object 2 Z correction = %f", fabs(NetZErr[PlayerNumber]) * 0.20);
+            //display (DebugBuf, LOG_MOST);
+            //ThrustFactor[PlayerNumber] -= fabs(NetZErr[PlayerNumber]) * 0.20;
+            }
+         ThrustFactor[PlayerNumber] -= fabs(NetZErr[PlayerNumber]) * 0.20;
+         }
+      }
+   
+   if (PlayerNumber == 2)
+      {
+      //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() InPacketX = %f PredictedX was %f Diff is %f", InPacket.UdpObjXPosition, ThreeDObjects[PlayerNumber]->tl->x, NetXErr[2]);
+      //display (DebugBuf, LOG_MOST);
+      //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() InPacketY = %f PredictedY was %f Diff is %f", InPacket.UdpObjYPosition, ThreeDObjects[PlayerNumber]->tl->y, NetYErr[2]);
+      //display (DebugBuf, LOG_MOST);
+      //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() InPacketZ = %f PredictedZ was %f Diff is %f", InPacket.UdpObjZPosition, ThreeDObjects[PlayerNumber]->tl->z, NetZErr[2]);
+      //display (DebugBuf, LOG_MOST);
+      //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() after initial correction, ThrustFactor[2] = %f before asserting limits.", ThrustFactor[2]);
+      //display (DebugBuf, LOG_MOST);
+      }
+   
+   if (ThrustFactor[PlayerNumber] > 2.0)
+      {
+      ThrustFactor[PlayerNumber] = 2.0;
+      }
+   if (ThrustFactor[PlayerNumber] < -0.5)
+      {
+      ThrustFactor[PlayerNumber] = -0.5;
+      }
+   if (PlayerNumber == 2)
+      {
+      //sprintf (DebugBuf, "LoadVariablesFromNetworkApiPacket() ThrustFactor[2] = %f", ThrustFactor[2]);
+      //display (DebugBuf,LOG_MOST);
+      }
+   ThreeDObjects[PlayerNumber]->thrust = InPacket.UdpObjThrust * (1.0 + ThrustFactor[PlayerNumber]);  
+   
    ThreeDObjects[PlayerNumber]->tl->x = InPacket.UdpObjXPosition;
    ThreeDObjects[PlayerNumber]->tl->y = InPacket.UdpObjYPosition;
    ThreeDObjects[PlayerNumber]->tl->z = InPacket.UdpObjZPosition;
@@ -1396,10 +1557,6 @@ void LoadVariablesFromNetworkApiPacket(int timer)
    ThreeDObjects[PlayerNumber]->theta = InPacket.UdpObjTheta;
    
    ThreeDObjects[PlayerNumber]->realspeed = InPacket.UdpObjSpeed;
-   NetDeltaX = InPacket.UdpObjXPosition - NetworkApiPriorXPosition[PlayerNumber];
-   NetDeltaY = InPacket.UdpObjYPosition - NetworkApiPriorYPosition[PlayerNumber];
-   NetDeltaZ = InPacket.UdpObjZPosition - NetworkApiPriorZPosition[PlayerNumber];
-   ThreeDObjects[PlayerNumber]->thrust         = InPacket.UdpObjThrust * 1.3; 
    ThreeDObjects[PlayerNumber]->elevatoreffect = InPacket.UdpObjElevator;
    ThreeDObjects[PlayerNumber]->ruddereffect   = InPacket.UdpObjRudder;
    ThreeDObjects[PlayerNumber]->rolleffect     = InPacket.UdpObjAileron;
@@ -3159,7 +3316,6 @@ void MissionHeadToHead00LoadVariablesFromNetworkApiPacket(int timer)
    ThreeDObjects[PlayerNumber]->elevatoreffect = InPacket.UdpObjElevator;
    ThreeDObjects[PlayerNumber]->ruddereffect   = InPacket.UdpObjRudder;
    ThreeDObjects[PlayerNumber]->rolleffect     = InPacket.UdpObjAileron;
-   
    NetworkApiPriorXPosition[MissionHeadToHead00State] = InPacket.UdpObjXPosition;
    NetworkApiPriorYPosition[MissionHeadToHead00State] = InPacket.UdpObjYPosition;
    NetworkApiPriorZPosition[MissionHeadToHead00State] = InPacket.UdpObjZPosition;

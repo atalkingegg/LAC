@@ -69,11 +69,13 @@ extern float CompressibilityElevatorFactor;
 extern float CompressibilityRollFactor;
 extern float MaxFullPowerAltitude;
 extern float MaxGammaPenaltyPerWeapon;
+extern float PlayerAltitude;
 extern float PlayersOriginalMaxGamma;
 extern float PlayerSpeedAveraged;
 extern float RegulatedForceX;
 extern float RegulatedForceY;
 extern float RegulatedForceZ;
+extern float SeaLevel;
 extern float StallRatio;
 extern float TrueAirSpeed;
 extern float Turbulence;
@@ -148,6 +150,7 @@ void CompressibilityEffects()
 {
 if (fplayer->InertiallyDampenedPlayerSpeed > fplayer->CompressibilitySpeed)
    { 
+   
    float CompressibilityFactor0 = (fplayer->InertiallyDampenedPlayerSpeed / fplayer->CompressibilitySpeed);
    float CompressibilityFactor1 = CompressibilityFactor0 * CompressibilityFactor0; 
    float CompressibilityFactor2 = CompressibilityFactor1 * CompressibilityFactor0; 
@@ -228,6 +231,7 @@ void CompressibilityTurbulenceEffects()
 {
 if (fplayer->InertiallyDampenedPlayerSpeed > fplayer->DiveSpeedLimit1)
    { 
+   
    Turbulence *=1.2;
    }
 else if (fplayer->InertiallyDampenedPlayerSpeed > fplayer->CompressibilitySpeed)
@@ -250,9 +254,9 @@ for (HardPoint =0; HardPoint < missiletypes; HardPoint++)
 display ((char *)"DegradeFlightModelDueToOrdnanceLoad() TotalMissileLoad =", LOG_MOST);
 sprintf (DebugBuf, "%d", TotalMissileLoad);
 display (DebugBuf, LOG_MOST);
-if (TotalMissileLoad > 40)
+if (TotalMissileLoad > 22)
    { 
-   TotalMissileLoad = 40;
+   TotalMissileLoad = 22;
    }
 sprintf (DebugBuf, "DegradeFlightModelDueToOrdnanceLoad() (float)TotalMissileLoad = %f", (float)TotalMissileLoad);
 display (DebugBuf, LOG_MOST);
@@ -332,7 +336,7 @@ Uint32 OverSpeedTimer = 0;
 static float ForceXRegulator = 0.0;
 static float ForceYRegulator = 0.0;
 static float ForceZRegulator = 0.0;
-if (fplayer->InertiallyDampenedPlayerSpeed > fplayer->SeaLevelSpeedLimitThreshold)
+if (fplayer->InertiallyDampenedPlayerSpeed > (fplayer->SeaLevelSpeedLimitThreshold + (PlayerAltitude/1018000)))
    { 
    
    OverSpeedTimer += DeltaTime; // How much time has accumulated since we entered overspeed condition?
@@ -404,7 +408,7 @@ else
 //
 // StallEffects()
 //
-void StallEffects(void)
+void StallEffects()
 {
 if (fplayer->InertiallyDampenedPlayerSpeed  < (fplayer->StallSpeed - (float)(fplayer->FlapsLevel/80.0)))
    { 
@@ -764,7 +768,16 @@ else
 //
 void TestForExcessGamma()
 {
-float ExcessGamma = (fplayer->gamma - 180) - fplayer->maxgamma; // How much steeper is our climb angle than our maxgamma?
+float ExcessGamma1 = (fplayer->gamma - 180) - fplayer->maxgamma; // How much steeper is our climb angle than our maxgamma?
+float ExcessGamma;
+if (fplayer->maxDurability < 17000)
+   { 
+   ExcessGamma = ExcessGamma1 + (fplayer->tl->y/150); 
+   }
+else
+   { 
+   ExcessGamma = ExcessGamma1 + (fplayer->tl->y/600); 
+   }
 if (ExcessGamma > 0.0)
    { 
    ClimbAngleExceedsMaxSustainable = true;
@@ -1088,7 +1101,7 @@ if (fplayer->FuelLevel > 0)
               }
            case FIGHTER_ME163:
               { 
-              fplayer->FuelLevel += 5.0*((float) ThrottleReference/100000000.0 );
+              fplayer->FuelLevel += 5.0*((float) ThrottleReference/100000000.0 );  
               }
            default:
               {

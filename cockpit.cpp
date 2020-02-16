@@ -75,6 +75,8 @@ extern char CurrentMissionNumber;
 
 extern unsigned char ServerMessageRecipient;
 
+extern unsigned int DisplayedAirSpeed;
+
 extern char CommsMacro01String1[64];
 extern char CommsMacro02String1[64];
 extern char CommsMacro03String1[64];
@@ -106,13 +108,14 @@ extern int HudLadderBarsOnOff;
 extern int IffOnOff;
 extern int MissionMumbleTimer[32];
 extern int MissionPacketTimer[32];
-extern int MorsePanelHighlightTimer;
+extern int MorsePanelHighlightTimer;  
 extern int PlayerEngineType;
 extern int RadarOnOff;
 extern int RadarZoom;
 extern int ServerMessageTimer;
 extern int SkewViewUp;
 
+extern float PlayerAltitude;
 extern float ScreenFOVx;
 extern float SeaLevel;
 extern float TargetAltitude;
@@ -124,15 +127,15 @@ Cockpit::Cockpit ()
     chaffwarning = 0;
     }
 
-void Cockpit::cockpitvertex (float phi, float gamma)
+void Cockpit::cockpitvertex (float phi, float gamma) 
    {
-
-   float fpt = -fplayer->theta + 180;
+   
+   float fpt = -fplayer->theta + 180; 
    float sinfpt = SIN(fpt), cosfpt = COS(fpt);
    float x = cosfpt * phi + sinfpt * gamma + 180;
    float y = sinfpt * phi - cosfpt * gamma + 180;
    glVertex3f (10*SIN(x),10*SIN(y),-10*COS(x)*COS(y));
-   }
+   } 
 
 void Cockpit::drawBlip(int shape, float x, float y, float z, unsigned char r, unsigned char g, unsigned char b)
     {
@@ -181,7 +184,7 @@ void Cockpit::drawBlip(int shape, float x, float y, float z, unsigned char r, un
             abort();
         }
     glEnd ();
-    }
+    } 
 
 void Cockpit::drawChassis ()
     {
@@ -191,48 +194,48 @@ void Cockpit::drawChassis ()
     float yl;
     float yf;
     float zf;
-
-    yf = -5.0 - (float)SkewViewUp / 2.5;
-    zf = -8.0 * ScreenFOVx;
-    xl = 6.5;
-    yl = 1.75;
+    
+    yf = -5.0 - (float)SkewViewUp / 2.5; 
+    zf = -8.0 * ScreenFOVx;               
+    xl = 6.5; 
+    yl = 1.75;  
     glEnable (GL_ALPHA_TEST);
     // Draw Chassis outline on the HUD
-    glColor4ub (40, 40, 40, 128);
+    glColor4ub (40, 40, 40, 128); 
        glBegin (GL_POLYGON);
        glTexCoord2d (0,0);
-
-       glVertex3f (-xl -4, yf - yl, zf);
-       glVertex3f (-xl -3.4, (yf - yl +1), zf);
-       glVertex3f (-xl +1, yf + yl, zf);
-       glVertex3f (xl -1, yf + yl, zf);
-       glVertex3f (xl +3.4 , (yf - yl +1), zf);
-       glVertex3f (xl +4 , yf - yl, zf);
-       glVertex3f (-xl -4, yf - yl, zf);
-       glEnd ();
+       
+       glVertex3f (-xl -4, yf - yl, zf);        
+       glVertex3f (-xl -3.4, (yf - yl +1), zf); 
+       glVertex3f (-xl +1, yf + yl, zf);        
+       glVertex3f (xl -1, yf + yl, zf);         
+       glVertex3f (xl +3.4 , (yf - yl +1), zf); 
+       glVertex3f (xl +4 , yf - yl, zf);        
+       glVertex3f (-xl -4, yf - yl, zf);        
+       glEnd (); 
     // Draw Morse Code Radio Panel
     if (CapsLockActive)
        {
-       glColor4ub (3, (70 + MorsePanelHighlightTimer/16), 4, 128);
+       glColor4ub (3, (70 + MorsePanelHighlightTimer/16), 4, 128); 
        }
     else
        {
-       glColor4ub (43, (43 + MorsePanelHighlightTimer/16), 43, 128);
+       glColor4ub (43, (43 + MorsePanelHighlightTimer/16), 43, 128); 
        }
        glBegin (GL_POLYGON);
        glTexCoord2d (0,0);
-       glVertex3f ((-xl +12.3)*0.450,   (yf - yl -21.0)*0.2, zf);
-       glVertex3f ((-xl +12.8)*0.450,   (yf + yl -21.4)*0.2, zf);
-       glVertex3f ( (xl +11.1)*0.200,   (yf + yl -21.4)*0.2, zf);
-       glVertex3f ( (xl +12.3)*0.200,   (yf - yl -21.0)*0.2, zf);
-       glVertex3f ((-xl +10.3)*0.450,   (yf - yl -21.0)*0.2, zf);
-       glVertex3f ((-xl +10.3)*0.450,   (yf - yl -22.0)*0.2, zf);
-       glVertex3f ((-xl +10.3)*0.450,   (yf + yl -23.0)*0.2, zf);
-       glVertex3f ( (xl +11.0)*0.273,   (yf + yl -23.0)*0.2, zf);
-       glVertex3f ( (xl +11.0)*0.273,   (yf - yl -22.0)*0.2, zf);
-       glVertex3f ((-xl +10.3)*0.450,   (yf - yl -22.0)*0.2, zf);
-       glEnd ();
-    }
+       glVertex3f ((-xl +12.3)*0.450,   (yf - yl -21.0)*0.2, zf);        
+       glVertex3f ((-xl +12.8)*0.450,   (yf + yl -21.4)*0.2, zf);        
+       glVertex3f ( (xl +11.1)*0.200,   (yf + yl -21.4)*0.2, zf);        
+       glVertex3f ( (xl +12.3)*0.200,   (yf - yl -21.0)*0.2, zf);        
+       glVertex3f ((-xl +10.3)*0.450,   (yf - yl -21.0)*0.2, zf);        
+       glVertex3f ((-xl +10.3)*0.450,   (yf - yl -22.0)*0.2, zf);        
+       glVertex3f ((-xl +10.3)*0.450,   (yf + yl -23.0)*0.2, zf);        
+       glVertex3f ( (xl +11.0)*0.273,   (yf + yl -23.0)*0.2, zf);        
+       glVertex3f ( (xl +11.0)*0.273,   (yf - yl -22.0)*0.2, zf);        
+       glVertex3f ((-xl +10.3)*0.450,   (yf - yl -22.0)*0.2, zf);        
+       glEnd (); 
+    } 
 
 void Cockpit::drawCounter ()
     {
@@ -255,68 +258,68 @@ void Cockpit::drawCounter ()
     static int16_t ServerMessageChecksum = 0;
     ServerMessageTimer += dt;
     char *ServerMessagePointer = &ServerMessageBuffer[0];
-
+    
     if (ServerMessageTimer < 20000)
-       {
+       { 
        if (ServerMessageBuffer[0])
-          {
+          { 
           if (MyNetworkId%2)
-             {
+             { 
              if (ServerMessageRecipient == 13 || ServerMessageRecipient == MyNetworkId || ServerMessageRecipient == 0 || ServerMessageRecipient == 12)
-                {
-
+                { 
+                
                 while (*ServerMessagePointer != 0)
-                   {
+                   { 
                    ServerMessageChecksum += *ServerMessagePointer;
                    ServerMessagePointer++;
                    }
                 if (PriorServerMessageChecksum != ServerMessageChecksum)
-                   {
-
+                   { 
+                   
                    font1->drawTextCentered (xf*1.0 -3.0, (yf)*-16, zf * 0.70, ServerMessageBuffer, &black);
                    }
-                ServerMessageChecksumBuffer = ServerMessageChecksum;
-                ServerMessageChecksum = 0;
+                ServerMessageChecksumBuffer = ServerMessageChecksum; 
+                ServerMessageChecksum = 0; 
                 }
-             }
+             } 
           else
-             {
+             { 
              if (ServerMessageRecipient == 13 || ServerMessageRecipient == MyNetworkId || ServerMessageRecipient == 0 || ServerMessageRecipient == 11)
-                {
-
+                { 
+                
                 while (*ServerMessagePointer != 0)
-                   {
+                   { 
                    ServerMessageChecksum += *ServerMessagePointer;
                    ServerMessagePointer++;
                    }
                 if (PriorServerMessageChecksum != ServerMessageChecksum)
-                   {
-
+                   { 
+                   
                    font1->drawTextCentered (xf*1.0 -3.0, (yf)*-16, zf * 0.70, ServerMessageBuffer, &black);
                    }
-                ServerMessageChecksumBuffer = ServerMessageChecksum;
-                ServerMessageChecksum = 0;
+                ServerMessageChecksumBuffer = ServerMessageChecksum; 
+                ServerMessageChecksum = 0; 
                 }
-             }
-          }
+             } 
+          } 
        else
           {
           //display ((char *)"Cockpit::drawCounter() Nothing in ServerMessageBuffer[0].", LOG_MOST);
           }
        }
     else
-       {
-       ServerMessageBuffer[0] = 0;
-       PriorServerMessageChecksum =  ServerMessageChecksumBuffer;
+       { 
+       ServerMessageBuffer[0] = 0; 
+       PriorServerMessageChecksum =  ServerMessageChecksumBuffer; 
        }
 
     MorsePanelHighlightTimer -= DeltaTime/8;
     if (MorsePanelHighlightTimer < 40)
-       {
-       MorsePanelHighlightTimer = 40;
+       { 
+       MorsePanelHighlightTimer = 40; 
        }
     if (TargetSelectNotYetInitialized)
-       {
+       { 
        fplayer->targetNext ((AIObj **) ThreeDObjects);
        fplayer->targetPrevious ((AIObj **) ThreeDObjects);
        TargetSelectNotYetInitialized = false;
@@ -343,7 +346,7 @@ void Cockpit::drawCounter ()
         if (flarewarning <= 0)
             {
             flarewarning = 10 * timestep;
-            sound->play (SOUND_BEEP2, false);
+            sound->play (SOUND_BEEP2, false); 
             }
         flarewarning -= dt;
         }
@@ -352,11 +355,11 @@ void Cockpit::drawCounter ()
         if (chaffwarning <= 0)
             {
             chaffwarning = 10 * timestep;
-            sound->play (SOUND_BEEP1, false);
+            sound->play (SOUND_BEEP1, false); 
             }
         chaffwarning -= dt;
         }
-
+    
     if (GunCameraActive)
        {
        sprintf (buf, "C");
@@ -367,10 +370,10 @@ void Cockpit::drawCounter ()
        sprintf (buf, "C");
        font1->drawTextCentered (xf*10, (yf-1.00)*10, zf, buf, &grey);
        }
-
+    
     sprintf (buf, "CHAFF: %d", fplayer->chaffs);
     font1->drawTextCentered (xf*10, (yf-1.95)*10, zf, buf, &grey);
-
+    
     sprintf (buf, "FLAPS: %d", fplayer->FlapsLevel);
     font1->drawTextCentered (xf*10, (yf-1.80)*10, zf, buf, &white);
     sprintf (buf, "SPEED BRAKE: %d", fplayer->SpeedBrake);
@@ -380,7 +383,7 @@ void Cockpit::drawCounter ()
     switch (MumbleChannelPresumed)
        {
        case 1:
-           {
+           { 
            strncpy (buf, CommsMacro01String1, 64 );
            MumbleTunedToMyBlueMissionAndSubchannel = false;
            MumbleTunedToMyRedMissionAndSubchannel = false;
@@ -395,7 +398,7 @@ void Cockpit::drawCounter ()
            break;
            }
        case 2:
-           {
+           { 
            strncpy (buf, CommsMacro02String1, 64 );
            if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 && (MyNetworkId %2 == 0))
               {
@@ -411,7 +414,7 @@ void Cockpit::drawCounter ()
            break;
            }
        case 3:
-           {
+           { 
            strncpy (buf, CommsMacro03String1, 64 );
            if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 && MyNetworkId%2)
               {
@@ -427,7 +430,7 @@ void Cockpit::drawCounter ()
            break;
            }
        case 4:
-           {
+           { 
            strncpy (buf, CommsMacro04String1, 64 );
            MumbleTunedToMyBlueMissionAndSubchannel = false;
            MumbleTunedToMyRedMissionAndSubchannel = false;
@@ -442,7 +445,7 @@ void Cockpit::drawCounter ()
            break;
            }
        case 5:
-           {
+           { 
            strncpy (buf, CommsMacro05String1, 64 );
            if ((CurrentMissionNumber == MISSION_NETWORKBATTLE02) && (MyNetworkId %2 == 0))
               {
@@ -458,7 +461,7 @@ void Cockpit::drawCounter ()
            break;
            }
        case 6:
-           {
+           { 
            strncpy (buf, CommsMacro06String1, 64 );
            if (CurrentMissionNumber == MISSION_NETWORKBATTLE02 && MyNetworkId%2)
               {
@@ -474,7 +477,7 @@ void Cockpit::drawCounter ()
            break;
            }
        case 7:
-           {
+           { 
            strncpy (buf, CommsMacro07String1, 64 );
            MumbleTunedToMyBlueMissionAndSubchannel = false;
            MumbleTunedToMyRedMissionAndSubchannel = false;
@@ -489,7 +492,7 @@ void Cockpit::drawCounter ()
            break;
            }
        case 8:
-           {
+           { 
            strncpy (buf, CommsMacro08String1, 64 );
            if ((CurrentMissionNumber == MISSION_NETWORKBATTLE03) && (MyNetworkId %2 == 0))
               {
@@ -505,7 +508,7 @@ void Cockpit::drawCounter ()
            break;
            }
        case 9:
-           {
+           { 
            strncpy (buf, CommsMacro09String1, 64 );
            if (CurrentMissionNumber == MISSION_NETWORKBATTLE03 && MyNetworkId%2)
               {
@@ -521,15 +524,35 @@ void Cockpit::drawCounter ()
            break;
            }
        case 10:
-           {
+           { 
            MumbleTunedToMyBlueMissionAndSubchannel = false;
            MumbleTunedToMyRedMissionAndSubchannel = false;
            strncpy (buf, CommsMacro10String1, 64 );
            font1->drawText (xf*3.75, (yf-1.5)*9.5, zf, buf, &grey);
            break;
            }
+       case 97:
+           { 
+           strncpy (buf, "SECRET", 64 );
+           font1->drawText (xf*3.75, (yf-1.5)*9.5, zf, buf, &grey);
+           break;
+           }
+       case 98:
+           { 
+           strncpy (buf, "UNCHANGED", 64 );
+           font1->drawText (xf*3.75, (yf-1.5)*9.5, zf, buf, &grey);
+           break;
+           }
+       case 99:
+           { 
+           strncpy (buf, "UKNOWN", 64 );
+           font1->drawText (xf*3.75, (yf-1.5)*9.5, zf, buf, &grey);
+           break;
+           }
        default:
-           {
+           { 
+           strncpy (buf, "UNDEFINED COMM ERROR", 64 );
+           font1->drawText (xf*3.75, (yf-1.5)*9.5, zf, buf, &grey);
            break;
            }
        }
@@ -543,55 +566,57 @@ void Cockpit::drawCounter ()
        font1->drawTextCentered (xf*10.58, (yf-1.35)*10.66, zf, buf, &grey);
        }
     if (NewSystemMessageNeedsScrolling)
-       {
+       { 
        if (strcmp (SystemMessageBufferA, SystemMessageBuffer0))
-          {
+          {  
           strncpy (SystemMessageBuffer2, SystemMessageBuffer1, 64);
           strncpy (SystemMessageBuffer1, SystemMessageBuffer0, 64);
           strncpy (SystemMessageBuffer0, SystemMessageBufferA, 64);
           }
        NewSystemMessageNeedsScrolling = false;
        }
-
+    
     font1->drawText (-41.0F, (yf-2.1)*10, zf, SystemMessageBuffer2, &yellow2);
     font1->drawText (-41.0F, (yf-2.2)*10, zf, SystemMessageBuffer1, &yellow1);
     font1->drawText (-41.0F, (yf-2.3)*10, zf, SystemMessageBuffer0, &yellow);
-
+    
     sprintf (DebugBuf, "%d", PreviousMorseSender);
     if (PreviousMorseSender %2)
-       {
-       font1->drawText (12.2F, (yf-1.1)*10, zf * 0.8, DebugBuf, &red);
+       { 
+       font1->drawText (12.2F, (yf-1.1)*10, zf * 0.80, DebugBuf, &red);
        }
     else
-       {
-       font1->drawText (12.2F, (yf-1.1)*10, zf * 0.8, DebugBuf, &blue);
+       { 
+       font1->drawText (12.2F, (yf-1.1)*10, zf * 0.80, DebugBuf, &blue);
        }
-    font1->drawText (10.0F, (yf-2.08)*10, zf * 1.1, MorseRadioMessageBuffer, &yellow);
+    font1->drawText (10.0F, (yf-2.2)*10, zf * 1.15, MorseRadioMessageBuffer, &yellow);
     sprintf (buf, "FUEL:   %4.0f", fplayer->FuelLevel);
     if (fplayer->FuelLevel > 20)
-       {
-       font1->drawTextCentered (xf*10.32, (yf-1.2)*10.7, zf, buf, &white);
+       { 
+       font1->drawTextCentered (xf*10.32, (yf-1.2)*10.7, zf, buf, &white); 
        }
     else
-       {
-       font1->drawTextCentered (xf*10.32, (yf-1.2)*10.7, zf, buf, &grey);
+       { 
+       font1->drawTextCentered (xf*10.32, (yf-1.2)*10.7, zf, buf, &grey); 
        }
     if (CurrentMissionNumber != MISSION_TUTORIAL2)
-       {
-       sprintf (buf, "ALTITUDE: %5.0f", (25.0 * (fplayer->tl->y + SeaLevel )) - 17.0);
+       { 
+       PlayerAltitude = (25.0 * (fplayer->tl->y + SeaLevel )) - 17.0;
+       sprintf (buf, "ALTITUDE: %5.0f", PlayerAltitude);
        font1->drawTextCentered (-29.0, (yf-1.34)*10, zf, buf, &white);
        }
     else
-       {
+       { 
        sprintf (buf, "ALTITUDE: %5.0f", (25.0 * (fplayer->tl->y - SeaLevel*1.3 )) - 17.0);
        font1->drawTextCentered (-29.0, (yf-1.34)*10, zf, buf, &white);
        }
     if (!OnTheGround)
-       {
-       sprintf (buf, "SPEED:       %3d", (int) (fplayer->InertiallyDampenedPlayerSpeed / timestep * 35000.0F)); 
+       { 
+       DisplayedAirSpeed = (int) (fplayer->InertiallyDampenedPlayerSpeed / timestep * 35000.0F);
+       sprintf (buf, "SPEED:       %3d", DisplayedAirSpeed); // Was * 54760
        }
     else
-       {
+       { 
        if (TrueAirSpeed < 500)
           {
           sprintf (buf, "SPEED:       %3.0f", TrueAirSpeed);
@@ -600,13 +625,14 @@ void Cockpit::drawCounter ()
     font1->drawTextCentered (-29.0, (yf-1.22)*10, zf, buf, &white);
     sprintf (buf, "AMMO %4d", fplayer->ammo);
     if (fplayer->ammo > 200)
-       {
-       font1->drawTextCentered (28.8,  (yf-1.2)*10, zf, buf, &white);
+       { 
+       font1->drawTextCentered (28.8,  (yf-1.2)*10, zf, buf, &white); 
        }
     else
-       {
-       font1->drawTextCentered (28.8,  (yf-1.2)*10, zf, buf, &grey);
+       { 
+       font1->drawTextCentered (28.8,  (yf-1.2)*10, zf, buf, &grey); 
        }
+    
     if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE02 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
        { //@ Get here during the last 500 ms of each second during MissionNetworkBattle01, 02, or 03
        if (MyNetworkId%2)
@@ -664,9 +690,10 @@ void Cockpit::drawCounter ()
              }
           }
        }
-    MissionPacketTimer[NewestInPacketId] -= DeltaTime;
+    
+    MissionPacketTimer[NewestInPacketId] -= DeltaTime; 
     if (MissionPacketTimer[NewestInPacketId] < 0)
-       {
+       { 
        MissionPacketTimer[NewestInPacketId] = 0;
        }
     sprintf (buf, "    1  2 3 4 5  6 7 8 9 10");
@@ -675,15 +702,15 @@ void Cockpit::drawCounter ()
     font1->drawTextCentered (17,  (yf-1.00)*10, zf*1.00, buf, &yellow);
     sprintf (buf, "V__I__I__I__I__I__I__I__I__I__I__I");
     font1->drawTextCentered (16.9,  (yf-1.10)*10, zf*1.00, buf, &yellow);
-
+    
     switch (NewestInPacketId)
        {
           case 0:
-             {
+             { 
              break;
              }
           case 1:
-             {
+             {  
              if (MissionPacketTimer[1] > 0)
                 {
                 sprintf (buf, "P__I**I__I__I__I__I__I__I__I__I__I");
@@ -697,7 +724,7 @@ void Cockpit::drawCounter ()
              break;
              }
           case 2:
-             {
+             {  
              if (MissionPacketTimer[2] > 0)
                 {
                 sprintf (buf, "P__I__I**I__I__I__I__I__I__I__I__I");
@@ -711,7 +738,7 @@ void Cockpit::drawCounter ()
              break;
              }
           case 3:
-             {
+             {  
              if (MissionPacketTimer[3] > 0)
                 {
                 sprintf (buf, "P__I__I__I**I__I__I__I__I__I__I__I");
@@ -725,7 +752,7 @@ void Cockpit::drawCounter ()
              break;
              }
           case 4:
-             {
+             {  
              if (MissionPacketTimer[4] > 0)
                 {
                 sprintf (buf, "P__I__I__I__I**I__I__I__I__I__I__I");
@@ -739,7 +766,7 @@ void Cockpit::drawCounter ()
              break;
              }
           case 5:
-             {
+             {  
              if (MissionPacketTimer[5] > 0)
                 {
                 sprintf (buf, "P__I__I__I__I__I**I__I__I__I__I__I");
@@ -753,7 +780,7 @@ void Cockpit::drawCounter ()
              break;
              }
           case 6:
-             {
+             {  
              if (MissionPacketTimer[6] > 0)
                 {
                 sprintf (buf, "P__I__I__I__I__I__I**I__I__I__I__I");
@@ -767,7 +794,7 @@ void Cockpit::drawCounter ()
              break;
              }
           case 7:
-             {
+             {  
              if (MissionPacketTimer[7] > 0)
                 {
                 sprintf (buf, "P__I__I__I__I__I__I__I**I__I__I__I");
@@ -781,7 +808,7 @@ void Cockpit::drawCounter ()
              break;
              }
           case 8:
-             {
+             {  
              if (MissionPacketTimer[8] > 0)
                 {
                 sprintf (buf, "P__I__I__I__I__I__I__I__I**I__I__I");
@@ -795,7 +822,7 @@ void Cockpit::drawCounter ()
              break;
              }
           case 9:
-             {
+             {  
              if (MissionPacketTimer[9] > 0)
                 {
                 sprintf (buf, "P__I__I__I__I__I__I__I__I__I**I__I");
@@ -809,7 +836,7 @@ void Cockpit::drawCounter ()
              break;
              }
           case 10:
-             {
+             {  
              if (MissionPacketTimer[10] > 0)
                 {
                 sprintf (buf, "P__I__I__I__I__I__I__I__I__I__I**I");
@@ -823,19 +850,19 @@ void Cockpit::drawCounter ()
              break;
              }
           default:
-             {
+             { 
              display ((char *)"Cockpit::drawCounter() Telemetry panel received invalid InPacket.UdpObjMissionId.", LOG_MOST);
              break;
              }
-       }
-
-    MissionMumbleTimer[NewestMumblePacketId] -= DeltaTime;
+       } 
+    
+    MissionMumbleTimer[NewestMumblePacketId] -= DeltaTime; 
     if (MissionMumbleTimer[NewestMumblePacketId] < 0)
-       {
+       { 
        MissionMumbleTimer[NewestMumblePacketId] = 0;
        }
     if (NewestMumblePacketId == MyNetworkId)
-       {
+       { 
        sprintf (buf, "NARROWCASTING");
        if (MumbleTransmissionRequested)
           {
@@ -884,7 +911,7 @@ void Cockpit::drawCounter ()
           }
        }
     else if (NewestMumblePacketId !=0)
-       {
+       { 
        sprintf (buf, "RECEIVING");
        if (NetworkPlayerMumbleChannel[NewestMumblePacketId] == MUMBLEROOTCHANNEL)
           {
@@ -895,27 +922,27 @@ void Cockpit::drawCounter ()
           font1->drawText (10.5,  (yf-1.10)*12.0, zf*1.00, buf, &green);
           }
        else if (NetworkPlayerMumbleChannel[NewestMumblePacketId] == MUMBLECURRENTMISSIONBLUESUBCHANNEL)
-          {
+          { 
           if (MyNetworkId%2)
-             {
+             { 
              if (InPacketContainsMumbleBroadcast)
                 {
                 font1->drawText (10.5,  (yf-1.10)*12.0, zf*1.00, buf, &purple);
                 }
              }
           else
-             {
+             { 
              font1->drawText (10.5,  (yf-1.10)*12.0, zf*1.00, buf, &blue);
              }
           }
        else if (NetworkPlayerMumbleChannel[NewestMumblePacketId] == MUMBLECURRENTMISSIONREDSUBCHANNEL)
-          {
+          { 
           if (MyNetworkId%2)
-             {
+             { 
              font1->drawText (10.5,  (yf-1.10)*12.0, zf*1.00, buf, &red);
              }
           else
-             {
+             { 
              if (InPacketContainsMumbleBroadcast)
                 {
                 font1->drawText (10.5,  (yf-1.10)*12.0, zf*1.00, buf, &purple);
@@ -926,11 +953,11 @@ void Cockpit::drawCounter ()
        switch (NewestMumblePacketId)
           {
              case 0:
-                {
+                { 
                 break;
                 }
              case 1:
-                {
+                {  
                 if (MissionMumbleTimer[1] > 0)
                    {
                    sprintf (buf, "V__I**I__I__I__I__I__I__I__I__I__I");
@@ -945,7 +972,7 @@ void Cockpit::drawCounter ()
                 break;
                 }
              case 2:
-                {
+                { 
                 if (MissionMumbleTimer[2] > 0)
                    {
                    sprintf (buf, "V__I__I**I__I__I__I__I__I__I__I__I");
@@ -960,7 +987,7 @@ void Cockpit::drawCounter ()
                 break;
                 }
              case 3:
-                {
+                { 
                 if (MissionMumbleTimer[3] > 0)
                    {
                    sprintf (buf, "V__I__I__I**I__I__I__I__I__I__I__I");
@@ -975,7 +1002,7 @@ void Cockpit::drawCounter ()
                 break;
                 }
              case 4:
-                {
+                { 
                 if (MissionMumbleTimer[4] > 0)
                    {
                    sprintf (buf, "V__I__I__I__I**I__I__I__I__I__I__I");
@@ -990,7 +1017,7 @@ void Cockpit::drawCounter ()
                 break;
                 }
              case 5:
-                {
+                { 
                 if (MissionMumbleTimer[5] > 0)
                    {
                    sprintf (buf, "V__I__I__I__I__I**I__I__I__I__I__I");
@@ -1005,7 +1032,7 @@ void Cockpit::drawCounter ()
                 break;
                 }
              case 6:
-                {
+                { 
                 if (MissionMumbleTimer[6] > 0)
                    {
                    sprintf (buf, "V__I__I__I__I__I__I**I__I__I__I__I");
@@ -1020,7 +1047,7 @@ void Cockpit::drawCounter ()
                 break;
                 }
              case 7:
-                {
+                { 
                 if (MissionMumbleTimer[7] > 0)
                    {
                    sprintf (buf, "V__I__I__I__I__I__I__I**I__I__I__I");
@@ -1035,7 +1062,7 @@ void Cockpit::drawCounter ()
                 break;
                 }
              case 8:
-                {
+                { 
                 if (MissionMumbleTimer[8] > 0)
                    {
                    sprintf (buf, "V__I__I__I__I__I__I__I__I**I__I__I");
@@ -1050,7 +1077,7 @@ void Cockpit::drawCounter ()
                 break;
                 }
              case 9:
-                {
+                { 
                 if (MissionMumbleTimer[9] > 0)
                    {
                    sprintf (buf, "V__I__I__I__I__I__I__I__I__I**I__I");
@@ -1065,7 +1092,7 @@ void Cockpit::drawCounter ()
                 break;
                 }
              case 10:
-                {
+                { 
                 if (MissionMumbleTimer[10] > 0)
                    {
                    sprintf (buf, "V__I__I__I__I__I__I__I__I__I__I**I");
@@ -1080,14 +1107,14 @@ void Cockpit::drawCounter ()
                 break;
                 }
              default:
-                {
+                { 
                 display ((char *)"Cockpit::drawCounter() Telemetry panel received invalid InPacket.UdpObjMissionId.", LOG_MOST);
                 break;
                 }
-          }
+          } 
 
     if(fplayer->target && RadarOnOff && IffOnOff && RadarZoom != 8)
-      {
+      { 
       TargetAltitude = 25.0 * (fplayer->target->tl->y + SeaLevel );
       sprintf (buf, "TAR ALT:  %5.0f", TargetAltitude);
       if(fplayer->target->party != fplayer->party)
@@ -1111,49 +1138,49 @@ void Cockpit::drawCounter ()
             sprintf (buf, "VICTORIES: %d", ThreeDObjects [0]->fighterkills);
             font1->drawText (-41.0F, (yf-1.56)*10, zf, buf, &yellow);
             if (MyNetworkId%2)
-               {
+               { 
                sprintf (buf, "MY NETWORK ID = RED %d", MyNetworkId);
                font1->drawText (-41.0F, (yf-1.67)*10, zf, buf, &red);
                }
             else
-               {
+               { 
                sprintf (buf, "MY NETWORK ID = BLUE %d", MyNetworkId);
                font1->drawText (-41.0F, (yf-1.67)*10, zf, buf, &blue);
                }
             if ( (fplayer->target->Sentient < 3) )
-               {
+               { 
                switch (SelectedMissionTarget %2)
                    {
                    case 0:
-                       {
+                       { 
                        if (SelectedMissionTarget == 28)
-                          {
+                          { 
                           sprintf (buf, "TARGET ID= 28 (BLUE HQ)");
                           }
                        else if (SelectedMissionTarget == 22)
-                          {
+                          { 
                           sprintf (buf, "TARGET ID= 22 (BLUE BATTLESHIP)");
                           }
                        else
                           {
-                          sprintf (buf, "TARGET ID= BLUE %d", SelectedMissionTarget);
+                          sprintf (buf, "TARGET ID= BLUE %d", SelectedMissionTarget); 
                           }
                        font1->drawText (-41.0F, (yf-1.78)*10, zf, buf, &blue);
                        break;
                        }
                    case 1:
-                       {
+                       { 
                        if (SelectedMissionTarget == 29)
-                          {
+                          { 
                           sprintf (buf, "TARGET ID= 29 (RED HQ)");
                           }
                        else if (SelectedMissionTarget == 23)
-                          {
+                          { 
                           sprintf (buf, "TARGET ID= 23 (RED BATTLESHIP)");
                           }
                        else
                           {
-                          sprintf (buf, "TARGET ID= RED %d", SelectedMissionTarget);
+                          sprintf (buf, "TARGET ID= RED %d", SelectedMissionTarget); 
                           }
                        font1->drawText (-41.0F, (yf-1.78)*10, zf, buf, &red);
                        break;
@@ -1165,18 +1192,18 @@ void Cockpit::drawCounter ()
                    }
                }
             else
-               {
+               { 
                switch (SelectedMissionTarget %2)
                    {
                    case 0:
-                       {
-                       sprintf (buf, "TARGET ID= %s", PlayerIdStrings[(SelectedMissionTarget - 1)]);
+                       { 
+                       sprintf (buf, "TARGET ID= %s", PlayerIdStrings[(SelectedMissionTarget - 1)]); 
                        font1->drawText (-41.0F, (yf-1.78)*10, zf, buf, &blue);
                        break;
                        }
                    case 1:
-                       {
-                       sprintf (buf, "TARGET ID= %s", PlayerIdStrings[(SelectedMissionTarget - 1)]);
+                       { 
+                       sprintf (buf, "TARGET ID= %s", PlayerIdStrings[(SelectedMissionTarget - 1)]); 
                        font1->drawText (-41.0F, (yf-1.78)*10, zf, buf, &red);
                        break;
                        }
@@ -1201,20 +1228,20 @@ void Cockpit::drawCounter ()
         }
     sprintf (buf, "FLARE: %d", fplayer->flares);
     font1->drawTextCentered (xf*10, (yf2-1.8)*10, zf, buf, &grey);
-
+    
     if (fplayer->id > LASTJETFIGHTER)
        {
-        PlayerEngineType=0;
+        PlayerEngineType=0; 
        }
     else
        {
        PlayerEngineType = 1; // Cue jet engine sounds
        }
     if (fplayer->id == FIGHTER_ME163)
-       {
+       { 
        PlayerEngineType = 1;
        }
-    }
+    } 
 
 void Cockpit::drawCross ()
     {
@@ -1223,7 +1250,7 @@ void Cockpit::drawCross ()
     glEnable (GL_ALPHA_TEST);
     glAlphaFunc (GL_GEQUAL, 0.1);
     if (ClimbAngleExceedsMaxSustainable)
-        {
+        { 
         setColor  (128);
         }
     else
@@ -1245,8 +1272,8 @@ void Cockpit::drawCross ()
     glDisable (GL_ALPHA_TEST);
     glDisable (GL_TEXTURE_2D);
     gl->disableAlphaBlending ();
-
-    }
+    
+    } 
 
 void Cockpit::drawHeading ()
     {
@@ -1327,12 +1354,12 @@ void Cockpit::drawHeading ()
     if (HudLadderBarsOnOff)
         {
         float tmp = fplayer->gamma - 179.5;
-
+        
         cockpitvertex (-innerx,tmp);
         cockpitvertex (-20,tmp);
         cockpitvertex (innerx,tmp);
         cockpitvertex (20,tmp);
-
+        
         for (i = -175 + step; i < 200; i += step)
             {
             float tmp=int(-i+fplayer->gamma+538)%360-180;
@@ -1350,7 +1377,7 @@ void Cockpit::drawHeading ()
     glEnd ();
     gl->disableAlphaBlending ();
     glLineWidth (LINEWIDTH(2.0F));
-    }
+    } 
 
 void Cockpit::drawRadar ()
     {
@@ -1366,18 +1393,18 @@ void Cockpit::drawRadar ()
     glTexEnvi (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     setColor (150);
     float xl, yl;
-
+    
     gl->enableTextures (texradar2->textureID);
-    xl = 1.55;
-    yl = 1.33;
+    xl = 1.55; 
+    yl = 1.33; 
     glBegin (GL_QUADS);
     if (RadarOnOff)
-       {
-       glColor4ub (30, 140, 30, 150);
+       { 
+       glColor4ub (30, 140, 30, 150); 
        }
     else
-       {
-       glColor4ub (30, 80, 30, 150);
+       { 
+       glColor4ub (30, 80, 30, 150); 
        }
     glTexCoord2d (0, 0);
     glVertex3f (-xl, yf - yl, zf);
@@ -1401,137 +1428,137 @@ void Cockpit::drawRadar ()
         {
         return;
         }
-
+    
     for (i = 0; i < maxfighter; i ++)
-       {
+       { 
         if (ThreeDObjects [i] != fplayer && ThreeDObjects [i]->active)
-            {
-
+            { 
+            
             int aw = fplayer->getAngle (ThreeDObjects [i]);
             if (aw < 0)
-                {
+                { 
                 aw += 360;
                 }
-
-            float d = fplayer->distanceXZ (ThreeDObjects [i]) / 2000.0 * (RadarZoom + 1);
-
+            
+            float d = fplayer->distanceXZ (ThreeDObjects [i]) / 2000.0 * (RadarZoom + 1); 
+            
             if (MyNetworkId%2)
-               {
+               { 
                if (ThreeDObjects[29]->Durability <= ThreeDObjects[29]->maxDurability * 0.20)
-                  {
-                  d *= 1000;
-                  RadarZoom = 8;
+                  { 
+                  d *= 1000; 
+                  RadarZoom = 8; 
                   }
                else
-                  {
+                  { 
                   if (RadarZoom == 8)
-                     {
-                     RadarZoom = 2;
+                     { 
+                     RadarZoom = 2; 
                      }
                   }
                }
             else
-               {
+               { 
                if (ThreeDObjects[28]->Durability <= ThreeDObjects[28]->maxDurability * 0.20)
-                  {
-                  d *= 1000;
-                  RadarZoom = 8;
+                  { 
+                  d *= 1000; 
+                  RadarZoom = 8; 
                   }
                else
-                  {
+                  { 
                   if (RadarZoom == 8)
-                     {
-                     RadarZoom = 2;
+                     { 
+                     RadarZoom = 2; 
                      }
                   }
                }
             if (RadarZoom == 7)
-               {
+               { 
                d = d*2.0;
                }
             if (RadarZoom == 1)
-               {
+               { 
                d = d * 0.35;
                }
             if (RadarZoom == 0)
-               {
+               { 
                d = d * 0.2;
                }
-
+            
             float px = -d * sine [aw];
             float py = yf + d * cosi [aw];
             if (((d < 1.18) || (px >= -0.95 && px <= 0.95 && py >= yf - 0.95 && py <= yf + 0.95)) && ThreeDObjects[i]->tl->y > (SeaLevel-30))
-               {
+               { 
                if (IffOnOff)
-                  {
-
+                  { 
+                  
                   if ((NetworkOpponent && PeerPacketReceivedInThisMissionState) || (ThreeDObjects[i]->Sentient > 3))
-                     {
+                     { 
                      if (i == 1 || i == 3 || i == 5 || i == 7 || i ==9)
-                        {
+                        { 
                         if (ThreeDObjects[i]->maxDurability > 2401)
-                           {
-                           drawBlip(BIG_DIAMONDBLIP, px, py, zf, 255, 000, 000);
+                           { 
+                           drawBlip(BIG_DIAMONDBLIP, px, py, zf, 255, 000, 000); 
                            }
                         else
-                           {
-                           drawBlip(BIG_BLIP, px, py, zf, 255, 000, 000);
+                           { 
+                           drawBlip(BIG_BLIP, px, py, zf, 255, 000, 000); 
                            }
                         }
                      else
-                        {
+                        { 
                         if (ThreeDObjects[i]->maxDurability > 2401)
-                           {
-                           drawBlip(BIG_DIAMONDBLIP, px, py, zf, 000, 000, 255);
+                           { 
+                           drawBlip(BIG_DIAMONDBLIP, px, py, zf, 000, 000, 255); 
                            }
                         else
-                           {
-                           drawBlip(BIG_BLIP, px, py, zf, 000, 000, 255);
+                           { 
+                           drawBlip(BIG_BLIP, px, py, zf, 000, 000, 255); 
                            }
                         }
                      }
                   else
-                     {
+                     { 
                      if (CurrentMissionNumber == MISSION_NETWORKBATTLE01  || CurrentMissionNumber == MISSION_NETWORKBATTLE02 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
-                        {
+                        { 
                         if (i%2)
-                           {
-                           drawBlip(SQUARE_BLIP, px, py, zf, 255, 000, 000);
+                           { 
+                           drawBlip(SQUARE_BLIP, px, py, zf, 255, 000, 000); 
                            }
                         else
-                           {
-                           drawBlip(SQUARE_BLIP, px, py, zf, 000, 000, 255);
+                           { 
+                           drawBlip(SQUARE_BLIP, px, py, zf, 000, 000, 255); 
                            }
                         }
                      else if (ThreeDObjects [i]->party == fplayer->party)
-                        {
-                        drawBlip(SQUARE_BLIP, px, py, zf, 100, 100, 255);
+                        { 
+                        drawBlip(SQUARE_BLIP, px, py, zf, 100, 100, 255); 
                         }
                      else
-                        {
-                        drawBlip(SQUARE_BLIP, px, py, zf, 255, 255, 000);
+                        { 
+                        drawBlip(SQUARE_BLIP, px, py, zf, 255, 255, 000); 
                         }
                      }
-                  }
+                  } 
                 else
-                  {
-                  drawBlip(SQUARE_BLIP, px, py, zf, 160, 160, 160);
+                  { 
+                  drawBlip(SQUARE_BLIP, px, py, zf, 160, 160, 160); 
                   }
                 if (ThreeDObjects [i] == fplayer->target)
-                  {
-
+                  { 
+                  
                   SelectedRadarBlipX = px;
                   SelectedRadarBlipY = py;
                   SelectedRadarBlipZ = zf;
-                  }
-                }
-             }
-       }
+                  } 
+                } 
+             } 
+       } 
     RadarTargetColorLogged = true;
     for (i = 0; i < maxmissile; i ++)
         {
         if (missile [i]->target == fplayer && missile [i]->active)
-            {
+            { 
             int aw = fplayer->getAngle (missile [i]);
             if (aw < 0)
                 {
@@ -1539,22 +1566,22 @@ void Cockpit::drawRadar ()
                 }
             float d = fplayer->distance (missile [i]) / 2000.0 * RadarZoom;
             if (RadarZoom == 7)
-               {
+               { 
                d = d*2.0;
                }
             if (RadarZoom == 1)
-               {
+               { 
                d = d * 0.35;
                }
             if (RadarZoom == 0)
-               {
+               { 
                d = d * 0.2;
                }
             float px = -d * sine [aw];
             float py = yf + d * cosi [aw];
             if ((d < 1.2) || (px >= -1.2 && px <= 1.2 && py >= yf - 1.1 && py <= yf + 1.1))
                 {
-                drawBlip(TRIANGLE_BLIP, px, py, zf, 000, 000, 000);
+                drawBlip(TRIANGLE_BLIP, px, py, zf, 000, 000, 000); 
                 }
             }
         }
@@ -1588,12 +1615,12 @@ void Cockpit::drawRadar ()
         case 8:
             font1->drawTextCentered (0.0, (yf-1.0)*7.2, zf * 0.7, (char *)"NO SIGNAL", 240);
         }
-
+    
     if (SelectedMissionTarget > 0 && SelectedMissionTarget < 30 && camera == 0)
-        {
-        drawBlip(SQUARE_BLIP, SelectedRadarBlipX, SelectedRadarBlipY, SelectedRadarBlipZ, 255, 255, 255);
+        { 
+        drawBlip(SQUARE_BLIP, SelectedRadarBlipX, SelectedRadarBlipY, SelectedRadarBlipZ, 255, 255, 255); 
         }
-    }
+    } 
 
 /**********************************
 * drawTargeter()
@@ -1609,15 +1636,15 @@ void Cockpit::drawTargeter ()
         return;
         }
     if (CurrentMissionNumber == MISSION_NETWORKBATTLE02)
-       {
+       { 
        if (fplayer->target->tl->y < (SeaLevel - 31.0))
-           {
-           return;
+           { 
+           return; 
            }
        }
-
+    
     if (fplayer->target)
-        {
+        { 
         if (fplayer->target->active)
             {
             DynamicObj *o = fplayer->target;
@@ -1631,43 +1658,43 @@ void Cockpit::drawTargeter ()
             float ez = o->zoom;
             gl->enableAlphaBlending ();
             bool full = false;
-
+            
             if (fplayer->target->Sentient > 3 && IffOnOff)
-               {
+               { 
                if (SelectedMissionTarget%2)
-                  {
-                  glColor4ub (255, 000, 000, 255);
+                  { 
+                  glColor4ub (255, 000, 000, 255); 
                   full = true;
                   }
                else
-                  {
-                  glColor4ub (000, 000, 255, 255);
+                  { 
+                  glColor4ub (000, 000, 255, 255); 
                   full = true;
                   }
                }
-
+            
             if (CurrentMissionNumber == MISSION_NETWORKBATTLE01 || CurrentMissionNumber == MISSION_NETWORKBATTLE02 || CurrentMissionNumber == MISSION_NETWORKBATTLE03)
                {
                if (fplayer->target->Sentient < 3)
-                  {
+                  { 
                   if (SelectedMissionTarget%2)
-                     {
-                     glColor4ub (255, 000, 000, 80);
+                     { 
+                     glColor4ub (255, 000, 000, 80); 
                      full = true;
                      }
                   else
-                     {
-                     glColor4ub (000, 000, 255, 80);
+                     { 
+                     glColor4ub (000, 000, 255, 80); 
                      full = true;
                      }
                   if (!IffOnOff)
-                     {
-                     glColor4ub (255,255,255, 80);
+                     { 
+                     glColor4ub (255,255,255, 80); 
                      full = true;
                      }
                   }
                }
-
+            
             if (!full)
                 {
                 float dx = (ex2 - ex1) / 4;
@@ -1705,9 +1732,9 @@ void Cockpit::drawTargeter ()
                 glEnd ();
                 }
             gl->disableAlphaBlending ();
-            }
-        }
-    }
+            } 
+        } 
+    } 
 
 void Cockpit::drawThrustBar()
     {
@@ -1721,12 +1748,12 @@ void Cockpit::drawThrustBar()
     glLineWidth (LINEWIDTH(1.0F));
     glDisable (GL_DEPTH_TEST);
     gl->enableAlphaBlending ();
-    setColor(80);
+    setColor(80); 
     if (fplayer->WEPLevel)
         {
         setColor (155);
         }
-    float xf = -0.93F, xfl = 0.06F, yf=-2.2F, yfl = 0.7F, zf=-4.0F * ScreenFOVx;
+    float xf = -0.93F, xfl = 0.06F, yf=-2.2F, yfl = 0.7F, zf=-4.0F * ScreenFOVx; 
     float yfv = (fplayer->thrust / fplayer->maxthrust * 2.8F - 2.1F) /2.4;
     if(yfv >  0.7F)
         {
@@ -1741,17 +1768,17 @@ void Cockpit::drawThrustBar()
         yfv = -0.7;
         }
     glBegin (GL_QUADS);
-    glVertex3f (xf - xfl, yf - yfl, zf);
-    glVertex3f (xf + xfl, yf - yfl, zf);
-    glVertex3f (xf + xfl, yf + yfv, zf);
-    glVertex3f (xf - xfl, yf + yfv, zf);
+    glVertex3f (xf - xfl, yf - yfl, zf);  
+    glVertex3f (xf + xfl, yf - yfl, zf);  
+    glVertex3f (xf + xfl, yf + yfv, zf);  
+    glVertex3f (xf - xfl, yf + yfv, zf);  
     glEnd ();
     setColor(alpha);
     sprintf (str, "THRUST");
     font1->drawTextCentered (xf*10.0F, (yf + 0.36F)*10.0F, zf, str, &color);
     glEnd();
     gl->disableAlphaBlending ();
-    }
+    } 
 
 void Cockpit::drawWeapon ()
     {
@@ -1766,10 +1793,10 @@ void Cockpit::drawWeapon ()
         }
     if (fplayer->missiles [fplayer->missiletype] <= 0)
         {
-
+        
         return;
         }
-
+    
     color.setColor (240, 240, 240);
     color.c [3] = 255;
     tl.x = 0.35;
@@ -1814,29 +1841,29 @@ void Cockpit::drawWeapon ()
     font1->drawText (25.2, -32.5, zf, missile->name, &color);
     sprintf (str, "N %d", fplayer->missiles [fplayer->missiletype]);
     font1->drawText (35.2, -32.5, zf, str);
-    }
+    } 
 
 void Cockpit::setColor (int alpha)
     {
     if (fplayer->o == &model_fig)
         {
-        glColor4ub (240, 240, 240, alpha);
+        glColor4ub (240, 240, 240, alpha);    
         }
     else
         {
-        glColor4ub (240, 240, 240, alpha);
+        glColor4ub (240, 240, 240, alpha);    
         }
-    }
+    } 
 
 void Cockpit::setColor (CColor *color, int alpha)
     {
     if (fplayer->o == &model_fig)
         {
-        color->setColor  (240, 240, 240, alpha);
+        color->setColor  (240, 240, 240, alpha);    
         }
     else
         {
-        color->setColor (240, 240, 240, alpha);
+        color->setColor (240, 240, 240, alpha); 
         }
-    }
+    } 
 
